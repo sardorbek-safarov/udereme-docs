@@ -1,0 +1,131 @@
+---
+title: HTML Elementlari
+description: HTML elementi boshlang'ich teg, ba'zi tarkib, va yakuniy teg bilan aniqlanadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-18
+---
+
+### HTML Elementlari
+HTML elementi boshlang'ich tegtan yakuniy tegacha bo'lgan hamma narsani o'z ichiga oladi:
+
+`<tagname>Bu yerda kontent bo'ladi...</tagname>`
+
+Ba'zi HTML elementlariga misollar:
+
+```html
+<h1>Mening birinchi sarlavham</h1>
+<p>Mening birinchi paragrafim.</p>
+```
+
+| Boshlang'ich teg | Element tarkibi | Yakuniy teg |
+|------------------|-----------------|-------------|
+| `<h1>`           | Mening birinchi sarlavham | `</h1>` |
+| `<p>`            | Mening birinchi paragrafim | `</p>`  |
+| `<br>`           | Hech qanday tarkib yo'q | Yakuniy teg yo'q |
+
+<Callout>
+  **Eslatma:** Ba'zi HTML elementlari hech qanday tarkibga ega emas (masalan, `<br>` elementi). Bunday elementlar bo'sh elementlar deb ataladi. Bo'sh elementlarda yakuniy teg bo'lmaydi!
+</Callout>
+
+### Ichma-ich HTML Elementlari
+HTML elementlarini ichma-ich joylashtirish mumkin (bu degani, elementlar boshqa elementlarni o'z ichiga olishi mumkin).
+
+Barcha HTML hujjatlari ichma-ich joylashgan HTML elementlardan iborat.
+
+Quyidagi misolda to'rtta HTML elementi bor (`<html>`, `<body>`, `<h1>` va `<p>`):
+
+**Misol:**
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Mening birinchi sarlavham</h1>
+<p>Mening birinchi paragrafim.</p>
+
+</body>
+</html>
+```
+
+**Misol tushuntirildi:**
+
+`<html>` elementi asosiy element bo'lib, butun HTML hujjatini aniqlaydi.
+
+Uning boshlang'ich tegi `<html>` va yakuniy tegi `</html>`.
+
+Keyin, `<html>` elementi ichida `<body>` elementi mavjud:
+
+```html
+<body>
+
+<h1>Mening birinchi sarlavham</h1>
+<p>Mening birinchi paragrafim.</p>
+
+</body>
+```
+
+`<body>` elementi hujjatning tanasini aniqlaydi.
+
+Uning boshlang'ich tegi `<body>` va yakuniy tegi `</body>`.
+
+Keyin, `<body>` elementi ichida ikkita boshqa element mavjud: `<h1>` va `<p>`:
+
+```html
+<h1>Mening birinchi sarlavham</h1>
+<p>Mening birinchi paragrafim.</p>
+```
+
+`<h1>` elementi sarlavhani aniqlaydi.
+
+Uning boshlang'ich tegi `<h1>` va yakuniy tegi `</h1>`:
+
+```html
+<h1>Mening birinchi sarlavham</h1>
+```
+
+`<p>` elementi paragrafni aniqlaydi.
+
+Uning boshlang'ich tegi `<p>` va yakuniy tegi `</p>`:
+
+```html
+<p>Mening birinchi paragrafim.</p>
+```
+
+### Yakuniy Tegni Hech Qachon O'tkazib Yubormang
+Ba'zi HTML elementlari yakuniy tegni unutgan bo'lsangiz ham, to'g'ri ko'rsatiladi:
+
+**Misol:**
+
+```html
+<html>
+<body>
+
+<p>Bu bir paragraf
+<p>Bu yana bir paragraf
+
+</body>
+</html>
+```
+
+Ammo, hech qachon bunga tayanmang! Agar yakuniy tegni unutib qo'ysangiz, kutilmagan natijalar va xatoliklar yuzaga kelishi mumkin!
+
+### Bo'sh HTML Elementlari
+Tarkibi bo'lmagan HTML elementlar bo'sh elementlar deb ataladi.
+
+`<br>` tegi satr uzilishini aniqlaydi va u yakuniy tegsiz bo'sh element hisoblanadi:
+
+**Misol:**
+
+```html
+<p>Bu <br> satr uzilishi bilan bo'lgan paragraf.</p>
+```
+
+### HTML Katta-kichik Harflarga sezgir emas
+HTML teglari katta-kichik harflarga sezgir emas: `<P>` va `<p>` bir xil ma'noga ega.
+
+HTML standarti kichik harflarni talab qilmaydi, ammo W3C kichik harflardan foydalanishni tavsiya qiladi va XHTML kabi qattiqroq hujjat turlari uchun kichik harflarni talab qiladi.
+
+Biz Udemere'da doim kichik harfli teg nomlaridan foydalanamiz.

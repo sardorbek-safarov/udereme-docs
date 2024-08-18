@@ -1,0 +1,77 @@
+---
+title: HTML Sarlavhalari
+description: HTML sarlavhalari veb-sahifada ko'rsatmoqchi bo'lgan sarlavhalar yoki subtitrlardir.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-18
+---
+
+### HTML Sarlavhalari
+
+HTML sarlavhalari `<h1>` dan `<h6>` teglar bilan aniqlanadi.
+
+- `<h1>` eng muhim sarlavhani aniqlaydi.
+- `<h6>` esa eng kam muhim sarlavhani belgilaydi.
+
+**Misol:**
+
+```html
+<h1>Sarlavha 1</h1>
+<h2>Sarlavha 2</h2>
+<h3>Sarlavha 3</h3>
+<h4>Sarlavha 4</h4>
+<h5>Sarlavha 5</h5>
+<h6>Sarlavha 6</h6>
+```
+
+<Callout>
+  **Eslatma:** Brauzerlar avtomatik ravishda sarlavha oldida va keyin bir oz bo'sh joy (chekka) qo'shadi.
+</Callout>
+
+### Sarlavhalar Muhimdir
+
+Qidiruv tizimlari veb-sahifalaringizning tuzilishi va mazmunini indekslash uchun sarlavhalardan foydalanadi.
+
+Foydalanuvchilar ko'pincha sahifani uning sarlavhalariga qarab tezda ko'zdan kechiradi. Hujjat tuzilishini ko'rsatish uchun sarlavhalardan foydalanish muhimdir.
+
+- `<h1>` sarlavhalari asosiy sarlavhalar uchun ishlatilishi kerak, undan keyin `<h2>` sarlavhalar, keyin esa kamroq muhim `<h3>` va shunga o'xshash sarlavhalar keladi.
+
+<Callout>
+  **Eslatma:** HTML sarlavhalarini faqat sarlavhalar uchun ishlating. Matnni katta yoki qalin qilish uchun sarlavhalardan foydalanmang.
+</Callout>
+
+### Katta Sarlavhalar
+
+Har bir HTML sarlavhasi standart o'lchamga ega. Biroq, siz har qanday sarlavha uchun `style` attributidan foydalangan holda, CSS `font-size` xususiyatini ishlatib, o'lchamni belgilashingiz mumkin:
+
+**Misol:**
+
+```html
+<h1 style="font-size:60px;">Sarlavha 1</h1>
+```
+
+### HTML Mashqlari
+
+O'zingizni mashq qilib ko'ring.
+
+**Mashq:**
+
+To'g'ri HTML tegidan foydalanib, "London" matni bilan sarlavha qo'shing.
+
+```html
+<p>
+  London Angliya poytaxti. Bu Birlashgan Qirollikdagi eng ko'p aholiga ega shahar bo'lib, uning metropoliten hududida 13
+  milliondan ortiq aholi yashaydi.
+</p>
+```
+
+### HTML Teglari Ma'lumotnomasi
+
+Udemere'ning teglari ma'lumotnomasi ushbu teglar va ularning attributlari haqida qo'shimcha ma'lumotlarni o'z ichiga oladi.
+
+| Teg                     | Tavsif                              |
+| ----------------------- | ----------------------------------- |
+| `<html>`                | HTML hujjatining ildizini aniqlaydi |
+| `<body>`                | Hujjatning tanasini aniqlaydi       |
+| `<h1>` dan `<h6>` gacha | HTML sarlavhalarini aniqlaydi       |

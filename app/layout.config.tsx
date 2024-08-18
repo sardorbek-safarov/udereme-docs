@@ -22,7 +22,9 @@ export const baseOptions: HomeLayoutProps = {
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
   tree: docs.pageTree,
+
   sidebar: {
+    defaultOpenLevel: 1,
     banner: (
       <RootToggle
         options={modes.map((mode) => ({

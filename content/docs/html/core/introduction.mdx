@@ -1,0 +1,109 @@
+---
+title: Kirish
+description: HTML (Hyper Text Markup Language) veb-sahifalar yaratish uchun standart markup tili hisoblanadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-18
+---
+
+HTML (Hyper Text Markup Language) veb-sahifalar yaratish uchun standart markup tili hisoblanadi.
+
+## HTML nima?
+- HTML bu Hyper Text Markup Language degan ma'noni anglatadi.
+- HTML veb-sahifalarni yaratish uchun standart markup tili.
+- HTML veb-sahifaning tuzilishini tasvirlaydi.
+- HTML elementlar seriyasidan iborat.
+- HTML elementlari brauzerga mazmunni qanday ko‘rsatishni aytadi.
+- HTML elementlari kontent qismlarini "bu sarlavha", "bu paragraf", "bu havola" va hokazo sifatida belgilaydi.
+
+### Oddiy HTML hujjati
+Misol:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sahifa sarlavhasi</title>
+</head>
+<body>
+
+<h1>Mening birinchi sarlavham</h1>
+<p>Mening birinchi paragrafim.</p>
+
+</body>
+</html>
+```
+### Misol tushuntirildi:
+- `<!DOCTYPE html>` deklaratsiyasi ushbu hujjat HTML5 hujjati ekanligini belgilaydi.
+- `<html>` elementi HTML sahifasining ildiz elementi hisoblanadi.
+- `<head>` elementi HTML sahifasi haqidagi meta ma'lumotlarni o'z ichiga oladi.
+- `<title>` elementi HTML sahifasi uchun sarlavhani belgilaydi (bu sarlavha brauzerning sarlavha satrida yoki sahifaning yorlig‘ida ko‘rsatiladi).
+- `<body>` elementi hujjatning tanasini belgilaydi va barcha ko‘rinadigan kontent uchun konteyner hisoblanadi, masalan, sarlavhalar, paragraflar, rasmlar, havolalar, jadvallar, ro‘yxatlar va boshqalar.
+- `<h1>` elementi katta sarlavhani belgilaydi.
+- `<p>` elementi paragrafni belgilaydi.
+
+### HTML elementi nima?
+HTML elementi boshlang'ich teg, ba'zi kontent, va yakuniy teg bilan aniqlanadi:
+
+`<tagname> Bu yerda kontent bo'ladi... </tagname>`
+
+HTML elementi boshlang'ich tegdan yakuniy tegacha bo'lgan hamma narsani o'z ichiga oladi:
+
+```html
+<h1>Mening birinchi sarlavham</h1>
+<p>Mening birinchi paragrafim.</p>
+```
+| Boshlang‘ich teg | Element kontenti           | Yakuniy teg |
+|------------------|----------------------------|-------------|
+| `<h1>`           | Mening birinchi sarlavham  | `</h1>`     |
+| `<p>`            | Mening birinchi paragrafim | `</p>`      |
+| `<br>`           | Yo'q                       | Yo'q        |
+
+
+<Callout>
+  Eslatma: Ba'zi HTML elementlari kontentga ega emas (masalan, `<br>` elementi). Bu elementlar bo'sh elementlar deb ataladi. Bo'sh elementlar yakuniy tegga ega emas!
+</Callout>
+
+### Veb-brauzerlar
+Veb-brauzerning maqsadi (Chrome, Edge, Firefox, Safari) HTML hujjatlarini o‘qish va ularni to‘g‘ri ko‘rsatishdir.
+
+Brauzer HTML teglari ko‘rsatmaydi, lekin hujjatni qanday ko‘rsatishni aniqlash uchun ulardan foydalanadi:
+
+**HTML sahifa tuzilishi**
+Quyida HTML sahifa tuzilishining vizual ko‘rinishi keltirilgan:
+
+```html
+<html>
+<head>
+<title>Sahifa sarlavhasi</title>
+</head>
+<body>
+<h1>Bu sarlavha</h1>
+<p>Bu paragraf.</p>
+<p>Bu yana bir paragraf.</p>
+</body>
+</html>
+```
+
+<Callout>
+  Eslatma: `<body>` bo'limidagi kontent brauzerda ko'rsatiladi. `<title>` elementidagi kontent esa brauzerning sarlavha satrida yoki sahifaning yorlig‘ida ko‘rsatiladi.
+</Callout>
+
+## HTML tarixi
+World Wide Webning dastlabki kunlaridan beri HTMLning ko‘plab versiyalari mavjud bo‘lgan:
+
+| Yil	  | Versiya                                      |
+|-------|----------------------------------------------|
+| 1989: | Tim Berners-Lee www ni ixtiro qildi.         |
+| 1991: | Tim Berners-Lee HTML ni ixtiro qildi.        |
+| 1993: | Dave Raggett HTML+ni yaratdi.                |
+| 1995: | HTML Ishchi guruhi HTML 2.0 ni aniqladi.     |
+| 1997: | W3C Tavsiyasi: HTML 3.2.                     |
+| 1999: | W3C Tavsiyasi: HTML 4.01.                    |
+| 2000: | W3C Tavsiyasi: XHTML 1.0.                    |
+| 2008: | WHATWG HTML5 Birinchi Jamoatchilik Loyihasi. |
+| 2012: | WHATWG HTML5 Yashash Standarti.              |
+| 2014: | W3C Tavsiyasi: HTML5.                        |
+| 2016: | W3C Nomzod Tavsiyasi: HTML 5.1.              |
+| 2017: | W3C Tavsiyasi: HTML5.1 2-chi Noshirlik.      |
+| 2017: | W3C Tavsiyasi: HTML5.2.                      |

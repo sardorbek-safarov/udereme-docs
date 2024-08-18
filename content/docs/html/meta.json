@@ -1,5 +1,5 @@
 {
   "title": "html",
   "root": true,
-  "pages": ["index", "..."]
+  "pages": ["index", "core", "..."]
 }

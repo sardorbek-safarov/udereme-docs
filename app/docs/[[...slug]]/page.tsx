@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import { getInitials } from '@/utils/avatar';
 import { createMetadata } from '@/utils/metadata';
 
+import Image from 'next/image';
 import { Control } from './page.client';
 
 interface Param {
@@ -65,9 +66,9 @@ export default function Page({ params }: { params: Param }) {
         <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
         <p className="mb-8 text-sm text-fd-muted-foreground">{page.data.description}</p>
         {(page?.data?.authors ?? []).map((author) => (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4" key={author.name}>
             {author?.avatar ? (
-              <img className="h-10 w-10 rounded-full" src={author.avatar} alt={author.name} />
+              <Image className="h-10 w-10 rounded-full" src={author.avatar} alt={author.name} />
             ) : (
               <div className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                 <span className="font-medium text-gray-600 dark:text-gray-300">{getInitials(author.name)}</span>

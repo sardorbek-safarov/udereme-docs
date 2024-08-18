@@ -1,0 +1,186 @@
+---
+title: HTML Attributlari
+description: HTML attributlari HTML elementlari haqida qo'shimcha ma'lumot beradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-18
+---
+
+### HTML Attributlari
+- Barcha HTML elementlari attributlarga ega bo'lishi mumkin.
+- Attributlar elementlar haqida qo'shimcha ma'lumot beradi.
+- Attributlar har doim boshlang'ich tegda ko'rsatiladi.
+- Attributlar odatda nom/qiymat juftliklarida bo'ladi, masalan: `name="value"`.
+
+### `href` Attributi
+`<a>` tegi giperhavolani belgilaydi. `href` attributi havola boradigan sahifaning URL manzilini aniqlaydi:
+
+**Misol:**
+
+```html
+<a href="https://udemere.uz">Udemere saytiga tashrif buyuring</a>
+```
+
+Siz HTML Links bo'limimizda havolalar haqida ko'proq bilib olasiz.
+
+### `src` Attributi
+`<img>` tegi HTML sahifasiga rasm qo'shish uchun ishlatiladi. `src` attributi ko'rsatiladigan rasmning yo'lini belgilaydi:
+
+**Misol:**
+
+```html
+<img src="img_girl.jpg">
+```
+
+`src` attributida URL'ni ko'rsatishning ikki yo'li mavjud:
+
+1. **Absolyut URL** - Tashqi veb-saytda joylashgan rasmlarga havola qiladi. Misol: `src="https://www.udemere.uz/images/img_girl.jpg"`.
+
+<Callout>
+  Eslatma: Tashqi rasmlar mualliflik huquqi ostida bo'lishi mumkin. Agar uni ishlatishga ruxsat olmasangiz, siz mualliflik huquqini buzishingiz mumkin. Bundan tashqari, siz tashqi rasmlarni nazorat qila olmaysiz; ular to'satdan olib tashlanishi yoki o'zgartirilishi mumkin.
+</Callout>
+
+2. **Nisbiy URL** - Veb-sayt ichida joylashgan rasmga havola qiladi. Bu yerda URL domen nomini o'z ichiga olmaydi. Agar URL chiziqsiz boshlansa, u joriy sahifaga nisbatan bo'ladi. Misol: `src="img_girl.jpg"`. Agar URL chiziq bilan boshlansa, u domen nomiga nisbatan bo'ladi. Misol: `src="/images/img_girl.jpg"`.
+
+Maslahat: Nisbiy URL'larni ishlatish deyarli har doim yaxshiroqdir. Domenni o'zgartirganingizda ular buzilmaydi.
+
+### `width` va `height` Attributlari
+`<img>` tegi shuningdek, rasmning kengligi va balandligini aniqlaydigan `width` va `height` attributlarini o'z ichiga olishi kerak (pikselda):
+
+**Misol:**
+
+```html
+<img src="img_girl.jpg" width="500" height="600">
+```
+
+### `alt` Attributi
+`<img>` tegi uchun zarur bo'lgan `alt` attributi, agar rasm biror sababga ko'ra ko'rsatilmasa, alternativ matnni aniqlaydi. Bu sekin ulanish, `src` attributidagi xato yoki foydalanuvchi ekran o'qiydigan qurilma ishlatgan taqdirda bo'lishi mumkin.
+
+**Misol:**
+
+```html
+<img src="img_girl.jpg" alt="Jaket kiygan qiz">
+```
+
+**Misol:**
+
+Qaraladigan rasm mavjud bo'lmaganda nima sodir bo'lishini ko'ring:
+
+```html
+<img src="img_typo.jpg" alt="Jaket kiygan qiz">
+```
+
+Siz HTML Images bo'limimizda rasmlar haqida ko'proq bilib olasiz.
+
+### `style` Attributi
+`style` attributi elementga rang, shrift, o'lcham va boshqa uslublarni qo'shish uchun ishlatiladi.
+
+**Misol:**
+
+```html
+<p style="color:red;">Bu qizil paragraf.</p>
+```
+
+Siz HTML Styles bo'limimizda uslublar haqida ko'proq bilib olasiz.
+
+### `lang` Attributi
+Siz har doim `<html>` tegida `lang` attributini qo'shishingiz kerak, veb-sahifaning tilini aniqlash uchun. Bu qidiruv tizimlari va brauzerlar uchun foydalidir.
+
+Quyidagi misol til sifatida ingliz tilini belgilaydi:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+...
+</body>
+</html>
+```
+
+Mamlakat kodlari ham `lang` attributida til kodiga qo'shilishi mumkin. Shunday qilib, birinchi ikki belgilar HTML sahifasining tilini belgilaydi va so'nggi ikki belgilar mamlakatni belgilaydi.
+
+Quyidagi misol til sifatida ingliz tilini va mamlakat sifatida Qo'shma Shtatlarni belgilaydi:
+
+```html
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
+...
+</body>
+</html>
+```
+
+Siz HTML Language Code Reference bo'limimizda barcha til kodlarini ko'rishingiz mumkin.
+
+### `title` Attributi
+`title` attributi element haqida qo'shimcha ma'lumotni aniqlaydi.
+
+`title` attributining qiymati element ustiga sichqoncha bilan bosganda tooltip sifatida ko'rsatiladi:
+
+**Misol:**
+
+```html
+<p title="Men tooltipman">Bu paragraf.</p>
+```
+
+### Tavsiya: Har doim Kichik Harf Attributlarini Ishlating
+HTML standarti kichik harfli attribut nomlarini talab qilmaydi.
+
+`title` attributi (va boshqa barcha attributlar) katta yoki kichik harflar bilan yozilishi mumkin, masalan `title` yoki `TITLE`.
+
+Ammo, W3C HTML'da kichik harfli attributlarni tavsiya qiladi va XHTML kabi qattiqroq hujjat turlari uchun kichik harfli attributlarni talab qiladi.
+
+Biz Udemere'da har doim kichik harfli attribut nomlarini ishlatamiz.
+
+### Tavsiya: Har doim Attribut Qiymatlariga Iqtiboslar Qo'llang
+HTML standarti attribut qiymatlari atrofida iqtiboslarni talab qilmaydi.
+
+Ammo, W3C HTML'da iqtiboslarni tavsiya qiladi va XHTML kabi qattiqroq hujjat turlari uchun iqtiboslarni talab qiladi.
+
+**Yaxshi:**
+
+```html
+<a href="https://udemere.uz/docs/html/">HTML darsligimizga tashrif buyuring</a>
+```
+
+**Yomon:**
+
+```html
+<a href=https://udemere.uz/docs/html/>HTML darsligimizga tashrif buyuring</a>
+```
+
+Ba'zan siz iqtiboslarni ishlatishingiz kerak bo'ladi. Ushbu misolda `title` attributi to'g'ri ko'rsatilmaydi, chunki unda bo'sh joy mavjud:
+
+**Misol:**
+
+```html
+<p title=About Udemere>
+```
+
+Biz Udemere'da har doim attribut qiymatlari atrofida iqtiboslarni ishlatamiz.
+
+### Yagona yoki Juft Iqtiboslar?
+HTML'da attribut qiymatlari atrofida juft iqtiboslar eng ko'p uchraydi, ammo yagona iqtiboslar ham ishlatilishi mumkin.
+
+Ba'zi holatlarda, agar attribut qiymati o'zida juft iqtiboslarni o'z ichiga olgan bo'lsa, yagona iqtiboslardan foydalanish kerak:
+
+```html
+<p title='John "ShotGun" Nelson'>
+```
+
+Yoki aksincha:
+
+```html
+<p title="John 'ShotGun' Nelson">
+```
+
+### Bo'lim Xulosasi
+- Barcha HTML elementlari attributlarga ega bo'lishi mumkin.
+- `<a>` tegining `href` attributi havola boradigan sahifaning URL manzilini aniqlaydi.
+- `<img>` tegining `src` attributi ko'rsatiladigan rasmning yo'lini aniqlaydi.
+- `<img>` tegining `width` va `height` attributlari rasmlar uchun o'lcham ma'lumotlarini beradi.
+- `<img>` tegining `alt` attributi rasm uchun alternativ matnni taqdim etadi.
+- `style` attributi elementga rang, shrift, o'lcham va boshqa uslublarni qo'shish uchun ishlatiladi.
+- `<html>` tegining `lang` attributi veb-sahifaning tilini belgilaydi.
+- `title` attributi element haqida qo'shimcha ma'lumotni aniqlaydi.
