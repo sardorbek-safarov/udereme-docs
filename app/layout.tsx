@@ -1,19 +1,35 @@
-import { RootProvider } from 'fumadocs-ui/provider'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
-import type { ReactNode } from 'react'
-import './global.css'
+import '@/app/global.css';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import type { Viewport } from 'next';
 
-export default function Layout({ children }: { children: ReactNode }) {
-	return (
-		<html
-			lang='en'
-			className={`${GeistSans.variable} ${GeistMono.variable}`}
-			suppressHydrationWarning
-		>
-			<body>
-				<RootProvider>{children}</RootProvider>
-			</body>
-		</html>
-	)
+import { Body } from '@/app/layout.client';
+import { baseURL, createMetadata } from '@/utils/metadata';
+
+import { Provider } from './provider';
+
+export const metadata = createMetadata({
+  title: {
+    template: '%s | Udemere',
+    default: 'Udemere',
+  },
+  description: 'Udemere - Uzbek tilida dasturlash dokumentatsiyasi.',
+  metadataBase: baseURL,
+});
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: light)', color: '#fff' },
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }): React.ReactElement {
+  return (
+    <html lang="uz" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <Body>
+        <Provider>{children}</Provider>
+      </Body>
+    </html>
+  );
 }
