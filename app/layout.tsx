@@ -3,6 +3,8 @@ import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
 
+import { Analytics } from '@vercel/analytics/react';
+
 import { Body } from '@/app/layout.client';
 import { baseURL, createMetadata } from '@/utils/metadata';
 
@@ -29,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
     <html lang="uz" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <Body>
         <Provider>{children}</Provider>
+        <Analytics />
       </Body>
     </html>
   );
