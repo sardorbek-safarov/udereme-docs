@@ -1,26 +1,31 @@
-# udereme-docs
+# Udemere.uz
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+**Udemere.uz** — bu dasturlash bo'yicha o'zbek tilida to'liq va keng qamrovli dokumentatsiyalarni taqdim etuvchi veb-sayt. Bizning maqsadimiz, o'zbek dasturchilarini dasturlash tillari va texnologiyalari bo'yicha eng yaxshi resurslar bilan ta'minlashdir.
 
-Run development server:
+## Loyihaning maqsadi
 
-```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
+Dasturlash o'rganishni xohlovchilar uchun o'zbek tilida yuqori sifatli va tushunarli dokumentatsiya taqdim etish. Udemere.uz sizga dasturlashning turli yo'nalishlari bo'yicha chuqur bilimlar olishga va yangi texnologiyalarni o'rganishga yordam beradi.
 
-Open http://localhost:3000 with your browser to see the result.
+## Xususiyatlar
 
-## Learn More
+- **O'zbek tilida dokumentatsiya:** Dasturlash tillari va texnologiyalari bo'yicha to'liq va keng qamrovli ma'lumotlar.
+- **Interaktiv o'rganish:** Har bir mavzu uchun kod namunalar va amaliy misollar.
+- **Yangilanadigan kontent:** Dasturlashning yangi texnologiyalari bo'yicha doimiy ravishda yangilanadigan kontent.
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+## Loyihaga qanday hissa qo'shish mumkin?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+1. **Fork qilish:** Ushbu repozitoriyani forklang.
+2. **O'zgartirishlar kiriting:** Loyihaga o'z hissangizni qo'shing.
+3. **Pull Request:** O'zgartirishlaringizni bizga yuboring va ko'rib chiqamiz.
+
+## Ishonchli manbalar
+
+Udemere.uz loyihasi uchun biz eng ishonchli manbalardan foydalanamiz va ularni o'zbek tilida keng ommaga taqdim etamiz.
+
+## Mualliflik huquqi
+
+Ushbu loyiha [MIT License](./LICENSE) ostida tarqatiladi.
+
+## Aloqa
+
+Agar sizda savollar yoki takliflar bo'lsa, biz bilan bog'laning: [shakhbozbek.usmonov@gmail.com](mailto:shakhbozbek.usmonov@gmail.com)
