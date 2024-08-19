@@ -1,19 +1,85 @@
 ---
 title: CSS
-description: 'CSS Cascading Style Sheets, Kaskadli stillash tili.'
+description: 'CSS (Cascading Style Sheets).'
 index: true
 authors:
   - name: Shakhbozbek Usmonov
     telegram: https://t.me/miracleprogrammer
-createdAt: 2024-08-18
-icon: HTMLIcon
+createdAt: 2024-08-19
+icon: CSSIcon
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+**CSS (Cascading Style Sheets)** — veb-sahifalarning dizayni va tashqi ko‘rinishini boshqarish uchun ishlatiladigan uslub tillaridir. HTML kodlaridan ajralib turadi va sahifalarning qanday ko‘rinishi kerakligini belgilaydi. CSS yordamida siz ranglar, shriftlar, joylashuvlar va boshqa ko‘plab vizual elementlarni sozlashingiz mumkin. CSS asosan quyidagi asosiy xususiyatlar bilan ishlaydi:
 
-## What is Next?
+1. **Selektorlar**: CSS selektorlar yordamida HTML elementlarini tanlaydi. Misol uchun, `p` selektori barcha `<p>` teglarini tanlaydi.
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+   ```css
+   p {
+     color: blue;
+   }
+   ```
+
+   Bu kod barcha `<p>` teglaridagi matn rangini ko‘k rangga o‘zgartiradi.
+
+2. **Xususiyatlar va qiymatlar**: CSS xususiyatlari (properties) va qiymatlari (values) yordamida elementlar tarzini belgilaydi. Masalan:
+
+   ```css
+   h1 {
+     font-size: 24px;
+     text-align: center;
+   }
+   ```
+
+   Bu kod `<h1>` tegidagi matnni 24px o‘lchamda va markazlashtirilgan tarzda ko‘rsatadi.
+
+3. **Box model**: CSS box model yordamida har bir HTML elementi to‘rt asosiy qismga bo‘linadi: kontent, padding, border, va margin. Bu model yordamida siz elementlarning ichki va tashqi bo‘shliqlarini boshqarishingiz mumkin.
+
+   ```css
+   div {
+     padding: 10px;
+     border: 1px solid black;
+     margin: 20px;
+   }
+   ```
+
+   Bu kod `<div>` tegiga 10px ichki bo‘shliq, 1px qora chegarani va 20px tashqi bo‘shliq beradi.
+
+4. **Flexbox va Grid**: Bu uslublar sahifalarning layoutini boshqarishda yordam beradi. Flexbox bir o‘lchamli joylashuvlarni boshqarishga mo‘ljallangan, Grid esa ikki o‘lchamli joylashuvlarni yaratishga yordam beradi.
+
+   Flexbox misoli:
+
+   ```css
+   .container {
+     display: flex;
+     justify-content: space-around;
+   }
+   ```
+
+   Grid misoli:
+
+   ```css
+   .container {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+   }
+   ```
+
+5. **Media Queries**: CSS media queries yordamida turli ekran o‘lchamlari va qurilmalarga moslashtirilgan dizayn yaratish mumkin. Misol uchun, mobil qurilmalarda maxsus stil qo‘llash uchun:
+
+   ```css
+   @media (max-width: 600px) {
+     body {
+       font-size: 14px;
+     }
+   }
+   ```
+
+   Bu kod ekran kengligi 600px yoki undan kam bo‘lsa, matn o‘lchamini 14px ga o‘zgartiradi.
+
+CSS kodlari `<style>` tegida HTML hujjati ichida yoki alohida `.css` faylda yozilishi mumkin va HTML hujjatga `<link>` teg orqali qo‘shiladi:
+
+```html
+<link rel="stylesheet" href="styles.css" />
+```
+
+CSS juda keng va kuchli vositadir, veb-dizaynerlar va dasturchilar sahifalarning turli uslublarini yaratishda keng qo‘llanadi.
