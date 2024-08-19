@@ -12,100 +12,112 @@ icon: JSIcon
 ## JavaScriptning Asosiy Xususiyatlari
 
 ### 1. **Sintaksis va O‘zgaruvchilar**:
-   JavaScript sintaksisi oddiy va oson tushuniladi. O‘zgaruvchilarni `var`, `let`, yoki `const` kalit so‘zlari bilan e'lon qilish mumkin.
 
-   ```javascript
-   let name = "Ali";
-   const age = 30;
-   ```
+JavaScript sintaksisi oddiy va oson tushuniladi. O‘zgaruvchilarni `var`, `let`, yoki `const` kalit so‘zlari bilan e'lon qilish mumkin.
+
+```javascript
+let name = 'Ali';
+const age = 30;
+```
 
 ### 2. **Ma'lumot Turlari**:
-   JavaScriptda bir nechta asosiy ma'lumot turlari mavjud:
-   - **String**: Matnlar
-   - **Number**: Sonlar
-   - **Boolean**: Haqiqiy yoki noto'g'ri qiymatlar
-   - **Array**: Elementlar ro‘yxati
-   - **Object**: Kalit-qiymat juftliklari
-   - **Null**: Bo‘sh qiymat
-   - **Undefined**: Belgilanmagan qiymat
 
-   ```javascript
-   let numbers = [1, 2, 3, 4];
-   let person = {
-       name: "Ali",
-       age: 30
-   };
-   ```
+JavaScriptda bir nechta asosiy ma'lumot turlari mavjud:
+
+- **String**: Matnlar
+- **Number**: Sonlar
+- **Boolean**: Haqiqiy yoki noto'g'ri qiymatlar
+- **Array**: Elementlar ro‘yxati
+- **Object**: Kalit-qiymat juftliklari
+- **Null**: Bo‘sh qiymat
+- **Undefined**: Belgilanmagan qiymat
+
+```javascript
+let numbers = [1, 2, 3, 4];
+let person = {
+  name: 'Ali',
+  age: 30,
+};
+```
 
 ### 3. **Funksiyalar**:
-   JavaScriptda funksiyalar kod bloklarini qayta ishlatish uchun ishlatiladi.
 
-   ```javascript
-   function greet(name) {
-       return `Salom, ${name}!`;
-   }
+JavaScriptda funksiyalar kod bloklarini qayta ishlatish uchun ishlatiladi.
 
-   let message = greet("Ali");
-   console.log(message);
-   ```
+```javascript
+function greet(name) {
+  return `Salom, ${name}!`;
+}
+
+let message = greet('Ali');
+console.log(message);
+```
 
 ### 4. **DOM Manipulyatsiyasi**:
-   JavaScript yordamida sahifadagi HTML elementlarini o‘zgartirishingiz mumkin. Bu sahifaning interaktivligini oshirish uchun juda muhim.
 
-   ```javascript
-   document.getElementById("myButton").addEventListener("click", function() {
-       document.getElementById("demo").innerHTML = "Tugmani bosdingiz!";
-   });
-   ```
+JavaScript yordamida sahifadagi HTML elementlarini o‘zgartirishingiz mumkin. Bu sahifaning interaktivligini oshirish uchun juda muhim.
+
+```javascript
+document.getElementById('myButton').addEventListener('click', function () {
+  document.getElementById('demo').innerHTML = 'Tugmani bosdingiz!';
+});
+```
 
 ### 5. **Eventlar**:
-   JavaScript foydalanuvchi bilan o‘zaro aloqalarni kuzatib borish va ular javob qaytarish uchun ishlatiladi. Misol uchun, tugmani bosish yoki sahifani yuklash kabi hodisalar (events) bilan ishlash mumkin.
 
-   ```javascript
-   document.querySelector("button").addEventListener("click", function() {
-       alert("Tugma bosildi!");
-   });
-   ```
+JavaScript foydalanuvchi bilan o‘zaro aloqalarni kuzatib borish va ular javob qaytarish uchun ishlatiladi. Misol uchun, tugmani bosish yoki sahifani yuklash kabi hodisalar (events) bilan ishlash mumkin.
+
+```javascript
+document.querySelector('button').addEventListener('click', function () {
+  alert('Tugma bosildi!');
+});
+```
 
 ### 6. **Asinxron Dasturlash**:
-   JavaScriptda asinxron dasturlash uchun `setTimeout`, `setInterval`, `Promise`, va `async/await` kabi imkoniyatlar mavjud. Bu serverdan ma'lumot olish yoki katta hisoblashlarni amalga oshirish uchun foydalidir.
 
-   ```javascript
-   // Promise misoli
-   function fetchData() {
-       return new Promise((resolve, reject) => {
-           setTimeout(() => {
-               resolve("Ma'lumot olingan");
-           }, 1000);
-       });
-   }
+JavaScriptda asinxron dasturlash uchun `setTimeout`, `setInterval`, `Promise`, va `async/await` kabi imkoniyatlar mavjud. Bu serverdan ma'lumot olish yoki katta hisoblashlarni amalga oshirish uchun foydalidir.
 
-   fetchData().then(result => console.log(result));
-   ```
+```javascript
+// Promise misoli
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Ma'lumot olingan");
+    }, 1000);
+  });
+}
+
+fetchData().then((result) => console.log(result));
+```
 
 ### 7. **ES6+ Xususiyatlari**:
-   JavaScriptning yangi versiyalari (ES6 va undan keyin) ko‘plab yangi xususiyatlarni kiritdi, masalan:
-   - **Let va Const**: O‘zgaruvchilarni deklaratsiya qilish uchun.
-   - **Arrow Functions**: Qisqartirilgan funksiyalar.
-   - **Template Literals**: Dinamik matn yaratish uchun.
-   - **Destructuring Assignment**: Obyekt va massivlardan qiymatlarni chiqarib olish uchun.
 
-   ```javascript
-   // Arrow function misoli
-   const add = (a, b) => a + b;
+JavaScriptning yangi versiyalari (ES6 va undan keyin) ko‘plab yangi xususiyatlarni kiritdi, masalan:
 
-   // Template literals misoli
-   let name = "Ali";
-   let message = `Salom, ${name}!`;
-   console.log(message);
-   ```
+- **Let va Const**: O‘zgaruvchilarni deklaratsiya qilish uchun.
+- **Arrow Functions**: Qisqartirilgan funksiyalar.
+- **Template Literals**: Dinamik matn yaratish uchun.
+- **Destructuring Assignment**: Obyekt va massivlardan qiymatlarni chiqarib olish uchun.
+
+```javascript
+// Arrow function misoli
+const add = (a, b) => a + b;
+
+// Template literals misoli
+let name = 'Ali';
+let message = `Salom, ${name}!`;
+console.log(message);
+```
 
 ### 8. **JavaScript Frameworklari**:
-   JavaScript ekosistemasi juda katta va turli frameworklar va kutubxonalar mavjud, masalan:
-   - **React**: Komponent asosida foydalanuvchi interfeyslarini yaratish.
-   - **Vue.js**: Yengil va kuchli front-end kutubxonasi.
-   - **Angular**: Kompleks veb-ilovalarni yaratish uchun to‘liq framework.
+
+JavaScript ekosistemasi juda katta va turli frameworklar va kutubxonalar mavjud, masalan:
+
+- **React**: Komponent asosida foydalanuvchi interfeyslarini yaratish.
+- **Vue.js**: Yengil va kuchli front-end kutubxonasi.
+- **Angular**: Kompleks veb-ilovalarni yaratish uchun to‘liq framework.
 
 <Callout>
-  JavaScript — web dasturlash dunyosida markaziy o‘rinni egallaydi va sahifalarga interaktivlik qo‘shish, foydalanuvchi tajribasini yaxshilash va dinamik web ilovalarni yaratishda muhim vositadir.
+  JavaScript — web dasturlash dunyosida markaziy o‘rinni egallaydi va sahifalarga interaktivlik qo‘shish, foydalanuvchi
+  tajribasini yaxshilash va dinamik web ilovalarni yaratishda muhim vositadir.
 </Callout>
