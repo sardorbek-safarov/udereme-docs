@@ -6,7 +6,7 @@ import type { ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react';
 import { z } from 'zod';
 
 import { map } from '@/.map';
-import { HTMLIcon } from '@/components/icons';
+import { CSSIcon, HTMLIcon, JSIcon } from '@/components/icons';
 import { create } from '@/components/ui/icon';
 
 type SVGComponentProps = SVGProps<SVGSVGElement>;
@@ -21,6 +21,8 @@ export const docs = loader({
   icon(iconName) {
     const customIconMap: IconMap = {
       HTMLIcon,
+      CSSIcon,
+      JSIcon,
     };
 
     if (iconName && iconName in customIconMap) {
