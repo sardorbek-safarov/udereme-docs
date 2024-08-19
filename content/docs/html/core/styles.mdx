@@ -1,0 +1,120 @@
+---
+title: HTML Style
+description: HTML style atributi elementlarga rang, shrift, o'lcham va boshqa uslublarni qo'shish uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+# HTML uslublari
+
+HTML `style` atributi elementlarga rang, shrift, o'lcham va boshqa uslublarni qo'shish uchun ishlatiladi.
+
+### Misol
+
+```html
+<p style="color: red;">Men Qizilman</p>
+<p style="color: blue;">Men Ko'kman</p>
+<p style="font-size: 200%;">Men Kattaman</p>
+```
+
+## HTML `style` Atributi
+
+HTML elementining uslubini o'rnatish `style` atributi bilan amalga oshiriladi.
+
+HTML `style` atributining sintaksisi quyidagicha:
+
+```html
+<tagname style="property:value;">
+```
+
+- `property` - bu CSS xususiyati.
+- `value` - bu CSS qiymati.
+
+<Callout>
+  CSS haqidagi darsligimizda u haqida ko'proq bilib olasiz.
+</Callout>
+
+## Fon Rangi
+
+CSS `background-color` xususiyati HTML elementi uchun fon rangini belgilaydi.
+
+### Misol
+
+Sahifaning fon rangini `powderblue` rangiga o'rnating:
+
+```html
+<body style="background-color: powderblue;">
+
+<h1>Bu sarlavha</h1>
+<p>Bu bir parcha matn.</p>
+
+</body>
+```
+
+### Misol
+
+Ikki xil element uchun fon rangini o'rnating:
+
+```html
+<body>
+
+<h1 style="background-color: powderblue;">Bu sarlavha</h1>
+<p style="background-color: tomato;">Bu bir parcha matn.</p>
+
+</body>
+```
+
+## Matn Rangi
+
+CSS `color` xususiyati HTML elementi uchun matn rangini belgilaydi:
+
+### Misol
+
+```html
+<h1 style="color: blue;">Bu sarlavha</h1>
+<p style="color: red;">Bu bir parcha matn.</p>
+```
+
+## Shriftlar
+
+CSS `font-family` xususiyati HTML elementi uchun ishlatiladigan shriftni belgilaydi:
+
+### Misol
+
+```html
+<h1 style="font-family: verdana;">Bu sarlavha</h1>
+<p style="font-family: courier;">Bu bir parcha matn.</p>
+```
+
+## Matn O'lchami
+
+CSS `font-size` xususiyati HTML elementi uchun matn o'lchamini belgilaydi:
+
+### Misol
+
+```html
+<h1 style="font-size: 300%;">Bu sarlavha</h1>
+<p style="font-size: 160%;">Bu bir parcha matn.</p>
+```
+
+## Matnni Boshqarish
+
+CSS `text-align` xususiyati HTML elementi uchun matnning gorizontal boshqarishni belgilaydi:
+
+### Misol
+
+```html
+<h1 style="text-align: center;">Markazlangan Sarlavha</h1>
+<p style="text-align: center;">Markazlangan parcha.</p>
+```
+
+## Bo'lim Xulosasi
+
+- HTML elementlarini uslublash uchun `style` atributidan foydalaning.
+- Fon ranglari uchun `background-color` dan foydalaning.
+- Matn ranglari uchun `color` dan foydalaning.
+- Matn shriftlari uchun `font-family` dan foydalaning.
+- Matn o'lchamlari uchun `font-size` dan foydalaning.
+- Matnni gorizontal boshqarish uchun `text-align` dan foydalaning.

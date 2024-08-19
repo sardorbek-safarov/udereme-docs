@@ -1,0 +1,270 @@
+---
+title: HTML Stilleri - CSS
+description: CSS - Cascading Style Sheets (Oqib o'tadigan Usul Qatlamlari) degan ma'noni anglatadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+### HTML Stillari - CSS
+
+CSS - Cascading Style Sheets (Kaskadli Stillash Tili) degan ma'noni anglatadi.
+
+CSS ko'p ishni saqlab qoladi. U bir vaqtning o'zida bir nechta veb sahifalarning tartibini boshqarishi mumkin.
+
+<Callout title="CSS">Stillar va Ranglar Matnni Manipulyatsiya Qilish Ranglar, Qutilar</Callout>
+
+#### CSS Nima?
+
+Cascading Style Sheets (CSS) veb sahifaning tartibini formatlash uchun ishlatiladi.
+
+CSS yordamida siz matnning rangini, shriftini, o'lchamini, elementlar orasidagi masofani, elementlarning qanday joylashtirilishi va tartibga solinishini, qanday fon rasmlari yoki fon ranglari ishlatilishini, turli qurilmalar va ekran o'lchamlari uchun turli ko'rsatishni va boshqalarni boshqarishingiz mumkin!
+
+**Tavsiya:** "Oqib o'tadigan" so'zi ota elementga qo'llangan usul barcha bola elementlarga ham qo'llanishini bildiradi. Shunday qilib, agar siz tanaga (body) matn rangini "ko'k" deb belgilasangiz, tanadagi barcha sarlavhalar, paragraflar va boshqa matn elementlari ham shu rangga ega bo'ladi (agar siz boshqa biror narsani belgilamasangiz)!
+
+#### CSS-dan foydalanish
+
+CSS HTML hujjatlariga 3 yo'l bilan qo'shilishi mumkin:
+
+1. **Inline** - HTML elementlari ichida style atributi yordamida
+2. **Internal** - HTML sahifaning `<head>` bo'limida `<style>` elementi yordamida
+3. **External** - Tashqi CSS faylga havola qilish uchun `<link>` elementi yordamida
+
+Eng keng tarqalgan usul - stillarni tashqi CSS fayllarda saqlash. Biroq, ushbu darslikda biz inline va internal stillardan foydalanamiz, chunki bu ko'proq ko'rsatish va sizga sinab ko'rish osonroq.
+
+#### Inline CSS
+
+Inline CSS yagona HTML elementiga noyob usul qo'llash uchun ishlatiladi.
+
+Inline CSS HTML elementining style atributidan foydalanadi.
+
+**Misol:**
+
+```html
+<h1 style="color:blue;">Ko'k Sarlavha</h1>
+<p style="color:red;">Qizil paragraf.</p>
+```
+
+#### Internal CSS
+
+Internal CSS bir sahifa uchun usulni aniqlash uchun ishlatiladi.
+
+Internal CSS HTML sahifaning `<head>` bo'limida, `<style>` element ichida aniqlanadi.
+
+**Misol:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: powderblue;
+      }
+      h1 {
+        color: blue;
+      }
+      p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bu sarlavha</h1>
+    <p>Bu paragraf.</p>
+  </body>
+</html>
+```
+
+#### External CSS
+
+Tashqi stil jadvallari ko'plab HTML sahifalar uchun usulni aniqlash uchun ishlatiladi.
+
+Tashqi stil jadvalidan foydalanish uchun, har bir HTML sahifasining `<head>` bo'limiga havola qo'shish kerak:
+
+**Misol:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Bu sarlavha</h1>
+    <p>Bu paragraf.</p>
+  </body>
+</html>
+```
+
+Tashqi stil jadvali har qanday matn muharririda yozilishi mumkin. Fayl HTML kodini o'z ichiga olmasligi kerak va `.css` kengaytmasi bilan saqlanishi kerak.
+
+**"styles.css" fayli quyidagicha ko'rinadi:**
+
+```css
+body {
+  background-color: powderblue;
+}
+h1 {
+  color: blue;
+}
+p {
+  color: red;
+}
+```
+
+**Tavsiya:** Tashqi stil jadvali yordamida butun veb saytning ko'rinishini bir faylni o'zgartirib o'zgartirishingiz mumkin!
+
+#### CSS Ranglar, Shriftlar va O'lchamlar
+
+Bu yerda biz ba'zi keng tarqalgan CSS xususiyatlarini ko'rsatamiz. Keyinchalik siz ularni batafsilroq o'rganasiz.
+
+CSS color xususiyati matn rangini aniqlaydi.
+
+CSS font-family xususiyati ishlatiladigan shriftni aniqlaydi.
+
+CSS font-size xususiyati matn o'lchamini aniqlaydi.
+
+**Misol:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      h1 {
+        color: blue;
+        font-family: verdana;
+        font-size: 300%;
+      }
+      p {
+        color: red;
+        font-family: courier;
+        font-size: 160%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bu sarlavha</h1>
+    <p>Bu paragraf.</p>
+  </body>
+</html>
+```
+
+#### CSS Chegarasi
+
+CSS border xususiyati HTML elementining atrofida chegara belgilaydi.
+
+**Tavsiya:** Siz deyarli barcha HTML elementlari uchun chegara belgilashingiz mumkin.
+
+**Misol:**
+
+```css
+p {
+  border: 2px solid powderblue;
+}
+```
+
+#### CSS To'ldirish
+
+CSS padding xususiyati matn va chegara orasidagi bo'shliqni belgilaydi.
+
+**Misol:**
+
+```css
+p {
+  border: 2px solid powderblue;
+  padding: 30px;
+}
+```
+
+#### CSS Margin
+
+CSS margin xususiyati chegara tashqarisidagi bo'shliqni belgilaydi.
+
+**Misol:**
+
+```css
+p {
+  border: 2px solid powderblue;
+  margin: 50px;
+}
+```
+
+#### Tashqi CSS-ga havola
+
+Tashqi stil jadvallari to'liq URL yoki joriy veb sahifaga nisbatan yo'l bilan havola qilinishi mumkin.
+
+**Misol:**
+To'liq URL yordamida havolani ishlatish:
+
+```html
+<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css" />
+```
+
+**Misol:**
+Joriy veb saytning html papkasida joylashgan stil jadvaliga havola:
+
+```html
+<link rel="stylesheet" href="/html/styles.css" />
+```
+
+**Misol:**
+Joriy sahifa bilan bir xil papkada joylashgan stil jadvaliga havola:
+
+```html
+<link rel="stylesheet" href="styles.css" />
+```
+
+Siz fayl yo'llari haqida batafsilroq o'qishingiz mumkin HTML Fayl Yo'llari bo'limida.
+
+### Bo'lim Yig'indi
+
+- Inline usuldan matn usulini qo'llash uchun foydalaning
+- Internal CSS ni `<style>` elementi yordamida aniqlang
+- Tashqi CSS faylga havola qilish uchun `<link>` elementidan foydalaning
+- `<style>` va `<link>` elementlarini `<head>` bo'limida saqlang
+- Matn ranglari uchun CSS color xususiyatidan foydalaning
+- Matn shriftlari uchun CSS font-family xususiyatidan foydalaning
+- Matn o'lchamlari uchun CSS font-size xususiyatidan foydalaning
+- Chegaralar uchun CSS border xususiyatidan foydalaning
+- Chegaraning ichidagi bo'shliq uchun CSS padding xususiyatidan foydalaning
+- Chegaraning tashqarisidagi bo'shliq uchun CSS margin xususiyatidan foydalaning
+
+<Callout type="warn" title="Tavsiya">
+  CSS haqida yanada ko'proq ma'lumotni CSS Darsligi orqali o'rganishingiz mumkin.
+</Callout>
+
+### HTML Mashqlar
+
+**Sinab Ko'ring:**
+
+- CSS yordamida hujjat (body) orqa fon rangini sariq qilib qo'ying.
+
+**Misol:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Menimcha Bosh Sahifa</h1>
+  </body>
+</html>
+```
+
+**Mashqni boshlang**
+
+### HTML Stil Teglari
+
+| Tag       | Tavsif                                               |
+| --------- | ---------------------------------------------------- |
+| `<style>` | HTML hujjati uchun stil ma'lumotlarini aniqlaydi     |
+| `<link>`  | Hujjat va tashqi resurs o'rtasida havolani aniqlaydi |

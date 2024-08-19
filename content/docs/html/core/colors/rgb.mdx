@@ -1,0 +1,66 @@
+---
+title: RGB va RGBA Ranglar
+description: HTML ranglari RGB yoki RGBA qiymatlari yordamida ko'rsatilishi mumkin, bu yerda RGBA qiymatlari rangga Alpha kanali qo'shib shaffoflikni boshqaradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+### HTML RGB va RGBA Ranglari
+
+RGB rang qiymati QIZIL, YASHIL va KO‘K (RED, GREEN, BLUE) yorug‘lik manbalarini ifodalaydi.
+
+RGBA rang qiymati RGB-ga Alpha kanali (shaffoflik) qo'shilgan kengaytmadir.
+
+#### RGB Rang Qiymatlari
+
+HTML-da rang RGB qiymati sifatida quyidagi formula yordamida ko'rsatilishi mumkin:
+
+```html
+rgb(red, green, blue)
+```
+
+Har bir parametr (qizil, yashil va ko'k) 0 dan 255 gacha bo'lgan qiymat bilan rang intensivligini aniqlaydi.
+
+Bu shuni anglatadiki, 256 x 256 x 256 = 16777216 ta mumkin bo'lgan ranglar mavjud!
+
+Masalan, `rgb(255, 0, 0)` qizil rangda ko'rsatiladi, chunki qizil o'zining eng yuqori qiymatiga (255) o'rnatilgan va boshqa ikkisi (yashil va ko'k) 0 ga o'rnatilgan.
+
+Yana bir misol, `rgb(0, 255, 0)` yashil rangda ko'rsatiladi, chunki yashil eng yuqori qiymatga (255) o'rnatilgan va boshqa ikkisi (qizil va ko'k) 0 ga o'rnatilgan.
+
+```html
+<h1 style="background-color:rgb(255, 0, 0);">Qizil Rang</h1>
+<h1 style="background-color:rgb(0, 255, 0);">Yashil Rang</h1>
+<h1 style="background-color:rgb(0, 0, 255);">Ko'k Rang</h1>
+```
+
+#### Kul Rang Soyalari
+
+Kul rang soyalari odatda uchala parametr uchun teng qiymatlar yordamida aniqlanadi:
+
+```html
+<h1 style="background-color:rgb(60, 60, 60);">Kul Rang</h1>
+<h1 style="background-color:rgb(100, 100, 100);">Kul Rang</h1>
+<h1 style="background-color:rgb(140, 140, 140);">Kul Rang</h1>
+```
+
+#### RGBA Rang Qiymatlari
+
+RGBA rang qiymatlari RGB rang qiymatlarining kengaytmasi bo'lib, Alpha kanali qo'shiladi — bu rang uchun shaffoflikni aniqlaydi.
+
+RGBA rang qiymati quyidagicha ko'rsatiladi:
+
+```html
+rgba(red, green, blue, alpha)
+```
+
+Alpha parametri 0.0 (to'liq shaffof) va 1.0 (umuman shaffof bo'lmagan) o'rtasidagi qiymatdir.
+
+```html
+<h1 style="background-color:rgba(255, 99, 71, 0);">To'liq Shaffof</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">50% Shaffof</h1>
+<h1 style="background-color:rgba(255, 99, 71, 1);">Shaffofliksiz</h1>
+```
+
+Bu misollar orqali RGB va RGBA rang qiymatlari yordamida ranglarni qanday boshqarish mumkinligini ko'rishingiz mumkin.

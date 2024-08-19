@@ -1,4 +1,20 @@
 {
   "title": "Core",
-  "pages": ["introduction", "editor", "basic", "elements", "attributes", "..."]
+  "defaultOpen": true,
+  "pages": [
+    "introduction",
+    "editor",
+    "basic",
+    "elements",
+    "attributes",
+    "headings",
+    "paragraphs",
+    "styles",
+    "formatting",
+    "quotation",
+    "comments",
+    "colors",
+    "css",
+    "..."
+  ]
 }
