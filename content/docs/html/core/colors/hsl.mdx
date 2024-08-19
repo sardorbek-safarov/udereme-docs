@@ -1,0 +1,99 @@
+---
+title: HSL va HSLA Ranglar
+description: HTML ranglari HSL (hue, saturation, lightness) yoki HSLA (hue, saturation, lightness, alpha) qiymatlari bilan ko'rsatilishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+### HTML HSL va HSLA Ranglar
+
+HSL "hue, saturation, lightness" (rang, to'yinganlik, yorqinlik) tushunchalarini anglatadi. HSLA esa HSL ning kengaytmasi bo'lib, Alpha kanali (shaffoflik) bilan birga keladi.
+
+#### HSL Rang Qiymatlari
+
+HTML-da rang quyidagi shaklda "hue, saturation, lightness" qiymatlari yordamida ko'rsatilishi mumkin:
+
+`hsl(hue, saturation, lightness)`
+
+- **Hue (rang)**: Rang g'ildiragida 0 dan 360 gacha bo'lgan daraja. 0 - qizil, 120 - yashil, va 240 - ko'k.
+- **Saturation (to'yinganlik)**: Bu foiz qiymatidir. 0% - kul rang, 100% - to'liq rang.
+- **Lightness (yorqinlik)**: Bu ham foiz qiymatidir. 0% - qora, 100% - oq.
+
+Misol uchun:
+
+<ul>
+  <li style={{ color: 'hsl(0, 100%, 50%)' }}>hsl(0, 100%, 50%)</li>
+  <li style={{ color: 'hsl(240, 100%, 50%)' }}>hsl(240, 100%, 50%)</li>
+  <li style={{ color: 'hsl(147, 50%, 47%)' }}>hsl(147, 50%, 47%)</li>
+  <li style={{ color: 'hsl(300, 76%, 72%)' }}>hsl(300, 76%, 72%)</li>
+  <li style={{ color: 'hsl(39, 100%, 50%)' }}>hsl(39, 100%, 50%)</li>
+  <li style={{ color: 'hsl(248, 53%, 58%)' }}>hsl(248, 53%, 58%)</li>
+</ul>
+
+#### To'yinganlik
+
+To'yinganlik rangning intensivligi sifatida ta'riflanishi mumkin.
+
+- **100%** - sof rang, kul rangdan holi.
+- **50%** - 50% kul rang, lekin hali ham rangni ko'rishingiz mumkin.
+- **0%** - to'liq kul rang; rang ko'rinmaydi.
+
+Misol uchun:
+
+<ul>
+  <li style={{ color: 'hsl(0, 100%, 50%)' }}>hsl(0, 100%, 50%)</li>
+  <li style={{ color: 'hsl(0, 80%, 50%)' }}>hsl(0, 80%, 50%)</li>
+  <li style={{ color: 'hsl(0, 60%, 50%)' }}>hsl(0, 60%, 50%)</li>
+  <li style={{ color: 'hsl(0, 40%, 50%)' }}>hsl(0, 40%, 50%)</li>
+  <li style={{ color: 'hsl(0, 20%, 50%)' }}>hsl(0, 20%, 50%)</li>
+  <li style={{ color: 'hsl(0, 0%, 50%)' }}>hsl(0, 0%, 50%)</li>
+</ul>
+
+#### Yorqinlik
+
+Rangning yorqinligi rangga qancha yorug'lik qo'shmoqchi ekanligingizni ta'riflaydi, bu yerda 0% - yorug'liksiz (qora), 50% - na qorong'u, na yorqin, va 100% - to'liq yorqinlik (oq).
+
+Misol uchun:
+
+<ul>
+  <li style={{ color: 'hsl(0, 100%, 0%)' }}>hsl(0, 100%, 0%)</li>
+  <li style={{ color: 'hsl(0, 100%, 25%)' }}>hsl(0, 100%, 25%)</li>
+  <li style={{ color: 'hsl(0, 100%, 50%)' }}>hsl(0, 100%, 50%)</li>
+  <li style={{ color: 'hsl(0, 100%, 75%)' }}>hsl(0, 100%, 75%)</li>
+  <li style={{ color: 'hsl(0, 100%, 90%)' }}>hsl(0, 100%, 90%)</li>
+  <li style={{ color: 'hsl(0, 100%, 100%)' }}>hsl(0, 100%, 100%)</li>
+</ul>
+
+#### Kul Ranglar
+
+Kul ranglar odatda hue va saturation qiymatlarini 0 ga o'rnatib, yorqinlik qiymatlarini 0% dan 100% gacha o'zgartirish orqali aniqlanadi:
+
+Misol uchun:
+
+<ul>
+  <li style={{ color: 'hsl(0, 0%, 20%)' }}>hsl(0, 0%, 20%)</li>
+  <li style={{ color: 'hsl(0, 0%, 30%)' }}>hsl(0, 0%, 30%)</li>
+  <li style={{ color: 'hsl(0, 0%, 40%)' }}>hsl(0, 0%, 40%)</li>
+  <li style={{ color: 'hsl(0, 0%, 60%)' }}>hsl(0, 0%, 60%)</li>
+  <li style={{ color: 'hsl(0, 0%, 70%)' }}>hsl(0, 0%, 70%)</li>
+  <li style={{ color: 'hsl(0, 0%, 90%)' }}>hsl(0, 0%, 90%)</li>
+</ul>
+
+#### HSLA Rang Qiymatlari
+
+HSLA rang qiymatlari HSL qiymatlarining kengaytmasi bo'lib, Alpha kanali (shaffoflik) bilan birga keladi. Alpha parametri 0.0 dan (to'liq shaffof) 1.0 gacha (umuman shaffof emas) bo'lgan qiymatni anglatadi:
+
+`hsla(hue, saturation, lightness, alpha)`
+
+Misol uchun:
+
+<ul>
+  <li style={{ color: 'hsla(9, 100%, 64%, 0)' }}>hsla(9, 100%, 64%, 0)</li>
+  <li style={{ color: 'hsla(9, 100%, 64%, 0.2)' }}>hsla(9, 100%, 64%, 0.2)</li>
+  <li style={{ color: 'hsla(9, 100%, 64%, 0.4)' }}>hsla(9, 100%, 64%, 0.4)</li>
+  <li style={{ color: 'hsla(9, 100%, 64%, 0.6)' }}>hsla(9, 100%, 64%, 0.6)</li>
+  <li style={{ color: 'hsla(9, 100%, 64%, 0.8)' }}>hsla(9, 100%, 64%, 0.8)</li>
+  <li style={{ color: 'hsla(9, 100%, 64%, 1)' }}>hsla(9, 100%, 64%, 1)</li>
+</ul>

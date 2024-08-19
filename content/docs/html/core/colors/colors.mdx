@@ -1,0 +1,85 @@
+---
+title: Colors
+description: HTML ranglari oldindan belgilangan rang nomlari yoki RGB, HEX, HSL, RGBA yoki HSLA qiymatlari bilan ko'rsatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+### HTML Ranglari
+
+HTML ranglari oldindan belgilangan rang nomlari yoki RGB, HEX, HSL, RGBA yoki HSLA qiymatlari bilan ko'rsatiladi.
+
+#### Rang Nomi
+
+HTML-da rang rang nomidan foydalanib ko'rsatilishi mumkin:
+
+<Cards>
+  <Card style={{ backgroundColor: 'tomato', color: 'white', textAlign: 'center' }} title="Tomato" />
+  <Card style={{ backgroundColor: 'Orange', color: 'white', textAlign: 'center' }} title="Orange" />
+  <Card style={{ backgroundColor: 'DodgerBlue', color: 'white', textAlign: 'center' }} title="DodgerBlue" />
+  <Card style={{ backgroundColor: 'MediumSeaGreen', color: 'white', textAlign: 'center' }} title="MediumSeaGreen" />
+  <Card style={{ backgroundColor: 'Gray', color: 'white', textAlign: 'center' }} title="Gray" />
+  <Card style={{ backgroundColor: 'SlateBlue', color: 'white', textAlign: 'center' }} title="SlateBlue" />
+  <Card style={{ backgroundColor: 'Violet', color: 'white', textAlign: 'center' }} title="Violet" />
+  <Card style={{ backgroundColor: 'LightGray', color: 'white', textAlign: 'center' }} title="LightGray" />
+</Cards>
+
+HTML 140 ta standart rang nomlarini qo'llab-quvvatlaydi.
+
+#### Fon Rangi
+
+HTML elementlari uchun fon rangini o'rnatishingiz mumkin:
+
+```html
+<h1 style="background-color:DodgerBlue;">Salom Dunyo</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+```
+
+#### Matn Rangi
+
+Matnning rangini o'rnatishingiz mumkin:
+
+```html
+<h1 style="color:Tomato;">Salom Dunyo</h1>
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+```
+
+#### Chegara Rangi
+
+Chegaralarning rangini o'rnatishingiz mumkin:
+
+```html
+<h1 style="border:2px solid Tomato;">Salom Dunyo</h1>
+<h1 style="border:2px solid DodgerBlue;">Salom Dunyo</h1>
+<h1 style="border:2px solid Violet;">Salom Dunyo</h1>
+```
+
+#### Rang Qiymatlari
+
+HTML-da ranglar RGB qiymatlari, HEX qiymatlari, HSL qiymatlari, RGBA qiymatlari va HSLA qiymatlari yordamida ham ko'rsatilishi mumkin.
+
+Quyidagi uchta `<div>` elementining fon rangi RGB, HEX va HSL qiymatlari bilan o'rnatilgan:
+
+<ul>
+  <li style={{ color: 'rgb(255, 99, 71)' }}>rgb(255, 99, 71)</li>
+  <li style={{ color: '#ff6347' }}>#ff6347</li>
+  <li style={{ color: 'hsl(9, 100%, 64%)' }}>hsl(9, 100%, 64%)</li>
+</ul>
+
+Quyidagi ikkita `<div>` elementining fon rangi RGBA va HSLA qiymatlari bilan o'rnatilgan bo'lib, bu rangga Alpha kanali qo'shadi (bu erda 50% shaffoflik mavjud):
+
+<ul>
+  <li style={{ color: 'rgba(255, 99, 71, 0.5)' }}>rgba(255, 99, 71, 0.5)</li>
+  <li style={{ color: 'hsla(9, 100%, 64%, 0.5)' }}>hsla(9, 100%, 64%, 0.5)</li>
+</ul>
+
+```html
+<h1 style="background-color: rgb(255, 99, 71);">...</h1>
+<h1 style="background-color: #ff6347;">...</h1>
+<h1 style="background-color: hsl(9, 100%, 64%);">...</h1>
+<h1 style="background-color: rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color: hsla(9, 100%, 64%, 0.5);">...</h1>
+```

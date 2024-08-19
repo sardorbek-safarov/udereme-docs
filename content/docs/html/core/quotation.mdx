@@ -1,0 +1,127 @@
+---
+title: HTML Iqtibos va Keltirilgan Manbalar Elementlari
+description: Ushbu bo'limda `<blockquote>`, `<q>`, `<abbr>`, `<address>`, `<cite>` va `<bdo>` HTML elementlarini ko'rib chiqamiz.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+### HTML Iqtibos va Keltirilgan Manbalar Elementlari
+
+<Callout>
+  Ushbu bo'limda `<blockquote>`, `<q>`, `<abbr>`, `<address>`, `<cite>` va `<bdo>` HTML elementlarini ko'rib chiqamiz.
+</Callout>
+
+#### Misol
+Mana WWF saytining iqtibosi:
+
+```html
+60 yil davomida WWF inson va tabiatning rivojlanishiga yordam berish uchun ishladi. WWF, dunyoning yetakchi tabiatni muhofaza qilish tashkiloti sifatida, deyarli 100 mamlakatda faoliyat yuritadi. Har bir darajada biz butun dunyo bo'ylab odamlar bilan hamkorlik qilib, jamiyatlarni, yovvoyi tabiatni va ularning yashash joylarini himoya qilish uchun innovatsion yechimlarni ishlab chiqish va yetkazib berishda hamkorlik qilamiz.
+```
+
+### HTML `<blockquote>` Iqtiboslar uchun
+
+HTML `<blockquote>` elementi boshqa manbadan keltirilgan bo'limni belgilaydi.
+
+Brauzerlar odatda `<blockquote>` elementlarini ichkariga joylashtiradi.
+
+#### Misol
+```html
+<p>Mana WWF saytining iqtibosi:</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+60 yil davomida WWF inson va tabiatning rivojlanishiga yordam berish uchun ishladi. WWF, dunyoning yetakchi tabiatni muhofaza qilish tashkiloti sifatida, deyarli 100 mamlakatda faoliyat yuritadi. Har bir darajada biz butun dunyo bo'ylab odamlar bilan hamkorlik qilib, jamiyatlarni, yovvoyi tabiatni va ularning yashash joylarini himoya qilish uchun innovatsion yechimlarni ishlab chiqish va yetkazib berishda hamkorlik qilamiz.
+</blockquote>
+```
+
+### HTML `<q>` Qisqa Iqtiboslar uchun
+
+HTML `<q>` tegi qisqa iqtibosni belgilaydi.
+
+Brauzerlar odatda iqtibos atrofida qo'shtirnoq qo'yadi.
+
+#### Misol
+```html
+<p>WWFning maqsadi: <q>Odamlar tabiat bilan uyg'unlikda yashaydigan kelajakni yaratish.</q></p>
+```
+
+### HTML `<abbr>` Qisqartmalar uchun
+
+HTML `<abbr>` tegi qisqartma yoki akronimni, masalan, "HTML", "CSS", "Mr.", "Dr.", "ASAP", "ATM" kabi belgilaydi.
+
+Qisqartmalarni belgilash brauzerlarga, tarjima tizimlariga va qidiruv tizimlariga foydali ma'lumotlar berishi mumkin.
+
+**Maslahat:** Global `title` atributidan foydalanib, qisqartma ustiga kursor olib borilganda qisqartma/akronimning tavsifini ko'rsatishingiz mumkin.
+
+#### Misol
+```html
+<p><abbr title="World Health Organization">WHO</abbr> 1948 yilda tashkil etilgan.</p>
+```
+
+### HTML `<address>` Aloqa Ma'lumotlari uchun
+
+HTML `<address>` tegi hujjat yoki maqola muallifi/egasining aloqa ma'lumotlarini belgilaydi.
+
+Aloqa ma'lumotlari elektron pochta manzili, URL, jismoniy manzil, telefon raqami, ijtimoiy media manzili va boshqalar bo'lishi mumkin.
+
+`<address>` elementidagi matn odatda kursivda ko'rinadi va brauzerlar har doim `<address>` elementi oldidan va keyin satr uzilishi qo'shadi.
+
+#### Misol
+```html
+<address>
+  Muallif: Shakhbozbek Usmonov.<br>
+  Bizga tashrif buyuring:<br>
+  miracleprogrammer.com<br>
+  Box 564, Disneyland<br>
+  AQSh
+</address>
+```
+
+### HTML `<cite>` Ish Nomlari uchun
+
+HTML `<cite>` tegi ijodiy ishning nomini (masalan, kitob, she'r, qo'shiq, film, rasm, haykal va boshqalar) belgilaydi.
+
+<Callout type='warn' title='Eslatma'>
+  Shaxsning ismi ish nomi emas.
+</Callout>
+
+`<cite>` elementidagi matn odatda kursivda ko'rinadi.
+
+#### Misol
+```html
+<p><cite>The Scream</cite> Edvard Munch tomonidan. 1893 yilda chizilgan.</p>
+```
+
+### HTML `<bdo>` Ikki Yo'nalishli Matn uchun
+
+<Callout>
+  BDO ikki yo'nalishli matn (Bi-Directional Override) degan ma'noni anglatadi.
+</Callout>
+
+HTML `<bdo>` tegi matn yo'nalishini o'zgartirish uchun ishlatiladi:
+
+#### Misol
+```html
+<bdo dir="rtl">Bu matn o'ngdan chapga yoziladi</bdo>
+```
+
+### HTML Mashqlar
+
+Mashq: "cool" so'zlari atrofida qo'shtirnoq qo'shish uchun HTML elementidan foydalaning.
+
+```html
+<p>
+ Men juda cool.
+</p>
+```
+
+### HTML Iqtibos va Keltirilgan Manbalar Elementlari
+
+| Teg           | Ta'rif                                                    |
+|---------------|-----------------------------------------------------------|
+| `<abbr>`      | Qisqartma yoki akronimni belgilaydi                        |
+| `<address>`   | Hujjat muallifi/egasining aloqa ma'lumotlarini belgilaydi  |
+| `<bdo>`       | Matn yo'nalishini belgilaydi                               |
+| `<blockquote>`| Boshqa manbadan keltirilgan bo'limni belgilaydi            |
+| `<cite>`      | Ish nomini belgilaydi                                      |
+| `<q>`         | Qisqa ichki iqtibosni belgilaydi                           |

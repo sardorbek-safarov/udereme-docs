@@ -1,11 +1,11 @@
-import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
-import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
-import { type DocsLayoutProps } from 'fumadocs-ui/layout';
+import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle'
+import { type HomeLayoutProps } from 'fumadocs-ui/home-layout'
+import { type DocsLayoutProps } from 'fumadocs-ui/layout'
 
-import { NavigationChildren } from '@/app/layout.client';
-import { docs } from '@/app/source';
-import { LogoIcon } from '@/components/icons';
-import { modes } from '@/utils/modes';
+import { NavigationChildren } from '@/app/layout.client'
+import { docs } from '@/app/source'
+import { LogoIcon } from '@/components/icons'
+import { modes } from '@/utils/modes'
 
 // shared configuration
 export const baseOptions: HomeLayoutProps = {
@@ -24,7 +24,6 @@ export const docsOptions: DocsLayoutProps = {
   tree: docs.pageTree,
 
   sidebar: {
-    defaultOpenLevel: 1,
     banner: (
       <RootToggle
         options={modes.map((mode) => ({

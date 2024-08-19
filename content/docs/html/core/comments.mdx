@@ -1,0 +1,72 @@
+---
+title: HTML Izohlar
+description: HTML izohlari brauzerda ko'rinmaydi, ammo ular HTML manba kodini hujjatlashtirishga yordam beradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-19
+---
+
+### HTML Izohlar
+
+HTML manbaingizga quyidagi sintaksis yordamida izohlar qo'shishingiz mumkin:
+
+```html
+<!-- Bu yerga izohlaringizni yozing -->
+```
+
+E'tibor bering, boshlang'ich teglarda undov belgisi (!) mavjud, ammo yakunlovchi teglarda yo'q.
+
+<Callout type='warn' title='Eslatma'>
+  Izohlar brauzerda ko'rinmaydi, ammo ular HTML manba kodini hujjatlashtirishda foydali bo'lishi mumkin.
+</Callout>
+
+### Izohlar Qo'shish
+Izohlar yordamida HTML kodingizga eslatmalar va xabarnomalar joylashtirishingiz mumkin:
+
+#### Misol
+```html
+<!-- Bu izoh -->
+<p>Bu paragraf.</p>
+<!-- Bu yerga ko'proq ma'lumot qo'shishni unutmang -->
+```
+
+### Kontentni Yashirish
+Izohlar yordamida kontentni yashirish mumkin.
+
+Bu kontentni vaqtincha yashirishda foydali bo'lishi mumkin:
+
+#### Misol
+```html
+<p>Bu paragraf.</p>
+<!-- <p>Bu boshqa paragraf</p> -->
+<p>Bu ham paragraf.</p>
+```
+
+Siz bir nechta qatorni ham yashirishingiz mumkin. `<!-- va -->` orasidagi hamma narsa ko'rinmas bo'ladi.
+
+#### Misol
+HTML kodining bir qismini yashirish:
+
+```html
+<p>Bu paragraf.</p>
+<!--
+<p>Mana bu ajoyib rasmga qarang:</p>
+<img border="0" src="pic_trulli.jpg" alt="Trulli">
+-->
+<p>Bu ham paragraf.</p>
+```
+
+<Callout>
+  Izohlar HTML debugging (tuzatish) uchun ham juda yaxshi, chunki HTML kodining qatorlarini birma-bir izohlab chiqib, xatolarni izlash mumkin.
+</Callout>
+
+### Inline Kontentni Yashirish
+Izohlar yordamida HTML kodining o'rtasidagi qismlarni yashirish mumkin.
+
+#### Misol
+Paragrafning bir qismini yashirish:
+
+```html
+<p>Bu <!-- ajoyib matn --> paragraf.</p>
+```
