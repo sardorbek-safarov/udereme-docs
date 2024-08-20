@@ -1,4 +1,5 @@
-import DocsMenu from '@/components/DocsMenu';
+import { modes } from '@/utils/modes';
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
 export default function HomePage() {
   const svg = `<svg width="646" height="719" viewBox="0 0 646 719" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -294,11 +295,25 @@ export default function HomePage() {
         }}
       >
         <h1 className="text-foreground absolute bottom-0 w-full text-start text-4xl font-bold md:bottom-20 md:max-w-[700px] md:text-5xl lg:left-32 lg:text-7xl">
-          Uzbek tilida dasturlash dokumentatsiyasi.
+          O&apos;zbek tilida dasturlash dokumentatsiyasi.
         </h1>
       </div>
 
-      <DocsMenu />
+      <section className="mb-20">
+        <div className="container">
+          <Cards className="md:grid-cols-4">
+            {modes.map((m) => (
+              <Card
+                className="text-2xl font-bold"
+                key={m.param}
+                href={`/docs/${m.param}`}
+                title={m.name}
+                icon={<m.icon />}
+              />
+            ))}
+          </Cards>
+        </div>
+      </section>
     </main>
   );
 }

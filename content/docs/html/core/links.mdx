@@ -1,0 +1,140 @@
+---
+title: HTML Havolalari
+description: Havolalar deyarli barcha veb-sahifalarda mavjud. Havolalar foydalanuvchilarga sahifadan sahifaga o'tish imkonini beradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Havolalari
+Havolalar deyarli barcha veb-sahifalarda mavjud. Havolalar foydalanuvchilarga sahifadan sahifaga o'tish imkonini beradi.
+
+HTML Havolalari - Gipermurojaatlar
+HTML havolalari gipermurojaatlardir.
+Siz havolani bosib, boshqa hujjatga o'tishingiz mumkin.
+
+Sichqonchani havola ustiga olib borganda, kursor kichik qo'l(👆) shakliga aylanadi.
+
+<Callout type='warn' title='Eslatma'>
+  Havola faqat matn bo'lishi shart emas. Havola rasm yoki boshqa HTML elementi bo'lishi mumkin!
+</Callout>
+
+### HTML Havolalari - Sintaksis
+HTML `<a>` teg'i gipermurojaatni aniqlaydi. U quyidagi sintaksisga ega:
+
+`<a href="url">havola matni</a>`
+
+`<a>` elementining eng muhim atributi `href` atributidir, u havolaning manzilini ko'rsatadi.
+
+Havola matni o'quvchi uchun ko'rinadigan qismdir.
+
+Havola matnini bosish o'quvchini ko'rsatilgan URL manziliga olib boradi.
+
+Misol
+Bu misol Udemere.uz saytiga havola yaratishni ko'rsatadi:
+
+`<a href="https://www.udemere.uz/">Udemere.uz saytiga tashrif buyuring!</a>`
+
+Odatiy holatda, barcha brauzerlarda havolalar quyidagi ko'rinishga ega bo'ladi:
+
+- Bosilmagan havola tagiga chizilgan va ko'k rangda
+- Bosilgan havola tagiga chizilgan va binafsha rangda
+- Aktiv havola tagiga chizilgan va qizil rangda
+
+<Callout title='Maslahat'>
+  Havolalar, albatta, CSS bilan uslublantirilishi mumkin, boshqacha ko'rinishga ega bo'lish uchun!
+</Callout>
+
+### HTML Havolalari - `target` Atributi
+Odatiy holatda, bog'langan sahifa joriy brauzer oynasida ko'rsatiladi. Buni o'zgartirish uchun, havola uchun boshqa `target`ni ko'rsatishingiz kerak.
+
+`target` atributi bog'langan hujjatni qayerda ochish kerakligini aniqlaydi.
+
+`target` atributi quyidagi qiymatlardan biriga ega bo'lishi mumkin:
+
+- `_self` - Odatiy. Hujjatni bosilgan oynada/yangi oynada ochadi
+- `_blank` - Hujjatni yangi oynada yoki jildda ochadi
+- `_parent` - Hujjatni ota kadrda ochadi
+- `_top` - Hujjatni oynaning to'liq tanasida ochadi
+
+Misol
+`target="_blank"` dan foydalanib, bog'langan hujjatni yangi brauzer oynasida yoki jildda oching:
+
+`<a href="https://www.w3schools.com/" target="_blank">W3Schools.com saytiga tashrif buyuring!</a>`
+
+Mutlaq URL manzillar vs. Nisbiy URL manzillar
+Yuqoridagi har ikkala misol `href` atributida mutlaq URL (to'liq veb manzil)dan foydalanadi.
+
+Mahalliy havola (bir xil veb-sayt ichidagi sahifaga havola) nisbiy URL bilan aniqlanadi (https://www qismi yo'q):
+
+Misol
+```
+<h2>Mutlaq URL manzillar</h2>
+<p><a href="https://www.w3.org/">W3C</a></p>
+<p><a href="https://www.google.com/">Google</a></p>
+
+<h2>Nisbiy URL manzillar</h2>
+<p><a href="html_images.asp">HTML Images</a></p>
+<p><a href="/css/default.asp">CSS Tutorial</a></p>
+```
+
+### HTML Havolalari - Rasmni Havola sifatida ishlatish
+Rasmni havola sifatida ishlatish uchun, `<img>` tegini `<a>` tegi ichiga joylashtiring:
+
+Misol
+```
+<a href="default.asp">
+<img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;">
+</a>
+```
+
+### Elektron pochta manziliga havola
+Foydalanuvchining elektron pochta dasturini ochish uchun (yangi elektron pochta xabarini yuborish uchun), `href` atributi ichida `mailto:` dan foydalaning:
+
+Misol
+`<a href="mailto:kimdir@example.com">Elektron pochta yuboring</a>`
+
+### Tugmani Havola sifatida ishlatish
+HTML tugmasini havola sifatida ishlatish uchun, JavaScript kodini qo'shishingiz kerak.
+
+JavaScript sizga muayyan hodisalarda, masalan, tugma bosilganda nima bo'lishini aniqlash imkonini beradi:
+
+Misol
+`<button onclick="document.location='/docs/html'">HTML Darsligi</button>`
+
+<Callout title='Maslahat'>
+  JavaScript bo'yicha ko'proq ma'lumot olish uchun bizning JavaScript Darsligimizni o'rganing.
+</Callout>
+
+Havola Sarlavhalari
+`title` atributi element haqida qo'shimcha ma'lumotlarni belgilaydi. Ma'lumotlar ko'pincha kursor element ustiga olib borilganda "tool-tip" matni sifatida ko'rsatiladi.
+
+Misol
+`<a href="https://www.udemere.uz/docs/html/" title="Udemere HTML bo'limiga o'ting">HTML Darsligimizga tashrif buyuring</a>`
+
+### Mutlaq URL manzillari va Nisbiy URL manzillari haqida ko'proq
+Misol
+To'liq URL manzildan foydalanib, veb sahifaga havola qiling:
+
+`<a href="https://www.udemere.uz/docs/html">HTML darsligi</a>`
+
+Misol
+Joriy veb-saytdagi html papkasida joylashgan sahifaga havola:
+
+`<a href="/docs/html">HTML darsligi</a>`
+
+Misol
+Joriy sahifa joylashgan papkada joylashgan sahifaga havola:
+
+`<a href="/docs/html">HTML darsligi</a>`
+
+Fayl yo'llari haqida batafsil ma'lumotni HTML Fayl Yo'llari bo'limida o'qishingiz mumkin.
+
+### Bo'lim Xulosasi
+- Havolani aniqlash uchun `<a>` elementidan foydalaning
+- Havola manzilini aniqlash uchun `href` atributidan foydalaning
+- Bog'langan hujjatni qayerda ochishni aniqlash uchun `target` atributidan foydalaning
+- Rasmni havola sifatida ishlatish uchun `<img>` elementidan (ichida `<a>` mavjud) foydalaning
+- Foydalanuvchining elektron pochta dasturini ochadigan havola yaratish uchun `href` atributi ichida `mailto:` sxemasidan foydalaning
+

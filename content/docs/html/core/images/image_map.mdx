@@ -1,0 +1,177 @@
+---
+title: HTML Rasm Xaritalari (Image Maps)
+description: HTML rasm xaritalari yordamida rasmda bosish mumkin bo'lgan sohalarni yaratishingiz mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+import Image from 'next/image';
+
+## HTML Rasm Xaritalari (Image Maps)
+
+HTML rasm xaritalari yordamida rasmda bosish mumkin bo'lgan sohalarni yaratishingiz mumkin.
+
+**Rasm Xaritalari**
+HTML `<map>` tegi rasm xaritasini aniqlaydi. Rasm xaritasi - bosish mumkin bo'lgan sohalar bilan rasm. Ushbu sohalar bir yoki bir nechta `<area>` teglar bilan belgilanadi.
+
+Quyidagi rasmda kompyuter, telefon yoki qahva krujkasi ustiga bosing:
+
+<Image
+  className="rounded-md"
+  src="/images/html/workplace.jpg"
+  width="400"
+  height="379"
+  alt="Workplace"
+  useMap="#workmap"
+/>
+<map name="workmap">
+  <area
+    shape="rect"
+    coords="34,44,270,350"
+    alt="Computer"
+    href="https://www.apple.com/uz/macbook-pro/"
+    target="_blank"
+  />
+  <area shape="rect" coords="290,172,333,250" alt="Phone" href="https://www.apple.com/uz/iphone/" target="_blank" />
+  <area shape="circle" coords="337,300,44" alt="Coffee" href="https://en.wikipedia.org/wiki/Coffee" target="_blank" />
+</map>
+
+**Ish joyi**
+Misol:
+Quyida yuqoridagi rasm xaritasi uchun HTML manba kodini ko'rishingiz mumkin:
+
+```html
+<img src="workplace.jpg" alt="Ish joyi" usemap="#workmap" />
+
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Kompyuter" href="computer.htm" />
+  <area shape="rect" coords="290,172,333,250" alt="Telefon" href="phone.htm" />
+  <area shape="circle" coords="337,300,44" alt="Qahva" href="coffee.htm" />
+</map>
+```
+
+<Callout title="Bu qanday ishlaydi?">
+  Rasm xaritasi orqasidagi g'oya shundaki, rasmda qayerga bosishingizga qarab turli harakatlarni amalga oshirishingiz
+  kerak.
+</Callout>
+
+Rasm xaritasi yaratish uchun sizga rasm va bosish mumkin bo'lgan sohalarni tasvirlaydigan HTML kod kerak bo'ladi.
+
+**Rasm**
+Rasm `<img>` tegi yordamida joylashtiriladi. Boshqa rasmlardan farqi shundaki, siz `usemap` atributini qo'shishingiz kerak:
+
+```html
+<img src="workplace.jpg" alt="Ish joyi" usemap="#workmap" />
+```
+
+`usemap` qiymati `#` belgisi bilan boshlanadi va rasm va rasm xaritasi o'rtasida bog'lanish yaratish uchun ishlatiladi.
+
+<Callout title="Maslahat">Har qanday rasmni rasm xaritasi sifatida ishlatishingiz mumkin!</Callout>
+
+## Rasm Xaritasini Yaratish
+
+Keyin, `<map>` elementini qo'shing.
+
+`<map>` elementi rasm xaritasini yaratish uchun ishlatiladi va talab qilinadigan `name` atributidan foydalanib rasmga bog'lanadi:
+
+```html
+<map name="workmap"></map>
+```
+
+`name` atributining qiymati `<img>` tegi `usemap` atributining qiymati bilan bir xil bo'lishi kerak.
+
+**Sohalar**
+Keyin, bosish mumkin bo'lgan sohalarni qo'shing.
+
+Bosish mumkin bo'lgan soha `<area>` elementi yordamida aniqlanadi.
+
+**Shakl**
+Siz bosish mumkin bo'lgan sohaga shakl berishingiz kerak va quyidagi qiymatlardan birini tanlashingiz mumkin:
+
+- `rect` - to'rtburchakli hududni belgilaydi
+- `circle` - dumaloq hududni belgilaydi
+- `poly` - ko'pburchakli hududni belgilaydi
+- `default` - butun hududni belgilaydi
+
+Shuningdek, bosish mumkin bo'lgan sohani rasmga joylashtirish uchun ba'zi koordinatalarni aniqlashingiz kerak.
+
+---
+
+**Shakl="rect"**
+`shape="rect"` uchun koordinatalar juftliklarda keladi, biri x o'qida, ikkinchisi y o'qida.
+
+<Image className="rounded-md" src="/images/html/shape_1.png" width="400" height="379" alt="Rect" />
+
+Misol:
+```html
+<area shape="rect" coords="34, 44, 270, 350" href="https://www.apple.com/uz/macbook-pro/" />
+```
+<Image className="rounded-md" src="/images/html/shape_2.png" width="400" height="379" alt="Rect" />
+
+Bu soha bosish mumkin bo'lgan joy bo'lib, foydalanuvchini "https://www.apple.com/uz/macbook-pro/" sahifasiga yo'naltiradi.
+
+<Image className="rounded-md" src="/images/html/shape_3.png" width="400" height="379" alt="Rect" />
+
+**Shakl="circle"**
+Dumaloq soha qo'shish uchun avval dumaloq markazining koordinatalarini aniqlang:
+
+<Image className="rounded-md" src="/images/html/shape_4.png" width="400" height="379" alt="Circle" />
+
+Misol:
+
+```html
+<area shape="circle" coords="337, 300, 44" href="https://en.wikipedia.org/wiki/Coffee" />
+```
+
+<Image className="rounded-md" src="/images/html/shape_5.png" width="400" height="379" alt="Circle" />
+
+Bu soha bosish mumkin bo'lgan joy bo'lib, foydalanuvchini "https://en.wikipedia.org/wiki/Coffee" sahifasiga yo'naltiradi.
+
+<Image className="rounded-md" src="/images/html/shape_6.png" width="400" height="379" alt="Circle" />
+
+**Shakl="poly"**
+`shape="poly"` bir necha koordinata nuqtalarini o'z ichiga oladi, bu esa to'g'ri chiziqlar bilan shakllangan ko'pburchakni yaratadi.
+
+<Image className="rounded-md" src="/images/html/shape_7.png" width="400" height="379" alt="Poly" />
+
+Misol:
+
+```html
+<area
+  shape="poly"
+  coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,103,161,128,147"
+  href="https://en.wikipedia.org/wiki/Croissant"
+/>
+```
+
+<Image className="rounded-md" src="/images/html/shape_8.png" width="400" height="379" alt="Poly" />
+
+Bu soha bosish mumkin bo'lgan joy bo'lib, foydalanuvchini "https://en.wikipedia.org/wiki/Croissant" sahifasiga yo'naltiradi.
+
+<Image className="rounded-md" src="/images/html/shape_9.png" width="400" height="379" alt="Poly" />
+
+## Rasm Xarita va JavaScript
+
+Bosish mumkin bo'lgan soha JavaScript funksiyasini ham ishga tushirishi mumkin.
+
+Misol:
+
+```html
+<map name="workmap">
+  <area shape="circle" coords="337,300,44" href="coffee.htm" onclick="myFunction()" />
+</map>
+
+<script>
+  function myFunction() {
+    alert('Siz qahva krujkasiga bosdingiz!');
+  }
+</script>
+```
+
+## Bo'lim Xulosasi
+
+- HTML `<map>` elementi yordamida rasm xaritasini aniqlang
+- HTML `<area>` elementi yordamida rasm xaritasidagi bosish mumkin bo'lgan sohalarni aniqlang
+- HTML `<img>` elementining `usemap` atributidan rasm xaritasini ko'rsatish uchun foydalaning

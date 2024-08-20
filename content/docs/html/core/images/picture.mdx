@@ -1,0 +1,67 @@
+---
+title: HTML `<picture>` Elementi
+description: HTML `<picture>` elementi sizga turli qurilmalar yoki ekran o'lchamlari uchun turli rasmlarni ko'rsatishga imkon beradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML `<picture>` Elementi
+
+HTML `<picture>` elementi sizga turli qurilmalar yoki ekran o'lchamlari uchun turli rasmlarni ko'rsatishga imkon beradi.
+
+### HTML `<picture>` Elementi
+HTML `<picture>` elementi veb-dasturchilarga rasm resurslarini belgilashda ko'proq moslashuvchanlik beradi.
+
+`<picture>` elementi bir yoki bir nechta `<source>` elementlarini o'z ichiga oladi, ularning har biri `srcset` atributi orqali turli rasmlarga murojaat qiladi. Bu usul orqali brauzer joriy ko'rinish va/yoki qurilma uchun eng mos keladigan rasmni tanlashi mumkin.
+
+Har bir `<source>` elementi qachon rasmning eng mos ekanligini belgilaydigan `media` atributiga ega.
+
+**Misol**
+Turli ekran o'lchamlari uchun turli rasmlarni ko'rsating:
+
+```html
+<picture>
+  <source media="(min-width: 650px)" srcset="img_food.jpg">
+  <source media="(min-width: 465px)" srcset="img_car.jpg">
+  <img src="img_girl.jpg">
+</picture>
+```
+
+<Callout type='warn' title="Eslatma">
+  Har doim `<picture>` elementining so'nggi farzand elementi sifatida `<img>` elementini ko'rsating. `<img>` elementi `<picture>` elementini qo'llab-quvvatlamaydigan brauzerlar yoki `<source>` teglarining hech biri mos kelmasa ishlatiladi.
+</Callout>
+
+## Qachon `<picture>` Elementidan Foydalanish Kerak
+`<picture>` elementining ikkita asosiy maqsadi bor:
+
+1. **Trafik hajmi (Bandwidth)**
+   Agar sizda kichik ekran yoki qurilma bo'lsa, katta rasm faylini yuklash shart emas. Brauzer mos keladigan atribut qiymatlari bilan birinchi `<source>` elementini ishlatadi va keyingi elementlarni e'tiborsiz qoldiradi.
+
+2. **Formatni qo'llab-quvvatlash (Format Support)**
+   Ba'zi brauzerlar yoki qurilmalar barcha rasm formatlarini qo'llab-quvvatlamasligi mumkin. `<picture>` elementidan foydalanib, barcha formatlardagi rasmlarni qo'shishingiz mumkin va brauzer birinchi tanigan formatni ishlatadi, qolgan elementlarni esa e'tiborsiz qoldiradi.
+
+**Misol**
+Brauzer tanigan birinchi rasm formatini ishlatadi:
+
+```html
+<picture>
+  <source srcset="img_avatar.png">
+  <source srcset="img_girl.jpg">
+  <img src="img_beatles.gif" alt="Beatles" style="width:auto;">
+</picture>
+```
+
+<Callout type='warn' title="Eslatma">
+  Brauzer mos keladigan atribut qiymatlari bilan birinchi `<source>` elementini ishlatadi va keyingi `<source>` elementlarini e'tiborsiz qoldiradi.
+</Callout>
+
+**HTML Rasm Teglari**
+
+| Teg      | Tavsif                                           |
+|----------|--------------------------------------------------|
+| `<img>`  | Rasmni aniqlaydi                                 |
+| `<map>`  | Rasm xaritasini aniqlaydi                        |
+| `<area>` | Rasm xaritasidagi bosiladigan maydonni aniqlaydi |
+| `<picture>` | Bir nechta rasm resurslari uchun konteynerni aniqlaydi |
