@@ -1,5 +1,4 @@
 import DocsMenu from '@/components/DocsMenu';
-import SiteFooter from '@/components/SiteFooter';
 
 export default function HomePage() {
   const svg = `<svg width="646" height="719" viewBox="0 0 646 719" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -287,23 +286,19 @@ export default function HomePage() {
 `;
 
   return (
-    <>
-      <main className="container max-sm:px-0">
-        <div
-          className="relative mb-10 h-[calc(100vh-300px)] w-full bg-contain bg-[position:center_0] bg-no-repeat px-4 lg:bg-[position:800px_top]"
-          style={{
-            backgroundImage: [`url("data:image/svg+xml,${encodeURIComponent(svg)}")`].join(', '),
-          }}
-        >
-          <h1 className="text-foreground absolute bottom-0 w-full text-start text-4xl font-bold md:bottom-20 md:max-w-[700px] md:text-5xl lg:left-32 lg:text-7xl">
-            Uzbek tilida dasturlash dokumentatsiyasi.
-          </h1>
-        </div>
+    <main className="container max-sm:px-0">
+      <div
+        className="relative mb-10 h-[calc(100vh-300px)] w-full bg-contain bg-[position:center_0] bg-no-repeat px-4 lg:bg-[position:800px_top]"
+        style={{
+          backgroundImage: [`url("data:image/svg+xml,${encodeURIComponent(svg)}")`].join(', '),
+        }}
+      >
+        <h1 className="text-foreground absolute bottom-0 w-full text-start text-4xl font-bold md:bottom-20 md:max-w-[700px] md:text-5xl lg:left-32 lg:text-7xl">
+          Uzbek tilida dasturlash dokumentatsiyasi.
+        </h1>
+      </div>
 
-        <DocsMenu />
-      </main>
-
-      <SiteFooter />
-    </>
+      <DocsMenu />
+    </main>
   );
 }
