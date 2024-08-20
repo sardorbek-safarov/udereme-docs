@@ -1,0 +1,173 @@
+---
+title: HTML `class` Atributi
+description: HTML `class` atributi HTML elementlariga sinfni belgilash uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML `class` Atributi
+
+HTML `class` atributi HTML elementlariga sinfni belgilash uchun ishlatiladi.
+
+#### `class` Atributini Ishlatish
+`class` atributi ko'pincha uslub varaqasida sinf nomiga murojaat qilish uchun ishlatiladi. Shuningdek, JavaScript orqali ma'lum sinf nomiga ega elementlarga kirish va ularni manipulyatsiya qilish uchun ham ishlatilishi mumkin.
+
+Quyidagi misolda uchta `<div>` elementi "city" sinf atributiga ega. Uchta `<div>` elementi ham `head` bo'limidagi `.city` uslub ta'rifiga ko'ra bir xil tarzda uslubga ega bo'ladi:
+
+**Misol:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.city {
+  background-color: tomato;
+  color: white;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="city">
+  <h2>London</h2>
+  <p>London is the capital of England.</p>
+</div>
+
+<div class="city">
+  <h2>Paris</h2>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div class="city">
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+</body>
+</html>
+```
+
+Quyidagi misolda ikkita `<span>` elementi "note" sinf atributiga ega. Ikkala `<span>` elementi ham `head` bo'limidagi `.note` uslub ta'rifiga ko'ra bir xil tarzda uslubga ega bo'ladi:
+
+**Misol:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.note {
+  font-size: 120%;
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>My <span class="note">Important</span> Heading</h1>
+<p>This is some <span class="note">important</span> text.</p>
+
+</body>
+</html>
+```
+
+**Maslahat:** `class` atributi har qanday HTML elementida ishlatilishi mumkin.
+
+<Callout type="warn" title="Eslatma">
+  Sinf nomi katta-kichik harflarga sezgir (case sensitive)!
+</Callout>
+
+**Maslahat:** CSS haqida ko'proq ma'lumot olish uchun CSS darsligimizni o'rganing.
+
+#### Sinf Yaratish Sintaksisi
+Sinf yaratish uchun; nuqta (.) belgisini yozing, keyin sinf nomini yozing. So'ngra, CSS xususiyatlarini qavs ichida {} aniqlang:
+
+**Misol:**
+"city" nomli sinfni yaratish:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.city {
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<h2 class="city">London</h2>
+<p>London is the capital of England.</p>
+
+<h2 class="city">Paris</h2>
+<p>Paris is the capital of France.</p>
+
+<h2 class="city">Tokyo</h2>
+<p>Tokyo is the capital of Japan.</p>
+
+</body>
+</html>
+```
+
+#### Bir nechta Sinflar
+HTML elementlari bir nechta sinflarga mansub bo'lishi mumkin.
+
+Bir nechta sinflarni belgilash uchun sinf nomlarini bo'sh joy bilan ajrating, masalan, `<div class="city main">`. Element barcha ko'rsatilgan sinflarga qarab uslubga ega bo'ladi.
+
+Quyidagi misolda birinchi `<h2>` elementi ham "city" sinfiga, ham "main" sinfiga ega bo'ladi va ikkala sinfdan ham CSS uslublarini oladi:
+
+**Misol:**
+```html
+<h2 class="city main">London</h2>
+<h2 class="city">Paris</h2>
+<h2 class="city">Tokyo</h2>
+```
+
+#### Turli Elementlar Bir Xil Sinfga Ega Bo'lishi
+Turli HTML elementlari bir xil sinf nomiga ega bo'lishi mumkin.
+
+Quyidagi misolda, `<h2>` va `<p>` elementlari "city" sinfiga ega va bir xil uslubga ega bo'ladi:
+
+**Misol:**
+```html
+<h2 class="city">Paris</h2>
+<p class="city">Paris is the capital of France</p>
+```
+
+#### JavaScript'da `class` Atributidan Foydalanish
+Sinf nomidan JavaScript orqali ma'lum elementlarga tegishli amallarni bajarish uchun foydalanish mumkin.
+
+JavaScript `getElementsByClassName()` metodidan foydalanib, ma'lum sinf nomiga ega elementlarga kirish mumkin:
+
+**Misol:**
+Klik qilinganda barcha "city" sinfiga ega elementlarni yashirish:
+
+```html
+<script>
+function myFunction() {
+  var x = document.getElementsByClassName("city");
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+}
+</script>
+```
+
+<Callout type="warn" title="Eslatma">
+  Yuqoridagi kodni tushunmasangiz ham xavotir olmang. JavaScript haqida ko'proq ma'lumot olish uchun HTML JavaScript bo'limini o'rganing yoki JavaScript darsligimizni o'qib chiqing.
+</Callout>
+
+#### Bobni Yakunlash
+- HTML `class` atributi bir yoki bir nechta sinf nomlarini elementga belgilaydi.
+- Sinflar CSS va JavaScript orqali maxsus elementlarni tanlash va ularga murojaat qilish uchun ishlatiladi.
+- `class` atributi har qanday HTML elementida ishlatilishi mumkin.
+- Sinf nomi katta-kichik harflarga sezgir.
+- Turli HTML elementlari bir xil sinf nomiga ega bo'lishi mumkin.
+- JavaScript ma'lum sinf nomiga ega elementlarga `getElementsByClassName()` metodi orqali kirish mumkin.

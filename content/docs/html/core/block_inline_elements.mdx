@@ -1,0 +1,94 @@
+---
+title: HTML Blok va Inline Elementlar
+description: Har bir HTML elementi o'zining standart ko'rsatish qiymatiga ega bo'lib, bu elementning turiga qarab farqlanadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Blok va Inline Elementlar
+
+Har bir HTML elementi o'zining standart ko'rsatish qiymatiga ega bo'lib, bu elementning turiga qarab farqlanadi.
+
+Eng keng tarqalgan ikkita ko'rsatish qiymati blok va inline.
+
+#### Blok Darajasidagi Elementlar
+Blok darajasidagi element har doim yangi qatorni boshlaydi va brauzerlar avtomatik ravishda element oldidan va orqasidan ba'zi joy (margin) qo'shadi.
+
+Blok darajasidagi element har doim mavjud bo'lgan to'liq kenglikni egallaydi (chap va o'ngga cho'ziladi).
+
+Tez-tez ishlatiladigan blok elementlarga `<p>` va `<div>` kiradi.
+
+- `<p>` elementi HTML hujjatida bir paragrafni belgilaydi.
+- `<div>` elementi HTML hujjatida bo'lim yoki qismini belgilaydi.
+
+**Misol:**
+```html
+<p>Hello World</p>
+<div>Hello World</div>
+```
+
+HTML-da blok darajasidagi elementlar ro'yxati:
+`<address> <article> <aside> <blockquote> <canvas> <dd> <div> <dl> <dt> <fieldset> <figcaption> <figure> <footer> <form> <h1>-<h6> <header> <hr> <li> <main> <nav> <noscript> <ol> <p> <pre> <section> <table> <tfoot> <ul> <video>`
+
+#### Inline Elementlar
+Inline element yangi qatorni boshlamaydi.
+
+Inline element faqat zarur bo'lgan kenglikni egallaydi.
+
+Bu `<span>` elementi bir paragraf ichida:
+
+**Misol:**
+```html
+<span>Hello World</span>
+```
+
+HTML-da inline elementlar ro'yxati:
+`<a> <abbr> <acronym> <b> <bdo> <big> <br> <button> <cite> <code> <dfn> <em> <i> <img> <input> <kbd> <label> <map> <object> <output> <q> <samp> <script> <select> <small> <span> <strong> <sub> <sup> <textarea> <time> <tt> <var>`
+
+<Callout type="warn" title="Eslatma">
+  Inline element blok darajasidagi elementlarni o'z ichiga ololmaydi!
+</Callout>
+
+#### `<div>` Elementi
+`<div>` elementi ko'pincha boshqa HTML elementlari uchun konteyner sifatida ishlatiladi.
+
+`<div>` elementining majburiy atributlari yo'q, ammo `style`, `class` va `id` atributlari keng tarqalgan.
+
+CSS bilan birga ishlatilganda, `<div>` elementi kontent bloklarini uslublashtirish uchun ishlatilishi mumkin:
+
+**Misol:**
+```html
+<div style="background-color:black;color:white;padding:20px;">
+  <h2>London</h2>
+  <p>London Angliyaning poytaxti. Bu Qo'shma Shtatlarning eng ko'p aholi yashaydigan shahri bo'lib, metropolitan hududi 13 milliondan ortiq aholiga ega.</p>
+</div>
+```
+
+`<div>` elementi haqida keyingi bobda ko'proq bilib olasiz.
+
+#### `<span>` Elementi
+`<span>` elementi matnning yoki hujjatning bir qismini belgilash uchun inline konteyner sifatida ishlatiladi.
+
+`<span>` elementining majburiy atributlari yo'q, ammo `style`, `class` va `id` atributlari keng tarqalgan.
+
+CSS bilan birga ishlatilganda, `<span>` elementi matnning qismlarini uslublashtirish uchun ishlatilishi mumkin:
+
+**Misol:**
+```html
+<p>Ongimda <span style="color:blue;font-weight:bold;">ko'k</span> ko'zlarim va otamda <span style="color:darkolivegreen;font-weight:bold;">qora yashil</span> ko'zlarim bor.</p>
+```
+
+#### Bobni Yig'ish
+- Blok darajasidagi element har doim yangi qatorni boshlaydi va mavjud bo'lgan to'liq kenglikni egallaydi.
+- Inline element yangi qatorni boshlamaydi va faqat zarur bo'lgan kenglikni egallaydi.
+- `<div>` elementi blok darajasidagi bo'lib, ko'pincha boshqa HTML elementlari uchun konteyner sifatida ishlatiladi.
+- `<span>` elementi inline konteyner bo'lib, matnning yoki hujjatning bir qismini belgilash uchun ishlatiladi.
+
+#### HTML Teglari
+
+| Teg  | Ta'rif  |
+|------|---------|
+| `<div>` | Hujjatda bo'lim belgilaydi (blok darajasida) |
+| `<span>` | Hujjatda bo'lim belgilaydi (inline) |

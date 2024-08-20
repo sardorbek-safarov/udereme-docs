@@ -1,0 +1,162 @@
+---
+title: HTML Tartibli Ro'yxatlar
+description: HTML `<ol>` tegi tartibli ro'yxatni belgilaydi. Tartibli ro'yxat raqamli yoki harfli bo'lishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Tartibli Ro'yxatlar
+
+HTML `<ol>` tegi tartibli ro'yxatni belgilaydi. Tartibli ro'yxat raqamli yoki harfli bo'lishi mumkin.
+
+#### Tartibli HTML Ro'yxati
+
+Tartibli ro'yxat `<ol>` tegi bilan boshlanadi. Har bir ro'yxat elementi `<li>` tegi bilan boshlanadi.
+
+Ro'yxat elementlari odatda raqamlar bilan belgilangan bo'ladi:
+
+**Misol:**
+
+```html
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+#### Tartibli HTML Ro'yxati - Type Attribute
+
+`<ol>` tegining `type` atributi ro'yxat elementi belgisining turini belgilaydi:
+
+| Type       | Ta'rif                                                             |
+| ---------- | ------------------------------------------------------------------ |
+| `type="1"` | Ro'yxat elementlari raqamlar bilan belgilangan bo'ladi (standart)  |
+| `type="A"` | Ro'yxat elementlari katta harflar bilan belgilangan bo'ladi        |
+| `type="a"` | Ro'yxat elementlari kichik harflar bilan belgilangan bo'ladi       |
+| `type="I"` | Ro'yxat elementlari katta rim raqamlari bilan belgilangan bo'ladi  |
+| `type="i"` | Ro'yxat elementlari kichik rim raqamlari bilan belgilangan bo'ladi |
+
+**Misol - Raqamlar:**
+
+```html
+<ol type="1">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+**Misol - Katta Harflar:**
+
+```html
+<ol type="A">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+**Misol - Kichik Harflar:**
+
+```html
+<ol type="a">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+**Misol - Katta Rim Raqamlari:**
+
+```html
+<ol type="I">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+**Misol - Kichik Rim Raqamlari:**
+
+```html
+<ol type="i">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+#### Ro'yxat Hisoblashni Nazorat Qilish
+
+Standart bo'yicha, tartibli ro'yxat 1 dan hisoblaydi. Agar siz hisoblashni belgilangan raqamdan boshlashni xohlasangiz, `start` atributidan foydalanishingiz mumkin:
+
+**Misol:**
+
+```html
+<ol start="50">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+#### Ichki HTML Ro'yxatlar
+
+Ro'yxatlar ichki ro'yxatlar bilan o'zaro bog'lanishi mumkin (ro'yxat ichida ro'yxat):
+
+**Misol:**
+
+```html
+<ol>
+  <li>Coffee</li>
+  <li>
+    Tea
+    <ol>
+      <li>Black tea</li>
+      <li>Green tea</li>
+    </ol>
+  </li>
+  <li>Milk</li>
+</ol>
+```
+
+<Callout type='warn' title='Eslatma'>
+  Ro'yxat elementi (`<li>`) yangi ro'yxat va boshqa HTML elementlarini, masalan, rasm va havolalar kabi, o'z ichiga olishi mumkin.
+</Callout>
+
+#### Bobni Yig'ish
+
+- HTML `<ol>` elementidan tartibli ro'yxatni belgilash uchun foydalaning.
+- Ro'yxat elementlarini raqam, harf yoki rim raqamlari bilan belgilash uchun HTML `type` atributidan foydalaning.
+- HTML `<li>` elementidan ro'yxat elementini belgilash uchun foydalaning.
+- Ro'yxatlar ichki ro'yxatlar bilan o'zaro bog'lanishi mumkin.
+- Ro'yxat elementlari boshqa HTML elementlarini o'z ichiga olishi mumkin.
+
+#### HTML Mashqlari
+
+Mashqlar orqali o'zingizni sinab ko'ring:
+
+**Mashq:**
+Tartibli ro'yxatni tugating:
+
+```html
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```
+
+#### HTML Ro'yxat Teglari
+
+| Teg    | Ta'rif                                              |
+| ------ | --------------------------------------------------- |
+| `<ul>` | Tartibsiz ro'yxatni belgilaydi                      |
+| `<ol>` | Tartibli ro'yxatni belgilaydi                       |
+| `<li>` | Ro'yxat elementini belgilaydi                       |
+| `<dl>` | Tavsif ro'yxatini belgilaydi                        |
+| `<dt>` | Tavsif ro'yxatidagi terminni belgilaydi             |
+| `<dd>` | Tavsif ro'yxatidagi terminning ta'rifini belgilaydi |

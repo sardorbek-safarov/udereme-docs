@@ -1,0 +1,159 @@
+---
+title: HTML Jadval Sarlavhalari
+description: HTML jadvallari har bir ustun yoki qator uchun, yoki ko'plab ustunlar/qatorlar uchun sarlavhalarga ega bo'lishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+### HTML Jadval Sarlavhalari
+
+HTML jadvallari har bir ustun yoki qator uchun, yoki ko'plab ustunlar/qatorlar uchun sarlavhalarga ega bo'lishi mumkin.
+
+#### Jadval Sarlavhalarini Aniqlash
+
+Jadval sarlavhalari `th` elementlari bilan aniqlanadi. Har bir `th` elementi jadvalning bir hujayrasini ifodalaydi.
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+#### Vertikal Jadval Sarlavhalari
+
+Birinchi ustunni jadval sarlavhalari sifatida ishlatish uchun, har bir qatordagi birinchi hujayrani `th` elementi sifatida aniqlang:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Firstname</th>
+    <td>Jill</td>
+    <td>Eve</td>
+  </tr>
+  <tr>
+    <th>Lastname</th>
+    <td>Smith</td>
+    <td>Jackson</td>
+  </tr>
+  <tr>
+    <th>Age</th>
+    <td>50</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+#### Jadval Sarlavhalarini Tekislash
+
+Jadval sarlavhalari odatda qalin va markazda bo'ladi:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+Jadval sarlavhalarini chapga tekislash uchun CSS `text-align` xususiyatidan foydalaning:
+
+**Misol:**
+
+```html
+<style>
+  th {
+    text-align: left;
+  }
+</style>
+```
+
+#### Bir Necha Ustunlar uchun Sarlavha
+
+Ikki yoki undan ko'p ustunni qamrab oluvchi sarlavhaga ega bo'lishingiz mumkin.
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th colspan="2">Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+Bu uchun `th` elementida `colspan` atributidan foydalaning.
+
+#### Jadval uchun Caption
+
+Jadval uchun sarlavha sifatida xizmat qiluvchi caption qo'shishingiz mumkin.
+
+**Misol:**
+
+```html
+<table style="width:100%">
+  <caption>
+    Monthly savings
+  </caption>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>$50</td>
+  </tr>
+</table>
+```
+
+<Callout type="warn" title="Eslatma">
+  `<caption>` tegi `<table>` tegidan keyin darhol kiritilishi kerak.
+</Callout>

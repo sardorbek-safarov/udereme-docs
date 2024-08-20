@@ -1,0 +1,97 @@
+---
+title: HTML Jadval O'lchamlari
+description: HTML jadvallarining har bir ustuni, qatori yoki butun jadval turli o'lchamlarga ega bo'lishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+### HTML Jadval O'lchamlari
+HTML jadvallarining har bir ustuni, qatori yoki butun jadval turli o'lchamlarga ega bo'lishi mumkin.
+
+#### Jadvalning O'lchamini Belgilash
+Jadvalning, qatorning yoki ustunning o'lchamini belgilash uchun `width` yoki `height` xususiyatlarini `style` atributi orqali ishlatishingiz mumkin.
+
+#### HTML Jadval Kengligi
+Jadvalning kengligini belgilash uchun `<table>` elementiga `style` atributini qo'shing.
+
+**Misol:**
+Jadvalning kengligini 100% ga o'rnating:
+```html
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+<Callout type="warn" title="Eslatma">
+  Kenglik uchun foiz sifatida o'lcham birligini ishlatish, ushbu elementning kengligi ota elementga (bu holda `<body>` elementi) nisbatan qanday bo'lishini bildiradi.
+</Callout>
+
+#### HTML Jadval Ustunining Kengligi
+Muayyan ustunning o'lchamini belgilash uchun `style` atributini `<th>` yoki `<td>` elementiga qo'shing.
+
+**Misol:**
+Birinchi ustunning kengligini 70% ga o'rnating:
+```html
+<table style="width:100%">
+  <tr>
+    <th style="width:70%">Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+#### HTML Jadval Qatorining Balandligi
+Muayyan qatorning balandligini belgilash uchun `style` atributini qator elementiga qo'shing.
+
+**Misol:**
+Ikkinchi qatorning balandligini 200 pikselga o'rnating:
+```html
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr style="height:200px">
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+```
+
+<Callout>
+  Bu usul orqali jadval ustunlari va qatorlarining o'lchamlarini osongina boshqarishingiz mumkin.
+</Callout>
