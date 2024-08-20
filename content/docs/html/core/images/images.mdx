@@ -1,0 +1,268 @@
+---
+title: HTML img
+description: Rasmlar veb-sahifaning dizayni va tashqi ko‘rinishini yaxshilashi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+import Image from 'next/image';
+
+## HTML img
+
+Rasmlar veb-sahifaning dizayni va tashqi ko‘rinishini yaxshilashi mumkin.
+<div className="grid grid-cols-3 gap-4">
+    <Image className='rounded-md' src='/images/html/cat.jpg' width='300' height='300' alt='Mushuk rasmi'/>
+    <Image className='rounded-md' src='/images/html/cat_2.webp' width='300' height='300' alt='Mushuk rasmi'/>
+    <Image className='rounded-md' src='/images/html/cat_3.jpg' width='300' height='300' alt='Mushuk rasmi'/>
+</div>
+
+Misol:
+
+```html
+<img src="cat.jpg" alt="Italian Trulli" />
+```
+
+Misol:
+
+```html
+<img src="cat_2.jpg" alt="Girl in a jacket" />
+```
+
+Misol:
+
+```html
+<img src="img_chania.jpg" alt="Flowers in Chania" />
+```
+
+### HTML Rasmlar Sintaksisi
+
+HTML `<img>` tegi veb-sahifaga rasm qo'shish uchun ishlatiladi.
+
+Rasmlar texnik jihatdan veb-sahifaga kiritilmaydi; rasmlar veb-sahifalarga bog'lanadi. `<img>` tegi havola qilingan rasm uchun joy ajratadi.
+
+`<img>` tegi bo'sh, u faqat atributlardan iborat bo‘lib, yopuvchi tegga ega emas.
+
+`<img>` tegining ikkita majburiy atributi mavjud:
+
+- `src` - Rasmning yo‘lini belgilaydi
+- `alt` - Rasm uchun muqobil matnni belgilaydi
+
+### Sintaksisi
+
+```html
+<img src="url" alt="alternativmatn" />
+```
+
+### `src` Atributi
+
+Majburiy `src` atributi rasmning yo‘lini (URL) belgilaydi.
+
+<Callout title="Eslatma">
+  Veb-sahifa yuklanayotganda, brauzer rasmni veb-serverdan oladi va sahifaga qo'shadi. Shuning uchun rasmning veb-sahifa
+  bilan bog‘liqligi saqlanishiga ishonch hosil qiling, aks holda mehmonlaringiz buzilgan havola belgisini ko‘radi. Agar
+  brauzer rasmni topa olmasa, buzilgan havola belgisi va `alt` matn ko'rsatiladi.
+</Callout>
+
+Misol:
+
+```html
+<img src="img_chania.jpg" alt="Flowers in Chania" />
+```
+
+### `alt` Atributi
+
+Majburiy `alt` atributi, foydalanuvchi qandaydir sababga ko‘ra rasmni ko‘ra olmasa (sekin ulanish, `src` atributidagi xato yoki foydalanuvchi ekranni o‘qiydigan dasturdan foydalansa), rasm uchun muqobil matnni taqdim etadi.
+
+`alt` atributining qiymati rasmni tavsiflash kerak:
+
+Misol:
+
+```html
+<img src="img_chania.jpg" alt="Flowers in Chania" />
+```
+
+Agar brauzer rasmni topa olmasa, u `alt` atributining qiymatini ko'rsatadi:
+
+Misol
+
+```html
+<img src="wrongname.gif" alt="Flowers in Chania" />
+```
+
+<Callout title="Maslahat">
+  Ekranni o‘qiydigan dastur – bu HTML kodni o‘qiydigan va foydalanuvchiga mazmunni "eshitish" imkonini beruvchi dastur.
+  Ekranni o‘qiydigan dasturlar ko‘rish qobiliyati past yoki o‘rganishda qiyinchiliklarga duch keladigan odamlar uchun
+  foydali.
+</Callout>
+
+## Rasm Hajmi - Kenglik va Balandlik
+
+Siz rasmning kengligi va balandligini belgilash uchun `style` atributidan foydalanishingiz mumkin.
+
+Misol:
+
+```html
+<img src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;" />
+```
+
+### Muqobil ravishda siz kenglik (`width`) va balandlik (`height`) atributlaridan foydalanishingiz mumkin:
+
+Misol:
+
+```html
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600" />
+```
+
+Kenglik va balandlik atributlari har doim rasmning kengligi va balandligini piksellarda belgilaydi.
+
+<Callout title="Eslatma">
+  Rasmning kengligi va balandligini har doim belgilang. Agar kenglik va balandlik belgilanmagan bo'lsa, veb-sahifa rasm
+  yuklanayotganda miltillab turishi mumkin.
+</Callout>
+
+Kenglik va Balandlik, yoki Style?
+HTML da kenglik, balandlik va style atributlari hammasi yaroqli hisoblanadi.
+
+Biroq, biz `style` atributidan foydalanishni tavsiya qilamiz. Bu stil varaqlarining rasm o'lchamlarini o'zgartirishining oldini oladi:
+
+Misol:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="html5.gif" alt="HTML5 Icon" width="128" height="128" />
+
+    <img src="html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;" />
+  </body>
+</html>
+```
+
+## Boshqa Papkada Joylashgan Rasmlar
+
+Agar rasmalar boshqa papkada joylashgan bo'lsa, `src` atributida papka nomini kiritishingiz kerak bo'ladi:
+
+Misol:
+
+```html
+<img src="/images/html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;" />
+```
+
+## Boshqa Server/Yeb-saytdagi Rasmlar
+
+Ba'zi veb-saytlar boshqa serverdagi rasmga bog'lanadi.
+
+Boshqa serverdagi rasmga bog‘lanish uchun `src` atributida to‘liq URL-ni belgilashingiz kerak:
+
+Misol:
+
+```html
+<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com" />
+```
+
+<Callout title="Eslatma">
+  Tashqi rasmalar mualliflik huquqi bilan himoyalangan bo'lishi mumkin. Agar undan foydalanish uchun ruxsat olmasangiz,
+  siz mualliflik huquqi qonunlarini buzgan bo'lishingiz mumkin. Bundan tashqari, tashqi rasmalar ustidan nazorat qila
+  olmaysiz; ular to‘satdan olib tashlanishi yoki o‘zgartirilishi mumkin.
+</Callout>
+
+## Animatsiyalangan Rasmlar
+
+HTML animatsiyalangan GIF-larni qo‘llab-quvvatlaydi:
+
+Misol:
+
+```html
+<img src="programming.gif" alt="Computer Man" style="width:48px;height:48px;" />
+```
+
+## Rasmni Havola Sifatida Ishlatish
+
+Rasmni havola sifatida ishlatish uchun `<img>` tegini `<a>` tegi ichiga joylashtiring:
+
+Misol:
+
+```html
+<a href="default.asp">
+  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;" />
+</a>
+```
+
+## Rasmni Floating
+
+Rasmni matnning o‘ng yoki chap tomoniga suzib qo‘yish uchun CSS `float` xususiyatidan foydalaning:
+
+Misol:
+
+```html
+<p>
+  <img src="smiley.gif" alt="Smiley face" style="float:right;width:42px;height:42px;" /> Rasm matnning o‘ng tomoniga
+  suzadi.
+</p>
+
+<p>
+  <img src="smiley.gif" alt="Smiley face" style="float:left;width:42px;height:42px;" /> Rasm matnning chap tomoniga
+  suzadi.
+</p>
+```
+
+<Callout title="Maslahat">CSS Float Darsligimizdan CSS Float haqida ko‘proq bilib oling.</Callout>
+
+## Umumiy Rasm Formatlari
+
+Mana eng keng tarqalgan rasm fayllari turlari, ular barcha brauzerlarda qo‘llab-quvvatlanadi (Chrome, Edge, Firefox, Safari, Opera):
+
+| Qisqartma | Fayl Formati                          | Fayl Kengaytmasi                 |
+| --------- | ------------------------------------- | -------------------------------- |
+| APNG      | Animated Portable Network Graphics    | .apng                            |
+| GIF       | Graphics Interchange Format           | .gif                             |
+| ICO       | Microsoft Icon                        | .ico, .cur                       |
+| JPEG      | Joint Photographic Expert Group image | .jpg, .jpeg, .jfif, .pjpeg, .pjp |
+| PNG       | Portable Network Graphics             | .png                             |
+| SVG       | Scalable Vector Graphics              | .svg                             |
+
+## Bo'lim Yakuni
+
+- HTML `<img>` elementidan rasmni aniqlash uchun foydalaning
+- HTML `src` atributidan rasm URL manzilini aniqlash uchun foydalaning
+- HTML `alt` atributidan, agar rasm ko‘rsatilmasa, rasm uchun muqobil matnni aniqlash uchun foydalaning
+- HTML kenglik va balandlik atributlari yoki CSS kenglik va balandlik xususiyatlaridan rasm o‘lchamini aniqlash uchun foydalaning
+- Rasmni matnning o‘ng yoki chap tomoniga suzish uchun CSS `float` xususiyatidan foydalaning
+
+<Callout title="Eslatma">
+  Katta rasmlarni yuklash vaqt talab etadi va veb-sahifangizni sekinlashtirishi mumkin. Rasmalarni ehtiyotkorlik bilan
+  ishlating.
+</Callout>
+
+HTML Mashqlar
+O'zingizni Sinab Ko'ring Mashqlar Bilan
+
+Mashq:
+Rasm o‘lchamini 250 piksel kengligida va 400 piksel balandligida belgilash uchun HTML rasm atributlaridan foydalaning.
+
+```html
+<img
+  src="scream.png"
+  width="250
+
+"
+  height="400"
+/>
+```
+
+HTML Rasm Teglari
+| Teg | Ta'rifi |
+|------|---------|
+| `<img>` | Rasmni aniqlaydi |
+| `<map>` | Rasm xaritasini aniqlaydi |
+| `<area>` | Rasm xaritasi ichida bosiladigan maydonni aniqlaydi |
+| `<picture>` | Bir nechta rasm resurslari uchun konteynerni aniqlaydi |

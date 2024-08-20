@@ -59,6 +59,10 @@
   }
 }
 
+#nd-subnav {
+  margin-bottom: 20px;
+}
+
 .interview-card > h3 {
   font-size: 25px;
   font-weight: 600;

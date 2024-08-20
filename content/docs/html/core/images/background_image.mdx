@@ -1,0 +1,109 @@
+---
+title: HTML Orqa Fon Rasmlari
+description: HTML elementining deyarli har qandayiga orqa fon rasmi qo'shishingiz mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Orqa Fon Rasmlari
+HTML elementining deyarli har qandayiga orqa fon rasmi qo'shishingiz mumkin.
+
+### HTML Elementida Orqa Fon Rasmi
+HTML elementiga orqa fon rasmi qo'shish uchun HTML `style` atributi va CSS `background-image` xususiyatidan foydalaning:
+
+**Misol**
+HTML elementiga orqa fon rasmi qo'shing:
+
+```html
+<p style="background-image: url('img_girl.jpg');">
+```
+
+### `<style>` Elementida Orqa Fon Rasmi
+Siz orqa fon rasmini `<head>` bo'limida joylashgan `<style>` elementida ham ko'rsatishingiz mumkin:
+
+**Misol**
+Orqa fon rasmini `<style>` elementida aniqlash:
+
+```html
+<style>
+p {
+  background-image: url('img_girl.jpg');
+}
+</style>
+```
+
+### Butun Sahifada Orqa Fon Rasmi
+Agar butun sahifa uchun orqa fon rasmini qo'shmoqchi bo'lsangiz, `background-image` xususiyatini `<body>` elementida belgilashingiz kerak:
+
+**Misol**
+Butun sahifa uchun orqa fon rasmini qo'shing:
+
+```html
+<style>
+body {
+  background-image: url('img_girl.jpg');
+}
+</style>
+```
+
+### Orqa Fonning Takrorlanishi
+Agar orqa fon rasmi elementdan kichikroq bo'lsa, rasm gorizontal va vertikal ravishda o'zini takrorlaydi, elementning oxiriga yetguncha.
+
+**Misol**
+```html
+<style>
+body {
+  background-image: url('example_img_girl.jpg');
+}
+</style>
+```
+
+Orqa fon rasmining takrorlanishidan qochish uchun `background-repeat` xususiyatini `no-repeat` ga o'rnating.
+
+**Misol**
+```html
+<style>
+body {
+  background-image: url('example_img_girl.jpg');
+  background-repeat: no-repeat;
+}
+</style>
+```
+
+### Orqa Fonning Qoplanishi
+Agar orqa fon rasmining butun elementni qoplashini xohlasangiz, `background-size` xususiyatini `cover` ga o'rnating.
+
+Shuningdek, butun element har doim qoplanishini ta'minlash uchun `background-attachment` xususiyatini `fixed` ga o'rnating:
+
+Shu yo'l bilan orqa fon rasmi butun elementni qoplaydi, lekin cho'zilmaydi (rasm o'zining asl nisbatlarini saqlab qoladi):
+
+**Misol**
+```html
+<style>
+body {
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+```
+
+### Orqa Fonning Cho'zilishi
+Agar orqa fon rasmining butun elementga moslashishini xohlasangiz, `background-size` xususiyatini `100% 100%` ga o'rnating:
+
+Brauzer oynasining o'lchamini o'zgartirib ko'ring va rasm cho'ziladi, lekin har doim butun elementni qoplaydi.
+
+**Misol**
+```html
+<style>
+body {
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+```

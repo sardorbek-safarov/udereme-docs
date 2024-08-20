@@ -1,0 +1,81 @@
+---
+title: HTML Favicon
+description: Favicon – bu brauzerning yorlig'ida sahifa sarlavhasi yonida ko'rsatiladigan kichik rasm.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+import Image from 'next/image';
+
+## HTML Favicon
+
+Favicon – bu brauzerning yorlig'ida sahifa sarlavhasi yonida ko'rsatiladigan kichik rasm.
+
+<Image src='/images/html/favicon.png' width="772" height="156" alt="Favicon" />
+
+### HTML Faviconni Qanday Qo'shish Mumkin
+
+Siz favicon sifatida istalgan rasmni ishlatishingiz mumkin. Shuningdek, o'zingizning favicon rasmingizni https://www.favicon.cc kabi saytlarda yaratishingiz mumkin.
+
+<Callout title='Maslahat'>
+  Favicon kichik rasm bo'lgani uchun oddiy, yuqori kontrastli rasm bo'lishi kerak.
+</Callout>
+
+Favicon rasmi brauzer yorlig'ida sahifa sarlavhasi chap tomonida ko'rsatiladi, masalan:
+
+**Favicon misoli**
+Veb-saytingizga favicon qo'shish uchun favicon rasmni veb-serveringizning ildiz katalogiga saqlang yoki ildiz katalogida `images` nomli papka yarating va favicon rasmni ushbu papkaga saqlang. Favicon rasmi uchun keng tarqalgan nom "favicon.ico" hisoblanadi.
+
+Keyin, `index.html` faylingizdagi `<title>` elementidan keyin `<link>` elementini qo'shing:
+
+**Misol**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mening Sahifa Sarlavham</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+
+<h1>Bu Sarlavha</h1>
+<p>Bu Paragraf.</p>
+
+</body>
+</html>
+```
+
+Endi, `index.html` faylini saqlang va brauzeringizda yangilang. Brauzer yorlig'ida favicon rasm sahifa sarlavhasi chap tomonida ko'rsatiladi.
+
+## Favicon Fayl Formati Qo'llab-quvvatlashi
+
+Quyidagi jadvalda favicon rasm uchun fayl formatlarini brauzerlar tomonidan qo'llab-quvvatlanishi ko'rsatilgan:
+
+| Brauzer | ICO | PNG | GIF | JPEG | SVG |
+|---------|-----|-----|-----|------|-----|
+| Edge    | Ha  | Ha  | Ha  | Ha   | Ha  |
+| Chrome  | Ha  | Ha  | Ha  | Ha   | Ha  |
+| Firefox | Ha  | Ha  | Ha  | Ha   | Ha  |
+| Opera   | Ha  | Ha  | Ha  | Ha   | Ha  |
+| Safari  | Ha  | Ha  | Ha  | Ha   | Ha  |
+
+## Bo'lim Xulosasi
+- Faviconni qo'shish uchun HTML `<link>` elementidan foydalaning.
+
+**HTML Mashqlari**
+
+**Mashq:**
+Qaysi HTML tegi faviconni (brauzer yorlig'ining chap tomonidagi kichik rasmni) boshqarish uchun ishlatiladi?
+
+```html
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+```
+
+### HTML Link Teglari
+
+| Teg  | Tavsif                                                  |
+|------|---------------------------------------------------------|
+| `<link>` | Hujjat va tashqi resurs o'rtasidagi bog'liqlikni aniqlaydi |
