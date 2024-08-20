@@ -46,5 +46,23 @@ export const docs = loader({
   }),
 });
 
+export const interview = loader({
+  baseUrl: '/interview',
+  rootDir: 'interview',
+  source: createMDXSource(map, {
+    schema: {
+      frontmatter: defaultSchemas.frontmatter.extend({
+        preview: z.string().optional(),
+        index: z.boolean().default(false),
+        authors: z.array(
+          z.object({ name: z.string(), avatar: z.string().optional(), telegram: z.string().optional() })
+        ),
+        createdAt: z.string().date().or(z.date()).optional(),
+        updatedAt: z.string().date().or(z.date()).optional(),
+      }),
+    },
+  }),
+});
+
 export type Page = InferPageType<typeof docs>;
 export type Meta = InferMetaType<typeof docs>;

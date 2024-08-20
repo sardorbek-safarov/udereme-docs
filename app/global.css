@@ -58,3 +58,9 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+.interview-card > h3 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
