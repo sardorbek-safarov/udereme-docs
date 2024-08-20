@@ -1,0 +1,136 @@
+---
+title: HTML Jadval Colgroup
+description: <colgroup> elementi jadvallar ichidagi muayyan ustunlarni stil berish uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Jadval Colgroup
+
+`<colgroup>` elementi jadvallar ichidagi muayyan ustunlarni stil berish uchun ishlatiladi.
+
+#### HTML Jadval Colgroup
+
+Agar jadvallingizdagi birinchi ikki ustunga stil bermoqchi bo'lsangiz, `<colgroup>` va `<col>` elementlaridan foydalanishingiz mumkin.
+
+**Misol:**
+
+```html
+<table>
+  <colgroup>
+    <col span="2" style="background-color: #D6EEEE" />
+  </colgroup>
+  <tr>
+    <th>MON</th>
+    <th>TUE</th>
+    <th>WED</th>
+    <th>THU</th>
+    <th>FRI</th>
+    <th>SAT</th>
+    <th>SUN</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+  </tr>
+</table>
+```
+
+#### Eslatma:
+
+- `<colgroup>` elementi ustunlarni belgilash uchun konteyner sifatida ishlatiladi.
+- Har bir guruh `<col>` elementi bilan belgilangan.
+- `span` atributi nechta ustunga stil berilishini belgilaydi.
+- `style` atributi ustunlarga beriladigan stilni belgilaydi.
+
+`<colgroup>` elementi `<table>` elementining farzandi bo'lishi kerak va `<thead>`, `<tr>`, `<td>` kabi boshqa jadval elementlaridan oldin, lekin agar mavjud bo'lsa, `<caption>` elementidan keyin joylashtirilishi kerak.
+
+#### Ruxsat etilgan CSS xususiyatlari
+
+`colgroup` uchun faqat quyidagi CSS xususiyatlaridan foydalanish mumkin:
+
+- `width` xususiyati
+- `visibility` xususiyati
+- `background` xususiyatlari
+- `border` xususiyatlari
+
+Boshqa barcha CSS xususiyatlari jadvallaringizga hech qanday ta'sir qilmaydi.
+
+#### Bir nechta Col elementlari
+
+Agar siz bir nechta ustunlarni turli uslublar bilan stil bermoqchi bo'lsangiz, `<colgroup>` ichida bir nechta `<col>` elementlaridan foydalaning:
+
+**Misol:**
+
+```html
+<table>
+  <colgroup>
+    <col span="2" style="background-color: #D6EEEE" />
+    <col span="3" style="background-color: pink" />
+  </colgroup>
+  <tr>
+    <th>MON</th>
+    <th>TUE</th>
+    <th>WED</th>
+    <th>THU</th>
+    <th>FRI</th>
+    <th>SAT</th>
+    <th>SUN</th>
+  </tr>
+</table>
+```
+
+#### Bo'sh Colgroup elementlari
+
+Agar jadvalning o'rtasidagi ustunlarga stil berishni xohlasangiz, oldingi ustunlar uchun "bo'sh" `<col>` elementini qo'shing (stil bermasdan):
+
+**Misol:**
+
+```html
+<table>
+  <colgroup>
+    <col span="3" />
+    <col span="2" style="background-color: pink" />
+  </colgroup>
+  <tr>
+    <th>MON</th>
+    <th>TUE</th>
+    <th>WED</th>
+    <th>THU</th>
+    <th>FRI</th>
+    <th>SAT</th>
+    <th>SUN</th>
+  </tr>
+</table>
+```
+
+#### Ustunlarni yashirish
+
+Ustunlarni `visibility: collapse` xususiyati yordamida yashirishingiz mumkin:
+
+**Misol:**
+
+```html
+<table>
+  <colgroup>
+    <col span="2" />
+    <col span="3" style="visibility: collapse" />
+  </colgroup>
+  <tr>
+    <th>MON</th>
+    <th>TUE</th>
+    <th>WED</th>
+    <th>THU</th>
+    <th>FRI</th>
+    <th>SAT</th>
+    <th>SUN</th>
+  </tr>
+</table>
+```

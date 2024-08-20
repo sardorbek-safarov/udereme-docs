@@ -1,0 +1,173 @@
+---
+title: HTML Tartibsiz Ro'yxatlar
+description: HTML `<ul>` tegi tartibsiz (nuqtali) ro'yxatni belgilaydi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Tartibsiz Ro'yxatlar
+
+HTML `<ul>` tegi tartibsiz (nuqtali) ro'yxatni belgilaydi.
+
+#### Tartibsiz HTML Ro'yxati
+Tartibsiz ro'yxat `<ul>` tegi bilan boshlanadi. Har bir ro'yxat elementi `<li>` tegi bilan boshlanadi.
+
+Ro'yxat elementlari odatda qora nuqtalar (bullets) bilan belgilangan bo'ladi:
+
+**Misol:**
+```html
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+
+#### Tartibsiz HTML Ro'yxati - Ro'yxat Belgisi Tanlash
+CSS `list-style-type` xossasi ro'yxat elementi belgisining uslubini belgilash uchun ishlatiladi. U quyidagi qiymatlardan biriga ega bo'lishi mumkin:
+
+| Qiymat  | Ta'rif  |
+|---------|---------|
+| `disc`  | Ro'yxat elementi belgisini nuqta bilan belgilaydi (standart) |
+| `circle` | Ro'yxat elementi belgisini doira bilan belgilaydi |
+| `square` | Ro'yxat elementi belgisini kvadrat bilan belgilaydi |
+| `none` | Ro'yxat elementlari belgisiz bo'ladi |
+
+**Misol - Disc:**
+```html
+<ul style="list-style-type:disc;">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+
+**Misol - Circle:**
+```html
+<ul style="list-style-type:circle;">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+
+**Misol - Square:**
+```html
+<ul style="list-style-type:square;">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+
+**Misol - None:**
+```html
+<ul style="list-style-type:none;">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+
+#### Ichki HTML Ro'yxatlar
+Ro'yxatlar ichki ro'yxatlar bilan o'zaro bog'lanishi mumkin (ro'yxat ichida ro'yxat):
+
+**Misol:**
+```html
+<ul>
+  <li>Coffee</li>
+  <li>Tea
+    <ul>
+      <li>Black tea</li>
+      <li>Green tea</li>
+    </ul>
+  </li>
+  <li>Milk</li>
+</ul>
+```
+**Eslatma:** Ro'yxat elementi (`<li>`) yangi ro'yxat va boshqa HTML elementlarini, masalan, rasm va havolalar kabi, o'z ichiga olishi mumkin.
+
+#### CSS Bilan Gorizontal Ro'yxat
+HTML ro'yxatlarini CSS yordamida turli usullar bilan bezash mumkin.
+
+Odatda, ro'yxatni gorizontal tarzda bezash, navigatsiya menyusi yaratish uchun mashhur usuldur:
+
+**Misol:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+</body>
+</html>
+```
+**Tavsiy**: CSS haqida batafsilroq ma'lumot olish uchun CSS darsligimizni o'rganing.
+
+#### Bobni Yig'ish
+- HTML `<ul>` elementidan tartibsiz ro'yxatni belgilash uchun foydalaning.
+- Ro'yxat elementi belgisini belgilash uchun CSS `list-style-type` xossasidan foydalaning.
+- HTML `<li>` elementidan ro'yxat elementini belgilash uchun foydalaning.
+- Ro'yxatlar ichki ro'yxatlar bilan o'zaro bog'lanishi mumkin.
+- Ro'yxat elementlari boshqa HTML elementlarini o'z ichiga olishi mumkin.
+- CSS `float:left` xossasidan ro'yxatni gorizontal tarzda ko'rsatish uchun foydalaning.
+
+#### HTML Mashqlari
+Mashqlar orqali o'zingizni sinab ko'ring:
+
+**Mashq:**
+Tartibsiz ro'yxatni tugating:
+
+```html
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+
+#### HTML Ro'yxat Teglari
+
+| Teg  | Ta'rif  |
+|------|---------|
+| `<ul>` | Tartibsiz ro'yxatni belgilaydi |
+| `<ol>` | Tartibli ro'yxatni belgilaydi |
+| `<li>` | Ro'yxat elementini belgilaydi |
+| `<dl>` | Tavsif ro'yxatini belgilaydi |
+| `<dt>` | Tavsif ro'yxatidagi terminni belgilaydi |
+| `<dd>` | Tavsif ro'yxatidagi terminning ta'rifini belgilaydi |

@@ -1,0 +1,233 @@
+---
+title: HTML Jadval Chegaralari(Border)
+description: HTML jadvallar turli uslublar va shakllardagi chegaralarga ega bo'lishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+### HTML Jadval Chegaralari
+
+HTML jadvallar turli uslublar va shakllardagi chegaralarga ega bo'lishi mumkin.
+
+#### Chegarani qanday qo'shish kerak
+
+Chegarani qo'shish uchun CSS `border` xususiyatidan `table`, `th`, va `td` elementlariga nisbatan foydalaning:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+</style>
+```
+
+#### Chegaralarni birlashtirish
+
+Yuqoridagi misoldagi kabi ikki barobar chegaralardan qochish uchun CSS `border-collapse` xususiyatini `collapse` qiymatiga o'rnating.
+
+Bu chegaralarni bitta chegara qilib birlashtiradi:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>
+```
+
+#### Jadval chegaralarini uslublash
+
+Agar har bir hujayraga fon rangi bersangiz va chegara uchun oq rang (hujjat fon rangi bilan bir xil) belgilasangiz, ko'rinmas chegara tasavvuri paydo bo'ladi:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    background-color: #96d4d4;
+  }
+</style>
+```
+
+#### Dumaloq jadval chegaralari
+
+`border-radius` xususiyati bilan chegara burchaklari dumaloq bo'ladi:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+</style>
+```
+
+Agar jadvalning o'ziga chegara qo'yishni xohlamasangiz, `table` elementini CSS selektori ichida kiritmang:
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  th,
+  td {
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+</style>
+```
+
+#### Nuqtali jadval chegaralari
+
+`border-style` xususiyati bilan chegara ko'rinishini sozlashingiz mumkin.
+
+**Ruxsat etilgan qiymatlar:**
+
+- `dotted` (nuqtali)
+- `dashed` (chiziqli)
+- `solid` (qattiq)
+- `double` (ikki barobar)
+- `groove` (cho'zilgan)
+- `ridge` (keng)
+- `inset` (ichkariga kiritilgan)
+- `outset` (tashqariga chiqarilgan)
+- `none` (yo'q)
+- `hidden` (yashirin)
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  th,
+  td {
+    border-style: dotted;
+  }
+</style>
+```
+
+#### Chegara rangini o'zgartirish
+
+`border-color` xususiyati bilan chegara rangini belgilashingiz mumkin.
+
+**Misol:**
+
+```html
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<style>
+  th,
+  td {
+    border-color: #96d4d4;
+  }
+</style>
+```

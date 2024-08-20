@@ -18,6 +18,14 @@
     "links",
     "images",
     "favicon",
+    "page_title",
+    "tables",
+    "lists",
+    "block_inline_elements",
+    "div",
+    "class",
+    "id",
+    "iframes",
     "..."
   ]
 }

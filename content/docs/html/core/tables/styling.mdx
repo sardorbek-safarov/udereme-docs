@@ -1,0 +1,73 @@
+---
+title: HTML Jadvalni Stil Berish
+description: CSS yordamida jadvallaringizni chiroyliroq qilishingiz mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Jadvalni Stil Berish
+CSS yordamida jadvallaringizni chiroyliroq qilishingiz mumkin.
+
+#### HTML Jadval - Zebra Chiziqlar
+Agar har bir ikkinchi qatorga fon rangini qo'shsangiz, jadvallingizda chiroyli zebra chiziqlar effektini olasiz.
+
+**Misol:**
+```css
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+```
+
+<Callout type="warn" title="Eslatma">
+  Agar `even` o'rniga `odd` ishlatsangiz, stil 1, 3, 5 va hokazo qatorlarga, 2, 4, 6 qatorlar o'rniga tatbiq qilinadi.
+</Callout>
+
+#### HTML Jadval - Vertikal Zebra Chiziqlar
+Vertikal zebra chiziqlar hosil qilish uchun har bir ikkinchi ustunga stil bering, qator o'rniga.
+
+**Misol:**
+```css
+td:nth-child(even), th:nth-child(even) {
+  background-color: #D6EEEE;
+}
+```
+
+<Callout type="warn" title="Eslatma">
+  Agar stilni ustunlar va oddiy hujayralarga tatbiq qilishni xohlasangiz, `:nth-child()` selektorini ham `th`, ham `td` elementlariga qo'ying.
+</Callout>
+
+#### Vertikal va Gorizontal Zebra Chiziqlarni Birlash
+Yuqoridagi ikkita misoldan olingan stilni birlashtirishingiz mumkin va har bir ikkinchi qator va har bir ikkinchi ustunda chiziqlar hosil bo'ladi.
+
+Agar siz shaffof rangdan foydalansangiz, u holda ustma-ust effektini olasiz.
+
+**Misol:**
+```css
+tr:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+
+th:nth-child(even), td:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+```
+
+#### Gorizontal Bo'linmalar
+Agar har bir qatorning faqat pastki qismiga chegara belgilasangiz, jadvallingizda gorizontal bo'linmalar hosil bo'ladi.
+
+**Misol:**
+```css
+tr {
+  border-bottom: 1px solid #ddd;
+}
+```
+
+#### Hoverlanuvchi Jadval
+`tr` elementiga `:hover` selektorini qo'llab, jadvallardagi qatorlarni sichqoncha ustida ushlab turganingizda ajratib ko'rsata olasiz.
+
+**Misol:**
+```css
+tr:hover {background-color: #D6EEEE;}
+```

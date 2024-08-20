@@ -1,0 +1,146 @@
+---
+title: HTML `id` Atributi
+description: HTML `id` atributi HTML elementlariga noyob identifikator belgilash uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML `id` Atributi
+
+HTML `id` atributi HTML elementlariga noyob identifikator belgilash uchun ishlatiladi.
+
+#### `id` Atributini Ishlatish
+`id` atributi HTML elementiga noyob identifikatorni belgilaydi. `id` atributining qiymati HTML hujjati ichida noyob bo'lishi kerak.
+
+`id` atributi ma'lum bir uslub deklaratsiyasiga murojaat qilish uchun ishlatiladi. Shuningdek, JavaScript tomonidan ma'lum `id` ga ega elementlarga kirish va ularni manipulyatsiya qilish uchun ham ishlatiladi.
+
+**Sintaksis:** `id` uchun nuqta (#) belgisini yozing, so'ngra `id` nomini yozing. CSS xususiyatlarini qavs ichida {} aniqlang.
+
+Quyidagi misolda `<h1>` elementi "myHeader" `id` nomiga ega. Bu `<h1>` elementi `head` bo'limidagi `#myHeader` uslub ta'rifiga ko'ra uslubga ega bo'ladi:
+
+**Misol:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#myHeader {
+  background-color: lightblue;
+  color: black;
+  padding: 40px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1 id="myHeader">My Header</h1>
+
+</body>
+</html>
+```
+
+<Callout type="warn" title="Eslatma">
+  `id` nomi katta-kichik harflarga sezgir (case sensitive)!
+</Callout>
+
+<Callout type="warn" title="Eslatma">
+  `id` nomi kamida bir belgi o'z ichiga olishi kerak, raqam bilan boshlanmasligi kerak va bo'sh joylarni (bo'shliq, tabulyator va boshqalar) o'z ichiga olmasligi kerak.
+</Callout>
+
+#### Sinf va ID O'rtasidagi Farq
+Sinf nomi bir nechta HTML elementlari tomonidan ishlatilishi mumkin, `id` nomi esa sahifadagi yagona HTML elementiga ishlatilishi kerak:
+
+**Misol:**
+```html
+<style>
+/* "myHeader" id li elementni uslublash */
+#myHeader {
+  background-color: lightblue;
+  color: black;
+  padding: 40px;
+  text-align: center;
+}
+
+/* "city" sinf nomiga ega barcha elementlarni uslublash */
+.city {
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+}
+</style>
+
+<!-- Yagona id li element -->
+<h1 id="myHeader">My Cities</h1>
+
+<!-- Bir xil sinfga ega ko'p elementlar -->
+<h2 class="city">London</h2>
+<p>London is the capital of England.</p>
+
+<h2 class="city">Paris</h2>
+<p>Paris is the capital of France.</p>
+
+<h2 class="city">Tokyo</h2>
+<p>Tokyo is the capital of Japan.</p>
+```
+
+**Maslahat:** CSS haqida ko'proq ma'lumot olish uchun CSS darsligimizni o'rganing.
+
+#### HTML Bookmarks va Links
+HTML bookmarks sahifaning ma'lum qismlariga o'tish imkoniyatini beradi.
+
+Bookmarks uzoq sahifalarda foydali bo'lishi mumkin.
+
+Bookmark yaratish uchun, avval uni yaratish va keyin unga havola qo'shish kerak.
+
+Havola bosilganda, sahifa bookmark joyiga o'qib boradi.
+
+**Misol:**
+Birinchi, `id` atributi bilan bookmark yarating:
+
+```html
+<h2 id="C4">Chapter 4</h2>
+```
+
+Keyin, bir xil sahifadan bookmarkka havola qo'shing ("Jump to Chapter 4"):
+
+**Misol:**
+```html
+<a href="#C4">Jump to Chapter 4</a>
+```
+
+Yoki, boshqa sahifadan bookmarkka havola qo'shing ("Jump to Chapter 4"):
+
+```html
+<a href="html_demo.html#C4">Jump to Chapter 4</a>
+```
+
+#### JavaScript'da `id` Atributidan Foydalanish
+`id` atributi JavaScript orqali ma'lum elementlar bilan ba'zi vazifalarni bajarish uchun ishlatilishi mumkin.
+
+JavaScript `getElementById()` metodi orqali ma'lum `id` ga ega elementlarga kirish mumkin:
+
+**Misol:**
+JavaScript yordamida matnni manipulyatsiya qilish uchun `id` atributidan foydalanish:
+
+```html
+<script>
+function displayResult() {
+  document.getElementById("myHeader").innerHTML = "Have a nice day!";
+}
+</script>
+```
+
+<Callout>
+  **Maslahat:** JavaScript haqida ko'proq ma'lumot olish uchun HTML JavaScript bo'limini o'rganing yoki JavaScript darsligimizni o'qib chiqing.
+</Callout>
+
+#### Bobni Yakunlash
+- `id` atributi HTML elementiga noyob identifikator belgilaydi.
+- `id` atributining qiymati HTML hujjati ichida noyob bo'lishi kerak.
+- `id` atributi CSS va JavaScript orqali ma'lum elementlarni uslublash/tanlash uchun ishlatiladi.
+- `id` atributining qiymati katta-kichik harflarga sezgir.
+- `id` atributi HTML bookmarks yaratish uchun ham ishlatiladi.
+- JavaScript ma'lum `id` ga ega elementlarga `getElementById()` metodi orqali kirish mumkin.

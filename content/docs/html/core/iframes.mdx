@@ -1,0 +1,92 @@
+---
+title: HTML `iframe` Atributi
+description: HTML `iframe` elementi web sahifasida boshqa web sahifani ko'rsatish uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML `iframe` Atributi
+
+HTML `iframe` elementi web sahifasida boshqa web sahifani ko'rsatish uchun ishlatiladi.
+
+#### HTML `iframe` Sintaksisi
+HTML `<iframe>` teg inline (ichki) ramkani belgilaydi.
+
+Inline ramka joriy HTML hujjatida boshqa hujjatni joylashtirish uchun ishlatiladi.
+
+**Sintaksis:**
+```html
+<iframe src="url" title="description"></iframe>
+```
+
+**Maslahat:** `<iframe>` uchun doimo `title` atributini qo'shish yaxshi amaliyotdir. Bu ekran o'qiydigan qurilmalar iframe'ning mazmunini o'qish uchun ishlatiladi.
+
+#### `iframe` - Balandlik va Kenglikni Belgilash
+`iframe` elementining o'lchamini belgilash uchun `height` va `width` atributlaridan foydalaning.
+
+Balandlik va kenglik standart bo'yicha pikselda ko'rsatiladi:
+
+**Misol:**
+```html
+<iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example"></iframe>
+```
+
+Yoki `style` atributini qo'shib, CSS `height` va `width` xususiyatlarini ishlatishingiz mumkin:
+
+**Misol:**
+```html
+<iframe src="demo_iframe.htm" style="height:200px;width:300px;" title="Iframe Example"></iframe>
+```
+
+#### `iframe` - Chegarani O'chirish
+Standart bo'yicha, `iframe` atrofida chegara mavjud.
+
+Chegarani o'chirish uchun `style` atributini qo'shing va CSS `border` xususiyatini ishlating:
+
+**Misol:**
+```html
+<iframe src="demo_iframe.htm" style="border:none;" title="Iframe Example"></iframe>
+```
+
+CSS yordamida `iframe` chegarasining o'lchamini, uslubini va rangini o'zgartirishingiz mumkin:
+
+**Misol:**
+```html
+<iframe src="demo_iframe.htm" style="border:2px solid red;" title="Iframe Example"></iframe>
+```
+
+#### `iframe` - Havola uchun Maqsad
+`iframe` havola uchun maqsadli ramka sifatida ishlatilishi mumkin.
+
+Havolaning `target` atributi `iframe` ning `name` atributiga ishora qilishi kerak:
+
+**Misol:**
+```html
+<iframe src="demo_iframe.htm" name="iframe_a" title="Iframe Example"></iframe>
+
+<p><a href="https://www.udemere.uz" target="iframe_a">Udemere.uz</a></p>
+```
+
+#### Bobni Yakunlash
+- HTML `<iframe>` teg inline ramkani belgilaydi.
+- `src` atributi joylashtiriladigan sahifaning URL manzilini belgilaydi.
+- Har doim `title` atributini qo'shing (ekran o'qiydigan qurilmalar uchun).
+- `height` va `width` atributlari `iframe` ning o'lchamini belgilaydi.
+- Chegarani o'chirish uchun `border:none;` ishlating.
+
+#### HTML Mashqlar
+O'zingizni Mashq qiling
+Mashq:
+URL manzili https://www.udemere.uz bo'lgan iframe yarating.
+
+**Misol:**
+```html
+<iframe src="https://www.udemere.uz"></iframe>
+```
+
+### HTML `iframe` Teg
+Tag	| Tavsif
+--- | ---
+`<iframe>` | Inline ramkani belgilaydi

@@ -1,0 +1,230 @@
+---
+title: HTML `<div>` Elementi
+description: <div> elementi boshqa HTML elementlari uchun konteyner sifatida ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML `<div>` Elementi
+
+`<div>` elementi boshqa HTML elementlari uchun konteyner sifatida ishlatiladi.
+
+#### `<div>` Elementi
+`<div>` elementi odatda blok darajasidagi element bo'lib, bu element mavjud bo'lgan barcha kenglikni egallaydi va element oldidan va orqasidan yangi qator qo'shiladi.
+
+**Misol:**
+```html
+Lorem Ipsum <div>I am a div</div> dolor sit amet.
+```
+
+**Natija:**
+```
+Lorem Ipsum
+I am a div
+dolor sit amet.
+```
+
+`<div>` elementi majburiy atributlarga ega emas, lekin `style`, `class` va `id` atributlari keng tarqalgan.
+
+#### `<div>`ni Konteyner sifatida ishlatish
+`<div>` elementi ko'pincha veb sahifaning bo'limlarini guruhlash uchun ishlatiladi.
+
+**Misol:**
+```html
+<div>
+  <h2>London</h2>
+  <p>London Angliyaning poytaxti.</p>
+  <p>Londonning aholisi 13 milliondan ortiq.</p>
+</div>
+```
+
+**Natija:**
+```
+London
+London Angliyaning poytaxti.
+
+Londonning aholisi 13 milliondan ortiq.
+```
+
+#### `<div>`ni Markazlashtirish
+Agar sizda 100% kenglikni egallamagan `<div>` elementi bo'lsa va uni markazlashtirmoqchi bo'lsangiz, CSS `margin` xususiyatini `auto` qilib sozlashingiz mumkin.
+
+**Misol:**
+```html
+<style>
+div {
+  width: 300px;
+  margin: auto;
+}
+</style>
+```
+
+**Natija:**
+```
+London
+London Angliyaning poytaxti.
+
+Londonning aholisi 13 milliondan ortiq.
+```
+
+#### Bir nechta `<div>` Elementlari
+Bir sahifada bir nechta `<div>` konteynerlar bo'lishi mumkin.
+
+**Misol:**
+```html
+<div>
+  <h2>London</h2>
+  <p>London Angliyaning poytaxti.</p>
+  <p>Londonning aholisi 13 milliondan ortiq.</p>
+</div>
+
+<div>
+  <h2>Oslo</h2>
+  <p>Oslo Norvegiyaning poytaxti.</p>
+  <p>Oslo aholisi 600.000 dan ortiq.</p>
+</div>
+
+<div>
+  <h2>Rome</h2>
+  <p>Rome Italiya poytaxti.</p>
+  <p>Rome aholisi deyarli 3 million.</p>
+</div>
+```
+
+**Natija:**
+```
+London
+London Angliyaning poytaxti.
+
+Londonning aholisi 13 milliondan ortiq.
+
+Oslo
+Oslo Norvegiyaning poytaxti.
+
+Oslo aholisi 600.000 dan ortiq.
+
+Rome
+Rome Italiya poytaxti.
+
+Rome aholisi deyarli 3 million.
+```
+
+#### `<div>` Elementlarini Yonma-yon Joylashtirish
+Veb sahifalarni qurishda, siz ko'pincha ikkita yoki undan ortiq `<div>` elementlarini yonma-yon joylashtirmoqchisiz:
+
+**Misol:**
+```html
+<style>
+.mycontainer {
+  width: 100%;
+  overflow: auto;
+}
+.mycontainer div {
+  width: 33%;
+  float: left;
+}
+</style>
+
+<div class="mycontainer">
+  <div>
+    <h2>London</h2>
+    <p>London Angliyaning poytaxti.</p>
+    <p>Londonning aholisi 13 milliondan ortiq.</p>
+  </div>
+
+  <div>
+    <h2>Oslo</h2>
+    <p>Oslo Norvegiyaning poytaxti.</p>
+    <p>Oslo aholisi 600.000 dan ortiq.</p>
+  </div>
+
+  <div>
+    <h2>Rome</h2>
+    <p>Rome Italiya poytaxti.</p>
+    <p>Rome aholisi deyarli 3 million.</p>
+  </div>
+</div>
+```
+
+**Natija:**
+```
+London
+London Angliyaning poytaxti.
+
+Londonning aholisi 13 milliondan ortiq.
+
+Oslo
+Oslo Norvegiyaning poytaxti.
+
+Oslo aholisi 600.000 dan ortiq.
+
+Rome
+Rome Italiya poytaxti.
+
+Rome aholisi deyarli 3 million.
+```
+
+#### `<div>` Elementlarini Yonma-yon Joylashtirishning Usullari
+Elementlarni yonma-yon joylashtirishning turli usullari mavjud, bularning barchasi CSS uslublarini o'z ichiga oladi. Quyidagi eng keng tarqalgan usullarni ko'rib chiqamiz:
+
+**Float**: CSS float xususiyati `<div>` elementlarini yonma-yon joylashtirish uchun ishlatilgan.
+
+  **Misol:**
+  ```html
+  <style>
+  .mycontainer {
+    width: 100%;
+    overflow: auto;
+  }
+  .mycontainer div {
+    width: 33%;
+    float: left;
+  }
+  </style>
+  ```
+
+**Inline-block**: Agar `<div>` elementining `display` xususiyatini `inline-block` ga o'zgartsangiz, `<div>` elementlari bir-birining ustiga emas, yonma-yon joylashtiriladi.
+
+  **Misol:**
+  ```html
+  <style>
+  div {
+    width: 30%;
+    display: inline-block;
+  }
+  </style>
+  ```
+
+**Flex**: CSS Flexbox Layout Moduli yordamida moslashuvchan va javob beruvchi layoutlarni yaratish osonroq bo'ladi.
+
+  **Misol:**
+  ```html
+  <style>
+  .mycontainer {
+    display: flex;
+  }
+  .mycontainer > div {
+    width: 33%;
+  }
+  </style>
+  ```
+
+**Grid**: CSS Grid Layout Moduli yordamida tarmoq asosidagi layout tizimini yaratish osonroq bo'ladi, bu sizga bir nechta qatorlarni belgilash va har bir qatorni alohida joylashtirish imkonini beradi.
+
+  **Misol:**
+  ```html
+  <style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+  }
+  </style>
+  ```
+
+#### HTML Teglari
+
+| Teg  | Ta'rif  |
+|------|---------|
+| `<div>` | Hujjatda bo'lim belgilaydi (blok darajasida) |

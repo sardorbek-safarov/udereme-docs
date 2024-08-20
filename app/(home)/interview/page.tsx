@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-const InterviewPage = () => {
+export default function Page() {
   const notAllowed = true;
 
   return (
@@ -61,6 +61,4 @@ const InterviewPage = () => {
       </section>
     </main>
   );
-};
-
-export default InterviewPage;
+}

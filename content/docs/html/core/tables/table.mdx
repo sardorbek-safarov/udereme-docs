@@ -1,0 +1,149 @@
+---
+title: HTML Jadvallar
+description: HTML jadvallari veb-ishlab chiquvchilarga ma'lumotlarni qatorlar va ustunlarga joylashtirish imkonini beradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-20
+---
+
+## HTML Jadvallar
+
+HTML jadvallari veb-ishlab chiquvchilarga ma'lumotlarni qatorlar va ustunlarga joylashtirish imkonini beradi.
+
+**Misol**
+
+| Kompaniya                    | Aloqa            | Mamlakat        |
+| ---------------------------- | ---------------- | --------------- |
+| Alfreds Futterkiste          | Maria Anders     | Germaniya       |
+| Centro comercial Moctezuma   | Francisco Chang  | Meksika         |
+| Ernst Handel                 | Roland Mendel    | Avstriya        |
+| Island Trading               | Helen Bennett    | Buyuk Britaniya |
+| Laughing Bacchus Winecellars | Yoshi Tannamuri  | Kanada          |
+| Magazzini Alimentari Riuniti | Giovanni Rovelli | Italiya         |
+
+**Misol**
+
+Oddiy HTML jadvali:
+
+```html
+<table>
+  <tr>
+    <th>Kompaniya</th>
+    <th>Aloqa</th>
+    <th>Mamlakat</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germaniya</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Meksika</td>
+  </tr>
+</table>
+```
+
+### Jadval ustunlari
+
+Har bir ustun `<td>` va `</td>` teglar bilan aniqlanadi.
+
+`<td>` jadval ma'lumotlarini anglatadi.
+
+`<td>` va `</td>` orasidagi har narsa jadval mazmuni bo'ladi.
+
+**Misol**
+
+```html
+<table>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+</table>
+```
+
+<Callout type="warn" title="Eslatma">
+  Jadval ustunlari matn, rasm, ro'yxatlar, havolalar, boshqa jadvallar va hokazo HTML elementlarini o'z ichiga olishi
+  mumkin.
+</Callout>
+
+### Jadval Qatorlari
+
+Har bir jadval qatori `<tr>` bilan boshlanadi va `</tr>` bilan tugaydi.
+
+`<tr>` jadval qatorini anglatadi.
+
+**Misol**
+
+```html
+<table>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>14</td>
+    <td>10</td>
+  </tr>
+</table>
+```
+
+Jadvalda qancha qator bo'lishidan qat'iy nazar, har bir qatorda ustunlar soni bir xil bo'lishi kerak.
+
+<Callout type="warn" title="Eslatma">
+  Ba'zan bir qator boshqa qatorlardan ko'proq yoki kamroq ustun ega bo'lishi mumkin. Bu haqida keyingi bo'limlarda bilib
+  olasiz.
+</Callout>
+
+### Jadval Sarlavhalari
+
+Ba'zan ustun jadval sarlavhasi bo'lishi kerak. Bunday holatlarda `<th>` tegidan foydalaning:
+
+`<th>` jadval sarlavhasini anglatadi.
+
+**Misol**
+
+Birinchi qator jadval sarlavhalari bo'lsin:
+
+```html
+<table>
+  <tr>
+    <th>Shaxs 1</th>
+    <th>Shaxs 2</th>
+    <th>Shaxs 3</th>
+  </tr>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>14</td>
+    <td>10</td>
+  </tr>
+</table>
+```
+
+`<th>` elementlaridagi matnlar odatda qalin va markazlashtirilgan bo'ladi, ammo buni CSS yordamida o'zgartirishingiz mumkin.
+
+## HTML Jadval Teglari
+
+| Teg          | Tavsif                                                                         |
+| ------------ | ------------------------------------------------------------------------------ |
+| `<table>`    | Jadvalni aniqlaydi                                                             |
+| `<th>`       | Jadval sarlavhasini aniqlaydi                                                  |
+| `<tr>`       | Jadval qatorini aniqlaydi                                                      |
+| `<td>`       | Jadval ustunini aniqlaydi                                                     |
+| `<caption>`  | Jadval sarlavhasini aniqlaydi                                                  |
+| `<colgroup>` | Jadvaldagi bir yoki bir nechta ustunlarni formatlash uchun guruhni aniqlaydi   |
+| `<col>`      | `<colgroup>` elementidagi har bir ustun uchun ustun xususiyatlarini belgilaydi |
+| `<thead>`    | Jadvaldagi sarlavhalar kontentini guruhlaydi                                   |
+| `<tbody>`    | Jadvaldagi tanasidagi kontentini guruhlaydi                                    |
+| `<tfoot>`    | Jadvaldagi pastki qism kontentini guruhlaydi                                   |
