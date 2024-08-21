@@ -1,0 +1,81 @@
+---
+title: HTML Belgilari
+description: Klaviaturangizda mavjud bo'lmagan belgilar yoki harflarni HTML-da entity-lar yordamida qo'shish mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Belgilari
+Klaviaturangizda mavjud bo'lmagan belgilar yoki harflarni HTML-da entity-lar yordamida qo'shish mumkin.
+
+### HTML Belgilari Entity-lari
+HTML entity-lari oldingi bo'limda ko'rib chiqilgan.
+
+Ko'pgina matematik, texnik va valyuta belgilar klaviaturada mavjud emas.
+
+Bunday belgilarni HTML sahifasiga qo'shish uchun siz belgi uchun entity nomi yoki entity raqamini (o'nlik yoki o'n oltilik ma'lumotnoma) ishlatishingiz mumkin:
+
+### Misol
+Yevro belgisi (euro)ni ko'rsatish:
+
+```html
+<p>Men yevroni ko'rsataman: &euro;</p>
+<p>Men yevroni ko'rsataman: &#8364;</p>
+<p>Men yevroni ko'rsataman: &#x20AC;</p>
+```
+
+Bu quyidagicha ko'rinadi:
+```
+Men yevroni ko'rsataman: €
+Men yevroni ko'rsataman: €
+Men yevroni ko'rsataman: €
+```
+
+### HTML tomonidan qo'llab-quvvatlanadigan Ba'zi Matematik Belgilar
+
+| Belgilar  | Raqami  | Entity       | Tavsif                   |
+|-----------|---------|--------------|--------------------------|
+| ∀         | &#8704; | &forall;     | Barchasi uchun           |
+| ∂         | &#8706; | &part;       | Qisman differensial      |
+| ∃         | &#8707; | &exist;      | Mavjud                   |
+| ∅         | &#8709; | &empty;      | Bo'sh to'plamlar          |
+| ∇         | &#8711; | &nabla;      | Nabla                    |
+| ∈         | &#8712; | &isin;       | Elementi                 |
+| ∉         | &#8713; | &notin;      | Element emas             |
+| ∋         | &#8715; | &ni;         | A'zosi sifatida o'z ichiga oladi |
+| ∏         | &#8719; | &prod;       | Ko'paytma                |
+| ∑         | &#8721; | &sum;        | Yig'indi                 |
+
+**To'liq Matematik Belgilar Ma'lumotnomasi**
+
+### HTML tomonidan qo'llab-quvvatlanadigan Ba'zi Yunon Harflari
+
+| Belgilar  | Raqami  | Entity       | Tavsif                   |
+|-----------|---------|--------------|--------------------------|
+| Α         | &#913;  | &Alpha;      | Yunon ALPHA              |
+| Β         | &#914;  | &Beta;       | Yunon BETA               |
+| Γ         | &#915;  | &Gamma;      | Yunon GAMMA              |
+| Δ         | &#916;  | &Delta;      | Yunon DELTA              |
+| Ε         | &#917;  | &Epsilon;    | Yunon EPSILON            |
+| Ζ         | &#918;  | &Zeta;       | Yunon ZETA               |
+
+**To'liq Yunon Belgilari Ma'lumotnomasi**
+
+### HTML tomonidan qo'llab-quvvatlanadigan Ba'zi Boshqa Entity-lar
+
+| Belgilar  | Raqami  | Entity       | Tavsif                   |
+|-----------|---------|--------------|--------------------------|
+| ©         | &#169;  | &copy;       | MUALLIFLIK HUQUQI        |
+| ®         | &#174;  | &reg;        | RO'YXATDAN O'TGAN        |
+| €         | &#8364; | &euro;       | YEVRO BELGISI            |
+| ™         | &#8482; | &trade;      | SAVDO BELGISI            |
+| ←         | &#8592; | &larr;       | CHAPGA O'Q              |
+| ↑         | &#8593; | &uarr;       | YUQORIGA O'Q            |
+| →         | &#8594; | &rarr;       | O'NGA O'Q               |
+| ↓         | &#8595; | &darr;       | PASTGA O'Q              |
+| ♠         | &#9824; | &spades;     | QARG'A                  |
+| ♣         | &#9827; | &clubs;      | CHIROM                  |
+| ♥         | &#9829; | &hearts;     | QALB                   |
+| ♦         | &#9830; | &diams;      | OLMAZ                   |

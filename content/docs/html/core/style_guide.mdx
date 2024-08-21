@@ -1,0 +1,459 @@
+---
+title: HTML Usul qo'llanmasi
+description: Yaxshi HTML kodi boshqalar uchun o'qilishi va tushunilishi osonroq bo'lishi uchun doimiy, toza va tartibli bo'lishi kerak. Quyida yaxshi HTML kodi yaratish uchun ba'zi qo'llanmalar va maslahatlar keltirilgan.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Usul qo'llanmasi
+
+Yaxshi HTML kodi boshqalar uchun o'qilishi va tushunilishi osonroq bo'lishi uchun doimiy, toza va tartibli bo'lishi kerak. Quyida yaxshi HTML kodi yaratish uchun ba'zi qo'llanmalar va maslahatlar keltirilgan.
+
+#### Har Doim Hujjat Turini E'lon Qiling
+
+Hujjat turini har doim hujjatdagi birinchi qatorda e'lon qiling.
+
+HTML uchun to'g'ri hujjat turi:
+
+```html
+<!DOCTYPE html>
+```
+
+#### Element Nomlarini Kichik Harflar bilan Yozing
+
+HTML element nomlarini katta va kichik harflar bilan aralashtirish mumkin.
+
+Biroq, biz kichik harflardan foydalanishni tavsiya qilamiz, chunki:
+
+- Katta va kichik harflarni aralashtirish ko'rinishni yomonlashtiradi.
+- Dasturchilar odatda kichik harflar ishlatadi.
+- Kichik harflar toza ko'rinadi.
+- Kichik harflar yozish osonroq.
+
+Yaxshi:
+```html
+<body>
+  <p>This is a paragraph.</p>
+</body>
+```
+
+Yomon:
+```html
+<BODY>
+  <P>This is a paragraph.</P>
+</BODY>
+```
+
+#### Barcha HTML Elementlarini Yopish
+
+HTML da barcha elementlarni yopish shart emas (masalan, `<p>` elementi).
+
+Biroq, biz barcha HTML elementlarini yopishni kuchli tavsiya qilamiz:
+
+Yaxshi:
+```html
+<section>
+  <p>This is a paragraph.</p>
+  <p>This is a paragraph.</p>
+</section>
+```
+
+Yomon:
+```html
+<section>
+  <p>This is a paragraph.
+  <p>This is a paragraph.
+</section>
+```
+
+#### Kichik Harflar bilan Xususiyat Nomlarini Ishlatish
+
+HTML xususiyat nomlarida katta va kichik harflarni aralashtirish mumkin.
+
+Biroq, biz kichik harflardan foydalanishni tavsiya qilamiz, chunki:
+
+- Katta va kichik harflarni aralashtirish ko'rinishni yomonlashtiradi.
+- Dasturchilar odatda kichik harflar ishlatadi.
+- Kichik harflar toza ko'rinadi.
+- Kichik harflar yozish osonroq.
+
+Yaxshi:
+```html
+<a href="https://www.udemere.uz/docs/html/">Visit our HTML tutorial</a>
+```
+
+Yomon:
+```html
+<a HREF="https://www.udemere.uz/docs/html/">Visit our HTML tutorial</a>
+```
+
+#### Har Doim Xususiyat Qiymatlarini Qo'shishni Eslatish
+
+HTML xususiyat qiymatlarini qo'shmasdan ishlatishga ruxsat beradi.
+
+Biroq, biz xususiyat qiymatlarini qo'shishni tavsiya qilamiz, chunki:
+
+- Dasturchilar odatda xususiyat qiymatlarini qo'shadilar.
+- Qo'shilgan qiymatlar o'qish osonroq.
+- Qiymatlar bo'sh joylar mavjud bo'lsa, qo'shishni ishlatish zarur.
+
+Yaxshi:
+```html
+<table class="striped">
+```
+
+Yomon:
+```html
+<table class=striped>
+```
+
+Juda yomon:
+Bu ishlamaydi, chunki qiymatlarda bo'sh joylar mavjud:
+
+```html
+<table class=table striped>
+```
+
+#### Rasm uchun alt, width, va height ni Har Doim Ko'rsating
+
+Rasmlar uchun alt atributini har doim ko'rsating. Bu atribut rasm biron sababdan ko'rsatilmasa muhimdir.
+
+Shuningdek, rasmlarning kengligi va balandligini har doim aniqlang. Bu tebranishni kamaytiradi, chunki brauzer rasm yuklanmasdan oldin joy ajratishi mumkin.
+
+Yaxshi:
+```html
+<img src="html5.gif" alt="HTML5" style="width:128px;height:128px">
+```
+
+Yomon:
+```html
+<img src="html5.gif">
+```
+
+#### Bo'shliq va Teng Belgilar
+
+HTML teng belgilar atrofida bo'shliqlarni ruxsat beradi. Biroq, bo'shliqsiz ko'proq o'qish osonroq va birliklarni yaxshiroq guruhlaydi.
+
+Yaxshi:
+```html
+<link rel="stylesheet" href="styles.css">
+```
+
+Yomon:
+```html
+<link rel = "stylesheet" href = "styles.css">
+```
+
+#### Uzoq Kod Qatorlaridan Saqlaning
+
+HTML tahrirlovchisidan foydalanganda, HTML kodini o'qish uchun o'ngga va chapga skroll qilish qulay emas.
+
+Juda uzun kod qatorlaridan saqlaning.
+
+#### Bo'sh Qatorlar va Kirish
+
+Bo'sh qatorlar, bo'shliqlar yoki kirishlarni maqsadsiz qo'shmang.
+
+O'qish uchun katta yoki mantiqiy kod bloklarini ajratish uchun bo'sh qatorlar qo'shing.
+
+O'qish uchun ikki bo'sh joy kirishini qo'shing. Tab tugmasidan foydalanmang.
+
+Yaxshi:
+```html
+<body>
+
+  <h1>Famous Cities</h1>
+
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+
+  <h2>London</h2>
+  <p>London is the capital city of England. It is the most populous city in the United Kingdom.</p>
+
+  <h2>Paris</h2>
+  <p>Paris is the capital of France. The Paris area is one of the largest population centers in Europe.</p>
+
+</body>
+```
+
+Yomon:
+```html
+<body>
+<h1>Famous Cities</h1>
+<h2>Tokyo</h2><p>Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+<h2>London</h2><p>London is the capital city of England. It is the most populous city in the United Kingdom.</p>
+<h2>Paris</h2><p>Paris is the capital of France. The Paris area is one of the largest population centers in Europe.</p>
+</body>
+```
+
+#### Yaxshi Jadval Misoli:
+
+```html
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>Description of A</td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>Description of B</td>
+  </tr>
+</table>
+```
+
+#### Yaxshi Ro'yxat Misoli:
+
+```html
+<ul>
+  <li>London</li>
+  <li>Paris</li>
+  <li>Tokyo</li>
+</ul>
+```
+
+#### Har Doim `<title>` Elementini O'chirmang
+
+`<title>` elementi HTML da talab qilinadi.
+
+Sahifa nomi qidiruv tizimi optimallashtirish (SEO) uchun juda muhim! Sahifa nomi qidiruv tizimlari algoritmlari tomonidan sahifalarni qidiruv natijalarida tartiblashda ishlatiladi.
+
+`<title>` elementi:
+
+- Brauzer panelida sarlavha belgilaydi
+- Sahifani sevimlilarga qo'shish uchun sarlavha taqdim etadi
+- Qidiruv tizimi natijalarida sahifa uchun sarlavha ko'rsatadi
+
+Shuning uchun, sarlavhani iloji boricha aniq va ma'noli qilib qo'ying:
+
+```html
+<title>HTML Style Guide and Coding Conventions</title>
+```
+
+#### `<html>` va `<body>`ni Qoldirish?
+
+HTML sahifasi `<html>` va `<body>` teglarisiz tasdiqlanadi:
+
+Misol:
+```html
+<!DOCTYPE html>
+<head>
+  <title>Page Title</title>
+</head>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+```
+
+Biroq, biz `<html>` va `<body>` teglarini har doim qo'shishni kuchli tavsiya qilamiz!
+
+`<body>`ni qoldirish eski brauzerlarda xatolarga olib kelishi mumkin.
+
+`<html>` va `<body>`ni qoldirish DOM va XML dasturlarini ham buzishi mumkin.
+
+#### `<head>`ni Qoldirish?
+
+HTML `<head>` tegi ham qoldirilishi mumkin.
+
+Brauzerlar `<body>`dan oldingi barcha elementlarni standart `<head>` elementiga qo'shadi.
+
+Misol:
+```html
+<!DOCTYPE html>
+<html>
+<title>Page Title</title>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+```
+
+Biroq, biz `<head>` tegi ishlatishni tavsiya qilamiz.
+
+#### Bo'sh HTML Elementlarini Yopish?
+
+HTML da bo'sh elementlarni yopish ixtiyoriy.
+
+Ruxsat etilgan:
+```html
+<meta charset="utf-8">
+```
+
+Shuningdek, ruxsat et
+
+ilgan:
+```html
+<meta charset="utf-8" />
+```
+
+Agar XML/XHTML dasturlari sahifangizni o'qishini kutayotgan bo'lsangiz, yopish burunchasini (/), chunki XML va XHTML da bu talab qilinadi.
+
+#### `lang` Atributini Qo'shish
+
+`<html>` tegida har doim `lang` atributini qo'shishingiz kerak, bu veb sahifaning tilini e'lon qilish uchun mo'ljallangan. Bu qidiruv tizimlari va brauzerlarga yordam beradi.
+
+Misol:
+```html
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+```
+
+#### Meta Ma'lumotlar
+
+To'g'ri talqin qilish va qidiruv tizimi indeksatsiyasini ta'minlash uchun, til va xarakter kodlash `<meta charset="charset">` HTML hujjatida imkon qadar erta aniqlanishi kerak:
+
+```html
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+```
+
+#### Viewport-ni Sozlash
+
+Viewport foydalanuvchining veb sahifasining ko'rinadigan maydoni. U qurilmaga qarab o'zgaradi - mobil telefonlarda kompyuter ekranidan kichikroq bo'ladi.
+
+Har doim quyidagi `<meta>` elementini barcha veb sahifalaringizga qo'shing:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Bu brauzerga sahifaning o'lchamlari va masshtablashni boshqarish bo'yicha ko'rsatmalar beradi.
+
+`width=device-width` qismi sahifaning kengligini qurilmaning ekran kengligi bo'yicha sozlaydi (bu qurilmaga qarab o'zgaradi).
+
+`initial-scale=1.0` qismi sahifa dastlab yuklanganda zoom darajasini sozlaydi.
+
+Quyidagi havolalar orqali bu sahifani telefon yoki planshet bilan ko'rishingiz mumkin:
+
+- Viewport meta tagi bilan bo'lmagan sahifa
+- Viewport meta tagi bilan sahifa
+
+#### HTML Izohlar
+
+Qisqa izohlar bir qatorda yozilishi kerak:
+
+```html
+<!-- This is a comment -->
+```
+
+Bir nechta qatorlarga cho'zilgan izohlar quyidagicha yozilishi kerak:
+
+```html
+<!--
+  This is a long comment example. This is a long comment example.
+  This is a long comment example. This is a long comment example.
+-->
+```
+
+Uzoq izohlar ikki bo'sh joy bilan indentatsiya qilish osonroq.
+
+#### Usul Listlari
+
+Stil listlariga bog'lanish uchun oddiy sintaksisdan foydalaning (type atributi kerak emas):
+
+```html
+<link rel="stylesheet" href="styles.css">
+```
+
+Qisqa CSS qoidalarini siqilgan tarzda yozish mumkin:
+
+```css
+p.intro {font-family:Verdana;font-size:16em;}
+```
+
+Uzoq CSS qoidalari bir nechta qatorlarga yozilishi kerak:
+
+```css
+body {
+  background-color: lightgrey;
+  font-family: "Arial Black", Helvetica, sans-serif;
+  font-size: 16em;
+  color: black;
+}
+```
+
+Ochuvchi qavsni tanlagich bilan bir qatorda joylashtiring
+Ochuvchi qavs oldidan bir bo'sh joy qo'shing
+Ikki bo'sh joy kirishini qo'shing
+Har bir xususiyat-qiymat juftligini, shu jumladan oxirgisini, nuqta-vergul bilan tugating
+Qiymatlar bo'sh joylar mavjud bo'lsa, faqat qo'shimcha qavs ichida ishlating
+Yopuvchi qavsni yangi qatorga joylashtiring, boshlanish joylarini qo'shmasdan
+
+#### HTML-da JavaScript-ni Yuklash
+
+Tashqi skriptlarni yuklash uchun oddiy sintaksisdan foydalaning (type atributi kerak emas):
+
+```html
+<script src="myscript.js"></script>
+```
+
+#### HTML Elementlariga JavaScript Bilan Kirish
+
+"Tartibsiz" HTML kodi JavaScript xatolariga olib kelishi mumkin.
+
+Quyidagi ikki JavaScript bayonoti turli natijalarni beradi:
+
+Misol:
+```javascript
+getElementById("Demo").innerHTML = "Hello";
+```
+
+```javascript
+getElementById("demo").innerHTML = "Hello";
+```
+
+#### Fayl Nomlarini Kichik Harflar Bilan Ishlatish
+
+Ba'zi veb serverlari (Apache, Unix) fayl nomlari uchun katta harf va kichik harflar bo'yicha sezgir: "london.jpg" "London.jpg" sifatida kirish mumkin emas.
+
+Boshqa veb serverlari (Microsoft, IIS) katta harflar bilan kichik harflar uchun sezgir emas: "london.jpg" "London.jpg" sifatida kirish mumkin.
+
+Agar katta va kichik harflarni aralashtirsangiz, buni hisobga olish kerak.
+
+Agar sezgir fayl tizimiga o'tsangiz, hatto kichik xatolar ham veb sahifangizni buzadi!
+
+Bunday muammolardan qochish uchun doimo kichik harflar bilan fayl nomlarini ishlating!
+
+#### Fayl Kengaytmalari
+
+HTML fayllar `.html` kengaytmalariga ega bo'lishi kerak ( `.htm` ruxsat etiladi).
+
+CSS fayllar `.css` kengaytmalariga ega bo'lishi kerak.
+
+JavaScript fayllar `.js` kengaytmalariga ega bo'lishi kerak.
+
+#### `.htm` va `.html` o'rtasidagi Farq?
+
+`.htm` va `.html` fayl kengaytmalari orasida farq yo'q!
+
+Har ikkala kengaytma ham har qanday veb brauzer va veb server tomonidan HTML sifatida qabul qilinadi.
+
+#### Standart Fayl Nomlari
+
+URL oxirida fayl nomi ko'rsatilmasa (masalan, "https://www.udemere.uz/"), server standart fayl nomini qo'shadi, masalan "index.html", "index.htm", "default.html", yoki "default.htm".
+
+Agar serveringiz faqat "index.html" nomli standart fayl bilan sozlangan bo'lsa, sizning faylingiz "index.html" deb nomlanishi kerak, "default.html" emas.
+
+Biroq, serverlar bir nechta standart fayl nomlari bilan sozlanishi mumkin; odatda siz qancha xohlasangiz, shuncha standart fayl nomlarini sozlashingiz mumkin.

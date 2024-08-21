@@ -1,0 +1,129 @@
+---
+title: HTML-da Emojilarni Ishlatish
+description: Emojilar UTF-8 belgilar to'plamidagi belgilar hisoblanadi 😄 😍 💗.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML-da Emojilarni Ishlatish
+
+Emojilar UTF-8 belgilar to'plamidagi belgilar hisoblanadi 😄 😍 💗.
+
+### Emoji Belgilari
+
+| Emoji | Qiymati   |
+| ----- | --------- |
+| `🗻`    | &#128507; |
+| `🗼`    | &#128508; |
+| `🗽`    | &#128509; |
+| `🗾`    | &#128510; |
+| `🗿`    | &#128511; |
+| `😀`    | &#128512; |
+| `😁`    | &#128513; |
+| `😂`    | &#128514; |
+| `😃`    | &#128515; |
+| `😄`    | &#128516; |
+| `😅`    | &#128517; |
+
+**To'liq HTML Emoji Ma'lumotnomasi**
+
+### HTML Emojilar Misollari
+
+`🚀🚁🚂🚃🚄`
+HTML Emoji Transport Belgilari
+
+`💺💻💼💽💾`
+HTML Emoji Ofis Belgilari
+
+`👮👯👰👱👲`
+HTML Emoji Odam Belgilari
+
+`🐂🐃🐄🐅🐆`
+HTML Emoji Hayvon Belgilari
+
+### Emojilar Nima?
+
+Emojilar rasmlar yoki ikonkalarga o'xshaydi, lekin ular aslida bunday emas.
+
+Ular UTF-8 (Unicode) belgilar to'plamidagi harflar (belgilar) hisoblanadi.
+
+### HTML `charset` Atributi
+
+HTML sahifasini to'g'ri ko'rsatish uchun veb-brauzer sahifada ishlatilgan belgilar to'plamini bilishi kerak.
+
+Bu `<meta>` tegi ichida ko'rsatiladi:
+
+```html
+<meta charset="UTF-8" />
+```
+
+Agar ko'rsatilmasa, UTF-8 HTML-da sukut bo'yicha belgilar to'plami hisoblanadi.
+
+### UTF-8 Belgilari
+
+Ko'pgina UTF-8 belgilarini klaviaturada kiritish mumkin emas, lekin ularni raqamlar yordamida har doim ko'rsatish mumkin (entity raqamlari deb ataladi):
+
+- A belgisi uchun 65
+- B belgisi uchun 66
+- C belgisi uchun 67
+
+### Misol
+
+```html
+<!doctype html>
+<html>
+  <meta charset="UTF-8" />
+  <body>
+    <p>Men A B C belgilarini ko'rsataman</p>
+    <p>Men &#65; &#66; &#67; belgilarini ko'rsataman</p>
+  </body>
+</html>
+```
+
+### Misol Tushuntirilishi
+
+`<meta charset="UTF-8">` elementi belgilar to'plamini aniqlaydi.
+
+A, B, va C belgilarini 65, 66, va 67 raqamlari bilan ko'rsatiladi.
+
+Brauzerga belgini ko'rsatayotganingizni tushuntirish uchun entity raqamini `&#` bilan boshlashingiz va `;` (nuqtali vergul) bilan tugatishingiz kerak.
+
+### Emoji Belgilari
+
+Emojilar ham UTF-8 alifbosidagi belgilar hisoblanadi:
+
+- `😄` belgisi uchun 128516
+- `😍` belgisi uchun 128525
+- `💗` belgisi uchun 128151
+
+### Misol
+
+```html
+<!doctype html>
+<html>
+  <meta charset="UTF-8" />
+  <body>
+    <h1>Mening Birinchi Emojim</h1>
+
+    <p>&#128512;</p>
+  </body>
+</html>
+```
+
+Emojilar belgilar hisoblanadi, shuning uchun ularni nusxalash, ko'rsatish va o'lchamini HTML-dagi har qanday boshqa belgilar kabi o'zgartirish mumkin.
+
+### Misol
+
+```html
+<!doctype html>
+<html>
+  <meta charset="UTF-8" />
+  <body>
+    <h1>O'lchamlangan Emojilar</h1>
+
+    <p style="font-size:48px">&#128512; &#128516; &#128525; &#128151;</p>
+  </body>
+</html>
+```

@@ -1,0 +1,127 @@
+---
+title: HTML Semantik Elementlari
+description: Semantik elementlar = ma'noga ega bo'lgan elementlar.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Semantik Elementlari
+Semantik elementlar = ma'noga ega bo'lgan elementlar.
+
+### Semantik Elementlar Nima?
+Semantik element o'zining ma'nosini ham brauzerga, ham dasturchiga aniq ifodalaydi.
+
+Semantik bo'lmagan elementlarga misollar: `<div>` va `<span>` - ularning mazmuni haqida hech qanday ma'lumot bermaydi.
+
+Semantik elementlarga misollar: `<form>`, `<table>` va `<article>` - ularning mazmunini aniq belgilaydi.
+
+### HTMLdagi Semantik Elementlar
+Ko'pgina veb-saytlar HTML kodini quyidagicha o'z ichiga oladi: `<div id="nav">`, `<div class="header">`, `<div id="footer">` navigatsiya, sarlavha va futerni belgilash uchun.
+
+HTMLda veb-sahifaning turli qismlarini aniqlash uchun foydalanish mumkin bo'lgan bir nechta semantik elementlar mavjud:
+
+- `<article>`
+- `<aside>`
+- `<details>`
+- `<figcaption>`
+- `<figure>`
+- `<footer>`
+- `<header>`
+- `<main>`
+- `<mark>`
+- `<nav>`
+- `<section>`
+- `<summary>`
+- `<time>`
+
+### HTML Semantik Elementlari
+#### HTML `<section>` Elementi
+`<section>` elementi hujjatda bir bo'limni belgilaydi.
+
+W3Cning HTML hujjatlariga ko'ra: "Bo'lim odatda mazmunning mavzuga tegishli guruhlanishi bo'lib, odatda sarlavhaga ega bo'ladi."
+
+`<section>` elementini ishlatish mumkin bo'lgan joylarga misollar:
+
+- Bo'limlar
+- Kirish
+- Yangiliklar
+- Aloqa ma'lumotlari
+
+Veb-sahifa odatda kirish, mazmun va aloqa ma'lumotlari uchun bo'limlarga bo'linishi mumkin.
+
+#### HTML `<article>` Elementi
+`<article>` elementi mustaqil, o'z-o'zidan mazmunli kontentni belgilaydi.
+
+Maqola o'z-o'zidan mazmunli bo'lishi kerak va uni veb-saytning qolgan qismidan mustaqil ravishda tarqatish mumkin bo'lishi kerak.
+
+`<article>` elementini ishlatish mumkin bo'lgan joylarga misollar:
+
+- Forum xabarlari
+- Blog xabarlari
+- Foydalanuvchi sharhlari
+- Mahsulot kartochkalari
+- Gazeta maqolalari
+
+#### HTML `<header>` Elementi
+`<header>` elementi kirish kontenti yoki navigatsiya havolalari to'plamini ifodalaydi.
+
+`<header>` elementida odatda quyidagilar bo'ladi:
+
+- bir yoki bir nechta sarlavha elementlari (`<h1>` - `<h6>`)
+- logo yoki piktogramma
+- mualliflik ma'lumotlari
+
+<Callout type='warn' title='Eslatma'>
+  Siz bir HTML hujjatida bir nechta `<header>` elementiga ega bo'lishingiz mumkin. Biroq, `<header>`ni `<footer>`, `<address>` yoki boshqa `<header>` elementining ichiga qo'yish mumkin emas.
+</Callout>
+
+#### HTML `<footer>` Elementi
+`<footer>` elementi hujjat yoki bo'lim uchun futerni belgilaydi.
+
+`<footer>` elementida odatda quyidagilar bo'ladi:
+
+- mualliflik ma'lumotlari
+- mualliflik huquqi ma'lumotlari
+- aloqa ma'lumotlari
+- sayt xaritasi
+- yuqoriga qaytish havolalari
+- tegishli hujjatlar
+
+#### HTML `<nav>` Elementi
+`<nav>` elementi navigatsiya havolalar to'plamini belgilaydi.
+
+<Callout>
+  E'tibor bering, hujjatning barcha havolalari `<nav>` elementi ichida bo'lishi shart emas. `<nav>` elementi faqat asosiy navigatsiya havolalar bloklari uchun mo'ljallangan.
+</Callout>
+
+Brauzerlar, masalan, imkoniyati cheklangan foydalanuvchilar uchun ekran o'quvchi dasturlar, bu elementdan foydalanib, mazmunning boshlang'ich ko'rinishini o'tkazib yuborish yoki ko'rsatishni belgilashlari mumkin.
+
+#### HTML `<aside>` Elementi
+`<aside>` elementi joylashtirilgan mazmundan tashqarida joylashgan mazmunni belgilaydi (masalan, yon panel).
+
+`<aside>` mazmuni atrofidagi mazmunga bilvosita tegishli bo'lishi kerak.
+
+#### HTML `<figure>` va `<figcaption>` Elementlari
+`<figure>` tegiga mustaqil kontent, masalan, illyustratsiyalar, diagrammalar, fotosuratlar va kod ro'yxatlari kabi mazmunni belgilaydi.
+
+`<figcaption>` tegiga esa `<figure>` elementiga sarlavha kiritiladi. `figcaption` elementi `<figure>` elementining birinchi yoki oxirgi bolasi sifatida joylashtirilishi mumkin.
+
+Nega Semantik Elementlar Muhim?
+W3Cga ko'ra: "Semantik veb, ma'lumotlarning dasturlar, korxonalar va jamoalar o'rtasida baham ko'rilishi va qayta ishlatilishini ta'minlaydi."
+
+### HTMLdagi Ba'zi Semantik Elementlar
+- `<article>`: Mustaqil, o'z-o'zidan mazmunli kontentni belgilaydi.
+- `<aside>`: Sahifa mazmunidan tashqari mazmunni belgilaydi.
+- `<details>`: Foydalanuvchi ko'rishi yoki yashirishi mumkin bo'lgan qo'shimcha tafsilotlarni belgilaydi.
+- `<figcaption>`: `<figure>` elementiga sarlavha beradi.
+- `<figure>`: Mustaqil kontentni belgilaydi, masalan, illyustratsiyalar, diagrammalar va boshqalar.
+- `<footer>`: Hujjat yoki bo'lim uchun futerni belgilaydi.
+- `<header>`: Hujjat yoki bo'lim uchun sarlavhani belgilaydi.
+- `<main>`: Hujjatning asosiy mazmunini belgilaydi.
+- `<mark>`: Belgilangan/mualliflik matnini belgilaydi.
+- `<nav>`: Navigatsiya havolalarini belgilaydi.
+- `<section>`: Hujjatdagi bo'limni belgilaydi.
+- `<summary>`: `<details>` elementi uchun ko'rinadigan sarlavhani belgilaydi.
+- `<time>`: Sana/vaqtni belgilaydi.

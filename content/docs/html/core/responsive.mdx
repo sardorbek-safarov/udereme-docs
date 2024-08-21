@@ -1,0 +1,136 @@
+---
+title: HTML Moslashuvchan Veb Dizayni
+description: Moslashuvchan veb dizayn barcha qurilmalarda yaxshi ko'rinadigan veb-sahifalar yaratish haqida!
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Moslashuvchan Veb Dizayni
+
+Moslashuvchan veb dizayn barcha qurilmalarda yaxshi ko'rinadigan veb-sahifalar yaratish haqida!
+
+<Callout>Moslashuvchan veb dizayn turli ekran o'lchamlari va ko'rinishlar uchun avtomatik ravishda moslashadi.</Callout>
+
+### Moslashuvchan Veb Dizayn Nima?
+
+Moslashuvchan veb dizayn, veb-saytni barcha qurilmalarda (stol kompyuterlari, planshetlar va telefonlar) yaxshi ko'rinishini ta'minlash uchun HTML va CSS-dan foydalanib avtomatik ravishda o'lchamini o'zgartirish, yashirish, kichraytirish yoki kattalashtirish haqida.
+
+### Viewportni sozlash
+
+Moslashuvchan veb-sayt yaratish uchun barcha veb-sahifalaringizga quyidagi `<meta>` tegi qo'shing:
+
+**Misol**
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+Bu sahifangizning ko'rinishini o'rnatadi va brauzerga sahifa o'lchamlari va masshtablashni qanday boshqarish bo'yicha ko'rsatmalar beradi.
+
+Bu yerda viewport meta tegisiz veb-sahifa va viewport meta tegi bilan bir xil veb-sahifa misoli keltirilgan:
+
+Viewport meta tegisiz:
+Viewport meta tegi bilan:
+
+<Callout>
+  **Maslahat:** Agar siz ushbu sahifani telefon yoki planshetda ko'rib chiqayotgan bo'lsangiz, yuqoridagi ikki havolani
+  bosib farqni ko'rishingiz mumkin.
+</Callout>
+
+### Moslashuvchan Rasmlar
+
+Moslashuvchan rasmlar - bu har qanday brauzer o'lchamiga mos ravishda masshtablash imkoniga ega bo'lgan rasmlar.
+
+**Width xususiyatidan foydalanish**
+Agar CSS `width` (kenglik) xususiyati 100% ga o'rnatilgan bo'lsa, rasm moslashuvchan bo'ladi va kattalashadi yoki kichrayadi:
+
+**Misol**
+
+```html
+<img src="img_girl.jpg" style="width:100%;" />
+```
+
+Yuqoridagi misolda, rasm o'zining asl o'lchamidan kattaroq bo'lishi mumkinligini ko'rishingiz mumkin. Ko'pgina holatlarda, `max-width` (maksimal kenglik) xususiyatidan foydalanish yaxshiroq yechim bo'ladi.
+
+### Max-width xususiyatidan foydalanish
+
+Agar `max-width` (maksimal kenglik) xususiyati 100% ga o'rnatilgan bo'lsa, rasm kerak bo'lsa kichrayadi, lekin hech qachon o'zining asl o'lchamidan kattaroq bo'lmaydi:
+
+**Misol**
+
+```html
+<img src="img_girl.jpg" style="max-width:100%;height:auto;" />
+```
+
+### Brauzer kengligiga qarab turli xil rasmlarni ko'rsatish
+
+HTML `<picture>` elementi sizga turli xil brauzer oynasi o'lchamlari uchun turli rasmlarni aniqlash imkonini beradi.
+
+Brauzer oynasini qayta o'lchamlash orqali quyidagi rasm kengligiga qarab qanday o'zgarishini ko'ring:
+
+Gullar
+**Misol**
+
+```html
+<picture>
+  <source srcset="img_smallflower.jpg" media="(max-width: 600px)" />
+  <source srcset="img_flowers.jpg" media="(max-width: 1500px)" />
+  <source srcset="flowers.jpg" />
+  <img src="img_smallflower.jpg" alt="Flowers" />
+</picture>
+```
+
+### Moslashuvchan Matn O'lchami
+
+Matn o'lchami "vw" birliklari bilan o'rnatilishi mumkin, bu "viewport kengligi"ni anglatadi.
+
+Shunday qilib, matn o'lchami brauzer oynasi o'lchamiga mos keladi:
+
+Hello World
+Brauzer oynasini qayta o'lchamlash orqali matn o'lchami qanday o'zgarishini ko'ring.
+
+**Misol**
+
+```html
+<h1 style="font-size:10vw">Hello World</h1>
+```
+
+Viewport - bu brauzer oynasining o'lchami. 1vw = viewport kengligining 1%. Agar viewport 50 sm kenglikda bo'lsa, 1vw 0,5 sm ga teng bo'ladi.
+
+**Media Queries**
+Matn va rasmlarni o'lchamini o'zgartirishdan tashqari, moslashuvchan veb-sahifalarda media queries (mediadagi so'rovlar) ishlatish ham keng tarqalgan.
+
+Media queries yordamida siz turli brauzer o'lchamlari uchun mutlaqo boshqa uslublarni belgilashingiz mumkin.
+
+**Misol**
+
+```html
+<style>
+  .left,
+  .right {
+    float: left;
+    width: 20%; /* Odatiy bo'lib, kenglik 20% */
+  }
+
+  .main {
+    float: left;
+    width: 60%; /* Odatiy bo'lib, kenglik 60% */
+  }
+
+  /* 800px da to'xtatish nuqtasini qo'shish uchun media query ishlating: */
+  @media screen and (max-width: 800px) {
+    .left,
+    .main,
+    .right {
+      width: 100%; /* Kenglik 100%, agar viewport 800px yoki kichikroq bo'lsa */
+    }
+  }
+</style>
+```
+
+<Callout>
+  **Maslahat:** Media Queries va Responsive Web Design haqida ko'proq ma'lumot olish uchun bizning RWD qo'llanmamizni
+  o'qing.
+</Callout>

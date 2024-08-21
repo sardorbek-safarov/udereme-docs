@@ -1,0 +1,212 @@
+---
+title: HTML - Head Elementi
+description: HTML <head> elementi quyidagi elementlar uchun konteyner hisoblanadi <title>, <style>, <meta>, <link>, <script>, va <base>.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML - Head Elementi
+
+HTML `<head>` elementi quyidagi elementlar uchun konteyner hisoblanadi: `<title>`, `<style>`, `<meta>`, `<link>`, `<script>`, va `<base>`.
+
+### HTML `<head>` Elementi
+
+`<head>` elementi metadata (ma'lumotlar haqidagi ma'lumotlar) uchun konteyner hisoblanadi va u `<html>` tegi bilan `<body>` tegi orasida joylashadi.
+
+HTML metadata - bu HTML hujjati haqidagi ma'lumotlar. Metadata sahifada ko'rsatilmaydi.
+
+Metadata odatda hujjat sarlavhasi, belgi to'plami, uslublar, skriptlar va boshqa meta ma'lumotlarni aniqlaydi.
+
+### HTML `<title>` Elementi
+
+`<title>` elementi hujjat sarlavhasini aniqlaydi. Sarlavha faqat matnli bo'lishi kerak va u brauzerning sarlavha panelida yoki sahifaning yorlig'ida ko'rsatiladi.
+
+`<title>` elementi HTML hujjatlarida talab qilinadi!
+
+Sahifa sarlavhasining mazmuni qidiruv tizimini optimallashtirish (SEO) uchun juda muhimdir! Sahifa sarlavhasi qidiruv tizimi algoritmlari tomonidan sahifalarni qidiruv natijalarida ro'yxatlash tartibini belgilash uchun ishlatiladi.
+
+`<title>` elementi:
+
+- brauzer asboblar panelida sarlavhani aniqlaydi
+- sahifa sevimlilarga qo'shilganda sarlavhani taqdim etadi
+- qidiruv tizimi natijalarida sahifa uchun sarlavhani ko'rsatadi
+
+Shunday qilib, sarlavhani iloji boricha aniq va mazmunli qilishga harakat qiling!
+
+#### Oddiy HTML hujjati:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Mazmunli Sahifa Sarlavhasi</title>
+  </head>
+  <body>
+    Hujjat mazmuni......
+  </body>
+</html>
+```
+
+### HTML `<style>` Elementi
+
+`<style>` elementi bir HTML sahifa uchun uslub ma'lumotlarini aniqlash uchun ishlatiladi:
+
+Misol:
+
+```html
+<style>
+  body {
+    background-color: powderblue;
+  }
+  h1 {
+    color: red;
+  }
+  p {
+    color: blue;
+  }
+</style>
+```
+
+### HTML `<link>` Elementi
+
+`<link>` elementi joriy hujjat bilan tashqi resurs o'rtasidagi munosabatni aniqlaydi.
+
+`<link>` tegi ko'pincha tashqi uslublar jadvaliga (CSS) havola qilish uchun ishlatiladi:
+
+Misol:
+
+```html
+<link rel="stylesheet" href="mystyle.css" />
+```
+
+Maslahat: CSS haqida ko'proq ma'lumot olish uchun bizning CSS qo'llanmamizni ko'ring.
+
+### HTML `<meta>` Elementi
+
+`<meta>` elementi odatda belgi to'plami, sahifa tavsifi, kalit so'zlar, hujjat muallifi va ko'rish oynasi sozlamalarini aniqlash uchun ishlatiladi.
+
+Metadata sahifada ko'rsatilmaydi, lekin brauzerlar (mazmunni qanday ko'rsatish yoki sahifani qayta yuklash), qidiruv tizimlari (kalit so'zlar) va boshqa veb-xizmatlar tomonidan ishlatiladi.
+
+Misollar:
+Belgilar to'plamini aniqlash:
+
+```html
+<meta charset="UTF-8" />
+```
+
+Qidiruv tizimlari uchun kalit so'zlarni aniqlash:
+
+```html
+<meta name="keywords" content="HTML, CSS, JavaScript" />
+```
+
+Veb sahifangizning tavsifini aniqlang:
+
+```html
+<meta name="description" content="Bepul Veb qo'llanmalar" />
+```
+
+Sahifa muallifini aniqlang:
+
+```html
+<meta name="author" content="John Doe" />
+```
+
+Har 30 soniyada hujjatni yangilang:
+
+```html
+<meta http-equiv="refresh" content="30" />
+```
+
+Ko'rish oynasini barcha qurilmalarda veb-saytingizni yaxshi ko'rinishga keltirish:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+#### `<meta>` teglarining misoli:
+
+```html
+<meta charset="UTF-8" />
+<meta name="description" content="Bepul Veb qo'llanmalar" />
+<meta name="keywords" content="HTML, CSS, JavaScript" />
+<meta name="author" content="John Doe" />
+```
+
+### Ko'rish Oynasini Sozlash
+
+Ko'rish oynasi - bu foydalanuvchining veb-sahifani ko'rish maydoni. U qurilmaga qarab o'zgaradi - mobil telefonda u kompyuter ekraniga qaraganda kichikroq bo'ladi.
+
+Barcha veb-sahifalaringizda quyidagi `<meta>` elementini qo'shishingiz kerak:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+Bu brauzerga sahifaning o'lchamlari va masshtabini qanday boshqarish bo'yicha ko'rsatmalar beradi.
+
+`width=device-width` qismi sahifaning kengligini qurilmaning ekran kengligiga mos keladigan qilib belgilaydi (bu qurilmaga qarab o'zgaradi).
+
+`initial-scale=1.0` qismi sahifa brauzer tomonidan yuklanganida boshlang'ich masshtab darajasini belgilaydi.
+
+Mana ko'rish oynasi meta tesi yo'q veb-sahifaning misoli va ko'rish oynasi meta tesi bilan bir xil veb-sahifa:
+
+<Callout>
+  **Maslahat:** Agar siz ushbu sahifani telefon yoki planshet bilan ko'rayotgan bo'lsangiz, farqni ko'rish uchun
+  quyidagi ikki havolani bosishingiz mumkin.
+</Callout>
+
+### HTML `<script>` Elementi
+
+`<script>` elementi mijoziy tomondan JavaScriptlarni aniqlash uchun ishlatiladi.
+
+Quyidagi JavaScript "Hello JavaScript!" ni id="demo" bo'lgan HTML elementiga yozadi:
+
+Misol:
+
+```html
+<script>
+  function myFunction() {
+    document.getElementById('demo').innerHTML = 'Hello JavaScript!';
+  }
+</script>
+```
+
+<Callout>
+  **Maslahat:** JavaScript haqida hamma narsani o'rganish uchun bizning JavaScript qo'llanmamizga tashrif buyuring.
+</Callout>
+
+### HTML `<base>` Elementi
+
+`<base>` elementi sahifadagi barcha nisbiy URL manzillari uchun asosiy URL va/yoki maqsadni belgilaydi.
+
+`<base>` tegi yoki `href` yoki `target` atributiga ega bo'lishi kerak yoki ikkalasi ham bo'lishi kerak.
+
+Hujjatda faqat bitta `<base>` elementi bo'lishi mumkin!
+
+Misol:
+Sahifadagi barcha havolalar uchun standart URL va standart maqsadni aniqlang:
+
+```html
+<head>
+  <base href="https://www.w3schools.com/" target="_blank" />
+</head>
+
+<body>
+  <img src="images/stickman.gif" width="24" height="39" alt="Stickman" />
+  <a href="tags/tag_base.asp">HTML base Tag</a>
+</body>
+```
+
+## Bo'lim Xulosasi
+
+- `<head>` elementi metadata (ma'lumotlar haqidagi ma'lumotlar) uchun konteyner hisoblanadi.
+- `<head>` elementi `<html>` tegi bilan `<body>` tegi orasida joylashgan.
+- `<title>` elementi talab qilinadi va u hujjatning sarlavhasini aniqlaydi.
+- `<style>` elementi bir hujjat uchun uslub ma'lumotlarini aniqlash uchun ishlatiladi.
+- `<link>` tegi ko'pincha tashqi uslub jadvallariga havola qilish uchun ishlatiladi.
+- `<meta>` elementi odatda belgi to'plami, sahifa tavsifi, kalit so'zlar, hujjat muallifi va ko'rish oynasi sozlamalarini aniqlash uchun ishlatiladi.
+- `<script>` elementi mijoziy tomondan JavaScriptlarni aniqlash uchun ishlatiladi.
+- `<base>` elementi sahifadagi barcha nisbiy URL manzillari uchun asosiy URL va/yoki maqsadni belgilaydi.
