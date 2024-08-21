@@ -1,0 +1,185 @@
+---
+title: HTML Versus XHTML
+description: XHTML — bu HTML ning qat'iyroq, XML asosida bo‘lgan versiyasidir.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Versus XHTML
+
+XHTML — bu HTML ning qat'iyroq, XML asosida bo‘lgan versiyasidir.
+
+### XHTML nima?
+
+XHTML - kengaytirilgan HyperText Markup Language (Hypertext Markup Language) degan ma'noni anglatadi.
+XHTML HTML ning XML dasturiy ilova sifatida belgilangan qat'iyroq versiyasidir.
+XHTML barcha yirik brauzerlar tomonidan qo‘llab-quvvatlanadi.
+
+#### Nega XHTML?
+
+XML - barcha hujjatlar to‘g‘ri belgilanishi kerak bo‘lgan markirovka tili (ya'ni, "yaxshi tuzilgan" bo‘lishi kerak).
+
+XHTML HTML ni XML kabi boshqa ma'lumot formatlari bilan ishlash uchun kengaytirilgan va moslashuvchan qilish maqsadida ishlab chiqilgan. Bundan tashqari, brauzerlar HTML sahifalaridagi xatolarni e'tiborsiz qoldiradi va veb-saytni hatto xatolar bo‘lsa ham ko‘rsatishga harakat qiladi. Shuning uchun, XHTML qat'iyroq xato boshqarishni taklif qiladi.
+
+Agar siz XML o‘rganmoqchi bo‘lsangiz, iltimos, bizning XML darsligimizni o‘qing.
+
+## HTML dan Eng Muhim Farqlar
+
+- **`<!DOCTYPE>`** majburiydir
+- **`<html>`** tagida **xmlns** atributi majburiydir
+- **`<html>`**, **`<head>`**, **`<title>`**, va **`<body>`** majburiydir
+- Elementlar har doim to‘g‘ri joylashtirilgan bo‘lishi kerak
+- Elementlar har doim yopilgan bo‘lishi kerak
+- Elementlar har doim kichik harflarda bo‘lishi kerak
+- Atribut nomlari har doim kichik harflarda bo‘lishi kerak
+- Atribut qiymatlari har doim qo'shtirnoqlar ichida bo‘lishi kerak
+- Atribut qisqartirilishi man etilgan
+
+### XHTML - `<!DOCTYPE ....>` Majburiydir
+
+XHTML hujjati XHTML **`<!DOCTYPE>`** deklaratsiyasiga ega bo‘lishi kerak.
+
+**`<html>`**, **`<head>`**, **`<title>`**, va **`<body>`** elementlari ham mavjud bo‘lishi kerak, va **`<html>`** tagida **xmlns** atributi hujjat uchun XML nomini belgilashi kerak.
+
+**Misol**
+
+Quyida minimal kerakli teglar bilan XHTML hujjati keltirilgan
+
+```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Hujjat nomi</title>
+  </head>
+  <body>
+    ba'zi mazmun...
+  </body>
+</html>
+```
+
+## XHTML Elementlari To‘g‘ri Joylashtirilishi Kerak
+
+XHTML da, elementlar har doim bir-biriga to‘g‘ri joylashtirilgan bo‘lishi kerak
+
+**To‘g‘ri:**
+
+```html
+<b><i>Ba'zi matn</i></b>
+```
+
+**Noto‘g‘ri:**
+
+```html
+<b><i>Ba'zi matn</b></i>
+```
+
+### XHTML Elementlari Har Doim Yopilgan Bo‘lishi Kerak
+
+XHTML da, elementlar har doim yopilgan bo‘lishi kerak
+
+**To‘g‘ri:**
+
+```html
+<p>Bu bir paragraf</p>
+<p>Bu boshqa bir paragraf</p>
+```
+
+**Noto‘g‘ri:**
+
+```html
+<p>Bu bir paragraf</p>
+<p>Bu boshqa bir paragraf</p>
+```
+
+### XHTML Bo‘sh Elementlari Har Doim Yopilgan Bo‘lishi Kerak
+
+XHTML da, bo‘sh elementlar har doim yopilgan bo‘lishi kerak
+
+**To‘g‘ri:**
+
+```html
+Yumshatish: <br />
+Gorizontal qoidalar:
+<hr />
+Rasm: <img src="happy.gif" alt="Happy face" />
+```
+
+**Noto‘g‘ri:**
+
+```html
+Yumshatish: <br />
+Gorizontal qoidalar:
+<hr />
+Rasm: <img src="happy.gif" alt="Happy face" />
+```
+
+### XHTML Elementlari Kichik Harflarda Bo‘lishi Kerak
+
+XHTML da, element nomlari har doim kichik harflarda bo‘lishi kerak:
+
+**To‘g‘ri:**
+
+```html
+<body>
+  <p>Bu bir paragraf</p>
+</body>
+```
+
+**Noto‘g‘ri:**
+
+```html
+<body>
+  <p>Bu bir paragraf</p>
+</body>
+```
+
+### XHTML Atribut Nomlari Kichik Harflarda Bo‘lishi Kerak
+
+XHTML da, atribut nomlari har doim kichik harflarda bo‘lishi kerak:
+
+**To‘g‘ri:**
+
+```html
+<a href="https://www.udemere.uz/docs/html/">Bizning HTML darsligimizni ko‘ring</a>
+```
+
+**Noto‘g‘ri:**
+
+```html
+<a href="https://www.udemere.uz/docs/html/">Bizning HTML darsligimizni ko‘ring</a>
+```
+
+### XHTML Atribut Qiymatlari Qo‘shtirnoqlar Ichida Bo‘lishi Kerak
+
+XHTML da, atribut qiymatlari har doim qo‘shtirnoqlar ichida bo‘lishi kerak:
+
+**To‘g‘ri:**
+
+```html
+<a href="https://www.udemere.uz/docs/html/">Bizning HTML darsligimizni ko‘ring</a>
+```
+
+**Noto‘g‘ri:**
+
+```html
+<a href=https://www.udemere.uz/docs/html/>Bizning HTML darsligimizni ko‘ring</a>
+```
+
+### XHTML Atribut Qisqartirilishi Man Etilgan
+
+XHTML da, atribut qisqartirilishi man etilgan
+
+**To‘g‘ri:**
+
+```html
+<input type="checkbox" name="vehicle" value="car" checked="checked" />
+<input type="text" name="lastname" disabled="disabled" />
+```
+
+**Noto‘g‘ri:**
+
+```html
+<input type="checkbox" name="vehicle" value="car" checked /> <input type="text" name="lastname" disabled />
+```

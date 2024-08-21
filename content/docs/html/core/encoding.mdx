@@ -1,0 +1,83 @@
+---
+title: HTML Birxilda Resurs Manzillari (URL)
+description: URL - bu veb-manzilning boshqa so'zi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Birxilda Resurs Manzillari (URL)
+
+URL - bu veb-manzilning boshqa so'zi.
+
+URL so'zlardan (masalan, w3schools.com) yoki Internet Protokol (IP) manzilidan (masalan, 192.68.20.50) iborat bo'lishi mumkin.
+
+Ko'pchilik, raqamlarni yodlashdan osonroq bo'lgan nomlarni kiritadi.
+
+### URL - Birxilda Resurs Manzili
+
+Veb-brauzerlar URL orqali web-serverlardan sahifalarni so'raydi.
+
+Birxilda Resurs Manzili (URL) vebdagi hujjat (yoki boshqa ma'lumot) manzilini belgilash uchun ishlatiladi.
+
+https://www.udemere.uz/docs/html/ kabi veb-manzil quyidagi sintaksis qoidalariga amal qiladi:
+
+**scheme://prefix.domain:port/path/filename**
+
+**Tushuntirish:**
+
+- **scheme** - Internet xizmatining turini belgilaydi (eng keng tarqalganlari http yoki https)
+- **prefix** - domen prefiksini belgilaydi (http uchun standart www)
+- **domain** - Internet domen nomini belgilaydi (masalan, w3schools.com)
+- **port** - xostdagi port raqamini belgilaydi (http uchun standart 80)
+- **path** - serverdagi yo'lni belgilaydi (e'tiborsiz qoldirilsa: saytning ildiz katalogi)
+- **filename** - hujjat yoki resursning nomini belgilaydi
+
+### Ommaviy URL Schemas
+
+Quyidagi jadval ba'zi keng tarqalgan sxemalarni ko'rsatadi:
+
+| Scheme | Qisqartma                          | Maqsadi                              |
+| ------ | ---------------------------------- | ------------------------------------ |
+| http   | HyperText Transfer Protocol        | Ommaviy veb-sahifalar. Shifrlanmagan |
+| https  | Secure HyperText Transfer Protocol | Xavfsiz veb-sahifalar. Shifrlangan   |
+| ftp    | File Transfer Protocol             | Fayllarni yuklab olish yoki yuklash  |
+| file   |                                    | Kompyuteringizdagi fayl              |
+
+## URL Kodlash
+
+URL-lar faqat ASCII belgi-to'plami orqali Internetda yuborilishi mumkin. Agar URL ASCII to'plamidan tashqaridagi belgilarni o'z ichiga olsa, URL konvertatsiya qilinishi kerak.
+
+URL kodlash ASCII bo'lmagan belgilarni "%" va undan keyin keladigan o'nlik sanoq raqamlariga aylantiradi.
+
+URL-larda bo'sh joy bo'lishi mumkin emas. URL kodlash odatda bo'sh joyni "+" belgisi yoki %20 bilan almashtiradi.
+
+**O'zingiz Sinab Ko'ring**
+
+Salom Günter
+
+Agar "Yuborish" tugmasini bossangiz, brauzer sizning kiritingan ma'lumotni serverga yuborishdan oldin URL kodlashni amalga oshiradi.
+
+Serverdagi sahifa qabul qilingan ma'lumotni ko'rsatadi.
+
+Ba'zi boshqa ma'lumotlarni sinab ko'ring va yana Yuborish tugmasini bosing.
+
+## ASCII Kodlash Misollari
+
+Brauzeringiz kiritingan ma'lumotni sahifadagi belgi-to'plamiga qarab kodlaydi.
+
+HTML5 da standart belgi-to'plami UTF-8 hisoblanadi.
+
+| Belgilar | Windows-1252 dan | UTF-8 dan |
+| -------- | ---------------- | --------- |
+| €        | %80              | %E2%82%AC |
+| £        | %A3              | %C2%A3    |
+| ©       | %A9              | %C2%A9    |
+| ®       | %AE              | %C2%AE    |
+| À        | %C0              | %C3%80    |
+| Á        | %C1              | %C3%81    |
+| Â        | %C2              | %C3%82    |
+| Ã        | %C3              | %C3%83    |
+| Ä        | %C4              | %C3%84    |
+| Å        | %C5              | %C3%85    |

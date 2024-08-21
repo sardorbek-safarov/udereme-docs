@@ -1,0 +1,318 @@
+---
+title: HTML Kodlash (Belgilar To'plami)
+description: HTML sahifasini to'g'ri ko'rsatish uchun veb-brauzer qaysi belgi to'plamidan foydalanishni bilishi kerak.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Kodlash (Belgilar To'plami)
+
+HTML sahifasini to'g'ri ko'rsatish uchun veb-brauzer qaysi belgi to'plamidan foydalanishni bilishi kerak.
+
+### HTML `charset` Atributi
+
+Belgi to'plami `<meta>` tegi ichida ko'rsatiladi:
+
+**Misol:**
+
+```html
+<meta charset="UTF-8" />
+```
+
+HTML5 spetsifikatsiyasi veb-ishlab chiquvchilarni UTF-8 belgi to'plamidan foydalanishga chaqiradi.
+
+UTF-8 dunyodagi deyarli barcha belgilar va simbolarni qamrab oladi!
+
+### Unicode Veb O'sishi
+
+**To'liq UTF-8 Ma'lumotnomasi**
+
+### ASCII Belgilar To'plami
+
+ASCII veb uchun birinchi belgi kodlash standarti edi. U internetda foydalanish mumkin bo'lgan 128 ta turli belgi va harflarni aniqladi:
+
+- Ingliz harflari (A-Z)
+- Raqamlar (0-9)
+- Maxsus belgilar, masalan, `! $ + - ( ) @ < >.`
+
+### ANSI Belgilar To'plami
+
+ANSI (Windows-1252) asl Windows belgi to'plami edi:
+
+- Birinchi 127 belgi uchun ASCII bilan bir xil
+- 128 dan 159 gacha bo'lgan maxsus belgilar
+- 160 dan 255 gacha UTF-8 bilan bir xil
+
+**Misol:**
+
+```html
+<meta charset="Windows-1252" />
+```
+
+### ISO-8859-1 Belgilar To'plami
+
+ISO-8859-1 HTML 4 uchun sukut bo'yicha belgi to'plami edi. Bu belgi to'plami 256 ta turli belgi kodlarini qo'llab-quvvatladi. HTML 4 shuningdek UTF-8 ni ham qo'llab-quvvatladi.
+
+- Birinchi 127 belgi uchun ASCII bilan bir xil
+- 128 dan 159 gacha bo'lgan belgilar ishlatilmaydi
+- 160 dan 255 gacha ANSI va UTF-8 bilan bir xil
+
+**HTML 4 Misol:**
+
+```html
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+```
+
+**HTML 5 Misol:**
+
+```html
+<meta charset="ISO-8859-1" />
+```
+
+### UTF-8 Belgilar To'plami
+
+- 0 dan 127 gacha bo'lgan qiymatlar uchun ASCII bilan bir xil
+- 128 dan 159 gacha bo'lgan belgilar ishlatilmaydi
+- 160 dan 255 gacha ANSI va 8859-1 bilan bir xil
+- 256 dan 10 000 gacha bo'lgan belgilarni davom ettiradi
+
+**Misol:**
+
+```html
+<meta charset="UTF-8" />
+```
+
+**To'liq HTML Belgilar To'plami Ma'lumotnomasi.**
+
+### Belgilar To'plamlari O'rtasidagi Farqlar
+
+Quyidagi jadvalda yuqorida tavsiflangan belgilar to'plamlari o'rtasidagi farqlar ko'rsatilgan:
+
+| Nomer | ASCII | ANSI      | 8859      | UTF-8     | Ta'rif                                       |
+| ----- | ----- | --------- | --------- | --------- | -------------------------------------------- |
+| 32    | ` `   | ` `       | ` `       | ` `       | Bo'shliq                                     |
+| 33    | `!`   | `!`       | `!`       | `!`       | Undov belgisi                                |
+| 34    | `"`   | `"`       | `"`       | `"`       | Iqtibos belgisi                              |
+| 35    | `#`   | `#`       | `#`       | `#`       | Soni belgisi                                 |
+| 36    | `$`   | `$`       | `$`       | `$`       | Dollar belgisi                               |
+| 37    | `%`   | `%`       | `%`       | `%`       | Foiz belgisi                                 |
+| 38    | `&`   | `&`       | `&`       | `&`       | Ampersand                                    |
+| 39    | `'`   | `'`       | `'`       | `'`       | Apostrof                                     |
+| 40    | `(`   | `(`       | `(`       | `(`       | Qavs chap                                    |
+| 41    | `)`   | `)`       | `)`       | `)`       | Qavs o'ng                                    |
+| 42    | `*`   | `*`       | `*`       | `*`       | Yulduzcha                                    |
+| 43    | `+`   | `+`       | `+`       | `+`       | Qo'shish belgisi                             |
+| 44    | `,`   | `,`       | `,`       | `,`       | Vergul                                       |
+| 45    | `-`   | `-`       | `-`       | `-`       | Defis-minus                                  |
+| 46    | `.`   | `.`       | `.`       | `.`       | Nuqta                                        |
+| 47    | `/`   | `/`       | `/`       | `/`       | Slash (egri chiziq)                          |
+| 48    | `0`   | `0`       | `0`       | `0`       | Nol                                          |
+| 49    | `1`   | `1`       | `1`       | `1`       | Bir                                          |
+| 50    | `2`   | `2`       | `2`       | `2`       | Ikki                                         |
+| 51    | `3`   | `3`       | `3`       | `3`       | Uch                                          |
+| 52    | `4`   | `4`       | `4`       | `4`       | To'rt                                        |
+| 53    | `5`   | `5`       | `5`       | `5`       | Besh                                         |
+| 54    | `6`   | `6`       | `6`       | `6`       | Olti                                         |
+| 55    | `7`   | `7`       | `7`       | `7`       | Yetti                                        |
+| 56    | `8`   | `8`       | `8`       | `8`       | Sakkiz                                       |
+| 57    | `9`   | `9`       | `9`       | `9`       | To'qqiz                                      |
+| 58    | `:`   | `:`       | `:`       | `:`       | Ikki nuqta                                   |
+| 59    | `;`   | `;`       | `;`       | `;`       | Nuqtali vergul                               |
+| 60    | `<`   | `<`       | `<`       | `<`       | Kichikroq                                    |
+| 61    | `=`   | `=`       | `=`       | `=`       | Tenglik belgisi                              |
+| 62    | `>`   | `>`       | `>`       | `>`       | Kattaroq                                     |
+| 63    | `?`   | `?`       | `?`       | `?`       | So'roq belgisi                               |
+| 64    | `@`   | `@`       | `@`       | `@`       | Tijorat belgisi                              |
+| 65    | `A`   | `A`       | `A`       | `A`       | Lotin A                                      |
+| 66    | `B`   | `B`       | `B`       | `B`       | Lotin B                                      |
+| 67    | `C`   | `C`       | `C`       | `C`       | Lotin C                                      |
+| 68    | `D`   | `D`       | `D`       | `D`       | Lotin D                                      |
+| 69    | `E`   | `E`       | `E`       | `E`       | Lotin E                                      |
+| 70    | `F`   | `F`       | `F`       | `F`       | Lotin F                                      |
+| 71    | `G`   | `G`       | `G`       | `G`       | Lotin G                                      |
+| 72    | `H`   | `H`       | `H`       | `H`       | Lotin H                                      |
+| 73    | `I`   | `I`       | `I`       | `I`       | Lotin I                                      |
+| 74    | `J`   | `J`       | `J`       | `J`       | Lotin J                                      |
+| 75    | `K`   | `K`       | `K`       | `K`       | Lotin K                                      |
+| 76    | `L`   | `L`       | `L`       | `L`       | Lotin L                                      |
+| 77    | `M`   | `M`       | `M`       | `M`       | Lotin M                                      |
+| 78    | `N`   | `N`       | `N`       | `N`       | Lotin N                                      |
+| 79    | `O`   | `O`       | `O`       | `O`       | Lotin O                                      |
+| 80    | `P`   | `P`       | `P`       | `P`       | Lotin P                                      |
+| 81    | `Q`   | `Q`       | `Q`       | `Q`       | Lotin Q                                      |
+| 82    | `R`   | `R`       | `R`       | `R`       | Lotin R                                      |
+| 83    | `S`   | `S`       | `S`       | `S`       | Lotin S                                      |
+| 84    | `T`   | `T`       | `T`       | `T`       | Lotin T                                      |
+| 85    | `U`   | `U`       | `U`       | `U`       | Lotin U                                      |
+| 86    | `V`   | `V`       | `V`       | `V`       | Lotin V                                      |
+| 87    | `W`   | `W`       | `W`       | `W`       | Lotin W                                      |
+| 88    | `X`   | `X`       | `X`       | `X`       | Lotin X                                      |
+| 89    | `Y`   | `Y`       | `Y`       | `Y`       | Lotin Y                                      |
+| 90    | `Z`   | `Z`       | `Z`       | `Z`       | Lotin Z                                      |
+| 91    | `[`   | `[`       | `[`       | `[`       | Qavs chap kvadrat                            |
+| 92    | `\`   | `\`       | `\`       | `\`       | Qavs o'ng kvadrat                            |
+| 93    | `]`   | `]`       | `]`       | `]`       | Teskari chiziq                               |
+| 94    | `^`   | `^`       | `^`       | `^`       | O'q chiziq                                   |
+| 95    | `_`   | `_`       | `_`       | `_`       | Pastki chiziq                                |
+| 96    | `     | `         | `         | `         | Aksiografik belgisi                          |
+| 97    | `a`   | `a`       | `a`       | `a`       | Lotin a                                      |
+| 98    | `b`   | `b`       | `b`       | `b`       | Lotin b                                      |
+| 99    | `c`   | `c`       | `c`       | `c`       | Lotin c                                      |
+| 100   | `d`   | `d`       | `d`       | `d`       | Lotin d                                      |
+| 101   | `e`   | `e`       | `e`       | `e`       | Lotin e                                      |
+| 102   | `f`   | `f`       | `f`       | `f`       | Lotin f                                      |
+| 103   | `g`   | `g`       | `g`       | `g`       | Lotin g                                      |
+| 104   | `h`   | `h`       | `h`       | `h`       | Lotin h                                      |
+| 105   | `i`   | `i`       | `i`       | `i`       | Lotin i                                      |
+| 106   | `j`   | `j`       | `j`       | `j`       | Lotin j                                      |
+| 107   | `k`   | `k`       | `k`       | `k`       | Lotin k                                      |
+| 108   | `l`   | `l`       | `l`       | `l`       | Lotin l                                      |
+| 109   | `m`   | `m`       | `m`       | `m`       | Lotin m                                      |
+| 110   | `n`   | `n`       | `n`       | `n`       | Lotin n                                      |
+| 111   | `o`   | `o`       | `o`       | `o`       | Lotin o                                      |
+| 112   | `p`   | `p`       | `p`       | `p`       | Lotin p                                      |
+| 113   | `q`   | `q`       | `q`       | `q`       | Lotin q                                      |
+| 114   | `r`   | `r`       | `r`       | `r`       | Lotin r                                      |
+| 115   | `s`   | `s`       | `s`       | `s`       | Lotin s                                      |
+| 116   | `t`   | `t`       | `t`       | `t`       | Lotin t                                      |
+| 117   | `u`   | `u`       | `u`       | `u`       | Lotin u                                      |
+| 118   | `v`   | `v`       | `v`       | `v`       | Lotin v                                      |
+| 119   | `w`   | `w`       | `w`       | `w`       | Lotin w                                      |
+| 120   | `x`   | `x`       | `x`       | `x`       | Lotin x                                      |
+| 121   | `y`   | `y`       | `y`       | `y`       | Lotin y                                      |
+| 122   | `z`   | `z`       | `z`       | `z`       | Lotin z                                      |
+| 123   | `{`   | `{`       | `{`       | `{`       | Qavs chap jingalak                           |
+| 124   | \|    | \|        | \|        | \|        | Vertical chiziq                              |
+| 125   | `}`   | `}`       | `}`       | `}`       | Qavs o'ng jingalak                           |
+| 126   | `~`   | `~`       | `~`       | `~`       | Tilda belgisi                                |
+| 127   | DEL   | DEL       | DEL       | DEL       | O'chirilgan belgi                            |
+| 128   | `€`   | `€`       | `€`       | `€`       | Yevro belgi                                  |
+| 129   |       |           |           |           | NOT USED                                     |
+| 130   | `‚`   | `‚`       | `‚`       | `‚`       | Pastki 9-qiymatni qoʻllash belgisi           |
+| 131   | `ƒ`   | `ƒ`       | `ƒ`       | `ƒ`       | X surati bilan kichik f                      |
+| 132   | `„`   | `„`       | `„`       | `„`       | Ikki pastki 9-qiymatni qoʻllash belgisi      |
+| 133   | `…`   | `…`       | `…`       | `…`       | Gorizontal ellips                            |
+| 134   | `†`   | `†`       | `†`       | `†`       | Pichoqli belgi                               |
+| 135   | `‡`   | `‡`       | `‡`       | `‡`       | Ikki pichoqli belgi                          |
+| 136   | `ˆ`   | `ˆ`       | `ˆ`       | `ˆ`       | Modifikator harfi yuqori toʻgʻri chiziq      |
+| 137   | `‰`   | `‰`       | `‰`       | `‰`       | Promil belgi                                 |
+| 138   | `Š`   | `Š`       | `Š`       | `Š`       | Caron bilan S lotin harfi                    |
+| 139   | `‹`   | `‹`       | `‹`       | `‹`       | Chapga qaragan burchakli qoʻllash belgisi    |
+| 140   | `Œ`   | `Œ`       | `Œ`       | `Œ`       | Lotin katta harfi OE                         |
+| 141   | `Ž`   | `Ž`       | `Ž`       | `Ž`       | Caron bilan Z lotin harfi                    |
+| 142   | ``    | ``        | ``        | ``        | NOT USED                                     |
+| 143   | `ž`   | `ž`       | `ž`       | `ž`       | Caron bilan Þ lotin harfi                    |
+| 144   | ``    | ``        | ``        | ``        | NOT USED                                     |
+| 145   | `‘`   | `‘`       | `‘`       | `‘`       | Chapga qoʻyilgan bitta qoʻllash belgi        |
+| 146   | `’`   | `’`       | `’`       | `’`       | O'ngga qoʻyilgan bitta qoʻllash belgi        |
+| 147   | `“`   | `“`       | `“`       | `“`       | Chapga qoʻyilgan ikki qoʻllash belgi         |
+| 148   | `”`   | `”`       | `”`       | `”`       | O'ngga qoʻyilgan ikki qoʻllash belgi         |
+| 149   | `•`   | `•`       | `•`       | `•`       | Kugurtoʻr                                    |
+| 150   | `–`   | `–`       | `–`       | `–`       | En dash                                      |
+| 151   | `—`   | `—`       | `—`       | `—`       | Em dash                                      |
+| 152   | `˜`   | `˜`       | `˜`       | `˜`       | Kichik tilde                                 |
+| 153   | `™`  | `™`      | `™`      | `™`      | Savdo belgi                                  |
+| 154   | `š`   | `š`       | `š`       | `š`       | Caron bilan kichik s                         |
+| 155   | `›`   | `›`       | `›`       | `›`       | O'ngga qaragan burchakli qoʻllash belgisi    |
+| 156   | `œ`   | `œ`       | `œ`       | `œ`       | Lotin kichik harfi oe                        |
+| 157   | ``    | ``        | ``        | ``        | NOT USED                                     |
+| 158   | ž     | ž         | ž         | ž         | Caron bilan kichik z                         |
+| 159   | Ÿ     | Ÿ         | Ÿ         | Ÿ         | Diaereziya bilan Y lotin harfi               |
+| 160   |       | Boʻlinmas | Boʻlinmas | Boʻlinmas | Boʻlinmas bo'sh joy                          |
+| 161   | ¡     | ¡         | ¡         | ¡         | Teskari savol belgi                          |
+| 162   | ¢     | ¢         | ¢         | ¢         | Sent belgi                                   |
+| 163   | £     | £         | £         | £         | Funt belgi                                   |
+| 164   | ¤     | ¤         | ¤         | ¤         | Valyuta belgi                                |
+| 165   | ¥     | ¥         | ¥         | ¥         | Yen belgi                                    |
+| 166   | ¦     | ¦         | ¦         | ¦         | Yomon bar                                    |
+| 167   | §     | §         | §         | §         | Bo'lim belgi                                 |
+| 168   | ¨     | ¨         | ¨         | ¨         | Diaereziya                                   |
+| 169   | ©    | ©        | ©        | ©        | Mualliflik huquqi belgi                      |
+| 170   | ª     | ª         | ª         | ª         | Feminen tartib ko'rsatkichi                  |
+| 171   | «     | «         | «         | «         | Chapga qaragan ikki burchakli qoʻllash belgi |
+| 172   | ¬     | ¬         | ¬         | ¬         | Rad etish belgi                              |
+| 173   | ­     | ­         | ­         | ­         | Yumshoq chiziq                               |
+| 174   | ®    | ®        | ®        | ®        | Roʻyxatdan o'tgan belgi                      |
+| 175   | ¯     | ¯         | ¯         | ¯         | Makron                                       |
+| 176   | °     | °         | °         | °         | Daraja belgi                                 |
+| 177   | ±     | ±         | ±         | ±         | Qoʻshish-ayirish belgi                       |
+| 178   | ²     | ²         | ²         | ²         | Yuqori ikki                                  |
+| 179   | ³     | ³         | ³         | ³         | Yuqori uch                                   |
+| 180   | ´     | ´         | ´         | ´         | O'tkir aksent                                |
+| 181   | µ     | µ         | µ         | µ         | Mikro belgi                                  |
+| 182   | ¶     | ¶         | ¶         | ¶         | Paragraf belgi                               |
+| 183   | ·     | ·         | ·         | ·         | O'rtacha nuqta                               |
+| 184   | ¸     | ¸         | ¸         | ¸         | Sedilla                                      |
+| 185   | ¹     | ¹         | ¹         | ¹         | Yuqori bir                                   |
+| 186   | º     | º         | º         | º         | Erkak tartib ko'rsatkichi                    |
+| 187   | »     | »         | »         | »         | O'ngga qaragan ikki burchakli qoʻllash belgi |
+| 188   | ¼     | ¼         | ¼         | ¼         | To'rtburchakli birinchi qism                 |
+| 189   | ½     | ½         | ½         | ½         | Yarmida birinchi qism                        |
+| 190   | ¾     | ¾         | ¾         | ¾         | Uchdan uchta birinchi qism                   |
+| 191   | ¿     | ¿         | ¿         | ¿         | Teskari savol belgi                          |
+| 192   | À     | À         | À         | À         | Gravyus bilan A lotin harfi                  |
+| 193   | Á     | Á         | Á         | Á         | Oq boʻyoqli A lotin harfi                    |
+| 194   | Â     | Â         | Â         | Â         | Oʻta belgisi bilan A lotin harfi             |
+| 195   | Ã     | Ã         | Ã         | Ã         | Tilga ega A lotin harfi                      |
+| 196   | Ä     | Ä         | Ä         | Ä         | Diaereziya bilan A lotin harfi               |
+| 197   | Å     | Å         | Å         | Å         | Halqa bilan A lotin harfi                    |
+| 198   | Æ     | Æ         | Æ         | Æ         | Lotin AE                                     |
+| 199   | Ç     | Ç         | Ç         | Ç         | Cedilla bilan C lotin harfi                  |
+| 200   | È     | È         | È         | È         | Gravyus bilan E lotin harfi                  |
+| 201   | É     | É         | É         | É         | Oq boʻyoqli E lotin harfi                    |
+| 202   | Ê     | Ê         | Ê         | Ê         | Oʻta belgisi bilan E lotin harfi             |
+| 203   | Ë     | Ë         | Ë         | Ë         | Diaereziya bilan E lotin harfi               |
+| 204   | Ì     | Ì         | Ì         | Ì         | Gravyus bilan I lotin harfi                  |
+| 205   | Í     | Í         | Í         | Í         | Oq boʻyoqli I lotin harfi                    |
+| 206   | Î     | Î         | Î         | Î         | Oʻta belgisi bilan I lotin harfi             |
+| 207   | Ï     | Ï         | Ï         | Ï         | Diaereziya bilan I lotin harfi               |
+| 208   | Ð     | Ð         | Ð         | Ð         | Lotin Eth                                    |
+| 209   | Ñ     | Ñ         | Ñ         | Ñ         | Tilde bilan N lotin harfi                    |
+| 210   | Ò     | Ò         | Ò         | Ò         | Gravyus bilan O lotin harfi                  |
+| 211   | Ó     | Ó         | Ó         | Ó         | Oq boʻyoqli O lotin harfi                    |
+| 212   | Ô     | Ô         | Ô         | Ô         | Oʻta belgisi bilan O lotin harfi             |
+| 213   | Õ     | Õ         | Õ         | Õ         | Tilde bilan O lotin harfi                    |
+| 214   | Ö     | Ö         | Ö         | Ö         | Diaereziya bilan O lotin harfi               |
+| 215   | ×     | ×         | ×         | ×         | Ko'paytirish belgi                           |
+| 216   | Ø     | Ø         | Ø         | Ø         | Chiziq bilan O lotin harfi                   |
+| 217   | Ù     | Ù         | Ù         | Ù         | Gravyus bilan U lotin harfi                  |
+| 218   | Ú     | Ú         | Ú         | Ú         | Oq boʻyoqli U lotin harfi                    |
+| 219   | Û     | Û         | Û         | Û         | Oʻta belgisi bilan U lotin harfi             |
+| 220   | Ü     | Ü         | Ü         | Ü         | Diaereziya bilan U lotin harfi               |
+| 221   | Ý     | Ý         | Ý         | Ý         | Oq boʻyoqli Y lotin harfi                    |
+| 222   | Þ     | Þ         | Þ         | Þ         | Lotin Thorn                                  |
+| 223   | ß     | ß         | ß         | ß         | Kichik keskin S lotin harfi                  |
+| 224   | à     | à         | à         | à         | Gravyus bilan kichik a lotin harfi           |
+| 225   | á     | á         | á         | á         | Oq boʻyoqli kichik a lotin harfi             |
+| 226   | â     | â         | â         | â         | Oʻta belgisi bilan kichik a lotin harfi      |
+| 227   | ã     | ã         | ã         | ã         | Tilde bilan kichik a lotin harfi             |
+| 228   | ä     | ä         | ä         | ä         | Diaereziya bilan kichik a lotin harfi        |
+| 229   | å     | å         | å         | å         | Halqa bilan kichik a lotin harfi             |
+| 230   | æ     | æ         | æ         | æ         | Lotin kichik harfi ae                        |
+| 231   | ç     | ç         | ç         | ç         | Cedilla bilan kichik c lotin harfi           |
+| 232   | è     | è         | è         | è         | Gravyus bilan kichik e lotin harfi           |
+| 233   | é     | é         | é         | é         | Oq boʻyoqli kichik e lotin harfi             |
+| 234   | ê     | ê         | ê         | ê         | Oʻta belgisi bilan kichik e lotin harfi      |
+| 235   | ë     | ë         | ë         | ë         | Diaereziya bilan kichik e lotin harfi        |
+| 236   | ì     | ì         | ì         | ì         | Gravyus bilan kichik i lotin harfi           |
+| 237   | í     | í         | í         | í         | Oq boʻyoqli kichik i lotin harfi             |
+| 238   | î     | î         | î         | î         | Oʻta belgisi bilan kichik i lotin harfi      |
+| 239   | ï     | ï         | ï         | ï         | Diaereziya bilan kichik i lotin harfi        |
+| 240   | ð     | ð         | ð         | ð         | Kichik eth lotin harfi                       |
+| 241   | ñ     | ñ         | ñ         | ñ         | Tilde bilan kichik n lotin harfi             |
+| 242   | ò     | ò         | ò         | ò         | Gravyus bilan kichik o lotin harfi           |
+| 243   | ó     | ó         | ó         | ó         | Oq boʻyoqli kichik o lotin harfi             |
+| 244   | ô     | ô         | ô         | ô         | Oʻta belgisi bilan kichik o lotin harfi      |
+| 245   | õ     | õ         | õ         | õ         | Tilde bilan kichik o lotin harfi             |
+| 246   | ö     | ö         | ö         | ö         | Diaereziya bilan kichik o lotin harfi        |
+| 247   | ÷     | ÷         | ÷         | ÷         | Bo'lish belgi                                |
+| 248   | ø     | ø         | ø         | ø         | Chiziq bilan kichik o lotin harfi            |
+| 249   | ù     | ù         | ù         | ù         | Gravyus bilan kichik u lotin harfi           |
+| 250   | ú     | ú         | ú         | ú         | Oq boʻyoqli kichik u lotin harfi             |
+| 251   | û     | û         | û         | û         | Oʻta belgisi bilan kichik u lotin harfi      |
+| 252   | ü     | ü         | ü         | ü         | Diaereziya bilan kichik u lotin harfi        |
+| 253   | ý     | ý         | ý         | ý         | Oq boʻyoqli kichik y lotin harfi             |
+| 254   | þ     | þ         | þ         | þ         | Kichik thorn lotin harfi                     |
+| 255   | ÿ     | ÿ         | ÿ         | ÿ         | Diaereziya bilan kichik y lotin harfi        |

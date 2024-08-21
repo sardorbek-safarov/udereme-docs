@@ -1,0 +1,101 @@
+---
+title: HTML Entitylari
+description: HTML-da ajratilgan belgilar entity-lar bilan almashtirilishi kerak.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Entitylari
+
+HTML-da ajratilgan belgilar entity-lar bilan almashtirilishi kerak.
+
+- `<` (kichik) = `&lt`;
+- `>` (katta) = `&gt`;
+
+### HTML Belgilari Entity-lari
+
+Ba'zi belgilar HTML-da ajratilgan.
+
+Agar HTML matningizda kichikroq `<` yoki kattaroq `>` belgisini ishlatsangiz, brauzer ularni teglar bilan aralashtirishi mumkin.
+
+Entity nomlari yoki entity raqamlari ajratilgan HTML belgilarini ko'rsatish uchun ishlatilishi mumkin.
+
+Entity nomlari quyidagicha ko'rinadi:
+
+```html
+&entity_name;
+```
+
+Entity raqamlari quyidagicha ko'rinadi:
+
+```html
+&#entity_number;
+```
+
+Kichikroq belgisini `<` ko'rsatish uchun biz yozishimiz kerak: `&lt;` yoki `&#60;`
+
+Entity nomlarini eslab qolish entity raqamlariga qaraganda osonroq.
+
+## Ajratilmagan Bo'shliq
+
+Tez-tez ishlatiladigan HTML entity-lardan biri ajratilmagan bo'shliqdir: `&nbsp;`
+
+Ajratilmagan bo'shliq yangi satrga uzilmaydigan bo'shliqdir.
+
+Ajratilmagan bo'shliq bilan ajratilgan ikkita so'z birga yopishadi (yangi satrga uzilmaydi). Bu so'zlarni ajratish noqulay bo'lib qolishi mumkin bo'lganda foydali.
+
+Misollar:
+
+- `§` 10
+- 10 km/soat
+- 10 PM
+
+Ajratilmagan bo'shliqning yana bir keng tarqalgan ishlatilishi HTML sahifalarida bo'shliqlarni kesmaslik uchun foydalidir.
+
+Agar siz matningizda 10 ta bo'shliq yozsangiz, brauzer ularning 9 tasini olib tashlaydi. Matningizga haqiqiy bo'shliqlar qo'shish uchun `&nbsp;` entity belgisini ishlatishingiz mumkin.
+
+Ajratilmagan chiziqcha (`&#8209;`) yangi satrga uzilmaydigan chiziqcha belgisi (`‑`)ni belgilash uchun ishlatiladi.
+
+### Foydali HTML Entity Belgilari
+
+| Natija                  | Tavsif                     | Nomi      | Raqami    |
+| ----------------------- | -------------------------- | --------- | --------- |
+| `ajratilmagan bo'shliq` | `&nbsp;`                   | `&#160;`  |
+| `<`                     | kichikroq                  | `&lt;`    | `&#60;`   |
+| `>`                     | katta                      | `&gt;`    | `&#62;`   |
+| `&`                     | ampersand                  | `&amp;`   | `&#38;`   |
+| `"`                     | qo'shtirnoq belgisi        | `&quot;`  | `&#34;`   |
+| `'`                     | yagona qo'shtirnoq belgisi | `&apos;`  | `&#39;`   |
+| `¢`                     | sent                       | `&cent;`  | `&#162;`  |
+| `£`                     | funt                       | `&pound;` | `&#163;`  |
+| `¥`                     | yen                        | `&yen;`   | `&#165;`  |
+| `€`                     | yevro                      | `&euro;`  | `&#8364;` |
+| `©`                    | mualliflik huquqi belgisi  | `&copy;`  | `&#169;`  |
+| `®`                    | savdo belgisi              | `&reg;`   | `&#174;`  |
+
+<Callout type="warn" title="Eslatma">
+  Entity nomlari katta-kichik harflarga sezgir.
+</Callout>
+
+## Diakritik Belgilarni Birlashtirish
+
+Diakritik belgi - bu harfga qo'shilgan "glyph"dir.
+
+Ba'zi diakritik belgilar, masalan, grave (`  ̀) va acute (` `) aksentlar deb ataladi.
+
+Diakritik belgilar alfanumerik belgilar bilan birlashtirilishi mumkin va sahifada foydalaniladigan belgilar to'plamida (kodlashda) mavjud bo'lmagan belgi hosil qilish uchun ishlatilishi mumkin.
+
+Mana ba'zi misollar:
+
+| Belgi | Harf | Kombinatsiya | Natija |
+| ----- | ---- | ------------ | ------ |
+| `̀`    | `a`  | `a&#768;`    | `à`    |
+| `́`    | `a`  | `a&#769;`    | `á`    |
+| `̂`    | `a`  | `a&#770;`    | `â`    |
+| `̃`    | `a`  | `a&#771;`    | `ã`    |
+| `̀`    | `O`  | `O&#768;`    | `Ò`    |
+| `́`    | `O`  | `O&#769;`    | `Ó`    |
+| `̂`    | `O`  | `O&#770;`    | `Ô`    |
+| `̃`    | `O`  | `O&#771;`    | `Õ`    |

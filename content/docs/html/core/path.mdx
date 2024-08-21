@@ -1,0 +1,71 @@
+---
+title: HTML Fayl Yo'llari
+description: Fayl yo'li veb-saytning papka tuzilmasidagi faylning joylashuvini tavsiflaydi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Fayl Yo'llari
+Fayl yo'li veb-saytning papka tuzilmasidagi faylning joylashuvini tavsiflaydi.
+
+### Fayl Yo'llari Misollari
+
+| Yo'l                            | Tavsif |
+|---------------------------------|--------|
+| `<img src="picture.jpg">`       | "picture.jpg" fayli joriy sahifa bilan bir xil papkada joylashgan |
+| `<img src="images/picture.jpg">`| "picture.jpg" fayli joriy papkadagi "images" papkasida joylashgan |
+| `<img src="/images/picture.jpg">`| "picture.jpg" fayli joriy veb-saytning ildizidagi "images" papkasida joylashgan |
+| `<img src="../picture.jpg">`    | "picture.jpg" fayli joriy papkadan bir pog'ona yuqoridagi papkada joylashgan |
+
+### HTML Fayl Yo'llari
+Fayl yo'li veb-saytning papka tuzilmasidagi faylning joylashuvini tavsiflaydi.
+
+Fayl yo'llari tashqi fayllarga, masalan:
+
+- Veb sahifalar
+- Rasm fayllari
+- Uslub jadvallari (CSS)
+- JavaScript fayllari
+
+bog'lanishda ishlatiladi.
+
+### Absolyut Fayl Yo'llari
+Absolyut fayl yo'li faylning to'liq URL manzilini bildiradi:
+
+Misol:
+```html
+<img src="https://www.udemere.uz/images/picture.jpg" alt="Mountain">
+```
+
+`<img>` tegi HTML Rasmlar bobida tushuntirilgan.
+
+### Nisbiy Fayl Yo'llari
+Nisbiy fayl yo'li joriy sahifaga nisbatan faylni ko'rsatadi.
+
+Quyidagi misolda fayl yo'li joriy veb-saytning ildizidagi "images" papkasidagi faylni ko'rsatadi:
+
+Misol:
+```html
+<img src="/images/picture.jpg" alt="Mountain">
+```
+
+Quyidagi misolda fayl yo'li joriy papkadagi "images" papkasidagi faylni ko'rsatadi:
+
+Misol:
+```html
+<img src="images/picture.jpg" alt="Mountain">
+```
+
+Quyidagi misolda fayl yo'li joriy papkadan bir pog'ona yuqoridagi papkadagi "images" papkasidagi faylni ko'rsatadi:
+
+Misol:
+```html
+<img src="../images/picture.jpg" alt="Mountain">
+```
+
+### Eng Yaxshi Amaliyot
+Imkoniyat bo'lsa, nisbiy fayl yo'llaridan foydalanish tavsiya etiladi.
+
+Nisbiy fayl yo'llaridan foydalanganda, veb-sahifalaringiz joriy asosiy URL manzilga bog'liq bo'lmaydi. Barcha havolalar sizning kompyuteringizda (localhost), joriy ommaviy domeningizda va kelajakdagi ommaviy domenlaringizda ishlaydi.

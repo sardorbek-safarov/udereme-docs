@@ -1,0 +1,102 @@
+---
+title: HTML va JavaScript
+description: JavaScript HTML sahifalarini dinamik va interaktiv qiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML va JavaScript
+
+JavaScript HTML sahifalarini dinamik va interaktiv qiladi.
+
+### HTML `<script>` Teg
+
+HTML `<script>` tegi mijoz tomonidagi skriptni (JavaScript) belgilash uchun ishlatiladi.
+
+`<script>` elementi skript kodlarini ichida saqlashi yoki `src` atributi orqali tashqi skript fayliga ishora qilishi mumkin.
+
+JavaScriptning keng tarqalgan qo'llanmalari orasida rasmni manipulyatsiya qilish, shaklni tasdiqlash, va mazmunni dinamik ravishda o'zgartirish mavjud.
+
+HTML elementini tanlash uchun JavaScript ko'pincha `document.getElementById()` metodidan foydalanadi.
+
+Ushbu JavaScript misolida "Hello JavaScript!" so'zi id="demo" bo'lgan HTML elementiga yoziladi:
+
+Misol:
+
+```html
+<script>
+  document.getElementById('demo').innerHTML = 'Hello JavaScript!';
+</script>
+```
+
+<Callout>
+  **Maslahat:** JavaScript haqida ko'proq ma'lumot olish uchun bizning JavaScript qo'llanmamizni o'rganishingiz mumkin.
+</Callout>
+
+### JavaScriptning Qisqa Namoyishi
+
+Quyida JavaScript nimalar qilishi mumkinligini ko'rsatuvchi misollar keltirilgan:
+
+Misol:
+
+**JavaScript kontentni o'zgartirishi mumkin:**
+
+```javascript
+document.getElementById('demo').innerHTML = 'Hello JavaScript!';
+```
+
+Misol:
+
+**JavaScript uslublarni o'zgartirishi mumkin:**
+
+```javascript
+document.getElementById('demo').style.fontSize = '25px';
+document.getElementById('demo').style.color = 'red';
+document.getElementById('demo').style.backgroundColor = 'yellow';
+```
+
+Misol:
+
+**JavaScript atributlarni o'zgartirishi mumkin:**
+
+```javascript
+document.getElementById('image').src = 'picture.gif';
+```
+
+### HTML `<noscript>` Teg
+
+HTML `<noscript>` tegi skriptlarni o'chirib qo'ygan foydalanuvchilarga yoki skriptlarni qo'llab-quvvatlamaydigan brauzerlarga alternativ kontentni ko'rsatish uchun ishlatiladi:
+
+Misol:
+
+```html
+<script>
+  document.getElementById('demo').innerHTML = 'Hello JavaScript!';
+</script>
+<noscript>Uzr, brauzeringiz JavaScriptni qo'llab-quvvatlamaydi!</noscript>
+```
+
+### HTML Mashqlar
+
+O'zingizni sinab ko'ring
+
+**Mashq:**
+JavaScript yordamida `<p>` elementining HTML kontentini "Hello World!" ga o'zgartiring.
+
+```html
+<body>
+  <p id="demo">Hi.</p>
+
+  <script>
+    document.getElementById('demo').innerHTML = 'Hello World!';
+  </script>
+</body>
+```
+
+## HTML Skript Teglari
+| Teg | Tavsif |
+|-------------|-------------------------------------------------------|
+| `<script>` | Mijoz tomonidagi skriptni belgilaydi |
+| `<noscript>`| Mijoz tomonidagi skriptlarni qo'llab-quvvatlamaydigan foydalanuvchilar uchun alternativ kontentni belgilaydi |

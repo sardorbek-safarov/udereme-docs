@@ -1,0 +1,111 @@
+---
+title: HTML Kompyuter Kodelementlari
+description: HTML bir nechta elementlarga ega bo'lib, foydalanuvchi kiritgan ma'lumotlar va kompyuter kodi uchun belgilangan.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+## HTML Kompyuter Kodelementlari
+HTML bir nechta elementlarga ega bo'lib, foydalanuvchi kiritgan ma'lumotlar va kompyuter kodi uchun belgilangan.
+
+**Misol**
+```html
+<code>
+  x = 5;
+  y = 6;
+  z = x + y;
+</code>
+```
+**Natija:**
+<code>x = 5; y = 6; z = x + y;</code>
+
+### HTML `<kbd>` Tugma Kiritish Uchun
+HTML `<kbd>` elementi klaviatura kiritishlarini belgilash uchun ishlatiladi. Ichki tarkib brauzerning odatiy monospace shriftida ko'rsatiladi.
+
+**Misol**
+Hujjatda ba'zi matnlarni klaviatura kiritish sifatida belgilash:
+
+```html
+<p>Hujjatni saqlash uchun <kbd>Ctrl + S</kbd> ni bosing</p>
+```
+
+### HTML `<samp>` Dastur Chiqarish Uchun
+HTML `<samp>` elementi kompyuter dasturidan chiqarilgan namuna natijalarni belgilash uchun ishlatiladi. Ichki tarkib brauzerning odatiy monospace shriftida ko'rsatiladi.
+
+**Misol**
+Hujjatda kompyuter dasturidan chiqadigan namuna natijasini belgilash:
+
+```html
+<p>Mening kompyuterimdan xabar:</p>
+<p><samp>Fayl topilmadi.<br>Davom etish uchun F1 ni bosing</samp></p>
+```
+
+### HTML `<code>` Kompyuter Kodi Uchun
+HTML `<code>` elementi kompyuter kodining bir qismini belgilash uchun ishlatiladi. Ichki tarkib brauzerning odatiy monospace shriftida ko'rsatiladi.
+
+**Misol**
+Hujjatda ba'zi matnlarni kompyuter kodi sifatida belgilash:
+
+```html
+<code>
+x = 5;
+y = 6;
+z = x + y;
+</code>
+```
+
+<Callout type="warn">
+  E'tibor bering, `<code>` elementi qo'shimcha bo'sh joy va satrlarni saqlamaydi.
+</Callout>
+
+Buni tuzatish uchun, `<code>` elementini `<pre>` elementi ichiga qo'yishingiz mumkin:
+
+**Misol**
+```html
+<pre>
+<code>
+x = 5;
+y = 6;
+z = x + y;
+</code>
+</pre>
+```
+
+**HTML `<var>` O'zgaruvchilar Uchun**
+HTML `<var>` elementi dasturlashda yoki matematik ifodada o'zgaruvchini belgilash uchun ishlatiladi. Ichki tarkib odatda kursivda ko'rsatiladi.
+
+**Misol**
+Hujjatda ba'zi matnlarni o'zgaruvchilar sifatida belgilash:
+
+```html
+<p>Uchburchak maydoni: 1/2 x <var>b</var> x <var>h</var>, bu yerda <var>b</var> asos, <var>h</var> esa balandlikni bildiradi.</p>
+```
+
+## Bo'lim Xulosasi
+- `<kbd>` elementi klaviatura kiritishni belgilaydi
+- `<samp>` elementi kompyuter dasturidan namuna natijasini belgilaydi
+- `<code>` elementi kompyuter kodining bir qismini belgilaydi
+- `<var>` elementi dasturlashda yoki matematik ifodada o'zgaruvchini belgilaydi
+- `<pre>` elementi oldindan formatlangan matnni belgilaydi
+
+**HTML Mashqlari**
+Mashqlar yordamida o'zingizni sinang
+Mashq:
+"var person;" matnini dastur kodi sifatida belgilang.
+
+```html
+<p>Kod namunasi:
+<code>var person;</code>
+</p>
+```
+
+## HTML Kompyuter Kodelementlari
+**Teg** | **Tavsif**
+------------ | -------------
+`<code>` | Dastur kodini belgilaydi
+`<kbd>` | Klaviatura kiritishni belgilaydi
+`<samp>` | Kompyuter chiqishini belgilaydi
+`<var>` | O'zgaruvchini belgilaydi
+`<pre>` | Oldindan formatlangan matnni belgilaydi

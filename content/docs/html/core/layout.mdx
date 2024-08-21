@@ -1,0 +1,54 @@
+---
+title: HTML (Layout)
+description: Veb-saytlar ko'pincha kontentni bir nechta ustunda (masalan, jurnal yoki gazeta kabi) ko'rsatadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-21
+---
+
+import Image from 'next/image';
+
+## HTML Layout elementlari
+Veb-saytlar ko'pincha kontentni bir nechta ustunda (masalan, jurnal yoki gazeta kabi) ko'rsatadi.
+
+HTMLda veb-sahifaning turli qismlarini aniqlash uchun bir nechta semantik elementlar mavjud:
+
+### HTML5 Semantik Elementlari:
+<div className="flex flex-col md:flex-row items-start md:gap-10">
+  <Image src='/images/html/layout.png' width='219' height='258' alt='HTML layout'/>
+
+  - `<header>` - Hujjat yoki bo'lim uchun sarlavha belgilaydi.
+  - `<nav>` - Navigatsiya havolalar to'plamini belgilaydi.
+  - `<section>` - Hujjatda bo'limni belgilaydi.
+  - `<article>` - Mustaqil, o'z ichiga olgan kontentni belgilaydi.
+  - `<aside>` - Kontentdan tashqari (masalan, yon panel kabi) kontentni belgilaydi.
+  - `<footer>` - Hujjat yoki bo'lim uchun tag qismini belgilaydi.
+  - `<details>` - Foydalanuvchi o'z ixtiyoriga ko'ra ochishi va yopishi mumkin bo'lgan qo'shimcha tafsilotlarni belgilaydi.
+  - `<summary>` - `<details>` elementi uchun sarlavha belgilaydi.
+</div>
+
+
+Semantik elementlar haqida ko'proq HTML Semantik bo'limimizda o'qishingiz mumkin.
+
+### HTML Layout
+Bir nechta ustunli tuzilmalarni yaratish uchun to'rtta turli texnika mavjud. Har bir texnikaning o'ziga xos afzalliklari va kamchiliklari bor:
+
+- CSS framework (CSS ramka)
+- CSS float (suzish) xususiyati
+- CSS flexbox
+- CSS grid
+
+## CSS Frameworks (CSS Ramkalar)
+Agar siz tuzilmani tezda yaratmoqchi bo'lsangiz, W3.CSS yoki Bootstrap kabi CSS ramkadan foydalanishingiz mumkin.
+
+#### CSS Float Tuzilmasi
+Butun veb-sayt tuzilmalarini CSS float xususiyati yordamida yaratish odatiy holdir. Floatni o'rganish oson - faqat float va clear xususiyatlarining qanday ishlashini eslab qolishingiz kerak. Kamchiliklari: Suzuvchi elementlar hujjat oqimiga bog'langan, bu esa moslashuvchanlikka zarar etkazishi mumkin. Float haqida ko'proq ma'lumotni CSS Float va Clear bo'limimizda bilib olishingiz mumkin.
+
+#### CSS Flexbox Tuzilmasi
+Flexbox-dan foydalanish elementlarning sahifa tuzilmasi turli ekran o'lchamlariga va turli displey qurilmalariga moslashganda taxmin qilingan tarzda harakat qilishini ta'minlaydi.
+
+Flexbox haqida ko'proq ma'lumotni CSS Flexbox bo'limimizda bilib olishingiz mumkin.
+
+#### CSS Grid Tuzilmasi
+CSS Grid Layout Moduli satrlar va ustunlar bilan asoslangan tuzilmani taklif etadi, bu sizga floatlar va joylashishni aniqlamasdan veb-sahifalarni dizayn qilishni osonlashtiradi.
