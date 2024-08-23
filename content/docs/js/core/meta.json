@@ -1,0 +1,5 @@
+{
+  "title": "Core",
+  "defaultOpen": true,
+  "pages": ["hello-world", "code-structure", "use-strict", "variables", "..."]
+}

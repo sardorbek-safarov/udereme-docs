@@ -1,0 +1,257 @@
+---
+title: O'zgaruvchilar
+description: Ko'pincha, JavaScript ilovasi ma'lumotlar bilan ishlashi kerak bo'ladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-24
+---
+
+import Image from 'next/image';
+
+## O'zgaruvchilar
+
+Ko'pincha, JavaScript ilovasi ma'lumotlar bilan ishlashi kerak bo'ladi. Mana ikkita misol:
+
+1. Onlayn do'kon – ma'lumotlar sotilayotgan tovarlar va savatni o'z ichiga olishi mumkin.
+2. Chat ilovasi – ma'lumotlar foydalanuvchilar, xabarlar va boshqa narsalarni o'z ichiga olishi mumkin.
+
+O'zgaruvchilar ushbu ma'lumotlarni saqlash uchun ishlatiladi.
+
+### O'zgaruvchi nima?
+
+O'zgaruvchi – bu ma'lumotlar uchun "nomlangan saqlash". Biz o'zgaruvchilarni foydali narsalar, mehmonlar va boshqa ma'lumotlarni saqlash uchun ishlatishimiz mumkin.
+
+JavaScriptda o'zgaruvchi yaratish uchun `let` kalit so'zidan foydalaning.
+
+Quyidagi bayonot o'zgaruvchi yaratadi (boshqacha qilib aytganda: e'lon qiladi) va unga “message” nomini beradi:
+
+```javascript
+let message;
+```
+
+Endi biz unga ma'lumot qo'yishimiz mumkin, buning uchun tayinlash operatori `=` ishlatiladi:
+
+```javascript
+let message;
+
+message = 'Salom'; // message nomli o'zgaruvchiga 'Salom' qatorini saqlang
+```
+
+Qator endi o'zgaruvchi bilan bog'liq bo'lgan xotira maydoniga saqlandi. Biz uni o'zgaruvchi nomidan foydalanib olishimiz mumkin:
+
+```javascript
+let message;
+message = 'Salom!';
+
+alert(message); // o'zgaruvchi tarkibini ko'rsatadi
+```
+
+Qisqa qilish uchun, biz o'zgaruvchini e'lon qilish va qiymatni bitta satrda birlashtirishimiz mumkin:
+
+```javascript
+let message = 'Salom!'; // o'zgaruvchini e'lon qiling va qiymatni tayinlang
+
+alert(message); // Salom!
+```
+
+Biz, shuningdek, bir qatorda bir nechta o'zgaruvchini e'lon qilishimiz mumkin:
+
+```javascript
+let user = 'John',
+  age = 25,
+  message = 'Salom';
+```
+
+Bu qisqaroq tuyulishi mumkin, lekin biz buni tavsiya etmaymiz. Yaxshi o'qilishi uchun, har bir o'zgaruvchi uchun alohida satrdan foydalaning.
+
+Ko'p qatorli variant bir oz uzunroq, lekin o'qish uchun osonroq:
+
+```javascript
+let user = 'John';
+let age = 25;
+let message = 'Salom';
+```
+
+Ba'zi odamlar bu ko'p qatorli uslubda bir nechta o'zgaruvchilarni aniqlashadi:
+
+```javascript
+let user = 'John',
+  age = 25,
+  message = 'Salom';
+```
+
+…Yoki hatto “vergul-birinchi” uslubda:
+
+```javascript
+let user = 'John',
+  age = 25,
+  message = 'Salom';
+```
+
+Texnik jihatdan, ushbu barcha variantlar bir xil narsani amalga oshiradi. Shunday qilib, bu shaxsiy did va estetikaga bog'liq.
+
+### `let` o'rniga `var`
+
+Eski skriptlarda siz yana bir kalit so'zni ko'rishingiz mumkin: `var` o'rniga `let`:
+
+```javascript
+var message = 'Salom';
+```
+
+`var` kalit so'zi deyarli `let` bilan bir xil. U ham o'zgaruvchini e'lon qiladi, lekin biroz boshqacha, "eski uslubda".
+
+`let` va `var` o'rtasida kichik farqlar bor, lekin ular hozir biz uchun ahamiyatli emas. Biz ularni "eski var" bo'limida batafsil ko'rib chiqamiz.
+
+### Haqiqiy hayotdagi o'xshashlik
+
+Agar biz “o'zgaruvchi” tushunchasini ma'lumotlar uchun “quti” sifatida, unga noyob nomli stiker yopishtirilgan holda tasavvur qilsak, uni osongina tushunishimiz mumkin.
+
+Masalan, `message` o'zgaruvchisini "message" nomli quti va uning ichida "Salom!" qiymati bilan tasavvur qilish mumkin:
+
+<Image src='/images/js/variable.svg' width='166' height='145' alt='Variable'/>
+
+Biz qutiga istalgan qiymatni qo'yishimiz mumkin.
+
+Shuningdek, uni istalgancha o'zgartirishimiz mumkin:
+
+```javascript
+let message;
+
+message = 'Salom!';
+
+message = 'Dunyo!'; // qiymat o'zgartirildi
+
+alert(message);
+```
+
+Qiymat o'zgartirilganda, eski ma'lumot o'zgaruvchidan o'chiriladi:
+
+<Image src='/images/js/variable-change.svg' width='392' height='192' alt='Variable'/>
+
+Shuningdek, biz ikki o'zgaruvchini e'lon qilib, ma'lumotni biridan boshqasiga nusxalashimiz mumkin.
+
+```javascript
+let hello = 'Salom dunyo!';
+
+let message;
+
+// 'Salom dunyo' ni hello dan message ga nusxa oling
+message = hello;
+
+// endi ikki o'zgaruvchi bir xil ma'lumotni saqlaydi
+alert(hello); // Salom dunyo!
+alert(message); // Salom dunyo!
+```
+
+### Takroriy e'lon qilish xato keltirib chiqaradi
+
+O'zgaruvchi faqat bir marta e'lon qilinishi kerak.
+
+Bir xil o'zgaruvchini qayta e'lon qilish xatoga olib keladi:
+
+```javascript
+let message = 'Bu';
+
+// takroriy 'let' xatoga olib keladi
+let message = 'U'; // Xato: 'message' allaqachon e'lon qilingan
+```
+
+Shunday qilib, biz o'zgaruvchini bir marta e'lon qilishimiz va keyin uni `let` ishlatmasdan qayta ishlatishimiz kerak.
+
+### Funktsional tillar
+
+E'tiborlisi shundaki, Haskell kabi sof funktsional dasturlash tillari mavjud bo'lib, ular o'zgaruvchi qiymatlarini o'zgartirishni taqiqlaydi.
+
+Bunday tillarda, bir marta qiymat "quti" ga saqlangandan so'ng, u abadiy qoladi. Agar biz boshqa narsani saqlashimiz kerak bo'lsa, til bizni yangi quti yaratishga (yangi o'zgaruvchini e'lon qilishga) majbur qiladi. Biz eski qutini qayta ishlata olmaymiz.
+
+Dastlab bu biroz g'alati tuyulishi mumkin bo'lsa-da, bu tillar jiddiy rivojlanish uchun juda mos keladi. Bundan tashqari, parallel hisoblash kabi sohalar mavjud bo'lib, bu cheklov ba'zi afzalliklarni beradi.
+
+### O'zgaruvchilarni nomlash
+
+JavaScriptda o'zgaruvchilar nomlashda ikkita cheklov mavjud:
+
+1. Nom faqat harflar, raqamlar yoki `$` va `_` belgilardan iborat bo'lishi kerak.
+2. Birinchi belgi raqam bo'lmasligi kerak.
+
+To'g'ri nomlarning misollari:
+
+```javascript
+let userName;
+let test123;
+```
+
+Nom bir nechta so'zlardan iborat bo'lsa, ko'pincha `camelCase` ishlatiladi. Ya'ni: so'zlar birin-ketin keladi, birinchi so'zdan keyingi har bir so'z katta harf bilan boshlanadi: `myVeryLongName`.
+
+Qizig'i shundaki, `$` va `_` belgilaridan ham nomlarda foydalanish mumkin. Ular oddiy belgilar bo'lib, harflar kabi maxsus ma'noga ega emas.
+
+Bu nomlar to'g'ri:
+
+```javascript
+let $ = 1; // "$" nomli o'zgaruvchi e'lon qildi
+let _ = 2; // va endi "_" nomli o'zgaruvchi e'lon qildi
+
+alert($ + _); // 3
+```
+
+Noto'g'ri nomlarning misollari:
+
+```javascript
+let 1a; // raqam bilan boshlash mumkin emas
+
+let my-name; // tirnoq '-' nomda ruxsat etilmaydi
+```
+
+### Katta-kichik harflar farq qiladi
+
+`apple` va `APPLE` nomli o'zgaruvchilar ikkita turli o'zgaruvchilar hisoblanadi.
+
+### Lotin bo'lmagan harflarga ruxsat beriladi, lekin tavsiya etilmaydi
+
+Har qanday tildan foydalanish mumkin, shu jumladan kirill harflari, xitoy logogrammalari va hokazo:
+
+```javascript
+let имя = '...';
+let 我 = '...';
+```
+
+Texnik jihatdan, bu yerda xato yo'q. Bunday nomlarga ruxsat berilgan, lekin xalqaro konventsiya bo'yicha o'zgaruvchilar nomida ingliz tilidan foydalanish tavsiya etiladi. Hatto biz kichik skript yozayotgan bo'lsak ham, uning uzoq davom etishi mumkin. Boshqa mamlakatlardagi odamlar biron bir vaqt o'qishi kerak bo'lishi mumkin.
+
+### Rezerv qilingan nomlar
+
+Rezerv qilingan so'zlar ro'yxati mavjud bo'lib, ular o'zgaruvchilar
+
+uchun ishlatilmaydi, chunki ular tillarning o'ziga xos tillari bo'lib, JavaScript sintaksisining bir qismidir.
+
+Masalan: `let`, `class`, `return` va `function` kabi so'zlar o'zgaruvchilar sifatida ishlatilishi mumkin emas.
+
+Quyidagi kod noto'g'ri sintaksis xatosini keltirib chiqaradi:
+
+```javascript
+let let = 5; // ❌ xato!
+```
+
+Dasturlashning asosiy qoidasi: **o'qiladigan kodni yozing**.
+
+O'zgaruvchilar nomlari buni amalga oshirishda katta rol o'ynaydi. Qisqa nomlar bo'lsa-da, o'zgaruvchining nomi to'liq bo'lishi kerak.
+
+Masalan, biror narsani `a`, `b`, `c` yoki `data`, `value` deb nomlashdan saqlaning. Bunday nomlar faqat kontekstdan ma'no berilsa ishlatiladi.
+
+Agar loyiha qahvaxonaga oid bo'lsa, foydalanuvchi hisobini saqlash uchun `user` nomini, uning oxirgi tashrif sanasi uchun `date` ni va hokazo. foydalaning:
+
+```javascript
+let user = 'John';
+let userName = 'John Doe';
+```
+
+Foydalanuvchi hisobini `a` deb atash befoyda bo'ladi.
+
+### O'zgaruvchilar haqida yakuniy xulosalar
+
+- `let` kalit so'zidan foydalanib, o'zgaruvchilar yaratiladi.
+- O'zgaruvchilarga ma'lumotlar yoziladi: satrlar, raqamlar va hokazo.
+- Bir vaqtning o'zida bitta satrda bir nechta o'zgaruvchini e'lon qilish mumkin.
+- O'zgaruvchilar nomida faqat lotin harflari, raqamlar, `$` va `_` belgilaridan foydalanish mumkin.
+- Birinchi belgi raqam bo'la olmaydi.
+
+O'zgaruvchilar haqida har qanday savollar yoki tushunmovchiliklar bo'lsa, albatta so'rang!

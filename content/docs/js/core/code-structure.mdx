@@ -1,0 +1,164 @@
+---
+title: Kod tuzilishi
+description: Birinchi bo'limda biz kodning asosiy qismlarini o'rganamiz.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## Kod tuzilishi
+
+Birinchi bo'limda biz kodning asosiy qismlarini o'rganamiz.
+
+### Bayonotlar
+
+Bayonotlar sintaksis konstruktsiyalari va amallarni bajaruvchi buyruqlardir.
+
+Biz allaqachon `alert('Hello, world!')` kabi bir bayonotni ko'rdik, bu xabarni “Hello, world!” ko'rsatadi.
+
+Kodimizda xohlagancha bayonot bo'lishi mumkin. Bayonotlarni nuqta-vergul bilan ajratish mumkin.
+
+Masalan, “Hello World”ni ikkita alertga bo'lishimiz mumkin:
+
+```javascript
+alert('Hello');
+alert('World');
+```
+
+Odatda, kodni o'qilishi osonroq qilish uchun bayonotlar alohida satrlarga yoziladi:
+
+```javascript
+alert('Hello');
+alert('World');
+```
+
+### Nuqta-vergullar
+
+Ko'p hollarda, satr qirqilishida nuqta-vergulni qo'yish shart emas.
+
+Bu ham ishlaydi:
+
+```javascript
+alert('Hello');
+alert('World');
+```
+
+Bu yerda JavaScript satr qirqilishini “implicit” nuqta-vergul sifatida qabul qiladi. Buni avtomatik nuqta-vergul qo'shish deb atashadi.
+
+Ko'p hollarda, yangi satr nuqta-vergulni anglatadi. Ammo “ko'p hollarda” degani “doimo” degani emas!
+
+Ba'zi hollarda yangi satr nuqta-vergulni anglatmaydi. Masalan:
+
+```javascript
+alert(3 + 1 + 2);
+```
+
+Kod 6-ni chiqaradi, chunki JavaScript bu yerda nuqta-vergul qo'shmaydi. Agar satr oxirida qo'shish "+" bo'lsa, bu “to'liq bo'lmagan ifoda” ekanligi intuitiv tarzda aniq, shuning uchun nuqta-vergulni qo'yish noto'g'ri bo'ladi. Va bu holatda hamma narsa reja bo'yicha ishlaydi.
+
+Ammo ba'zi vaziyatlarda JavaScript kerakli joyda nuqta-vergulni qo'yishni “unuta oladi”.
+
+Bunday hollarda yuzaga keladigan xatolarni topish va tuzatish juda qiyin.
+
+### Xato misoli
+
+Agar siz bunday xatoning aniq misolini ko'rmoqchi bo'lsangiz, quyidagi kodni tekshiring:
+
+```javascript
+alert('Hello');
+
+[1, 2].forEach(alert);
+```
+
+To'liq ma'lumotni keyinroq o'rganamiz, hozircha faqat kodni bajarish natijasini eslab qoling: avval Hello, so'ngra 1 va 2 ko'rsatiladi.
+
+Endi `alert`dan keyin nuqta-vergulni olib tashlaylik:
+
+```javascript
+alert('Hello')[(1, 2)].forEach(alert);
+```
+
+Avvalgi koddan farqi faqat bir belgi: birinchi qatorda nuqta-vergul yo'q.
+
+Agar biz bu kodni ishga tushirsak, faqat birinchi Hello ko'rsatiladi (va xato mavjud, uni ko'rish uchun konsolni ochishingiz mumkin). Endi raqamlar mavjud emas.
+
+Bu, JavaScriptning kvadrat qavslar [...] oldidan nuqta-vergul qo'yilishini tasavvur qilmasligi sababli yuzaga keladi. Shuning uchun so'nggi misoldagi kod bitta bayonot sifatida qaraladi.
+
+Qanday ko'rinishda ishlashini ko'ring:
+
+```javascript
+alert('Hello')[(1, 2)].forEach(alert);
+```
+
+Bu g'alati ko'rinadi, to'g'rimi? Bunday birlashtirish bu holatda noto'g'ri. Kod to'g'ri ishlashi uchun `alert`dan keyin nuqta-vergul qo'yish kerak.
+
+Boshqa vaziyatlarda ham bunday bo'lishi mumkin.
+
+Biz tavsiya qilamiz, bayonotlar orasida hatto yangi satr bilan ajratilgan bo'lsa ham nuqta-vergullarni qo'yish. Bu qoida jamoat tomonidan keng tarqalgan. Yana bir bor eslatamiz – ko'p hollarda nuqta-vergullarni qo'yish mumkin. Lekin, ayniqsa yangi boshlovchilar uchun, ulardan foydalanish xavfsizroq.
+
+## Izohlar
+
+Vaqt o'tishi bilan dasturlar tobora murakkablashadi. Kod nima qilishi va nega shunday qilishi haqida izohlar qo'shish zarur bo'ladi.
+
+Izohlar skriptnikidan har qanday joyga qo'shilishi mumkin. Ular dastur bajarilishiga ta'sir qilmaydi, chunki dvigatel ularni e'tiborga olmaydi.
+
+Bir qatorda izohlar ikki oldingi slashes `//` bilan boshlanadi.
+
+Qolgan qism izohdir. U to'liq satrni egallashi mumkin yoki bayonotning oxirida bo'lishi mumkin.
+
+Masalan:
+
+```javascript
+// Bu izoh to'liq satrni egallaydi
+alert('Hello');
+
+alert('World'); // Bu izoh bayonotdan keyin
+```
+
+Ko'p satrli izohlar oldingi slash va yulduzcha `/*` bilan boshlanadi va yulduzcha va oldingi slash `*/` bilan tugaydi.
+
+Masalan:
+
+```javascript
+/* Ikki xabar misoli.
+Bu ko'p satrli izoh.
+*/
+alert('Hello');
+alert('World');
+```
+
+Izohlar tarkibi e'tiborga olinmaydi, shuning uchun agar biz kodni `/* … */` ichida qo'ysak, u bajarilmaydi.
+
+Ba'zan kodning bir qismini vaqtincha o'chirish foydali bo'lishi mumkin:
+
+```javascript
+/* Kodni izohga olish
+alert('Hello');
+*/
+alert('World');
+```
+
+### Hotkeylardan foydalaning!
+
+Ko'pgina tahrirlovchilarda bir satrli izohni `Ctrl+/` hotkey orqali izohga olish mumkin, ko'p satrli izohlar uchun esa `Ctrl+Shift+/` kabi hotkeylardan foydalaning (bir kod bo'lagini tanlang va hotkeyni bosing). Mac-da esa, `Ctrl` o'rniga `Cmd` va `Shift` o'rniga `Option`ni sinab ko'ring.
+
+**Ichki izohlar qo'llab-quvvatlanmaydi!**
+
+`/*...*/` ichida yana bir `/*...*/` bo'lishi mumkin emas.
+
+Bunday kod xatolik bilan ishlamaydi:
+
+```javascript
+/*
+  /* ichki izoh ?!? */
+*/
+alert('World');
+```
+
+<Callout>Iltimos, kodingizni izohlar bilan to'ldirishdan tortinmang.</Callout>
+
+Izohlar umumiy kod hajmini oshiradi, ammo bu muammo emas. Kodni ishlab chiqarish serveriga joylashtirishdan oldin ko'plab vositalar kodni siqib, izohlarni olib tashlaydi, shuning uchun izohlar ishlayotgan skriptlarda salbiy ta'sir ko'rsatmaydi.
+
+<Callout>
+  Keyinchalik darslikda [Kod sifati](/docs/js/code-quality) bo'limi mavjud bo'lib, yaxshi izohlar yozish haqida ham tushuntiradi.
+</Callout>

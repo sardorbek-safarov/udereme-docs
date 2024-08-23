@@ -1,0 +1,73 @@
+---
+title: Dasturchi konsoli
+description: Kod xatolarga moyil. Siz xatolar qilishingiz ehtimoldan holi emassiz... Yaxshi, aslida siz albatta xatolar qilasiz, agar siz odam bo'lsangiz, robot emas.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+import Image from 'next/image';
+
+## Dasturchi konsoli
+
+Kod xatolarga moyil. Siz xatolar qilishingiz ehtimoldan holi emassiz... Yaxshi, aslida siz albatta xatolar qilasiz, agar siz odam bo'lsangiz, robot emas.
+
+Ammo brauzerda foydalanuvchilar xatolarni odatda ko'rmaydilar. Shunday qilib, agar skriptda biror narsa noto'g'ri bo'lsa, biz nima buzilganini ko'rmaymiz va tuzatolmaymiz.
+
+Xatolarni ko'rish va skriptlar haqida boshqa foydali ma'lumotlarni olish uchun brauzerlarda “dasturchi asboblari” mavjud.
+
+Ko'pgina dasturchilar rivojlantirish uchun Chrome yoki Firefox brauzerlarini tanlashadi, chunki bu brauzerlarda eng yaxshi dasturchi asboblari mavjud. Boshqa brauzerlar ham dasturchi asboblarini taqdim etadi, ba'zan maxsus xususiyatlar bilan, ammo odatda Chrome yoki Firefox brauzerlariga “yetib borishadi”. Shunday qilib, ko'pgina dasturchilar o'zlarining “sevimli” brauzerlarini tanlaydilar va muammo brauzerga xos bo'lsa, boshqalariga o'tadilar.
+
+Dasturchi asboblari kuchli; ular ko'plab funksiyalarga ega. Dastlab, biz ularni qanday ochishni, xatolarni qanday ko'rishni va JavaScript buyruqlarini qanday bajarishni o'rganamiz.
+
+### Google Chrome
+
+bug.html sahifasini oching.
+
+Bu sahifada JavaScript kodida xato mavjud. Oddiy foydalanuvchining ko'zidan yashirilgan, shuning uchun xatoni ko'rish uchun dasturchi asboblarini ochaylik.
+
+<Callout>F12 tugmasini bosing yoki Mac-da Cmd+Opt+J tugmalarini birgalikda bosing.</Callout>
+
+Dasturchi asboblari odatda Konsol yorlig'ida ochiladi.
+
+Ko'rinishi taxminan shunday:
+
+<Image src="/images/js/chrome.png" width="707" height="240" alt="Chrome console" />
+
+Dasturchi asboblarining aniq ko'rinishi Chrome versiyangizga qarab o'zgarishi mumkin. Vaqti-vaqti bilan o'zgaradi, ammo o'xshash bo'lishi kerak.
+
+Bu yerda biz qizil rangdagi xato xabarini ko'ramiz. Bu holatda, skriptda noma'lum “lalala” buyruqlari mavjud.
+O'ng tomonda, xato yuz bergan qator raqami bilan bug.html:12 manziliga havola mavjud.
+Xato xabarining ostida, ko'k > simg'asi mavjud. Bu “buyruqlar satri”ni belgilaydi, bu yerga JavaScript buyruqlarini yozishingiz mumkin. Ularni bajarish uchun Enter tugmasini bosing.
+
+Endi biz xatolarni ko'ra olishimiz mumkin, bu dastlabki bosqich uchun etarli. Biz dasturchi asboblariga qaytib kelamiz va brauzerdagi xatolarni yanada chuqurroq qamrab olamiz.
+
+### Bir nechta qatorli kiritish
+
+Odatda, biz konsolga bir qator kod kiritamiz va keyin Enter-ni bosing, kod bajariladi.
+
+Bir nechta qatorlarni kiritish uchun Shift+Enter tugmalarini bosing. Shunday qilib, uzun JavaScript kod qismlarini kiritishingiz mumkin.
+
+### Firefox, Edge va boshqalar
+
+<Callout>Ko'pgina boshqa brauzerlar F12 tugmasini dasturchi asboblarini ochish uchun ishlatadi.</Callout>
+
+Ko'rinishi va ishlash tamoyillari juda o'xshash. Siz bularni (boshlash uchun Chrome-dan foydalanishingiz mumkin) qanday ishlatishni bilsangiz, osonlik bilan boshqa brauzerlarga o'tishingiz mumkin.
+
+### Safari
+
+Safari (Mac brauzeri, Windows/Linux tomonidan qo'llab-quvvatlanmaydi) bu yerda biroz maxsusdir. Avval “Rivojlantirish menyusini” yoqishimiz kerak.
+
+Imkoniyatlar oynasini oching va “Rivojlantirish” bo'limiga o'ting. Pastki qismida bir belgilash qutisi mavjud:
+
+<Image src="/images/js/safari.png" width="774" height="456" alt="Safari console" />
+
+Endi Cmd+Opt+C yordamida konsolni ochish mumkin. Shuningdek, yangi yuqori menyu elementi bo'lgan “Rivojlantirish” paydo bo'lganligini eslatib o'ting. Bu ko'plab buyruqlar va variantlarga ega.
+
+
+## Xulosa
+
+Dasturchi asboblari xatolarni ko'rish, buyruqlar bajarish, o'zgaruvchilarni tekshirish va boshqalar uchun imkon beradi.
+Ular ko'pgina brauzerlarda Windows uchun F12 bilan ochilishi mumkin. Chrome uchun Mac-da Cmd+Opt+J, Safari: Cmd+Opt+C (avval yoqish kerak) tugmalarini ishlating.
+Endi muhit tayyor. Keyingi bo'limda JavaScript bilan ishlashga kirishamiz.
