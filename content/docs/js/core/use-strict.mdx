@@ -1,0 +1,98 @@
+---
+title: Zamonaviy rejim, "use strict"
+description: Uzoq vaqt davomida JavaScript hech qanday moslik muammolarisiz rivojlanib bordi. Tildagi yangi funksiyalar qo'shildi, eski funksiyalar esa o'zgarmadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## Zamonaviy rejim, "use strict"
+
+Uzoq vaqt davomida JavaScript hech qanday moslik muammolarisiz rivojlanib bordi. Tildagi yangi funksiyalar qo'shildi, eski funksiyalar esa o'zgarmadi.
+
+Bu yondashuvning afzalligi shundaki, mavjud kodni hech qachon buzmaslik edi. Lekin bu shuningdek, JavaScript yaratuvchilari tomonidan qilingan har qanday xato yoki mukammal bo'lmagan qaror tilga abadiy singib qolishini anglatardi.
+
+2009 yilgacha shunday bo'lib keldi, taqdirda ECMAScript 5 (ES5) paydo bo'ldi. U tildagi yangi funksiyalarni qo'shdi va mavjud funksiyalarning ayrimlarini o'zgartirdi. Eski kodning ishlashini ta'minlash uchun ko'pgina o'zgartirishlar sukut bo'yicha o'chirilgan. Ularni maxsus direktiva orqali aniq yoqishingiz kerak: "use strict".
+
+### “use strict”
+
+Direktiva string shaklida ko'rinadi: "use strict" yoki 'use strict'. Agar u skriptning yuqori qismida joylashgan bo'lsa, butun skript “zamonaviy” tarzda ishlaydi.
+
+Masalan:
+
+```javascript
+"use strict";
+
+// bu kod zamonaviy tarzda ishlaydi
+...
+```
+
+Tez orada biz funksiyalar (buyruqlarni guruhlash usuli) bilan tanishamiz, shuning uchun oldindan bilib olishimiz kerakki, "use strict" ni funksiyaning boshida ham qo'yish mumkin. Shunda u faqat ushbu funksiyada qat'iy rejimni yoqadi. Ammo odatda odamlar uni butun skript uchun ishlatishadi.
+
+### "use strict" ni yuqorida joylashtiring
+
+Iltimos, "use strict" skriptlaringizning yuqorisida ekanligiga ishonch hosil qiling, aks holda qat'iy rejim yoqilmasligi mumkin.
+
+Mana bu yerda qat'iy rejim yoqilmagan:
+
+```javascript
+alert('biror kod');
+// "use strict" quyida ko'rsatilgan va u e'tiborga olinmaydi, u yuqorida bo'lishi kerak
+
+('use strict');
+
+// qat'iy rejim yoqilmagan
+```
+
+Faqat izohlar "use strict" ning yuqorisida paydo bo'lishi mumkin.
+
+### "use strict" ni o'chirish yo'li yo'q
+
+Dvigatelni eski rejimga qaytaradigan "no use strict" kabi direktiva yo'q.
+
+Qat'iy rejimga kirganimizda, orqaga yo'l yo'q.
+
+### Brauzer konsoli
+
+Kodni ishlatish uchun ishlab chiquvchi konsolini ishlatganingizda, sukut bo'yicha qat'iy rejim yoqilmaganligini e'tiborga oling.
+
+Ba'zan, "use strict" farq qilganda, noto'g'ri natijalarga ega bo'lishingiz mumkin.
+
+Xo'sh, konsolda qat'iy rejimni qanday ishlatish kerak?
+
+Birinchidan, siz Shift+Enter tugmalarini bosib, bir nechta qator kiritib, yuqorida "use strict" ni qo'yishga harakat qilishingiz mumkin, masalan:
+
+```javascript
+'use strict'; <Yangi qator uchun Shift+Enter>
+//  ...kodingiz...
+<Enter tugmasini bosib ishlating>
+```
+
+Bu ko'pchilik brauzerlarda, xususan Firefox va Chrome brauzerlarida ishlaydi.
+
+Agar ishlamasa, masalan, eski brauzerda, "use strict" ni ta'minlash uchun ishonchli, ammo yoqimsiz usul mavjud. Uni quyidagi turdagi qoplama ichiga joylashtiring:
+
+```javascript
+(function () {
+  'use strict';
+
+  // ...bu yerda kodingiz...
+})();
+```
+
+### "use strict" ni ishlatish kerakmi?
+
+Savol aniq ko'rinishi mumkin, lekin bunday emas.
+
+Kimdir skriptlarni "use strict" bilan boshlashni tavsiya qilishi mumkin... Lekin nimasi ajoyib ekanligini bilasizmi?
+
+Zamonaviy JavaScript "klasslar" va "modullar" ni qo'llab-quvvatlaydi - ilg'or til strukturalari (biz albatta ularga yetib boramiz), ular avtomatik ravishda qat'iy rejimni yoqadi. Shuning uchun, agar ularni ishlatadigan bo'lsak, "use strict" direktivasini qo'shishimiz shart emas.
+
+Hozircha, "use strict"; skriptlaringizning yuqorisida xush kelgan mehmon hisoblanadi. Keyinchalik, kodingizning barchasi klasslar va modullarda bo'lsa, uni ishlatmasligingiz mumkin.
+
+Hozirda, biz umumiy ma'noda "use strict" haqida bilib oldik.
+
+Keyingi boblarda, til xususiyatlarini o'rganar ekanmiz, qat'iy va eski rejim o'rtasidagi farqlarni ko'rib chiqamiz. Yaxshiyamki, ularning ko'p emas va ular aslida hayotimizni yaxshilaydi.
+
+Ushbu qo'llanmada barcha misollar qat'iy rejimda deb hisoblanadi, agar (juda kam hollarda) boshqacha ko'rsatilmagan bo'lsa.

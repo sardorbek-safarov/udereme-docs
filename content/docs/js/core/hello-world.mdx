@@ -1,0 +1,128 @@
+---
+title: Salom, dunyo!
+description: Ushbu darslik qismi JavaScript tilining asoslariga bag'ishlangan.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## Salom, dunyo!
+
+Ushbu darslik qismi JavaScript tilining asoslariga bag'ishlangan.
+
+Ammo skriptlarimizni ishga tushirish uchun ishlaydigan muhit kerak bo'ladi va bu kitob onlayn bo'lgani uchun brauzer yaxshi tanlovdir. Biz brauzerga xos buyruqlarni (masalan, `alert`) minimal darajada saqlaymiz, shunda boshqa muhitga (masalan, Node.js) e'tibor qaratmoqchi bo'lsangiz vaqt sarflamang. Brauzerda JavaScriptga e'tibor qaratamiz, keyingi darsliklarda esa brauzerga xos xususiyatlarga to'xtalamiz.
+
+Shunday qilib, avval biz qanday qilib skriptni veb-sahifaga qo'shishni ko'rib chiqamiz. Server tomonidagi muhitlar (masalan, Node.js) uchun siz skriptni "node my.js" kabi buyruq bilan bajarishingiz mumkin.
+
+### `<script>` teg
+
+JavaScript dasturlari HTML hujjatiga deyarli har qanday joyga `<script>` tegi yordamida kiritilishi mumkin.
+
+Masalan:
+
+```html
+<!doctype html>
+<html>
+  <body>
+    <p>Skriptdan oldin...</p>
+
+    <script>
+      alert('Salom, dunyo!');
+    </script>
+
+    <p>Skriptdan keyin.</p>
+  </body>
+</html>
+```
+
+`<script>` tegi JavaScript kodini o'z ichiga oladi va bu kod brauzer tegni qayta ishlaganida avtomatik ravishda bajariladi.
+
+### Zamonaviy belgilash
+
+`<script>` tegi hozirgi kunda kamdan-kam qo'llaniladigan ba'zi atributlarga ega:
+
+1. **type atributi**: `<script type=…>`
+   Eski HTML standarti, HTML4, skriptni turini ko'rsatishni talab qilgan. Odatda, bu `type="text/javascript"` bo'lar edi. Hozirda bu talab yo'q. Zamonaviy HTML standarti ushbu atributning ma'nosini butunlay o'zgartirdi. Endi bu JavaScript modullari uchun ishlatilishi mumkin. Biroq, bu ilg'or mavzu, biz modullar haqida boshqa bo'limda gaplashamiz.
+
+2. **language atributi**: `<script language=…>`
+   Ushbu atribut skriptning tilini ko'rsatish uchun mo'ljallangan edi. JavaScript standart til bo'lgani uchun bu atribut endi ma'noga ega emas. Uni ishlatishga hojat yo'q.
+
+### Skriptdan oldin va keyin izohlar.
+
+Juda qadimiy kitoblar va qo'llanmalarda siz `<script>` tegining ichida izohlarni topishingiz mumkin:
+
+```html
+<script type="text/javascript">
+  <!--
+      ...
+  //-->
+</script>
+```
+
+Ushbu usul zamonaviy JavaScript-da ishlatilmaydi. Ushbu izohlar eski brauzerlar `<script>` tegini qanday ishlatishni bilmaganida JavaScript kodini yashirardi. So'nggi 15 yil ichida chiqarilgan brauzerlar bu muammoni bilmaydi, shuning uchun bunday izohlar sizga juda eski kodni aniqlashda yordam beradi.
+
+### Tashqi skriptlar
+
+Agar bizda ko'p JavaScript kodi bo'lsa, uni alohida faylga joylashtirishimiz mumkin.
+
+Skript fayllari HTML-ga `src` atributi yordamida qo'shiladi:
+
+```html
+<script src="/path/to/script.js"></script>
+```
+
+Bu yerda `/path/to/script.js` saytdan rootgacha bo'lgan skriptning to'liq yo'li. Shuningdek, joriy sahifadan nisbiy yo'lni ham ko'rsatishingiz mumkin. Masalan, `src="script.js"`, yoki `src="./script.js"`, bu joriy papkada "script.js" faylini anglatadi.
+
+To'liq URL-ni ham ko'rsatishingiz mumkin. Masalan:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+```
+
+Bir nechta skriptlarni qo'shish uchun bir nechta teglardan foydalaning:
+
+```html
+<script src="/js/script1.js"></script>
+<script src="/js/script2.js"></script>
+…
+```
+
+<Callout type="warn" title="Eslatma">
+  Odatiy tarzda, faqat eng oddiy skriptlar HTML-ga qo'shiladi. Murakkabroq skriptlar alohida fayllarda saqlanadi.
+</Callout>
+
+Alohida faylning foydasi shundaki, brauzer uni yuklab olib, keshga saqlaydi.
+
+Bir xil skriptga murojaat qiladigan boshqa sahifalar uni keshdan olishadi, shuning uchun fayl aslida faqat bir marta yuklanadi.
+
+Bu trafikni kamaytiradi va sahifalarni tezlashtiradi.
+
+Agar `src` o'rnatilgan bo'lsa, skript tarkibi e'tiborga olinmaydi.
+Birgina `<script>` tegi `src` atributi va ichida kodga ega bo'lishi mumkin emas.
+
+Bu ishlamaydi:
+
+```html
+<script src="file.js">
+  alert(1); // tarkib e'tiborga olinmaydi, chunki src o'rnatilgan
+</script>
+```
+
+Biz tashqi `<script src="…">` yoki oddiy `<script>` kod bilan tanlashimiz kerak.
+
+Yuqoridagi misol ikkita skriptga bo'linishi mumkin:
+
+```html
+<script src="file.js"></script>
+<script>
+  alert(1);
+</script>
+```
+
+## Xulosa
+
+Biz sahifaga JavaScript kodini qo'shish uchun `<script>` tegidan foydalanishimiz mumkin.
+`type` va `language` atributlari talab qilinmaydi.
+Tashqi fayldagi skriptni `<script src="path/to/script.js"></script>` yordamida qo'shish mumkin.
+Brauzer skriptlari va ularning veb-sahifa bilan o'zaro aloqalari haqida ko'proq ma'lumot mavjud. Ammo bu darslik JavaScript tiliga bag'ishlangan, shuning uchun biz brauzerga xos implementatsiyalarga chalg'imaslikka harakat qilamiz. Biz brauzerni JavaScript-ni ishga tushirish uchun qulay muhit sifatida ishlatamiz, bu onlayn o'qish uchun juda qulay, ammo faqat bitta imkoniyatlardan biridir.
