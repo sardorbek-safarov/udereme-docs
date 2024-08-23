@@ -1,0 +1,174 @@
+---
+title: HTML Formalari
+description: HTML formasi foydalanuvchi ma'lumotlarini yig'ish uchun ishlatiladi. Foydalanuvchi ma'lumotlari ko'pincha serverga qayta ishlash uchun yuboriladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Formalari
+
+HTML formasi foydalanuvchi ma'lumotlarini yig'ish uchun ishlatiladi. Foydalanuvchi ma'lumotlari ko'pincha serverga qayta ishlash uchun yuboriladi.
+
+**Misol:**
+```html
+<form>
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname" value="John">
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname" value="Doe">
+
+  <input type="submit" value="Submit">
+</form>
+```
+
+### `<form>` Elementi
+
+HTML `<form>` elementi foydalanuvchi ma'lumotlarini yig'ish uchun HTML formasini yaratish uchun ishlatiladi:
+
+```html
+<form>. form elementlari .</form>
+```
+
+`<form>` elementi, matn maydonlari, belgilash katakchalari (checkbox), radio tugmalar, yuborish tugmasi kabi turli kirish elementlari uchun konteyner hisoblanadi.
+
+Barcha turli forma elementlari ushbu bo'limda qamrab olingan: **HTML Form Elements**.
+
+### `<input>` Elementi
+
+HTML `<input>` elementi eng ko'p ishlatiladigan forma elementidir.
+
+`<input>` elementi turli ko'rinishlarda namoyon bo'lishi mumkin, bu esa `type` atributiga bog'liq.
+
+Mana ba'zi misollar:
+
+| Tur                       | Tavsif                                                                                          |
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
+| `<input type="text">`     | Bir qatorda matn kiritish maydonini ko'rsatadi                                                  |
+| `<input type="radio">`    | Bir nechta tanlovlardan birini tanlash uchun radio tugmani ko'rsatadi                           |
+| `<input type="checkbox">` | Bir nechta tanlovlardan bir yoki bir nechtasini tanlash uchun belgilash katakchasini ko'rsatadi |
+| `<input type="submit">`   | Formani yuborish uchun tugmani ko'rsatadi                                                       |
+| `<input type="button">`   | Bosilishi mumkin bo'lgan tugmani ko'rsatadi                                                     |
+
+Barcha turli kirish turlari ushbu bo'limda qamrab olingan: **HTML Input Types**.
+
+### Matn Maydonlari
+
+`<input type="text">` elementi bir qatorda matn kiritish maydonini belgilaydi.
+
+**Misol**
+
+Matn kiritish maydonlari bilan forma:
+
+```html
+<form>
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" />
+</form>
+```
+
+
+<Callout type='warn' title='Eslatma'>
+  Formaning o'zi ko'rinmaydi. Shuningdek, kiritish maydonining standart kengligi 20 ta belgi ekanligini ham e'tiborga oling.
+</Callout>
+
+### `<label>` Elementi
+
+Yuqoridagi misolda `<label>` elementidan foydalanishga e'tibor bering.
+
+`<label>` tegi ko'plab forma elementlari uchun yorliq belgilaydi.
+
+`<label>` elementi ekranni o'qish moslamalari foydalanuvchilari uchun foydalidir, chunki foydalanuvchi kirish elementiga diqqatni qaratganda, ekranni o'qish moslamasi yorliqni ovoz chiqarib o'qiydi.
+
+`<label>` elementi shuningdek radio tugmalar yoki belgilash katakchalarida (checkbox) kichik joylarni bosish qiyin bo'lgan foydalanuvchilarga yordam beradi, chunki foydalanuvchi `<label>` elementi ichidagi matnni bosganda, radio tugma yoki belgilash katakchasi (checkbox) o'zgaradi.
+
+`<label>` tegininig `for` atributi `<input>` elementining `id` atributiga teng bo'lishi kerak, bu ularni bir-biriga bog'lashga yordam beradi.
+
+### Radio Tugmalar
+
+`<input type="radio">` elementi radio tugmani belgilaydi.
+
+Radio tugmalar foydalanuvchiga cheklangan sonli tanlovlardan BIRIN tanlash imkonini beradi.
+
+**Misol**
+
+Radio tugmalar bilan forma:
+
+```html
+<p>Choose your favorite Web language:</p>
+
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML" />
+  <label for="html">HTML</label><br />
+  <input type="radio" id="css" name="fav_language" value="CSS" />
+  <label for="css">CSS</label><br />
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+  <label for="javascript">JavaScript</label>
+</form>
+```
+
+### Belgilash Katakchalari (Checkbox)
+
+`<input type="checkbox">` elementi belgilash katakchasini belgilaydi.
+
+Belgilanadigan katakchalar foydalanuvchiga cheklangan sonli tanlovlardan BIR yoki KO'P tanlash imkonini beradi.
+
+**Misol**
+
+Belgilanadigan katakchalar bilan forma:
+
+```html
+<form>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+  <label for="vehicle1"> I have a bike</label><br />
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+  <label for="vehicle2"> I have a car</label><br />
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+  <label for="vehicle3"> I have a boat</label>
+</form>
+```
+
+### Yuborish Tugmasi
+
+`<input type="submit">` elementi formadagi ma'lumotlarni formani ishlov beruvchi dasturga yuborish tugmasini belgilaydi.
+
+Forma ishlov beruvchi dastur odatda serverda joylashgan va kirish ma'lumotlarini qayta ishlovchi skriptni o'z ichiga oladi.
+
+Forma ishlov beruvchisi formaning `action` atributida ko'rsatiladi.
+
+**Misol**
+
+Yuborish tugmasi bilan forma:
+
+```html
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+### `<input>` uchun `name` atributi
+
+<Callout type='warn'>
+  E'tibor bering, har bir kiritish maydoni `name` atributiga ega bo'lishi kerak, shunda u yuboriladi.
+
+  Agar `name` atributi o'chirilgan bo'lsa, kiritish maydonining qiymati umuman yuborilmaydi.
+</Callout>
+
+**Misol**
+
+Ushbu misol "First name" kiritish maydonining qiymatini yubormaydi:
+
+```html
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" value="John" /><br /><br />
+  <input type="submit" value="Submit" />
+</form>
+```

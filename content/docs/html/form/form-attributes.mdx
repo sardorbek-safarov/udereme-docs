@@ -1,0 +1,191 @@
+---
+title: HTML Form* Atributlari
+description: Ushbu bobda HTML `<input>` elementi uchun turli xil `form*` atributlari tavsiflanadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+### HTML Form\* Atributlari
+
+Ushbu bobda HTML `<input>` elementi uchun turli xil `form*` atributlari tavsiflanadi.
+
+---
+
+### `form` Atributi
+
+`input form` atributi `<input>` elementi tegishli bo'lgan formani belgilaydi.
+
+Bu atributning qiymati `<form>` elementining `id` atributiga teng bo'lishi kerak.
+
+**Misol:**
+HTML forma tashqarisida joylashgan, ammo hali ham formaning bir qismi bo'lgan kiritish maydoni:
+
+```html
+<form action="/action_page" id="form1">
+  <label for="fname">Ismingiz:</label>
+  <input type="text" id="fname" name="fname" /><br /><br />
+  <input type="submit" value="Yuborish" />
+</form>
+
+<label for="lname">Familiyangiz:</label>
+<input type="text" id="lname" name="lname" form="form1" />
+```
+
+---
+
+### `formaction` Atributi
+
+`input formaction` atributi forma yuborilganda kiritish maydoni uchun ishlov beruvchi fayl URL manzilini belgilaydi.
+
+**Eslatma:** Ushbu atribut `<form>` elementining `action` atributini almashtiradi.
+
+`formaction` atributi quyidagi kiritish turlari bilan ishlaydi: submit va image.
+
+**Misol:**
+Ikki xil harakatlarga ega ikkita yuborish tugmasi bilan HTML forma:
+
+```html
+<form action="/action_page">
+  <label for="fname">Ismingiz:</label>
+  <input type="text" id="fname" name="fname" /><br /><br />
+  <label for="lname">Familiyangiz:</label>
+  <input type="text" id="lname" name="lname" /><br /><br />
+  <input type="submit" value="Yuborish" />
+  <input type="submit" formaction="/action_page2.php" value="Administrator sifatida yuborish" />
+</form>
+```
+
+---
+
+### `formenctype` Atributi
+
+`input formenctype` atributi forma yuborilganda forma ma'lumotlarini qanday kodlanishi kerakligini belgilaydi (faqat method="post" bilan ishlatiladigan formalar uchun).
+
+**Eslatma:** Ushbu atribut `<form>` elementining `enctype` atributini almashtiradi.
+
+`formenctype` atributi quyidagi kiritish turlari bilan ishlaydi: submit va image.
+
+**Misol:**
+Ikkita yuborish tugmasi bilan forma. Birinchi forma ma'lumotlarini standart kodlash bilan yuboradi, ikkinchisi esa "multipart/form-data" sifatida kodlangan ma'lumotlarni yuboradi:
+
+```html
+<form action="/action_page_binary" method="post">
+  <label for="fname">Ismingiz:</label>
+  <input type="text" id="fname" name="fname" /><br /><br />
+  <input type="submit" value="Yuborish" />
+  <input type="submit" formenctype="multipart/form-data" value="Multipart/form-data sifatida yuborish" />
+</form>
+```
+
+---
+
+### `formmethod` Atributi
+
+`input formmethod` atributi forma ma'lumotlarini yuborish uchun HTTP metodini belgilaydi.
+
+**Eslatma:** Ushbu atribut `<form>` elementining `method` atributini almashtiradi.
+
+`formmethod` atributi quyidagi kiritish turlari bilan ishlaydi: submit va image.
+
+Forma ma'lumotlari URL o'zgaruvchilari sifatida (`method="get"`) yoki HTTP post tranzaksiyasi sifatida (`method="post"`) yuborilishi mumkin.
+
+**"get" metodi bo'yicha eslatmalar:**
+
+- Ushbu metod forma ma'lumotlarini URL ga nom/qiymat juftliklari sifatida qo'shadi.
+- Bu metod foydalanuvchi natijalarni belgiga (bookmark) qo'shishni istagan holatlar uchun foydali.
+- URL ga qancha ma'lumot qo'shishingiz mumkinligiga cheklovlar mavjud (brauzerlar orasida farq qiladi), shuning uchun barcha forma ma'lumotlari to'g'ri uzatilishiga ishonch hosil qilib bo'lmaydi.
+- Hech qachon "get" metodini maxfiy ma'lumotlarni yuborish uchun ishlatmang! (parol yoki boshqa maxfiy ma'lumotlar brauzerning manzil satrida ko'rinadi).
+
+**"post" metodi bo'yicha eslatmalar:**
+
+- Ushbu metod forma ma'lumotlarini HTTP post tranzaksiyasi sifatida yuboradi.
+- "post" metodi bilan forma yuborish belgiga (bookmark) qo'shib bo'lmaydi.
+- "post" metodi "get" metodiga qaraganda ko'proq bardoshli va xavfsizdir va "post" da hajm cheklovlari yo'q.
+
+**Misol:**
+Ikki xil yuborish tugmasi bilan forma. Birinchi forma ma'lumotlarini `method="get"` bilan yuboradi. Ikkinchi esa `method="post"` bilan yuboradi:
+
+```html
+<form action="/action_page" method="get">
+  <label for="fname">Ismingiz:</label>
+  <input type="text" id="fname" name="fname" /><br /><br />
+  <label for="lname">Familiyangiz:</label>
+  <input type="text" id="lname" name="lname" /><br /><br />
+  <input type="submit" value="GET yordamida yuborish" />
+  <input type="submit" formmethod="post" value="POST yordamida yuborish" />
+</form>
+```
+
+---
+
+### `formtarget` Atributi
+
+`input formtarget` atributi forma yuborilgandan so'ng olinadigan javobni qayerda ko'rsatilishi kerakligini belgilaydi.
+
+**Eslatma:** Ushbu atribut `<form>` elementining `target` atributini almashtiradi.
+
+`formtarget` atributi quyidagi kiritish turlari bilan ishlaydi: submit va image.
+
+**Misol:**
+Turli xil maqsadli oyna/tugmalar bilan ikkita yuborish tugmasi bo'lgan forma:
+
+```html
+<form action="/action_page">
+  <label for="fname">Ismingiz:</label>
+  <input type="text" id="fname" name="fname" /><br /><br />
+  <label for="lname">Familiyangiz:</label>
+  <input type="text" id="lname" name="lname" /><br /><br />
+  <input type="submit" value="Yuborish" />
+  <input type="submit" formtarget="_blank" value="Yangi oyna/yorliqqa yuborish" />
+</form>
+```
+
+---
+
+### `formnovalidate` Atributi
+
+`input formnovalidate` atributi `<input>` elementi yuborilganda tasdiqlanmasligi kerakligini belgilaydi.
+
+**Eslatma:** Ushbu atribut `<form>` elementining `novalidate` atributini almashtiradi.
+
+`formnovalidate` atributi quyidagi kiritish turlari bilan ishlaydi: submit.
+
+**Misol:**
+Ikkita yuborish tugmasi (tasdiqlash bilan va tasdiqlashsiz):
+
+```html
+<form action="/action_page">
+  <label for="email">Elektron pochtangizni kiriting:</label>
+  <input type="email" id="email" name="email" /><br /><br />
+  <input type="submit" value="Yuborish" />
+  <input type="submit" formnovalidate="formnovalidate" value="Tasdiqlashsiz yuborish" />
+</form>
+```
+
+---
+
+### `novalidate` Atributi
+
+`novalidate` atributi `<form>` atributidir.
+
+Agar mavjud bo'lsa, `novalidate` forma yuborilganda barcha forma ma'lumotlarining tasdiqlanmasligini belgilaydi.
+
+**Misol:**
+Formani yuborishda hech qanday forma ma'lumotlari tasdiqlanmasligini belgilash:
+
+```html
+<form action="/action_page" novalidate>
+  <label for="email">Elektron pochtangizni kiriting:</label>
+  <input type="email" id="email" name="email" /><br /><br />
+  <input type="submit" value="Yuborish" />
+</form>
+```
+
+### HTML Forma va Kiritish Elementlari
+
+| Teg       | Tavsif                                                |
+| --------- | ----------------------------------------------------- |
+| `<form>`  | Foydalanuvchi kiritishi uchun HTML formani belgilaydi |
+| `<input>` | Kiritish boshqaruvini belgilaydi                      |

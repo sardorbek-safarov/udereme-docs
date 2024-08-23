@@ -33,4 +33,18 @@ export const modes: Mode[] = [
     description: '',
     icon: JSIcon,
   },
+  // {
+  //   param: 'ts',
+  //   url: '/ts',
+  //   name: 'TypeScript',
+  //   description: '',
+  //   icon: TSIcon,
+  // },
+  // {
+  //   param: 'python',
+  //   url: '/py',
+  //   name: 'Python',
+  //   description: '',
+  //   icon: PyIcon,
+  // },
 ];

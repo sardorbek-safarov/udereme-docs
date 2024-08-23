@@ -1,0 +1,88 @@
+---
+title: HTML YouTube Videolari
+description: HTMLda videolarni o'ynatishning eng oson yo'li YouTube'dan foydalanishdir.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML YouTube Videolari
+
+HTMLda videolarni o'ynatishning eng oson yo'li YouTube'dan foydalanishdir.
+
+### Video Formatlari bilan Muammolar?
+
+Videolarni turli formatlarga o'tkazish qiyin va vaqt talab qilishi mumkin.
+
+Osonroq yechim – YouTube'ni videolarni veb sahifangizda o'ynatishga ruxsat berishdir.
+
+### YouTube Video Id
+
+YouTube video saqlanganda (yoki o'ynatganda) id (masalan, `tgbNymZ7vqY`) beradi.
+
+Bu iddan foydalanib, HTML kodida videoingizni ko'rsating.
+
+#### HTMLda YouTube Videosini O'ynatish
+
+Videoni veb sahifada o'ynatish uchun quyidagilarni bajaring:
+
+1. Videoni YouTube'ga yuklang
+2. Video id'ni yozib oling
+3. Veb sahifangizda `<iframe>` elementini aniqlang
+4. `src` atributini video URL'iga yo'naltiring
+5. `width` va `height` atributlarini player o'lchamlarini belgilash uchun foydalaning
+6. URL'ga boshqa parametrlarni qo'shing (quyida ko'rib chiqiladi)
+
+**Misol**
+
+```html
+<iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"> </iframe>
+```
+
+#### YouTube Avto-Start + Mute
+
+Sahifaga tashrif buyurganda videoni avtomatik o'ynashiga ruxsat berish uchun YouTube URL'ga `autoplay=1` qo'shishingiz mumkin. Biroq, videoni avtomatik o'ynatish sizning tashrifchilaringiz uchun noqulay bo'lishi mumkin!
+
+<Callout type="warn" title="Eslatma">
+  Chromium brauzerlari ko'p hollarda avtomatik o'ynatishni qo'llab-quvvatlamaydi. Biroq, o'chirilgan avtomatik o'ynatish
+  har doim ruxsat etiladi.
+</Callout>
+
+Videoni avtomatik o'ynashga ruxsat berish uchun `autoplay=1`dan keyin `mute=1` qo'shing (lekin ovozsiz).
+
+**YouTube - Avto-Start + Mute**
+
+```html
+<iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1"> </iframe>
+```
+
+### YouTube Playlist
+
+Videolar ro'yxatini (asl URL'ga qo'shimcha ravishda) vergul bilan ajratilgan ro'yxat.
+
+### YouTube Loop
+
+Videoni abadiy aylantirish uchun `loop=1` qo'shing.
+
+- **0 (standart)**: Video faqat bir marta o'ynaydi.
+- **1**: Video aylantiriladi (abadiy).
+
+**YouTube - Loop**
+
+```html
+<iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1"> </iframe>
+```
+
+#### YouTube Controls
+
+Playerda boshqaruvlarni ko'rsatmaslik uchun `controls=0` qo'shing.
+
+- **0**: Player boshqaruvlari ko'rsatilmaydi.
+- **1 (standart)**: Player boshqaruvlari ko'rsatiladi.
+
+**YouTube - Controls**
+
+```html
+<iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0"> </iframe>
+```

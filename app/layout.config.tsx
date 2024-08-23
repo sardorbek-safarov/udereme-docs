@@ -1,27 +1,37 @@
-import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle'
-import { type HomeLayoutProps } from 'fumadocs-ui/home-layout'
-import { type DocsLayoutProps } from 'fumadocs-ui/layout'
+import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
+import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
+import { type DocsLayoutProps } from 'fumadocs-ui/layout';
 
-import { NavigationChildren } from '@/app/layout.client'
-import { docs } from '@/app/source'
-import { LogoIcon } from '@/components/icons'
-import { modes } from '@/utils/modes'
-import { BookIcon } from 'lucide-react'
+import { NavigationChildren } from '@/app/layout.client';
+import { docs } from '@/app/source';
+import { LogoIcon, MobileLogoIcon } from '@/components/icons';
+import { modes } from '@/utils/modes';
+import { BookIcon } from 'lucide-react';
 
 // shared configuration
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: <LogoIcon />,
+    title: (
+      <>
+        {/* Use CSS to determine which logo to show */}
+        <div className="hidden md:block">
+          <LogoIcon /> {/* Desktop logo */}
+        </div>
+        <div className="block md:hidden">
+          <MobileLogoIcon /> {/* Mobile logo */}
+        </div>
+      </>
+    ),
     transparentMode: 'top',
     children: <NavigationChildren />,
   },
   githubUrl: 'https://github.com/udemere/udereme-docs',
   links: [
     {
-      text: 'Interview Q&A',
-      type: 'main',
-      url: '/interview',
       icon: <BookIcon />,
+      text: 'Interview Q&A',
+      url: '/interview',
+      active: 'nested-url',
     },
   ],
 };

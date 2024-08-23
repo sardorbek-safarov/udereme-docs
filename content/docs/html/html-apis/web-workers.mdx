@@ -1,0 +1,192 @@
+---
+title: HTML Web Workers API
+description: Web worker - bu sahifa ishlashiga ta'sir qilmasdan fon rejimida ishlaydigan JavaScript.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Web Workers API
+
+Web worker - bu sahifa ishlashiga ta'sir qilmasdan fon rejimida ishlaydigan JavaScript.
+
+### Web Worker Nima?
+
+HTML sahifasida skriptlarni bajarishda sahifa skript tugaguncha javob bermasligi mumkin.
+
+Web worker - bu fon rejimida, boshqa skriptlar bilan bog'liq bo'lmagan va sahifa ishlashiga ta'sir qilmaydigan JavaScript. Web worker fon rejimida ishlayotgan bo'lsa ham, siz sahifada har qanday ishlarni davom ettirishingiz mumkin: bosish, tanlash va hokazo.
+
+### Brauzer Qo'llab-quvvatlash
+
+Jadvaldagi raqamlar Web Workers'ni to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| API         | Internet Explorer | Firefox | Safari | Chrome | Opera |
+| ----------- | ----------------- | ------- | ------ | ------ | ----- |
+| Web Workers | 4.0               | 10.0    | 3.5    | 4.0    | 11.5  |
+
+### HTML Web Workers Misoli
+
+Quyidagi misol fon rejimida sonlarni sanaydigan oddiy web worker yaratadi:
+
+**Misol**
+
+```html
+<!doctype html>
+<html>
+  <body>
+    <p>Count numbers: <output id="result"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <script>
+      var w;
+
+      function startWorker() {
+        if (typeof Worker !== 'undefined') {
+          if (typeof w == 'undefined') {
+            w = new Worker('demo_workers.js');
+          }
+          w.onmessage = function (event) {
+            document.getElementById('result').innerHTML = event.data;
+          };
+        } else {
+          document.getElementById('result').innerHTML = 'Sorry! No Web Worker support.';
+        }
+      }
+
+      function stopWorker() {
+        w.terminate();
+        w = undefined;
+      }
+    </script>
+  </body>
+</html>
+```
+
+### Web Worker Qo'llab-quvvatlashni Tekshirish
+
+Web worker yaratishdan oldin, foydalanuvchining brauzeri uni qo'llab-quvvatlayaptimi, tekshiring:
+
+```javascript
+if (typeof Worker !== 'undefined') {
+  // Ha! Web worker qo'llab-quvvatlanadi!
+  // Ba'zi kodlar.....
+} else {
+  // Afsuski! Web Worker qo'llab-quvvatlanmaydi..
+}
+```
+
+### Web Worker Faylini Yaratish
+
+Endi, web worker'ni tashqi JavaScript faylda yarating.
+
+Bu yerda biz sonlarni hisoblaydigan skript yaratamiz. Skript "demo_workers.js" faylida saqlanadi:
+
+```javascript
+var i = 0;
+
+function timedCount() {
+  i = i + 1;
+  postMessage(i);
+  setTimeout('timedCount()', 500);
+}
+
+timedCount();
+```
+
+Yuqoridagi kodning muhim qismi `postMessage()` metodi - bu HTML sahifaga xabar yuborish uchun ishlatiladi.
+
+<Callout type="warn" title="Eslatma">
+  Odatiy holatda web worker'lar shu kabi oddiy skriptlar uchun emas, balki yanada CPU intensiv vazifalar uchun
+  ishlatiladi.
+</Callout>
+
+### Web Worker Ob'ektini Yaratish
+
+Endi web worker fayli mavjud, uni HTML sahifadan chaqirishimiz kerak.
+
+Quyidagi kod worker allaqachon mavjudligini tekshiradi, agar mavjud bo'lmasa - yangi web worker ob'ekti yaratadi va "demo_workers.js" faylida kodni ishga tushiradi:
+
+```javascript
+if (typeof w == 'undefined') {
+  w = new Worker('demo_workers.js');
+}
+```
+
+Keyin biz web worker'dan xabar yuborish va olishimiz mumkin.
+
+Web worker uchun `onmessage` hodisasini qo'shing:
+
+```javascript
+w.onmessage = function (event) {
+  document.getElementById('result').innerHTML = event.data;
+};
+```
+
+Web worker xabar yuborganida, hodisa tinglovchidagi kod bajariladi. Web worker'dan ma'lumot `event.data`da saqlanadi.
+
+### Web Worker'ni To'xtatish
+
+Web worker ob'ekti yaratilgandan so'ng, u xabarlarni tinglashda davom etadi (tashqi skript tugagandan keyin ham) to'xtatilmaguncha.
+
+Web worker'ni to'xtatish va brauzer/kompyuter resurslarini bo'shatish uchun `terminate()` metodini ishlating:
+
+```javascript
+w.terminate();
+```
+
+Web Worker'ni qayta ishlatish
+
+Agar worker o'chirilganidan keyin `undefined` qilib belgilansa, kodni qayta ishlatishingiz mumkin:
+
+```javascript
+w = undefined;
+```
+
+### To'liq Web Worker Misol Kode
+
+Biz `.js` faylida Worker kodini ko'rdik. Quyida HTML sahifasi uchun kod:
+
+**Misol**
+
+```html
+<!doctype html>
+<html>
+  <body>
+    <p>Count numbers: <output id="result"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <script>
+      var w;
+
+      function startWorker() {
+        if (typeof Worker !== 'undefined') {
+          if (typeof w == 'undefined') {
+            w = new Worker('demo_workers.js');
+          }
+          w.onmessage = function (event) {
+            document.getElementById('result').innerHTML = event.data;
+          };
+        } else {
+          document.getElementById('result').innerHTML = 'Sorry! No Web Worker support.';
+        }
+      }
+
+      function stopWorker() {
+        w.terminate();
+        w = undefined;
+      }
+    </script>
+  </body>
+</html>
+```
+
+### Web Workers va DOM
+
+Web worker'lar tashqi fayllarda bo'lganligi uchun quyidagi JavaScript ob'ektlariga kirish imkoniga ega emaslar:
+
+- `window` ob'ekti
+- `document` ob'ekti
+- `parent` ob'ekti

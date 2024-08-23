@@ -5,7 +5,7 @@ export function createMetadata(override: Metadata): Metadata {
     ...override,
     openGraph: {
       title: override.title ?? 'Udemere',
-      description: override.description ?? 'Udemere - Uzbek tilida dasturlash dokumentatsiyasi',
+      description: override.description ?? "Udemere - O'zbek tilida dasturlash dokumentatsiyasi.",
       url: 'https://udemere.uz',
       images: '/banner.png',
       siteName: 'Udemere',

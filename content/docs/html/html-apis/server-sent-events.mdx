@@ -1,0 +1,107 @@
+---
+title: HTML SSE API
+description: Server-Sent Events (SSE) veb sahifaga serverdan yangilanishlarni olish imkonini beradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML SSE API
+
+Server-Sent Events (SSE) veb sahifaga serverdan yangilanishlarni olish imkonini beradi.
+
+### Server-Sent Events - Bir Yo'nalishdagi Xabarlar
+
+Server-sent event (SSE) - bu veb sahifaga avtomatik ravishda yangilanishlarni serverdan olish imkoniyatidir.
+
+Bu ilgari ham mumkin edi, ammo veb sahifa yangilanishlar mavjudligini so'rashi kerak edi. Server-sent events bilan yangilanishlar avtomatik ravishda keladi.
+
+Misollar: Facebook/Twitter yangilanishlari, aksiyalar narxlaridagi o'zgarishlar, yangiliklar lentalari, sport natijalari va hokazo.
+
+### Brauzer Qo'llab-quvvatlash
+
+Jadvaldagi raqamlar server-sent events'ni to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| API | Internet Explorer | Firefox | Safari | Chrome | Opera |
+| --- | ----------------- | ------- | ------ | ------ | ----- |
+| SSE | 6.0               | 79.0    | 6.0    | 5.0    | 11.5  |
+
+### Server-Sent Event Xabarlari Qabul Qilish
+
+`EventSource` ob'ekti server-sent event xabarlarini qabul qilish uchun ishlatiladi:
+
+**Misol**
+
+```javascript
+var source = new EventSource('demo_sse.php');
+source.onmessage = function (event) {
+  document.getElementById('result').innerHTML += event.data + '<br>';
+};
+```
+
+**Misolning izohi:**
+
+- Yangi `EventSource` ob'ektini yarating va yangilanishlarni yuboradigan sahifa URL manzilini ko'rsating (bu misolda "demo_sse.php").
+- Har safar yangilanish olinganda `onmessage` hodisasi yuzaga keladi.
+- `onmessage` hodisasi yuzaga kelganda, olingan ma'lumotlarni `id="result"` bo'lgan elementga joylashtiring.
+
+### Server-Sent Events Qo'llab-quvvatlashni Tekshirish
+
+Yuqoridagi misolda server-sent events'ni qo'llab-quvvatlashni tekshirish uchun ba'zi qo'shimcha kod satrlari mavjud edi:
+
+```javascript
+if (typeof EventSource !== 'undefined') {
+  // Ha! Server-sent events qo'llab-quvvatlanadi!
+  // Ba'zi kodlar.....
+} else {
+  // Afsuski! Server-sent events qo'llab-quvvatlanmaydi..
+}
+```
+
+### Server-Tomondagi Kod Misoli
+
+Yuqoridagi misol ishlashi uchun ma'lumot yangilanishlarini yubora oladigan server (masalan, PHP yoki ASP) kerak.
+
+Server tomondagi event stream sintaksisi juda oddiy. "Content-Type" sarlavhasini "text/event-stream" ga o'rnating. Endi siz event streamlarni yuborishni boshlashingiz mumkin.
+
+PHP kodidagi misol (`demo_sse.php`):
+
+```php
+<?php
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+
+$time = date('r');
+echo "data: The server time is: {$time}\n\n";
+flush();
+?>
+```
+
+ASP (VB) kodidagi misol (`demo_sse.asp`):
+
+```
+<%
+Response.ContentType = "text/event-stream"
+Response.Expires = -1
+Response.Write("data: The server time is: " & now())
+Response.Flush()
+%>
+```
+
+**Kodning izohi:**
+
+- "Content-Type" sarlavhasini "text/event-stream" ga o'rnating.
+- Sahifa kesh qilinmasligi kerakligini ko'rsating.
+- Yuboriladigan ma'lumotni chiqaring (har doim "data: " bilan boshlang).
+- Ma'lumotlarni veb sahifaga qaytaring.
+
+### EventSource Ob'ekti
+
+Yuqoridagi misollarda xabarlarni olish uchun `onmessage` hodisasidan foydalanildi. Ammo boshqa hodisalar ham mavjud:
+
+| Hodisa      | Tavsif                          |
+| ----------- | ------------------------------- |
+| `onopen`    | Server bilan ulanish ochilganda |
+| `onmessage` | Xabar qabul qilinganda          |
+| `onerror`   | Xato yuz berganda               |

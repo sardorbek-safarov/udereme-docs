@@ -1,0 +1,131 @@
+---
+title: HTML Canvas Grafika
+description: HTML `<canvas>` elementi veb sahifada grafiklarni chizish uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Canvas Grafika
+
+HTML `<canvas>` elementi veb sahifada grafiklarni chizish uchun ishlatiladi.
+
+Chap tomonda ko'rsatilgan grafik `<canvas>` yordamida yaratilgan. Unda to'rtta element mavjud: qizil to'rtburchak, gradient to'rtburchak, ko'p rangli to'rtburchak va ko'p rangli matn.
+
+### HTML Canvas nima?
+
+HTML `<canvas>` elementi JavaScript orqali grafiklarni chizish uchun ishlatiladi.
+
+`<canvas>` elementi faqat grafikalar uchun konteyner hisoblanadi. Grafikani aslida chizish uchun JavaScript ishlatilishi kerak.
+
+Canvasda yo'llar, qutilar, doiralar, matnlar va rasmlarni chizish uchun bir nechta usullar mavjud.
+
+Canvas barcha asosiy brauzerlar tomonidan qo'llab-quvvatlanadi.
+
+### Canvas Misollar
+
+Canvas HTML sahifasida to'rtburchakli maydon hisoblanadi. Standart bo'yicha canvasning ramkasi va kontenti yo'q.
+
+Canvas markup ko'rinishi quyidagicha bo'ladi:
+
+```html
+<canvas id="myCanvas" width="200" height="100"></canvas>
+```
+
+Eslatma: Har doim `id` atributini ko'rsating (skriptda murojaat qilish uchun), shuningdek, canvasning o'lchamini aniqlash uchun `width` va `height` atributlarini ko'rsating. Ramka qo'shish uchun `style` atributidan foydalaning.
+
+Quyida asosiy, bo'sh canvas misoli keltirilgan:
+
+**Misol:**
+
+```html
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+```
+
+### JavaScript Qo'shish
+
+To'rtburchakli canvas maydoni yaratganingizdan so'ng, grafikani chizish uchun JavaScript qo'shishingiz kerak bo'ladi.
+
+Quyida bir nechta misollar keltirilgan:
+
+### Chiziq Chizish
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); ctx.moveTo(0, 0); ctx.lineTo(200, 100);
+  ctx.stroke();
+</script>
+```
+
+### Doira Chizish
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); ctx.beginPath(); ctx.arc(95, 50, 40, 0, 2 *
+  Math.PI); ctx.stroke();
+</script>
+```
+
+### Matn Chizish
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); ctx.font = "30px Arial";
+  ctx.fillText("Hello World", 10, 50);
+</script>
+```
+
+### Matnni Chizish (Stroke)
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); ctx.font = "30px Arial";
+  ctx.strokeText("Hello World", 10, 50);
+</script>
+```
+
+### Chiziqli Gradient Chizish
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); // Gradient yaratish var grd =
+  ctx.createLinearGradient(0, 0, 200, 0); grd.addColorStop(0, "red"); grd.addColorStop(1, "white"); // Gradient bilan
+  to'ldirish ctx.fillStyle = grd; ctx.fillRect(10, 10, 150, 80);
+</script>
+```
+
+### Doiraviy Gradient Chizish
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); // Gradient yaratish var grd =
+  ctx.createRadialGradient(75, 50, 5, 90, 60, 100); grd.addColorStop(0, "red"); grd.addColorStop(1, "white"); //
+  Gradient bilan to'ldirish ctx.fillStyle = grd; ctx.fillRect(10, 10, 150, 80);
+</script>
+```
+
+### Rasm Chizish
+
+**Misol:**
+
+```javascript
+<script>
+  var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); var img =
+  document.getElementById("scream"); ctx.drawImage(img, 10, 10);
+</script>
+```
+
+Bu misollar orqali siz HTML `<canvas>` elementida qanday qilib grafiklarni chizishingiz mumkinligini ko'rishingiz mumkin.

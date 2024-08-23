@@ -1,0 +1,102 @@
+---
+title: HTML Video
+description: HTML `<video>` elementi veb sahifada video ko'rsatish uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Video
+
+**HTML `<video>`** elementi veb sahifada video ko'rsatish uchun ishlatiladi.
+
+### Misol
+
+```html
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  Sizning brauzeringiz video tegini qo'llab-quvvatlamaydi.
+</video>
+```
+
+### Qanday ishlaydi
+
+- **controls** atributi video boshqaruvlarini qo'shadi, masalan, o'ynash, to'xtatish va ovoz.
+- Har doim **width** va **height** atributlarini qo'shish yaxshi amaliyotdir. Agar balandlik va kenglik belgilanmagan bo'lsa, sahifa video yuklanayotgan paytda tebranishi mumkin.
+- **`<source>`** elementi alternativ video fayllarini ko'rsatishga imkon beradi. Brauzer tanlangan formatni ishlatadi.
+- **`<video>`** va **`</video>`** teglar orasidagi matn faqat **`<video>`** elementini qo'llab-quvvatlamaydigan brauzerlarda ko'rsatiladi.
+
+### HTML `<video>` Avto-iqro
+
+Videoni avtomatik boshlash uchun **autoplay** atributini ishlating:
+
+```html
+<video width="320" height="240" autoplay>
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  Sizning brauzeringiz video tegini qo'llab-quvvatlamaydi.
+</video>
+```
+
+<Callout type="warn" title="Eslatma">
+  Chromium brauzerlari ko'pincha avtomatik ijroni ruxsat bermaydi. Biroq, ovozsiz avtomatik ijro har doim ruxsat
+  etiladi.
+</Callout>
+
+Videoni avtomatik boshlash (ammo ovozsiz) uchun autoplay'dan keyin muted qo'shing:
+
+```html
+<video width="320" height="240" autoplay muted>
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  Sizning brauzeringiz video tegini qo'llab-quvvatlamaydi.
+</video>
+```
+
+### Brauzer Qo'llab-Quvvatlash
+
+Jadvaldagi raqamlar **`<video>`** elementini to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| Element   | Edge | Chrome | Firefox | Safari | Opera |
+| --------- | ---- | ------ | ------- | ------ | ----- |
+| `<video>` | 4.0  | 9.0    | 3.5     | 4.0    | 10.5  |
+
+### HTML Video Formatlari
+
+Qo'llab-quvvatlanadigan uchta video format mavjud: MP4, WebM va Ogg. Har xil formatlar uchun brauzer qo'llab-quvvatlash quyidagicha:
+
+| Brauzer | MP4 | WebM | Ogg  |
+| ------- | --- | ---- | ---- |
+| Edge    | HA  | HA   | HA   |
+| Chrome  | HA  | HA   | HA   |
+| Firefox | HA  | HA   | HA   |
+| Safari  | HA  | HA   | YO'Q |
+| Opera   | HA  | HA   | HA   |
+
+### HTML Video - Media Turlari
+
+| Fayl Formati | Media Turi |
+| ------------ | ---------- |
+| MP4          | video/mp4  |
+| WebM         | video/webm |
+| Ogg          | video/ogg  |
+
+### HTML Video - Metodlar, Xususiyatlar va Hodisalar
+
+HTML DOM **`<video>`** elementi uchun metodlar, xususiyatlar va hodisalarni belgilaydi.
+
+Bu sizga videolarni yuklash, o'ynash va to'xtatishga, shuningdek, davomiylik va ovoz sozlash imkonini beradi.
+
+Shuningdek, DOM hodisalari videoning o'ynashni boshlashi, to'xtashi va hokazo haqida xabar berishi mumkin.
+
+To'liq DOM ma'lumotnomasi uchun HTML Audio/Video DOM ma'lumotnomasiga o'ting.
+
+### HTML Video Teglari
+
+| Teg        | Tavsif                                                                                             |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| `<video>`  | Video yoki filmni belgilaydi.                                                                      |
+| `<source>` | Media elementlari uchun bir nechta media resurslarini belgilaydi, masalan, `<video>` va `<audio>`. |
+| `<track>`  | Media pleyerlaridagi matn treklarini belgilaydi.                                                   |

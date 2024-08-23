@@ -1,0 +1,150 @@
+---
+title: HTML Drag and Drop API
+description: Tortish va tashlash - bu juda keng tarqalgan xususiyat bo'lib, ob'ektni "ushlab olib", uni boshqa joyga ko'chirishni anglatadi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Drag and Drop API
+
+### Drag and Drop
+
+Tortish va tashlash - bu juda keng tarqalgan xususiyat bo'lib, ob'ektni "ushlab olib", uni boshqa joyga ko'chirishni anglatadi.
+
+### Brauzer Qo'llab-quvvatlash
+
+Jadvaldagi raqamlar Drag and Drop'ni to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| API           | Internet Explorer | Firefox | Safari | Chrome | Opera |
+| ------------- | ----------------- | ------- | ------ | ------ | ----- |
+| Drag and Drop | 4.0               | 9.0     | 3.5    | 6.0    | 12.0  |
+
+### HTML Drag and Drop Misoli
+
+Quyidagi misol oddiy drag and drop misolini ko'rsatadi:
+
+**Misol**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData('text', ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData('text');
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69" />
+  </body>
+</html>
+```
+
+Bu ko'rinishda biroz murakkab ko'rinishi mumkin, ammo drag and drop hodisasining barcha qismlarini ko'rib chiqamiz.
+
+### Elementni Tortish mumkin qilish
+
+Elementni tortish mumkin qilish uchun `draggable` atributini `true` qilib belgilash kerak:
+
+```html
+<img draggable="true" />
+```
+
+### Nimalarni Tortish - `ondragstart` va `setData()`
+
+Element tortilganida nima bo'lishini belgilash kerak.
+
+Yuqaridagi misolda, `ondragstart` atributi `drag(event)` funksiyasini chaqiradi, bu esa qanday ma'lumotlarni tortish kerakligini belgilaydi.
+
+`dataTransfer.setData()` metodi tortilayotgan ma'lumotning turini va qiymatini o'rnatadi:
+
+```javascript
+function drag(ev) {
+  ev.dataTransfer.setData('text', ev.target.id);
+}
+```
+
+Bu holatda, ma'lumot turi "text" va qiymati tortilayotgan elementning id'si ("drag1").
+
+### Qayerga Tashlash - `ondragover`
+
+`ondragover` hodisasi tortilgan ma'lumot qayerga tashlanishi mumkinligini belgilaydi.
+
+Standart bo'yicha, ma'lumotlar/elementlar boshqa elementlarga tashlanishi mumkin emas. Tashlashni ruxsat etish uchun, elementning standart ishlovini oldini olishimiz kerak.
+
+Bu `ondragover` hodisasi uchun `event.preventDefault()` metodini chaqirish orqali amalga oshiriladi:
+
+```javascript
+event.preventDefault();
+```
+
+### Tashlash - `ondrop`
+
+Tortilgan ma'lumot tashlanganda, `drop` hodisasi yuz beradi.
+
+Yuqaridagi misolda, `ondrop` atributi `drop(event)` funksiyasini chaqiradi:
+
+```javascript
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData('text');
+  ev.target.appendChild(document.getElementById(data));
+}
+```
+
+Kodning tushuntirilishi:
+
+1. `preventDefault()` metodini chaqirib, brauzerning standart ma'lumotlarni ishlov berishini oldini olish (standart - havola sifatida ochish).
+2. `dataTransfer.getData()` metodi yordamida tortilgan ma'lumotni oling. Ushbu metod `setData()` metodida o'rnatilgan ma'lumotni qaytaradi.
+3. Tortilgan ma'lumot tortilayotgan elementning id'si ("drag1") hisoblanadi.
+4. Tortilgan elementni tashlash elementiga qo'shing.
+
+### Boshqa Misollar
+
+**Misol**
+
+Ikki `<div>` elementi orasida rasmni tortib (va tashlab) ko'rsatish:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData('text', ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData('text');
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69" />
+  </body>
+</html>
+```

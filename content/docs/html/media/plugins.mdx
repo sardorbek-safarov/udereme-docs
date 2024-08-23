@@ -1,0 +1,77 @@
+---
+title: HTML Plaginlar
+description: Plaginlar – bu brauzerning standart funksiyalarini kengaytiradigan kompyuter dasturlari.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Plaginlar
+
+**Plaginlar** – bu brauzerning standart funksiyalarini kengaytiradigan kompyuter dasturlari.
+
+### Plaginlar
+
+Plaginlar ko'plab maqsadlar uchun mo'ljallangan:
+
+- Java appletlarini ishga tushirish
+- Microsoft ActiveX nazoratlarini ishga tushirish
+- Flash filmlarini ko'rsatish
+- Xaritalarni ko'rsatish
+- Viruslarni skanerlash
+- Bank IDni tekshirish
+
+**Ogohlantirish!**
+
+Ko'pgina brauzerlar endi Java Appletlarini va Plaginlarni qo'llab-quvvatlamaydi.
+
+ActiveX nazoratlari endi hech qanday brauzerda qo'llab-quvvatlanmaydi.
+
+Hozirgi brauzerlarda Shockwave Flash qo'llab-quvvatlanmaydi.
+
+### `<object>` Elementi
+
+**`<object>`** elementi barcha brauzerlar tomonidan qo'llab-quvvatlanadi.
+
+**`<object>`** elementi HTML hujjatidagi qo'shilgan obyektni belgilaydi.
+
+U plaginlarni (masalan, Java appletlari, PDF o'qish vositalari va Flash Playerlar) veb sahifalarda joylashtirish uchun mo'ljallangan, lekin HTMLni HTML ichiga qo'shish uchun ham ishlatilishi mumkin:
+
+**Misol**
+
+```html
+<object width="100%" height="500px" data="snippet.html"></object>
+```
+
+Yoki tasvirlarni qo'shish mumkin:
+
+**Misol**
+
+```html
+<object data="audi.jpeg"></object>
+```
+
+### `<embed>` Elementi
+
+**`<embed>`** elementi barcha asosiy brauzerlarda qo'llab-quvvatlanadi.
+
+**`<embed>`** elementi HTML hujjatidagi qo'shilgan obyektni belgilaydi.
+
+Veb brauzerlar **`<embed>`** elementini uzoq vaqt davomida qo'llab-quvvatlashgan. Biroq, u HTML5 dan oldin HTML spetsifikatsiyasining bir qismi bo'lmagan.
+
+**Misol**
+
+```html
+<embed src="audi.jpeg" />
+```
+
+**`<embed>`** elementining yopish teg'i yo'q. U alternativ matnni o'z ichiga ololmaydi.
+
+**`<embed>`** elementi HTMLni HTML ichiga qo'shish uchun ham ishlatilishi mumkin:
+
+**Misol**
+
+```html
+<embed width="100%" height="500px" src="snippet.html" />
+```
