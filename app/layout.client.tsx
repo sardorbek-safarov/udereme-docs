@@ -26,7 +26,7 @@ export function NavigationChildren(): React.ReactElement {
   const mode = useMode();
 
   return (
-    <div className="rounded-md border bg-fd-muted/80 p-1 text-sm text-fd-muted-foreground max-md:absolute max-md:left-1/2 max-md:top-12 max-md:w-full max-md:-translate-x-1/2 max-md:text-center md:relative">
+    <div className="scrollbar-hide rounded-md border bg-fd-muted/80 p-1 text-sm text-fd-muted-foreground max-md:absolute max-md:left-36 max-md:w-[190px] max-md:-translate-x-1/2 max-md:overflow-x-scroll max-md:text-center md:relative">
       {modes.map((m) => (
         <Link key={m.param} href={`/docs/${m.url}`} className={itemVariants({ active: m.param === mode })}>
           {m.name}

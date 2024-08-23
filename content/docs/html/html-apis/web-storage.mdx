@@ -1,0 +1,115 @@
+---
+title: HTML Web Storage API
+description: HTML web storage — bu cookie'lar bilan solishtirganda yaxshiroq usul.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Web Storage API
+
+HTML web storage — bu cookie'lar bilan solishtirganda yaxshiroq usul.
+
+### HTML Web Storage Nima?
+
+Web storage yordamida veb-ilovalar foydalanuvchining brauzerida ma'lumotlarni lokal saqlay oladi.
+
+HTML5'dan oldin, ilova ma'lumotlarini cookie'larda saqlash zarur edi va har bir server so'roviga qo'shilardi. Web storage yanada xavfsizroq, katta miqdordagi ma'lumotlarni lokal saqlash mumkin va veb-saytning ishlashiga ta'sir qilmaydi.
+
+Cookie'lar bilan solishtirganda, storage chegarasi ancha katta (kamida 5MB) va ma'lumotlar serverga uzatilmaydi.
+
+Web storage har bir origin (domain va protokol) uchun mavjud. Bir origin'dan barcha sahifalar bir xil ma'lumotlarni saqlash va olishlari mumkin.
+
+### Brauzer Qo'llab-quvvatlash
+
+Jadvaldagi raqamlar Web Storage'ni to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| API         | Internet Explorer | Firefox | Safari | Chrome | Opera |
+| ----------- | ----------------- | ------- | ------ | ------ | ----- |
+| Web Storage | 4.0               | 8.0     | 3.5    | 4.0    | 11.5  |
+
+### HTML Web Storage Ob'ektlari
+
+HTML web storage mijozda ma'lumotlarni saqlash uchun ikkita ob'ektni taqdim etadi:
+
+- `window.localStorage` — ma'lumotlarni muddatsiz saqlaydi
+- `window.sessionStorage` — ma'lumotlarni faqat bir sessiya uchun saqlaydi (brauzer tab'i yopilganda ma'lumotlar o'chiriladi)
+
+Web storage'dan foydalanishdan oldin, brauzer qo'llab-quvvatlashini tekshiring:
+
+```javascript
+if (typeof Storage !== 'undefined') {
+  // localStorage/sessionStorage uchun kod.
+} else {
+  // Afsuski! Web Storage qo'llab-quvvatlanmaydi..
+}
+```
+
+### `localStorage` Ob'ekti
+
+`localStorage` ob'ekti ma'lumotlarni muddatsiz saqlaydi. Ma'lumotlar brauzer yopilganda o'chirilmaydi va keyingi kun, hafta yoki yilda mavjud bo'ladi.
+
+**Misol**
+
+```javascript
+// Saqlash
+localStorage.setItem('lastname', 'Smith');
+
+// Olish
+document.getElementById('result').innerHTML = localStorage.getItem('lastname');
+```
+
+**Misolning tushuntirilishi:**
+
+- `lastname` nomli localStorage juftligini yaratib, qiymatini "Smith" qilib belgilash.
+- "lastname" qiymatini olish va `id="result"` bo'lgan elementga qo'yish.
+
+Yuqaridagi misol quyidagicha ham yozilishi mumkin:
+
+```javascript
+// Saqlash
+localStorage.lastname = 'Smith';
+// Olish
+document.getElementById('result').innerHTML = localStorage.lastname;
+```
+
+"lastname" localStorage elementini o'chirish sintaksisi quyidagicha:
+
+```javascript
+localStorage.removeItem('lastname');
+```
+
+<Callout type="warn" title="Eslatma">
+  Nom/qiymat juftliklari doimo string sifatida saqlanadi. Zarur bo'lganda ularni boshqa formatga o'tkazishni unutmang!
+</Callout>
+
+Quyidagi misol foydalanuvchi tugmani qancha marta bosganini hisoblaydi. Bu kodda qiymat string raqamga aylantiriladi, shunda hisoblagichni oshirish mumkin bo'ladi:
+
+**Misol**
+
+```javascript
+if (localStorage.clickcount) {
+  localStorage.clickcount = Number(localStorage.clickcount) + 1;
+} else {
+  localStorage.clickcount = 1;
+}
+document.getElementById('result').innerHTML = 'Siz tugmani ' + localStorage.clickcount + ' marta bosdingiz.';
+```
+
+### `sessionStorage` Ob'ekti
+
+`sessionStorage` ob'ekti `localStorage` ob'ekti bilan teng bo'lib, ma'lumotlarni faqat bir sessiya uchun saqlaydi. Ma'lumotlar ma'lum bir brauzer tab'i yopilganda o'chiriladi.
+
+Quyidagi misol foydalanuvchi tugmani joriy sessiyada qancha marta bosganini hisoblaydi:
+
+**Misol**
+
+```javascript
+if (sessionStorage.clickcount) {
+  sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+} else {
+  sessionStorage.clickcount = 1;
+}
+document.getElementById('result').innerHTML = 'Siz tugmani ' + sessionStorage.clickcount + ' marta bosdingiz.';
+```

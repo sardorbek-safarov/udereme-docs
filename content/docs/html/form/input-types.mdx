@@ -1,0 +1,316 @@
+---
+title: HTML (input) Turlari
+description: Bu bobda HTML `<input>` elementi uchun turli xil turlar tasvirlangan.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Input Turlari
+
+Bu bobda HTML `<input>` elementi uchun turli xil turlar tasvirlangan.
+
+HTMLda foydalanishingiz mumkin bo'lgan turli kiritish turlari:
+
+```html
+<input type="button" />
+<input type="checkbox" />
+<input type="color" />
+<input type="date" />
+<input type="datetime-local" />
+<input type="email" />
+<input type="file" />
+<input type="hidden" />
+<input type="image" />
+<input type="month" />
+<input type="number" />
+<input type="password" />
+<input type="radio" />
+<input type="range" />
+<input type="reset" />
+<input type="search" />
+<input type="submit" />
+<input type="tel" />
+<input type="text" />
+<input type="time" />
+<input type="url" />
+<input type="week" />
+```
+
+<Callout title="Maslahat"> `type` atributining standart qiymati "text".</Callout>
+
+### Matnli Input Turi
+
+`<input type="text">` bir qatordagi matn kiritish maydonini belgilaydi:
+
+**Misol:**
+
+```html
+<form>
+  <label for="fname">Ismingiz:</label><br />
+  <input type="text" id="fname" name="fname" /><br />
+  <label for="lname">Familiyangiz:</label><br />
+  <input type="text" id="lname" name="lname" />
+</form>
+```
+
+Yuqoridagi HTML kodi brauzerda quyidagicha ko'rinadi:
+
+**Ismingiz:**
+**Familiyangiz:**
+
+### Parol Input Turi
+
+`<input type="password">` parol maydonini belgilaydi:
+
+**Misol:**
+
+```html
+<form>
+  <label for="username">Foydalanuvchi nomi:</label><br />
+  <input type="text" id="username" name="username" /><br />
+  <label for="pwd">Parol:</label><br />
+  <input type="password" id="pwd" name="pwd" />
+</form>
+```
+
+Yuqoridagi HTML kodi brauzerda quyidagicha ko'rinadi:
+
+**Foydalanuvchi nomi:**
+**Parol:**
+
+Parol maydonidagi belgilar maskalanadi (yulduzcha yoki doira shaklida ko'rinadi).
+
+### Submit Input Turi
+
+`<input type="submit">` formadagi ma'lumotlarni serverga yuborish uchun tugmani belgilaydi.
+
+Forma handler odatda kiruvchi ma'lumotlarni qayta ishlash uchun skript bilan server sahifasi hisoblanadi.
+
+Forma handler formaning `action` atributida belgilanadi:
+
+**Misol:**
+
+```html
+<form action="/action_page">
+  <label for="fname">Ismingiz:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Familiyangiz:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Yuborish" />
+</form>
+```
+
+Agar submit tugmasining `value` atributi o'tkazib yuborilsa, tugma standart matn bilan ko'rinadi:
+
+**Misol:**
+
+```html
+<form action="/action_page.php">
+  <label for="fname">Ismingiz:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Familiyangiz:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" />
+</form>
+```
+
+### Reset Input Turi
+
+`<input type="reset">` tugmasi barcha forma qiymatlarini dastlabki qiymatlariga qaytaradi:
+
+**Misol:**
+
+```html
+<form action="/action_page.php">
+  <label for="fname">Ismingiz:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Familiyangiz:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Yuborish" />
+  <input type="reset" value="Qayta tiklash" />
+</form>
+```
+
+Agar kiritilgan qiymatlar o'zgartirilgan bo'lsa va "Qayta tiklash" tugmasi bosilsa, formadagi ma'lumotlar dastlabki qiymatlarga qaytadi.
+
+### Radio Input Turi
+
+`<input type="radio">` radio tugmachasini belgilaydi.
+
+Radio tugmachalari foydalanuvchiga cheklangan tanlovlardan faqat BITTA tanlash imkonini beradi:
+
+**Misol:**
+
+```html
+<p>Sevimli veb-tilingizni tanlang:</p>
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML" />
+  <label for="html">HTML</label><br />
+  <input type="radio" id="css" name="fav_language" value="CSS" />
+  <label for="css">CSS</label><br />
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+  <label for="javascript">JavaScript</label>
+</form>
+```
+
+### Checkbox Input Turi
+
+`<input type="checkbox">` belgilash katakchasi (checkbox) ni belgilaydi.
+
+Checkboxlar foydalanuvchiga cheklangan tanlovlardan NOL yoki KO'PROQ tanlash imkonini beradi.
+
+**Misol:**
+
+```html
+<form>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+  <label for="vehicle1"> Menda velosiped bor</label><br />
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+  <label for="vehicle2"> Menda avtomobil bor</label><br />
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+  <label for="vehicle3"> Menda qayiq bor</label>
+</form>
+```
+
+### Tugma Input Turi
+
+`<input type="button">` tugmani belgilaydi:
+
+**Misol:**
+
+```html
+<input type="button" onclick="alert('Salom Dunyo!')" value="Meni bosing!" />
+```
+
+### Rang Kiritish Turi
+
+`<input type="color">` rang kiritish maydonlarini belgilash uchun ishlatiladi.
+
+Brauzer qo'llab-quvvatlashiga qarab, kiritish maydonida rang tanlash oynasi ko'rsatilishi mumkin.
+
+**Misol:**
+
+```html
+<form>
+  <label for="favcolor">Sevimli rangingizni tanlang:</label>
+  <input type="color" id="favcolor" name="favcolor" />
+</form>
+```
+
+### Sana Input Turi
+
+`<input type="date">` sana kiritish maydonlarini belgilash uchun ishlatiladi.
+
+Brauzer qo'llab-quvvatlashiga qarab, kiritish maydonida sana tanlash oynasi ko'rsatilishi mumkin.
+
+**Misol:**
+
+```html
+<form>
+  <label for="birthday">Tug'ilgan kuningiz:</label>
+  <input type="date" id="birthday" name="birthday" />
+</form>
+```
+
+**Misol:**
+
+```html
+<form>
+  <label for="datemax">1980-01-01 dan oldingi sanani kiriting:</label>
+  <input type="date" id="datemax" name="datemax" max="1979-12-31" /><br /><br />
+  <label for="datemin">2000-01-01 dan keyingi sanani kiriting:</label>
+  <input type="date" id="datemin" name="datemin" min="2000-01-02" />
+</form>
+```
+
+### Mahalliy Sana-vaqti Input Turi
+
+`<input type="datetime-local">` sana va vaqt kiritish maydonini belgilaydi, vaqt zonasi ko'rsatilmaydi.
+
+Brauzer qo'llab-quvvatlashiga qarab, kiritish maydonida sana va vaqt tanlash oynasi ko'rsatilishi mumkin.
+
+**Misol:**
+
+```html
+<form>
+  <label for="birthdaytime">Tug'ilgan kuningiz (sana va vaqt):</label>
+  <input type="datetime-local" id="birthdaytime" name="birthdaytime" />
+</form>
+```
+
+**Misol:**
+
+```html
+<form>
+  <label for="meetingtime">Uchrashuv vaqti:</label>
+  <input type="datetime-local" id="meetingtime" name="meetingtime" value="2023-06-12T19:30" />
+</form>
+```
+
+### Email Input Turi
+
+`<input type="email">` elektron pochta manzili kiritish maydonini belgilaydi.
+
+**Misol:**
+
+```html
+<form>
+  <label for="email">Elektron pochtangiz:</label>
+  <input type="email" id="email" name="email" />
+</form>
+```
+
+### Fayl Input Turi
+
+`<input type="file">` fayl yuklash maydonini belgilaydi.
+
+**Misol:**
+
+```html
+<form>
+  <label for="myfile">Fayl tanlang:</label>
+  <input type="file" id="myfile" name="myfile" />
+</form>
+```
+
+Yuqoridagi kod brauzerda quyidagicha ko'rinadi:
+
+**Fayl tanlang:**
+
+### Qo'shimcha Input Turlari
+
+HTML5 da bir qancha yangi kiritish turlari mavjud: **color, date, datetime-local, email, month, number, range, search, tel, time, url, week.**
+
+**Misol:**
+
+```html
+<form>
+  <label for="favcolor">Sevimli rangingizni tanlang:</label><br />
+  <input type="color" id="favcolor" name="favcolor" /><br /><br />
+  <label for="bday">Tug'ilgan kuningiz:</label><br />
+  <input type="date" id="bday" name="bday" /><br /><br />
+  <label for="email">Elektron pochtangiz:</label><br />
+  <input type="email" id="email" name="email" /><br /><br />
+  <label for="quantity">Sonini tanlang (1 dan 5 gacha):</label><br />
+  <input type="number" id="quantity" name="quantity" min="1" max="5" /><br /><br />
+  <label for="vol">Ovoz balandligini tanlang (0 dan 11 gacha):</label><br />
+  <input type="range" id="vol" name="vol" min="0" max="11" /><br /><br />
+  <label for="search">Qidiruv so'rovini kiriting:</label><br />
+  <input type="search" id="search" name="search" /><br /><br />
+  <label for="meetingtime">Uchrashuv vaqti:</label><br />
+  <input type="datetime-local" id="meetingtime" name="meetingtime" value="2023-06-12T19:30" /><br /><br />
+  <label for="myfile">Fayl tanlang:</label><br />
+  <input type="file" id="myfile" name="myfile" /><br /><br />
+  <label for="phone">Telefon raqamingiz:</label><br />
+  <input type="tel" id="phone" name="phone" /><br /><br />
+  <label for="bdaymonth">Tug'ilgan oy:</label><br />
+  <input type="month" id="bdaymonth" name="bdaymonth" /><br /><br />
+  <label for="week">Bir hafta tanlang:</label><br />
+  <input type="week" id="week" name="week" /><br /><br />
+  <label for="website">Websaytingiz:</label><br />
+  <input type="url" id="website" name="website" /><br /><br />
+  <input type="submit" value="Yuborish" />
+</form>
+```

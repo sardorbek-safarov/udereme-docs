@@ -1,0 +1,5 @@
+{
+  "title": "HTML APIs",
+  "defaultOpen": true,
+  "pages": ["geolocation", "drag-and-drop", "web-storage", "web-workers", "server-sent-events", "..."]
+}

@@ -1,0 +1,5 @@
+{
+  "title": "Form",
+  "defaultOpen": true,
+  "pages": ["forms", "attributes", "elements", "input-types", "input-attributes", "form-attributes", "..."]
+}

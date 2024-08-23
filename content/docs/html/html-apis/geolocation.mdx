@@ -1,0 +1,137 @@
+---
+title: HTML Geolocation API
+description: HTML Geolocation API foydalanuvchining joylashuvini aniqlash uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Geolocation API
+
+HTML Geolocation API foydalanuvchining joylashuvini aniqlash uchun ishlatiladi.
+
+### Foydalanuvchining Joylashuvini Aniqlash
+
+HTML Geolocation API foydalanuvchining geografik joylashuvini olish uchun ishlatiladi.
+
+Bu maxfiylikni xavf ostiga qo'yishi mumkin bo'lganligi sababli, joylashuv faqat foydalanuvchi ruxsat berganida mavjud bo'ladi.
+
+<Callout type="warn" title="Eslatma">
+  Geolocation asosan GPS bilan jihozlangan qurilmalarda, masalan, smartfonlarda eng aniqdir.
+</Callout>
+
+### Brauzer Qo'llab-quvvatlash
+
+Jadvaldagi raqamlar Geolocationni to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| API         | Internet Explorer | Firefox | Safari | Chrome | Opera |
+| ----------- | ----------------- | ------- | ------ | ------ | ----- |
+| Geolocation | 5.0 - 49.0 (http) | 9.0     | 3.5    | 5.0    | 16.0  |
+
+<Callout type="warn" title="Eslatma">
+  Chrome 50 versiyasidan boshlab, Geolocation API faqat xavfsiz kontekstlar, masalan, HTTPS bilan ishlaydi. Agar sayt
+  HTTP kabi xavfsiz bo'lmagan manzilda joylashgan bo'lsa, foydalanuvchining joylashuvini olish so'rovlari ishlamaydi.
+</Callout>
+
+### HTML Geolocationni Ishlatish
+
+`getCurrentPosition()` metodi foydalanuvchining joylashuvini qaytaradi.
+
+Quyidagi misol foydalanuvchining latitud va longitudini qaytaradi:
+
+**Misol**
+
+```html
+<script>
+  const x = document.getElementById('demo');
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation bu brauzer tomonidan qo'llab-quvvatlanmaydi.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = 'Latitude: ' + position.coords.latitude + '<br>Longitude: ' + position.coords.longitude;
+  }
+</script>
+```
+
+**Misolning Tushuntirilishi:**
+
+1. Geolocation qo'llab-quvvatlanishini tekshiring.
+2. Qo'llab-quvvatlansa, `getCurrentPosition()` metodini ishga tushiring. Qo'llab-quvvatlanmasa, foydalanuvchiga xabar ko'rsating.
+3. Agar `getCurrentPosition()` metodi muvaffaqiyatli bo'lsa, u koordinatalar obyektini ko'rsatilgan funktsiyaga (showPosition) qaytaradi.
+4. `showPosition()` funktsiyasi Latitude va Longitude'ni chiqaradi.
+
+Yuqaridagi misol juda oddiy Geolocation skripti bo'lib, xato qayta ishlashni o'z ichiga olmaydi.
+
+### Xatolarni va Rad Etishni Qayta Ishlash
+
+`getCurrentPosition()` metodining ikkinchi parametri xatolarni qayta ishlash uchun ishlatiladi. Agar foydalanuvchining joylashuvini olishda muvaffaqiyatsizlik yuzaga kelsa, bajariladigan funktsiyani belgilaydi:
+
+**Misol**
+
+```html
+function showError(error) { switch(error.code) { case error.PERMISSION_DENIED: x.innerHTML = "Foydalanuvchi Geolocation
+so'rovini rad etdi." break; case error.POSITION_UNAVAILABLE: x.innerHTML = "Joylashuv ma'lumotlari mavjud emas." break;
+case error.TIMEOUT: x.innerHTML = "Foydalanuvchi joylashuvini olish so'rovi vaqt tugadi." break; case
+error.UNKNOWN_ERROR: x.innerHTML = "Noaniq xato yuz berdi." break; } }
+```
+
+### Joylashuvga Doir Ma'lumot
+
+Bu sahifa foydalanuvchining joylashuvini xaritada qanday ko'rsatishni ko'rsatdi.
+
+Geolocation shuningdek, quyidagi joylashuvga doir ma'lumotlar uchun juda foydalidir:
+
+- Yangilangan mahalliy ma'lumotlar
+- Foydalanuvchiga yaqin nuqtalarni ko'rsatish
+- Navbatchilik yo'nalishlari (GPS)
+
+### `getCurrentPosition()` Metodi - Qaytariladigan Ma'lumotlar
+
+`getCurrentPosition()` metodi muvaffaqiyatli bo'lsa, obyektni qaytaradi. Latitude, longitude va accuracy xususiyatlari har doim qaytariladi. Boshqa xususiyatlar mavjud bo'lsa qaytariladi:
+
+| Xususiyat                 | Qaytaradi                                                         |
+| ------------------------- | ----------------------------------------------------------------- |
+| `coords.latitude`         | Latitude (o'nlik son sifatida) (har doim qaytariladi)             |
+| `coords.longitude`        | Longitude (o'nlik son sifatida) (har doim qaytariladi)            |
+| `coords.accuracy`         | Joylashuv aniqligi (har doim qaytariladi)                         |
+| `coords.altitude`         | O'rta dengiz sathidan balandlik (m.) (mavjud bo'lsa qaytariladi)  |
+| `coords.altitudeAccuracy` | Balandlik aniqligi (m.) (mavjud bo'lsa qaytariladi)               |
+| `coords.heading`          | Shimoldan soat miltillanishi (daraja) (mavjud bo'lsa qaytariladi) |
+| `coords.speed`            | Sekundiga metrda tezlik (m/s) (mavjud bo'lsa qaytariladi)         |
+| `timestamp`               | Javob sanasi/vaqti (mavjud bo'lsa qaytariladi)                    |
+
+### Geolocation Objekti - Boshqa Qiziqarli Metodlar
+
+Geolocation obyekti quyidagi boshqa qiziqarli metodlarga ham ega:
+
+- `watchPosition()` - Foydalanuvchining joriy joylashuvini qaytaradi va foydalanuvchi harakatlanayotganida yangilangan joylashuvni qaytaradi (masalan, avtomobil GPS'si kabi).
+- `clearWatch()` - `watchPosition()` metodini to'xtatadi.
+
+Quyidagi misol `watchPosition()` metodini ko'rsatadi. Buni test qilish uchun aniq GPS qurilmasiga ehtiyoj bor (masalan, smartfon):
+
+**Misol**
+
+```html
+<script>
+  const x = document.getElementById('demo');
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation bu brauzer tomonidan qo'llab-quvvatlanmaydi.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = 'Latitude: ' + position.coords.latitude + '<br>Longitude: ' + position.coords.longitude;
+  }
+</script>
+```

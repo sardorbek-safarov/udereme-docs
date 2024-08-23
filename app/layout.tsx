@@ -15,7 +15,7 @@ export const metadata = createMetadata({
     template: '%s | Udemere',
     default: 'Udemere',
   },
-  description: 'Udemere - Uzbek tilida dasturlash dokumentatsiyasi.',
+  description: "Udemere - O'zbek tilida dasturlash dokumentatsiyasi.",
   metadataBase: baseURL,
 });
 

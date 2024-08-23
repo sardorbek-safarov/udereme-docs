@@ -1,0 +1,132 @@
+---
+title: HTML SVG Grafika
+description: SVG (Scalable Vector Graphics)
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML SVG Grafika
+
+### SVG (Scalable Vector Graphics)
+
+SVG XML-da vektor asosidagi grafikalarni belgilaydi, bu esa to'g'ridan-to'g'ri HTML sahifalariga kiritilishi mumkin.
+
+SVG grafikalar masshtablanuvchi bo'lib, ularni kattalashtirilsa yoki o'lchami o'zgartirilsa, sifatini yo'qotmaydi:
+
+### SVG
+
+SVG barcha asosiy brauzerlar tomonidan qo'llab-quvvatlanadi.
+
+### SVG nima?
+
+- SVG "Scalable Vector Graphics" (Masshtablanuvchi Vektor Grafikalar) degan ma'noni anglatadi.
+- SVG veb uchun vektor asosidagi grafikalarni belgilash uchun ishlatiladi.
+- SVG grafikalarni XML formatida belgilaydi.
+- SVG fayllaridagi har bir element va atribut animatsiyalanishi mumkin.
+- SVG W3C tavsiyasidir.
+- SVG CSS, DOM, XSL va JavaScript kabi boshqa standartlar bilan integratsiyalashadi.
+
+### `<svg>` Elementi
+
+HTML `<svg>` elementi SVG grafikalar uchun konteyner hisoblanadi.
+
+SVGda yo'llar, to'rtburchaklar, doiralar, poligonlar, matnlar va yana ko'p narsalarni chizish uchun bir nechta usullar mavjud.
+
+### SVG Doira
+
+**Misol:**
+
+```html
+<!doctype html>
+<html>
+  <body>
+    <svg width="100" height="100">
+      <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    </svg>
+  </body>
+</html>
+```
+
+### SVG To'rtburchak
+
+**Misol:**
+
+```html
+<svg width="400" height="120">
+  <rect x="10" y="10" width="200" height="100" stroke="red" stroke-width="6" fill="blue" />
+</svg>
+```
+
+### Opacity va Dumaloq Burchakli SVG To'rtburchak
+
+**Misol:**
+
+```html
+<svg width="400" height="180">
+  <rect
+    x="50"
+    y="20"
+    rx="20"
+    ry="20"
+    width="150"
+    height="150"
+    style="fill:red;stroke:black;stroke-width:5;opacity:0.5"
+  />
+</svg>
+```
+
+### SVG Yulduz
+
+**Misol:**
+
+```html
+<svg width="300" height="200">
+  <polygon
+    points="100,10 40,198 190,78 10,78 160,198"
+    style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;"
+  />
+</svg>
+```
+
+### SVG Gradient Ellips va Matn
+
+**Misol:**
+
+```html
+<svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1">
+      <stop offset="0%" stop-color="yellow" />
+      <stop offset="100%" stop-color="red" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
+  Sorry, your browser does not support inline SVG.
+</svg>
+```
+
+### SVG va Canvas O'rtasidagi Farqlar
+
+SVG XML asosida 2D grafikalarni tasvirlash uchun tildir, Canvas esa (JavaScript yordamida) 2D grafikalarni darhol chizadi.
+
+SVG XML asosida bo'lib, har bir element SVG DOM ichida mavjud. Siz SVG grafikalariga JavaScript voqea (event) tutuvchilarni (event handlers) qo'shishingiz mumkin.
+
+SVGda har bir chizilgan shakl obyekt sifatida eslab qoladi. Agar SVG obyekti atributlari o'zgartirilsa, brauzer avtomatik ravishda shaklni qayta chizishi mumkin.
+
+Canvas piksel-piksel asosida tasvirlanadi. Canvasda grafik chizilgandan so'ng, brauzer uni "unutadi". Agar uning pozitsiyasi o'zgartirilishi kerak bo'lsa, butun sahnani qayta chizish kerak bo'ladi, shu jumladan grafik tomonidan qoplanishi mumkin bo'lgan har qanday obyektlar ham.
+
+### SVG va Canvas Taqqoslash
+
+Quyidagi jadvalda Canvas va SVG o'rtasidagi ba'zi muhim farqlar ko'rsatilgan:
+
+| SVG                                                    | Canvas                                    |
+| ------------------------------------------------------ | ----------------------------------------- |
+| Ruxsatsiz (resolution-independent)                     | Ruxsatli (resolution-dependent)           |
+| Voqea tutuvchilarni qo'llab-quvvatlaydi                | Voqea tutuvchilarni qo'llab-quvvatlamaydi |
+| Yaxshi matn tasvirlash qobiliyatlari                   | Yomon matn tasvirlash qobiliyatlari       |
+| Murakkab bo'lsa, sekin ishlaydi                        | O'yinlar uchun mos                        |
+| O'yin ilovalari uchun mos emas                         | O'yinlar uchun yaxshi moslangan           |
+| SVG grafikalarini PNG yoki JPG sifatida saqlash mumkin |                                           |

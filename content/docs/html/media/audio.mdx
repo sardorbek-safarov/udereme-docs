@@ -1,0 +1,110 @@
+---
+title: HTML Audio
+description: HTML <audio> elementi veb sahifada audio faylni ijro etish uchun ishlatiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Audio
+
+**HTML `<audio>`** elementi veb sahifada audio faylni ijro etish uchun ishlatiladi.
+
+#### HTML `<audio>` Elementi
+
+HTML'da audio faylni ijro etish uchun **`<audio>`** elementini ishlating:
+
+**Misol**
+
+```html
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg" />
+  <source src="horse.mp3" type="audio/mpeg" />
+  Sizning brauzeringiz audio elementini qo'llab-quvvatlamaydi.
+</audio>
+```
+
+### HTML Audio - Qanday Ishlaydi
+
+- **controls** atributi audio boshqaruvlarini qo'shadi, masalan, o'ynash, to'xtatish va ovoz.
+- **`<source>`** elementi alternativ audio fayllarini ko'rsatishga imkon beradi. Brauzer tanlangan formatni ishlatadi.
+- **`<audio>`** va **`</audio>`** teglar orasidagi matn faqat **`<audio>`** elementini qo'llab-quvvatlamaydigan brauzerlarda ko'rsatiladi.
+
+### HTML `<audio>` Avto-iqro
+
+Audio faylni avtomatik boshlash uchun **autoplay** atributini ishlating:
+
+**Misol**
+
+```html
+<audio controls autoplay>
+  <source src="horse.ogg" type="audio/ogg" />
+  <source src="horse.mp3" type="audio/mpeg" />
+  Sizning brauzeringiz audio elementini qo'llab-quvvatlamaydi.
+</audio>
+```
+
+<Callout type="warn" title="Eslatma">
+  Chromium brauzerlari ko'pincha avtomatik ijroni ruxsat bermaydi. Biroq, ovozsiz avtomatik ijro har doim ruxsat
+  etiladi.
+</Callout>
+
+Ovozli avtomatik ijroni boshlash (ammo ovozsiz) uchun autoplay'dan keyin muted qo'shing:
+
+**Misol**
+
+```html
+<audio controls autoplay muted>
+  <source src="horse.ogg" type="audio/ogg" />
+  <source src="horse.mp3" type="audio/mpeg" />
+  Sizning brauzeringiz audio elementini qo'llab-quvvatlamaydi.
+</audio>
+```
+
+### Brauzer Qo'llab-Quvvatlash
+
+Jadvaldagi raqamlar **`<audio>`** elementini to'liq qo'llab-quvvatlaydigan birinchi brauzer versiyasini ko'rsatadi.
+
+| Element   | Edge | Chrome | Firefox | Safari | Opera |
+| --------- | ---- | ------ | ------- | ------ | ----- |
+| `<audio>` | 4.0  | 9.0    | 3.5     | 4.0    | 10.5  |
+
+### HTML Audio Formatlari
+
+Qo'llab-quvvatlanadigan uchta audio format mavjud: MP3, WAV va OGG. Har xil formatlar uchun brauzer qo'llab-quvvatlash quyidagicha:
+
+| Brauzer | MP3 | WAV  | OGG  |
+| ------- | --- | ---- | ---- |
+| Edge/IE | HA  | HA\* | HA\* |
+| Chrome  | HA  | HA   | HA   |
+| Firefox | HA  | HA   | HA   |
+| Safari  | HA  | HA   | YO'Q |
+| Opera   | HA  | HA   | HA   |
+
+\*Edge 79 dan boshlab.
+
+#### HTML Audio - Media Turlari
+
+| Fayl Formati | Media Turi |
+| ------------ | ---------- |
+| MP3          | audio/mpeg |
+| OGG          | audio/ogg  |
+| WAV          | audio/wav  |
+
+#### HTML Audio - Metodlar, Xususiyatlar va Hodisalar
+
+HTML DOM **`<audio>`** elementi uchun metodlar, xususiyatlar va hodisalarni belgilaydi.
+
+Bu sizga audio fayllarni yuklash, o'ynash va to'xtatishga, shuningdek, davomiylik va ovoz sozlash imkonini beradi.
+
+Shuningdek, DOM hodisalari audio boshlanishi, to'xtashi va hokazo haqida xabar berishi mumkin.
+
+To'liq DOM ma'lumotnomasi uchun HTML Audio/Video DOM ma'lumotnomasiga o'ting.
+
+### HTML Audio Teglari
+
+| Teg        | Tavsif                                                                                             |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| `<audio>`  | Ovozli kontentni belgilaydi.                                                                       |
+| `<source>` | Media elementlari uchun bir nechta media resurslarini belgilaydi, masalan, `<video>` va `<audio>`. |

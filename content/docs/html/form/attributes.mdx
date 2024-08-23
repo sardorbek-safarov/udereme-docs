@@ -1,0 +1,149 @@
+---
+title: HTML Forma Atributlari
+description: Ushbu bob HTML `<form>` elementi uchun turli xil atributlarni tavsiflaydi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-23
+---
+
+## HTML Forma Atributlari
+
+Ushbu bob HTML `<form>` elementi uchun turli xil atributlarni tavsiflaydi.
+
+### Action Atributi
+
+`action` atributi forma yuborilganda bajarilishi kerak bo'lgan harakatni belgilaydi.
+
+Odatda, foydalanuvchi yuborish tugmasini bosganda forma ma'lumotlari serverdagi faylga yuboriladi.
+
+Quyidagi misolda, forma ma'lumotlari "action_page.php" nomli faylga yuboriladi. Ushbu fayl forma ma'lumotlarini qayta ishlaydigan server tomoni skriptini o'z ichiga oladi:
+
+**Misol**
+Yuborilganda, forma ma'lumotlarini "action_page" ga yuboring:
+
+```html
+<form action="/action_page">
+  <label for="fname">Ism:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Familiya:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Yuborish" />
+</form>
+```
+
+**Maslahat:** Agar `action` atributi ko'rsatilmagan bo'lsa, harakat joriy sahifaga o'rnatiladi.
+
+### Target Atributi
+
+`target` atributi forma yuborilgandan keyin olingan javobni qayerda ko'rsatishni belgilaydi.
+
+`target` atributi quyidagi qiymatlarga ega bo'lishi mumkin:
+
+| Qiymat      | Tavsif                                        |
+| ----------- | --------------------------------------------- |
+| `_blank`    | Javob yangi oynada yoki yorliqda ko'rsatiladi |
+| `_self`     | Javob joriy oynada ko'rsatiladi               |
+| `_parent`   | Javob ota freymda ko'rsatiladi                |
+| `_top`      | Javob oynaning to'liq tanasida ko'rsatiladi   |
+| `framename` | Javob nomli iframe-da ko'rsatiladi            |
+
+Standart qiymat `_self` bo'lib, bu javobning joriy oynada ochilishini bildiradi.
+
+**Misol**
+Bu yerda, yuborilgan natija yangi brauzer yorlig'ida ochiladi:
+
+```html
+<form action="/action_page" target="_blank"></form>
+```
+
+### Method Atributi
+
+`method` atributi forma ma'lumotlarini yuborishda ishlatiladigan HTTP usulini belgilaydi.
+
+Forma ma'lumotlari URL o'zgaruvchilari sifatida (metod="get") yoki HTTP post tranzaksiyasi sifatida (metod="post") yuborilishi mumkin.
+
+Forma ma'lumotlarini yuborishda standart HTTP usuli GET hisoblanadi.
+
+**Misol**
+Ushbu misolda forma ma'lumotlarini yuborishda GET usuli ishlatiladi:
+
+```html
+<form action="/action_page" method="get"></form>
+```
+
+**Misol**
+Ushbu misolda forma ma'lumotlarini yuborishda POST usuli ishlatiladi:
+
+```html
+<form action="/action_page" method="post"></form>
+```
+
+**GET haqida eslatmalar:**
+
+- Forma ma'lumotlarini URL-ga nom/qiymat juftliklari sifatida qo'shadi
+- Hech qachon GET yordamida maxfiy ma'lumotlarni yubormang! (yuborilgan forma ma'lumotlari URLda ko'rinadi!)
+- URL uzunligi cheklangan (2048 belgiga qadar)
+- Foydalanuvchi natijani belgilamoqchi bo'lgan holatlarda foydali
+- GET maxfiy bo'lmagan ma'lumotlar uchun yaxshi, masalan, Google-da so'rov satrlari
+
+**POST haqida eslatmalar:**
+
+- Forma ma'lumotlarini HTTP so'rovining tanasiga qo'shadi (yuborilgan forma ma'lumotlari URLda ko'rsatilmaydi)
+- POST hajmi cheklovsiz bo'lib, katta hajmdagi ma'lumotlarni yuborish uchun ishlatilishi mumkin.
+- POST bilan yuborilgan forma natijalari belgilab qo'yilmaydi
+- **Maslahat:** Agar forma ma'lumotlari maxfiy yoki shaxsiy ma'lumotlarni o'z ichiga olsa, har doim POSTdan foydalaning!
+
+### Autocomplete Atributi
+
+`autocomplete` atributi forma avtoto'ldirish funksiyasini yoqish yoki o'chirishni belgilaydi.
+
+Avtoto'ldirish yoqilganda, brauzer foydalanuvchi ilgari kiritgan qiymatlarga asoslanib qiymatlarni avtomatik to'ldiradi.
+
+**Misol**
+Avtoto'ldirish yoqilgan forma:
+
+```html
+<form action="/action_page" autocomplete="on"></form>
+```
+
+### Novalidate Atributi
+
+`novalidate` atributi bu mantiqiy atributdir.
+
+Agar mavjud bo'lsa, u forma ma'lumotlari (kiritish) yuborilganda tekshirilmasligini belgilaydi.
+
+**Misol**
+`novalidate` atributi bilan forma:
+
+```html
+<form action="/action_page" novalidate></form>
+```
+
+### HTML Mashqlar
+
+O'zingizni mashq qiling
+
+**Mashq:**
+Yuborish tugmachasini qo'shing va forma `/action_page` ga yuborilishi kerakligini belgilang.
+
+```html
+<form action="/action_page">
+  Ism: <input type="text" name="name" />
+  <input type="submit" value="Yuborish" />
+</form>
+```
+
+### Barcha `<form>` Atributlar Ro'yxati
+
+| Atribut          | Tavsif                                                                                                          |
+| ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| `accept-charset` | Forma yuborilganda ishlatiladigan belgilar kodlashlarini belgilaydi                                             |
+| `action`         | Forma yuborilganda forma ma'lumotlarini qayerga yuborishni belgilaydi                                           |
+| `autocomplete`   | Forma avtoto'ldirish funksiyasini yoqish yoki o'chirishni belgilaydi                                            |
+| `enctype`        | Forma ma'lumotlarini serverga yuborilganda qanday kodlanishi kerakligini belgilaydi (faqat method="post" uchun) |
+| `method`         | Forma ma'lumotlarini yuborishda foydalaniladigan HTTP usulini belgilaydi                                        |
+| `name`           | Formaning nomini belgilaydi                                                                                     |
+| `novalidate`     | Forma yuborilganda uning tekshirilmasligini belgilaydi                                                          |
+| `rel`            | Bog'langan resurs va joriy hujjat o'rtasidagi munosabatni belgilaydi                                            |
+| `target`         | Forma yuborilgandan keyin olingan javobni qayerda ko'rsatishni belgilaydi                                       |
