@@ -1,6 +1,6 @@
 'use client';
-import { LogoIcon } from '@/components/icons';
-import Link from 'next/link';
+import { LogoIcon } from '@/components/icons'
+import Link from 'next/link'
 
 const SiteFooter = () => {
   return (
