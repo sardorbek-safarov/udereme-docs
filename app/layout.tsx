@@ -13,9 +13,9 @@ import { Provider } from './provider';
 export const metadata = createMetadata({
   title: {
     template: '%s | Udemere',
-    default: 'Udemere',
+    default: "Udemere - O'zbek tilida dasturlash dokumentatsiyasi.",
   },
-  description: "Udemere - O'zbek tilida dasturlash dokumentatsiyasi.",
+  description: "Udemere - O'zbek tilida dasturlash dokumentatsiyasi. Open Source.",
   metadataBase: baseURL,
 });
 

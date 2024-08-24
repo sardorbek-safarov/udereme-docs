@@ -134,7 +134,7 @@ export function generateMetadata({ params }: { params: Param }): Metadata {
 
   const image = {
     alt: 'Banner',
-    url: `/og/docs/${page.slugs.join('/')}.png`,
+    url: `https://udemere.uz/og.png`,
     width: 1200,
     height: 630,
   };
@@ -143,7 +143,7 @@ export function generateMetadata({ params }: { params: Param }): Metadata {
     title: page.data.title,
     description,
     openGraph: {
-      url: `/docs/${page.slugs.join('/')}`,
+      url: `https://udemere.uz/og.png`,
       images: image,
     },
     twitter: {
