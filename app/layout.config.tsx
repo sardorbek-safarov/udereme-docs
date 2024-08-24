@@ -6,7 +6,7 @@ import { NavigationChildren } from '@/app/layout.client';
 import { docs } from '@/app/source';
 import { LogoIcon, MobileLogoIcon } from '@/components/icons';
 import { modes } from '@/utils/modes';
-import { BookIcon } from 'lucide-react';
+import { BookIcon, Code } from 'lucide-react';
 
 // shared configuration
 export const baseOptions: HomeLayoutProps = {
@@ -31,6 +31,12 @@ export const baseOptions: HomeLayoutProps = {
       icon: <BookIcon />,
       text: 'Interview Q&A',
       url: '/interview',
+      active: 'nested-url',
+    },
+    {
+      icon: <Code />,
+      text: 'Code Editor',
+      url: 'https://editor.udemere.uz',
       active: 'nested-url',
     },
   ],
