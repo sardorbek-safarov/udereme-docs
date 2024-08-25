@@ -1,0 +1,321 @@
+---
+title: Koding uslubi(Coding Style)
+description: Bizning kodimiz imkon qadar toza va o'qilishi oson bo'lishi kerak.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Koding uslubi
+
+Bizning kodimiz imkon qadar toza va o'qilishi oson bo'lishi kerak.
+
+Aslida dasturlashning san'ati ham shundaki – murakkab vazifani to'g'ri va inson tomonidan o'qilishi oson tarzda kodlash san'atidir. Yaxshi kodlash uslubi bunga katta yordam beradi.
+
+### Sintaksis
+
+Mana ba'zi taklif etilgan qoidalar bilan qulay varaqcha (quyida tafsilotlar keltirilgan):
+
+Endi qoidalar va ularning sabablarini batafsil muhokama qilaylik.
+
+### Majburiy qoidalar yo'q
+
+Bu yerda hech narsa qat'iy emas. Bu uslubiy afzalliklar, diniy aqidalar emas.
+
+### Jingalak qavslar
+
+Ko'pgina JavaScript loyihalarida jingalak qavslar "Misr" uslubida yoziladi, ya'ni ochilish qavsi tegishli kalit so'z bilan bir xil qatorga qo'yiladi – yangi qatorga emas. Ochilish qavsidan oldin ham bo'sh joy bo'lishi kerak, masalan:
+
+```javascript
+if (condition) {
+  // buni bajar
+  // ...va yana buni
+  // ...va yana buni
+}
+```
+
+Bir qatorli konstruksiya, masalan, `if (condition) doSomething()`, muhim chekka holat. Biz umuman qavslarni ishlatishimiz kerakmi?
+
+Mana o'qilishi bo'yicha annotatsiyalangan variantlar, o'zingiz baho berishingiz mumkin:
+
+😠 Yangi boshlovchilar ba'zida shunday qilishadi. Yomon! Jingalak qavslar kerak emas:
+
+```javascript
+if (n < 0) {
+  alert(`Power ${n} qo'llab-quvvatlanmaydi`);
+}
+```
+
+😠 Jingalak qavslarsiz alohida qatorga bo'lingan. Buni hech qachon qilmang, yangi qator qo'shishda xato qilish oson:
+
+```javascript
+if (n < 0) alert(`Power ${n} qo'llab-quvvatlanmaydi`);
+```
+
+😏 Jingalak qavslarsiz bir qator – qabul qilsa bo'ladi, agar qisqa bo'lsa:
+
+```javascript
+if (n < 0) alert(`Power ${n} qo'llab-quvvatlanmaydi`);
+```
+
+😃 Eng yaxshi variant:
+
+```javascript
+if (n < 0) {
+  alert(`Power ${n} qo'llab-quvvatlanmaydi`);
+}
+```
+
+Juda qisqa kod uchun, masalan `if (cond) return null` kabi, bir qatorga ruxsat beriladi. Ammo kod bloki (oxirgi variant) odatda ko'proq o'qilishi oson.
+
+### Qator uzunligi
+
+Hech kim kodning gorizontal uzun qatorini o'qishni yoqtirmaydi. Ularni bo'lish eng yaxshi amaliyotdir.
+
+Misol uchun:
+
+```javascript
+// Backtick quotes ` stringni bir nechta qatorlarga ajratish imkonini beradi
+let str = `
+  ECMA International'ning TC39 guruhi JavaScript ishlab chiquvchilari,
+  implementatorlari, akademiklari va boshqalar,
+  JavaScript ta'rifini saqlash va rivojlantirish uchun jamiyat bilan hamkorlikda ishlaydi.
+`;
+```
+
+Va `if` bayonoti uchun:
+
+```javascript
+if (id === 123 && moonPhase === 'Waning Gibbous' && zodiacSign === 'Libra') {
+  letTheSorceryBegin();
+}
+```
+
+Maksimal qator uzunligi jamoa darajasida kelishilishi kerak. Odatda bu 80 yoki 120 belgidan iborat bo'ladi.
+
+### Bo'shliqlar
+
+Ikki turdagi bo'shliqlar mavjud:
+
+Gorizontal bo'shliqlar: 2 yoki 4 bo'sh joy.
+
+Gorizontal bo'shliqlar 2 yoki 4 ta bo'sh joy yoki gorizontal tabulyatsiya belgisi (Tab tugmasi) yordamida amalga oshiriladi. Qaysi birini tanlash qadimiy "urush" mavzusi hisoblanadi. Hozirgi kunda bo'shliqlar ko'proq qo'llaniladi.
+
+Bo'shliqlarning tabulyatsiyaga nisbatan afzalligi shundaki, bo'shliqlar ko'proq moslashuvchan konfiguratsiyalarni taqdim etadi.
+
+Masalan, parametrlarni ochilish qavsi bilan hizalashimiz mumkin, masalan:
+
+```javascript
+show(parameters,
+     aligned, // 5 bo'sh joy chap tomonda
+     one,
+     after,
+     another
+  ) {
+  // ...
+}
+```
+
+Vertikal bo'shliqlar: kodni mantiqiy bloklarga ajratish uchun bo'sh qatorlar.
+
+Hatto bitta funksiya ham ko'pincha mantiqiy bloklarga bo'linishi mumkin. Quyidagi misolda o'zgaruvchilarni tashkillashtirish, asosiy sikl va natijani qaytarish vertikal bo'shliqlar yordamida ajratilgan:
+
+```javascript
+function pow(x, n) {
+  let result = 1;
+  //              <--
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+  //              <--
+  return result;
+}
+```
+
+Qo'shimcha yangi qatorni kiriting, bu kodni o'qishni osonlashtiradi. Vertikal bo'shliqlarsiz to'qqizdan ortiq kod qatori bo'lmasligi kerak.
+
+### Nuqta-vergul (Semikolons)
+
+Har bir bayonotdan keyin nuqta-vergul bo'lishi kerak, hatto uni tashlab yuborish mumkin bo'lsa ham.
+
+Ba'zi tillarda nuqta-vergul haqiqatan ham ixtiyoriy va kamdan-kam qo'llaniladi. Ammo JavaScriptda qator oxiri nuqta-vergul sifatida talqin qilinmaydigan holatlar mavjud bo'lib, kodni xatolarga nisbatan zaif qiladi. Bu haqda batafsil ma'lumotni "Kod tuzilishi" bo'limida ko'rishingiz mumkin.
+
+Agar siz tajribali JavaScript dasturchisi bo'lsangiz, StandardJS kabi nuqta-vergulsiz kod uslubini tanlashingiz mumkin. Aks holda, ehtimoliy xatolarni oldini olish uchun nuqta-vergullarni ishlatish tavsiya etiladi. Dasturchilarning aksariyati nuqta-vergullarni qo'yadi.
+
+### Ichma-ichlik darajalari
+
+Kodning juda chuqur darajada ichma-ich bo'lishidan saqlaning.
+
+Masalan, loop ichida ortiqcha ichma-ichlikdan qochish uchun `continue` direktivasidan foydalanish yaxshi fikr.
+
+Masalan, quyidagi kabi ichki `if` shartini qo'shish o'rniga:
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  if (cond) {
+    ... // <- yana bir ichki daraja
+  }
+}
+```
+
+Shunday yozish mumkin:
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  if (!cond) continue;
+  ...  // <- hech qanday qo'shimcha ichki daraja yo'q
+}
+```
+
+Xuddi shunday narsani `if/else` va `return` bilan ham qilish mumkin.
+
+Masalan, quyidagi ikkita konstruksiya bir xil:
+
+Variant 1:
+
+```javascript
+function pow(x, n) {
+  if (n < 0) {
+    alert("Manfiy 'n' qo'llab-quvvatlanmaydi");
+  } else {
+    let result = 1;
+
+    for (let i = 0; i < n; i++) {
+      result *= x;
+    }
+
+    return result;
+  }
+}
+```
+
+Variant 2:
+
+```javascript
+function pow(x, n) {
+  if (n < 0) {
+    alert("Manfiy 'n' qo'llab-quvvatlanmaydi");
+    return;
+  }
+
+  let result = 1;
+
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+```
+
+Ikkinchi variant ko'proq o'qilishi oson, chunki `n < 0` ning "maxsus holati" darhol hal qilinadi. Tekshiruv bajarilgandan so'ng, qo'shimcha ichma-ichlikka ehtiyoj qolmaydi va biz "asosiy" kod oqimiga o'tamiz.
+
+### Funksiya joylashuvi
+
+Agar siz bir nechta "yordamchi" funksiyalarni va ularni ishlatadigan kodni yozayotgan bo'lsangiz, funksiyalarni uch xil usulda tashkil qilish mumkin.
+
+Funksiyalarni ularni ishlatadigan koddan yuqorida e'lon qiling:
+
+```javascript
+// funksiyalarni e'lon qilish
+function createElement() {
+  ...
+}
+
+function setHandler(elem) {
+  ...
+}
+
+function walkAround() {
+  ...
+}
+
+// u
+
+larni ishlatish
+let elem = createElement();
+setHandler(elem);
+walkAround();
+```
+
+Yoki ularni ishlatadigan koddan keyin e'lon qiling:
+
+```javascript
+// ularni ishlatish
+let elem = createElement();
+setHandler(elem);
+walkAround();
+
+// funksiyalarni e'lon qilish
+function createElement() {
+  ...
+}
+
+function setHandler(elem) {
+  ...
+}
+
+function walkAround() {
+  ...
+}
+```
+
+Shuningdek, ichki funksiyalarni ishlatadigan funksiyalarda joylashtirish mumkin:
+
+```javascript
+function task() {
+  let elem = createElement();
+  setHandler(elem);
+  walkAround();
+
+  function createElement() { ... }
+  function setHandler(elem) { ... }
+  function walkAround() { ... }
+}
+```
+
+Har bir yondashuvning afzalliklari va kamchiliklari bor. "Yuqoridagi" variant ish vaqtida boshqa funktsiyalarni qidirishni osonlashtiradi. Agar ular yuqorida bo'lsa, ularni ko'rish mumkin. Koddan pastga o'zingizni "cheksiz o'qishga" majbur qilishingiz shart emas. Shuning uchun katta skriptlar, jumladan jQuery, shu tarzda joylashtiriladi.
+
+Koddan keyingi funksiyalarni belgilash esa umuman ancha mantiqiy ko'rinishi mumkin: avval kod, so'ngra undan qanday foydalanishni ko'rishimiz mumkin. Agar skript o'zi kichik bo'lsa, bu eng yaxshi tanlovdir.
+
+Funksiyalarning ichki joylashuvi lokal va ichki funksiyalar uchun foydalidir, chunki ular "muayyan" kodni himoya qiladi, ya'ni yordamchi xususiyatlardan foydalanishni cheklaydi.
+
+**Nomi**
+O'zgaruvchilar, funksiyalar, sinflar va boshqalarning nomi ingliz tilida aniq va tushunarli bo'lishi kerak, chunki nomlar haqida hech qanday savol tug'ilmasligi kerak.
+
+Yomon:
+
+```javascript
+function pow(x, y) {
+  return x ** y;
+}
+```
+
+Yaxshi:
+
+```javascript
+function pow(base, exponent) {
+  return base ** exponent;
+}
+```
+
+Katta loyihalar uchun mos keladigan foydali qoida: shunday nomlashingiz kerakki, agar siz 6 oy ichida loyihani unutib, uni qayta o'qib chiqsangiz, nomlarni tushunishingiz kerak bo'ladi.
+
+Nomi o'zgaruvchining qanday ishlatilishini tavsiflash uchun tanlanadi. Shunday qilib, kod ko'proq tushunarli bo'ladi.
+
+### Kichik funktsiyalar
+
+Kichik funktsiyalarni o'z ichiga olgan ko'plab kichik modullar katta kodni kichik qismlarga bo'lishga yordam beradi, bu esa ularni o'qish va test qilishni osonlashtiradi. Shu bilan birga, ularni boshqa joyda ham qayta ishlatish mumkin.
+
+Bu juda oddiy, lekin juda foydali qoida: kichikroq funksiyalarni yozing. Agar funksiyangiz katta bo'lib qolsa, uni bo'lishni o'ylab ko'ring.
+
+Dastlab, funksiyalar kichik bo'lishi kerak. Kichik funksiya o'qilishi oson, uni tushunish va tuzatish oson. Agar kodda kichik xato bo'lsa, siz butun blokni ajratishingiz kerak emas. Shunday qilib, kodingizni kichikroq funksiyalarga bo'lib turing.
+
+### Kodni qirqish
+
+Agar kod har qanday holatda ishlatilmasa, uni o'chiring. Kodni o'chirib tashlashdan qo'rqmang. Kodni qisqartirish, yangi funksiyalar va modullarni qo'shish yoki kodni qayta yozish sizning kodni saqlab qolishingizdan ko'ra samaraliroqdir.
+
+## Xulosa
+
+Ushbu qo'llanmada ko'plab qoidalar mavjud va ularning barchasi muhim. Qoidalarga amal qiling, ammo o'zingizning qoidalaringizni ishlab chiqing. Kodlash qoidalari kodlashdan zavqlanish uchun mavjud!

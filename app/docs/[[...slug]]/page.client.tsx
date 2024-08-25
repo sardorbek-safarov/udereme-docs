@@ -19,7 +19,7 @@ export function Control({ url }: { url: string }): React.ReactElement {
         <Share className="size-4" />
       </TooltipTrigger>
       <TooltipContent className="rounded-lg border bg-fd-popover p-2 text-sm text-fd-popover-foreground">
-        Havola(Link)dan nusxa olish
+        Havoladan nusxa olish
       </TooltipContent>
     </Tooltip>
   );

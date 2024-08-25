@@ -1,0 +1,184 @@
+---
+title: Izohlar(Comments)
+description: Kodni tuzish bo'limida ta'kidlanganidek, izohlar bitta satrli (`//`) yoki ko'p satrli (`/* ... */`) bo'lishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Izohlar
+
+Kodni tuzish bo'limida ta'kidlanganidek, izohlar bitta satrli (`//`) yoki ko'p satrli (`/* ... */`) bo'lishi mumkin.
+
+Biz ularni odatda kod qanday va nima uchun ishlayotganini tushuntirish uchun ishlatamiz.
+
+Dastlab izoh yozish oson tuyuladi, lekin dasturlashni endi o'rganganlar ularni noto'g'ri ishlatishi mumkin.
+
+## Yomon izohlar
+
+Yangi boshlovchilar izohlarni "kodingizda nima bo'layotganini" tushuntirish uchun ishlatishga moyil. Masalan:
+
+```javascript
+// Bu kod mana bu ishni qiladi (...) va mana bu ishni (...)
+very;
+complex;
+code;
+```
+
+Lekin yaxshi kodda bunday "tushuntiruvchi" izohlar miqdori minimal bo'lishi kerak. Jiddiy, kodni izohlar bo'lmasdan tushunish oson bo'lishi kerak.
+
+Bunda ajoyib bir qoida mavjud: "Agar kod shunchalik tushunarsiz bo'lsa, uni izoh talab qiladi, ehtimol uni qayta yozish kerak."
+
+### Tavsiya: funksiyalarni ajratib oling
+
+Ba'zida kod qismini funksiyaga almashtirish foydali bo'lishi mumkin, masalan:
+
+```javascript
+function showPrimes(n) {
+  nextPrime: for (let i = 2; i < n; i++) {
+    // i soni tub son ekanligini tekshirish
+    for (let j = 2; j < i; j++) {
+      if (i % j == 0) continue nextPrime;
+    }
+
+    alert(i);
+  }
+}
+```
+
+Buni yaxshiroq variant, `isPrime` funksiyasini ajratib oling:
+
+```javascript
+function showPrimes(n) {
+  for (let i = 2; i < n; i++) {
+    if (!isPrime(i)) continue;
+
+    alert(i);
+  }
+}
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i == 0) return false;
+  }
+
+  return true;
+}
+```
+
+Endi kodni osongina tushunish mumkin. Funksiya o'zi izoh bo'lib qoladi. Bunday kod "o'z-o'zini tushuntiruvchi" kod deyiladi.
+
+### Tavsiya: funksiyalar yarating
+
+Agar bizda uzun kod bo'lsa, masalan:
+
+```javascript
+// bu yerda viskini qo'shamiz
+for (let i = 0; i < 10; i++) {
+  let drop = getWhiskey();
+  smell(drop);
+  add(drop, glass);
+}
+
+// bu yerda sharbat qo'shamiz
+for (let t = 0; t < 3; t++) {
+  let tomato = getTomato();
+  examine(tomato);
+  let juice = press(tomato);
+  add(juice, glass);
+}
+
+// ...
+```
+
+Unda uni funksiyalarga qayta ishlash yaxshiroq bo'lishi mumkin:
+
+```javascript
+addWhiskey(glass);
+addJuice(glass);
+
+function addWhiskey(container) {
+  for (let i = 0; i < 10; i++) {
+    let drop = getWhiskey();
+    //...
+  }
+}
+
+function addJuice(container) {
+  for (let t = 0; t < 3; t++) {
+    let tomato = getTomato();
+    //...
+  }
+}
+```
+
+Yana bir bor, funksiyalarning o'zi nima sodir bo'layotganini aytadi. Izohlar kerak emas. Shuningdek, kod strukturasini ajratish yaxshiroq, har bir funksiyaning nima qilayotgani, nimani olishi va nimani qaytarishi aniq.
+
+Haqiqiy hayotda "tushuntiruvchi" izohlaridan butunlay qochib bo'lmaydi. Murakkab algoritmlar mavjud. Va optimallashtirish maqsadlari uchun ba'zi aqlli "hiyla" lar mavjud. Lekin umuman olganda, kodni sodda va o'z-o'zini tushuntiruvchi qilib saqlashga harakat qilishimiz kerak.
+
+## Yaxshi izohlar
+
+Demak, tushuntiruvchi izohlar odatda yomon. Qanday izohlar yaxshi?
+
+### Arxitekturani tavsiflang
+
+Komponentlar qanday ishlashini, ularning o'zaro ta'sirini, turli vaziyatlarda boshqaruv oqimini tasvirlaydigan umumiy tasavvur berish. Qisqasi - kodning umumiy ko'rinishi. UML kabi maxsus til mavjud bo'lib, yuqori darajadagi arxitektura diagrammalarini yaratish uchun ishlatiladi. Bu kodni tushuntirish uchun arziydi.
+
+**Funksiya parametrlari va foydalanishni hujjatlashtirish**
+Funksiyani: foydalanish, parametrlar, qaytariladigan qiymatni hujjatlashtirish uchun JSDoc kabi maxsus sintaksis mavjud.
+
+Masalan:
+
+```javascript
+/**
+ * X sonini n darajaga ko'taradi.
+ *
+ * @param {number} x Ko'tariladigan son.
+ * @param {number} n Daraja, tabiiy son bo'lishi kerak.
+ * @return {number} x n darajaga ko'tarilgan.
+ */
+function pow(x, n) {
+  ...
+}
+```
+
+Bunday izohlar funksiyaning maqsadini tushunishga va uning kodini ko'rmasdan to'g'ri foydalanishga imkon beradi.
+
+Aytgancha, ko'plab muharrirlar WebStorm kabi bunday izohlarni tushunadi va ularni avtomatik to'ldirish va ba'zi avtomatik kodni tekshirish uchun ishlatishi mumkin.
+
+Shuningdek, JSDoc 3 kabi vositalar mavjud bo'lib, ular izohlardan HTML-hujjatlarni yaratishi mumkin. JSDoc haqida ko'proq ma'lumotni [jsdoc.app](https://jsdoc.app) saytidan olishingiz mumkin.
+
+### Nega bu yechim tanlandi?
+
+Nima yozilganligi muhim. Lekin nima yozilmaganligini tushunish undan ham muhimroq. Nega bu masala aynan shu tarzda hal qilindi? Kod bunga javob bermaydi.
+
+Agar vazifani hal qilishning ko'p usullari bo'lsa, nima uchun aynan shu usul tanlandi? Ayniqsa, bu eng oddiy ko'rinmaydigan bo'lsa.
+
+Bunday izohlar bo'lmasa, quyidagi holat yuzaga kelishi mumkin:
+
+Siz (yoki hamkasbingiz) bir muddat oldin yozilgan kodni ochasiz va "bu kod samarali emas" deb o'ylaysiz.
+O'zingizni o'ylaysiz: "Men qanday ahmoq bo'lganman, hozir esa qanchalik aqlliman" va "aniqroq va to'g'ri" variantni ishlatib kodni qayta yozasiz.
+...Qayta yozish yaxshi niyat edi. Lekin jarayonda "aniqroq" yechim aslida yetarli emasligini tushunasiz. Buni uzoq vaqt oldin sinab ko'rganingizni xira eslaysiz. Siz to'g'ri variantga qaytasiz, lekin vaqt sarflandi.
+Yechimni tushuntiruvchi izohlar juda muhim. Ular to'g'ri yo'nalishda rivojlanishni davom ettirishga yordam beradi.
+
+### Kodning nozik xususiyatlari bormi? Ular qayerda ishlatiladi?
+
+Agar kodda nozik va qarama-qarshi bo'lgan har qanday narsalar bo'lsa, bu izohlarga loyiqdir.
+
+## Xulosa
+
+Yaxshi dasturchining muhim belgisi izohlar: ularning mavjudligi va hatto ularning yo'qligi.
+
+Yaxshi izohlar kodni yaxshi saqlashga, bir muddatdan keyin unga qaytishga va undan samarali foydalanishga imkon beradi.
+
+Quyidagilarni izohlang:
+
+Umumiy arxitektura, umumiy ko'rinish.
+Funksiya foydalanishlari.
+Muhim yechimlar, ayniqsa darhol ko'rinmaydiganlar.
+Izohlardan qoching:
+
+Kodni "qanday ishlashini" va "nima qilayotganini" aytadigan izohlar.
+Agar kodni shu qadar sodda va o'z-o'zini tushuntiruvchi qilish imkoni bo'lmasa, ularni qo'ying.
+Izohlar, shuningdek, JSDoc3 kabi avtomatik hujjatlashtiruvchi vositalar uchun ishlatiladi: ular ularni o'qib, HTML-hujjatlar (yoki boshqa formatdagi hujjatlar) yaratadi.
