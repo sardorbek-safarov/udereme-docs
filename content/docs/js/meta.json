@@ -1,5 +1,14 @@
 {
   "title": "js",
   "root": true,
-  "pages": ["index", "introduction", "manuals-and-specifications", "code-editor", "developer-console", "core", "..."]
+  "pages": [
+    "index",
+    "introduction",
+    "manuals-and-specifications",
+    "code-editor",
+    "developer-console",
+    "core",
+    "code-quality",
+    "..."
+  ]
 }

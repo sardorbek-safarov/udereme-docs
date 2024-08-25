@@ -1,0 +1,161 @@
+---
+title: Avtomatlashtirilgan testlar Mocha bilan
+description: Avtomatlashtirilgan testlar keyingi vazifalarda qo'llaniladi va haqiqiy loyihalarda keng qo'llaniladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Automatizatsiya qilingan testlar bilan Mocha
+
+Automatizatsiya qilingan testlar keyingi vazifalarda ishlatiladi va haqiqiy loyihalarda keng qo‘llaniladi.
+
+Nima uchun testlar kerak?
+Funktsiya yozganimizda, odatda, uning nima qilishini tasavvur qilishimiz mumkin: qaysi parametrlar qaysi natijalarni beradi.
+
+Taraqqiyot davomida, biz funksiyani ishga tushirib va natijani kutgan natija bilan solishtirib tekshirishimiz mumkin. Masalan, buni konsolda amalga oshirsa bo‘ladi.
+
+Agar biror narsa noto‘g‘ri bo‘lsa – kodni tuzatamiz, yana ishga tushiramiz, natijani tekshiramiz – va hokazo, to‘g‘ri ishlaguncha.
+
+Ammo bunday qo‘l bilan tekshirishlar mukammal emas.
+
+Qo‘l bilan "qayta ishga tushirish" da, nimadir o‘tkazib yuborish oson.
+
+Masalan, biz f funktsiyasini yaratmoqdamiz. Ba'zi kod yozdik, test qilamiz: f(1) ishlaydi, ammo f(2) ishlamaydi. Kodingizni tuzatasiz va endi f(2) ishlaydi. Tamomlangan ko‘rinadimi? Ammo biz f(1) ni qayta test qilishni unutdik. Bu xatoga olib kelishi mumkin.
+
+Bu juda tipik. Biz biror narsani rivojlantirganimizda, ko‘plab mumkin bo‘lgan foydalanish holatlarini yodda saqlaymiz. Ammo dasturchi har bir o‘zgarishdan keyin ularning barchasini qo‘l bilan tekshirishi qiyin. Shunday qilib, bir narsani to‘g‘rilash va boshqasini buzish oson bo‘ladi.
+
+Avtomatizatsiya qilingan testlar testlar alohida, kodga qo‘shimcha ravishda yozilgan. Ular bizning funksiyalarimizni turli usullarda ishga tushiradi va natijalarni kutgan natijalar bilan taqqoslaydi.
+
+### Davomiylikka Yönelik Rivojlanish (BDD)
+
+Davomiylikka Yönelik Rivojlanish yoki qisqacha BDD nomli texnikani ko‘rib chiqamiz.
+
+BDD uch narsadan iborat: testlar, hujjatlar va misollar.
+
+BDD ni tushunish uchun, biz rivojlanishning amaliy holatini ko‘rib chiqamiz.
+
+### "pow" funktsiyasini rivojlantirish: spetsifikatsiya
+
+Keling, x ni n-raqamli kuchga ko‘taradigan pow(x, n) funktsiyasini yaratmoqchimiz, n≥0 deb faraz qilamiz.
+
+Bu vazifa faqat misol: JavaScriptda buni amalga oshiradigan \*\* operatori mavjud, ammo biz ko‘proq murakkab vazifalarga qaratilgan rivojlanish jarayonini o‘rganamiz.
+
+pow kodini yaratishdan oldin, biz funktsiya nima qilishini tasavvur qilishimiz va uni tasvirlashimiz mumkin.
+
+Bunday tasvir spetsifikatsiya yoki qisqacha, spek deb ataladi va foydalanish holatlarining tasvirlari bilan testlarni o‘z ichiga oladi, masalan:
+
+```js
+describe('pow', function () {
+  it('n-raqamli kuchga ko‘taradi', function () {
+    assert.equal(pow(2, 3), 8);
+  });
+});
+```
+
+Spesifikatsiyada uchta asosiy qurilish bloklari mavjud:
+
+- `describe("title", function() { ... })` - Biz qanday funktsiyani tasvirlayapmiz? Bizning holatda biz pow funksiyasini tasvirlayapmiz. "it" bloklarini guruhlash uchun ishlatiladi.
+
+- `it("use case description", function() { ... })` - "it" nomida biz aniq foydalanish holatini inson o‘qishi mumkin bo‘lgan tarzda tasvirlaymiz va ikkinchi argument bu testni bajaradigan funktsiyadir.
+
+- `assert.equal(value1, value2)` - Kod ichidagi `it` bloki to‘g‘ri ishlasa, xatolar bo‘lmaydi. `assert.*` funksiyalari pow ni kutgan natijaga muvofiq ishlashini tekshiradi. Bu yerda `assert.equal` funksiyasi ishlatilgan, u argumentlarni taqqoslaydi va ular teng bo‘lmasa xato beradi. Bu pow(2, 3) natijasi 8 ga tengligini tekshiradi. Boshqa taqqoslash va tekshiruv turlari ham mavjud, keyinchalik qo‘shamiz.
+
+Spesifikatsiya bajarilishi mumkin va u `it` blokida belgilangan testni ishga tushiradi. Keyin ko‘ramiz.
+
+### Rivojlanish jarayoni
+
+Rivojlanish jarayoni odatda quyidagicha ko‘rinadi:
+
+1. Yagona spek yoziladi, eng asosiy funktsionallik uchun testlar bilan.
+2. Dastlabki amalga oshirish yaratiladi.
+3. Ishlayaptimi yoki yo‘qligini tekshirish uchun, Mocha test ramkasini ishga tushiramiz (keyinchalik batafsilroq). Agar funktsionallik to‘liq emas bo‘lsa, xatolar ko‘rsatiladi. Biz tuzatamiz va hamma narsa to‘g‘ri ishlaguncha davom etamiz.
+4. Endi bizda ishlaydigan dastlabki amalga oshirish va testlar bor.
+5. Spekga yangi foydalanish holatlarini qo‘shamiz, ehtimol ular hali amalga oshirilmagan. Testlar xatoga uchraydi.
+6. 3-qadamga qaytib, amalga oshirishni yangilaymiz, testlar xatolarni bermaguncha.
+7. 3-6-qadamlarni takrorlang, funktsionallik tayyor bo‘lguncha.
+
+Shunday qilib, rivojlanish iterativdir. Biz spekni yozamiz, uni amalga oshiramiz, testlarni o‘tkazamiz, keyin yangi testlarni yozamiz, ularni to‘g‘ri ishlashini tekshiramiz va hokazo. Oxirida bizda ishlaydigan amalga oshirish va testlar mavjud bo‘ladi.
+
+### Spesifikatsiyaning amalda ishlashi
+
+Bu darslikda biz quyidagi JavaScript kutubxonalarini testlar uchun ishlatamiz:
+
+- **Mocha** – asosiy framework: u `describe` va `it` kabi umumiy test funksiyalarini taqdim etadi va testlarni ishga tushirish uchun asosiy funksiyani beradi.
+- **Chai** – ko‘plab tasdiqlovchilarni o‘z ichiga olgan kutubxona. Hozirda faqat `assert.equal` kerak.
+- **Sinon** – funktsiyalarni kuzatish, o‘rnatilgan funksiyalarni emulyatsiya qilish va boshqalar, keyinchalik kerak bo‘ladi.
+
+Bu kutubxonalar ham brauzerda, ham server tomonida test qilish uchun mos keladi. Biz brauzer variantini ko‘rib chiqamiz.
+
+### To'liq HTML sahifa
+
+Quyidagi HTML sahifada bu kutubxonalar va pow spetsifikatsiyasi mavjud:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <!-- mocha css ni qo'shish, natijalarni ko'rsatish uchun -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css" />
+    <!-- mocha framework kodi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+      mocha.setup('bdd'); // minimal sozlama
+    </script>
+    <!-- chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+      // chai ko'p narsalarni o'z ichiga oladi, assert ni global qilish
+      let assert = chai.assert;
+    </script>
+  </head>
+
+  <body>
+    <script>
+      function pow(x, n) {
+        /* funktsiya kodi yozilishi kerak, hozir bo'sh */
+      }
+    </script>
+
+    <!-- testlar scripti (describe, it...) -->
+    <script src="test.js"></script>
+
+    <!-- id="mocha" bo'lgan element test natijalarini o'z ichiga oladi -->
+    <div id="mocha"></div>
+
+    <!-- testlarni ishga tushirish! -->
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
+```
+
+Sahifa besh qismga bo'linadi:
+
+1. `<head>` – uchinchi tomon kutubxonalari va testlar uchun uslublar.
+2. `pow` funksiyasi uchun kod, hozirda bo'sh.
+3. Testlar – bizning holatda `test.js` tashqi skriptda `describe("pow", ...)`.
+4. HTML element `<div id="mocha">` Mocha test natijalarini chiqarish uchun ishlatiladi.
+5. Testlar `mocha.run()` buyruği orqali ishga tushiriladi.
+
+### Dastlabki test
+
+Endi dastlabki testni yaratamiz.
+
+`test.js` faylida quyidagi kod bo'lishi mumkin:
+
+```js
+describe('pow', function () {
+  it('n-raqamli kuchga ko‘taradi', function () {
+    assert.equal(pow(2, 3), 8);
+  });
+});
+```
+
+Buni HTML sahifangizga qo‘shib, natijalarni tekshiring. Sahifa yuklanganidan so‘ng, testlar avtomatik ishga tushadi.
+
+### Dasturlash va testi mukammalligi
+
+Dastlabki test, qanchalik oddiy bo‘lsa ham, kodning to‘g‘ri ishlashini tekshirish uchun muhimdir. Kodni yozish va testlar bilan qo‘llab-quvvatlash jarayoni ishlab chiqishni mukammallashtiradi. Testlarni avtomatizatsiya qilish sizning kodni mukammal qilish uchun zarur vosita hisoblanadi.

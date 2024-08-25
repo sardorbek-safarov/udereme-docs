@@ -1,5 +1,5 @@
 ---
-title: Mantiqiy Operatorlar(Logical operators).
+title: Mantiqiy Operatorlar(Logical operators)
 description: JavaScript'da to'rtta mantiqiy operator mavjud `||` (OR), `&&` (AND), `!` (NOT), va `??` (Nullish Coalescing). Biz ushbu maqolada birinchi uchtasi haqida batafsil tushuntiramiz, `??` operatori esa keyingi maqolada ko‘rib chiqiladi.
 authors:
   - name: Shakhbozbek Usmonov
@@ -12,7 +12,8 @@ createdAt: 2024-08-25
 JavaScript'da to'rtta mantiqiy operator mavjud `||` (OR), `&&` (AND), `!` (NOT), va `??` (Nullish Coalescing). Biz ushbu maqolada birinchi uchtasi haqida batafsil tushuntiramiz, `??` operatori esa keyingi maqolada ko‘rib chiqiladi.
 
 <Callout>
-  Garchi ularni "mantiqiy" deb atashsa ham, ular faqat boolean qiymatlar bilan emas, balki har qanday turdagi qiymatlar bilan ishlaydi. Ularning natijalari ham har qanday turda bo'lishi mumkin.
+  Garchi ularni "mantiqiy" deb atashsa ham, ular faqat boolean qiymatlar bilan emas, balki har qanday turdagi qiymatlar
+  bilan ishlaydi. Ularning natijalari ham har qanday turda bo'lishi mumkin.
 </Callout>
 
 #### `||` (OR)
@@ -30,10 +31,10 @@ JavaScriptda esa operator biroz murakkab va kuchliroq. Keling, boolean qiymatlar
 To'rt xil mantiqiy kombinatsiya mavjud:
 
 ```javascript
-alert( true || true );   // true
-alert( false || true );  // true
-alert( true || false );  // true
-alert( false || false ); // false
+alert(true || true); // true
+alert(false || true); // true
+alert(true || false); // true
+alert(false || false); // false
 ```
 
 Natija har doim `false` bo‘lgan holatdan tashqari, har doim `true` bo'ladi.
@@ -43,8 +44,9 @@ Agar operand boolean bo'lmasa, u boolean qiymatga konvertatsiya qilinadi.
 Misol uchun, raqam 1 `true` sifatida, 0 esa `false` sifatida qaraladi:
 
 ```javascript
-if (1 || 0) { // true || false ga o'xshash
-  alert( 'truthy!' );
+if (1 || 0) {
+  // true || false ga o'xshash
+  alert('truthy!');
 }
 ```
 
@@ -56,7 +58,7 @@ Misol:
 let hour = 9;
 
 if (hour < 10 || hour > 18) {
-  alert( 'Ofis yopiq.' );
+  alert('Ofis yopiq.');
 }
 ```
 
@@ -67,7 +69,7 @@ let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-  alert( 'Ofis yopiq.' ); // bu hafta oxiri
+  alert('Ofis yopiq.'); // bu hafta oxiri
 }
 ```
 
@@ -90,12 +92,12 @@ Boshqacha qilib aytganda, `OR ||` operatori birinchi `truthy` qiymatni yoki `tru
 Misollar:
 
 ```javascript
-alert( 1 || 0 ); // 1 (1 truthy)
+alert(1 || 0); // 1 (1 truthy)
 
-alert( null || 1 ); // 1 (1 birinchi truthy qiymat)
-alert( null || 0 || 1 ); // 1 (birinchi truthy qiymat)
+alert(null || 1); // 1 (1 birinchi truthy qiymat)
+alert(null || 0 || 1); // 1 (birinchi truthy qiymat)
 
-alert( undefined || null || 0 ); // 0 (hammasi falsy, oxirgi qiymat qaytariladi)
+alert(undefined || null || 0); // 0 (hammasi falsy, oxirgi qiymat qaytariladi)
 ```
 
 Qiziqarli foydalanish: ro‘yxatdagi birinchi `truthy` qiymatni olish.
@@ -103,11 +105,11 @@ Qiziqarli foydalanish: ro‘yxatdagi birinchi `truthy` qiymatni olish.
 Misol:
 
 ```javascript
-let firstName = "";
-let lastName = "";
-let nickName = "SuperCoder";
+let firstName = '';
+let lastName = '';
+let nickName = 'SuperCoder';
 
-alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+alert(firstName || lastName || nickName || 'Anonymous'); // SuperCoder
 ```
 
 Agar barcha o'zgaruvchilar falsy bo'lsa, "Anonymous" ko'rsatiladi.
@@ -123,8 +125,8 @@ Agar operand faqat qiymat bo'lmasa, balki o'zgaruvchini tayinlash yoki funksiya 
 Quyidagi misolda, faqat ikkinchi xabar chop etiladi:
 
 ```javascript
-true || alert("not printed");
-false || alert("printed");
+true || alert('not printed');
+false || alert('printed');
 ```
 
 Birinchi qator `true` ni ko'rib chiqishi bilan, `OR ||` operatori baholashni to'xtatadi, shuning uchun `alert` ishga tushmaydi.
@@ -142,10 +144,10 @@ result = a && b;
 Klassik dasturlashda, `AND` operatori har ikkala operand ham `truthy` bo'lsa `true` qaytaradi va aks holda `false` qaytaradi:
 
 ```javascript
-alert( true && true );   // true
-alert( false && true );  // false
-alert( true && false );  // false
-alert( false && false ); // false
+alert(true && true); // true
+alert(false && true); // false
+alert(true && false); // false
+alert(false && false); // false
 ```
 
 `if` bayonoti bilan misol:
@@ -155,15 +157,16 @@ let hour = 12;
 let minute = 30;
 
 if (hour == 12 && minute == 30) {
-  alert( 'Soat 12:30' );
+  alert('Soat 12:30');
 }
 ```
 
 `OR` kabi, `AND` operatori ham har qanday qiymatni operand sifatida oladi:
 
 ```javascript
-if (1 && 0) { // true && false sifatida baholanadi
-  alert( "ishlamaydi, chunki natija falsy" );
+if (1 && 0) {
+  // true && false sifatida baholanadi
+  alert('ishlamaydi, chunki natija falsy');
 }
 ```
 
@@ -190,25 +193,25 @@ Misollar:
 ```javascript
 // agar birinchi operand truthy bo'lsa,
 // `AND` ikkinchi operandni qaytaradi:
-alert( 1 && 0 ); // 0
-alert( 1 && 5 ); // 5
+alert(1 && 0); // 0
+alert(1 && 5); // 5
 
 // agar birinchi operand falsy bo'lsa,
 // `AND` uni qaytaradi. Ikkinchi operand e'tiborga olinmaydi
-alert( null && 5 ); // null
-alert( 0 && "ahmiyat bermaydi" ); // 0
+alert(null && 5); // null
+alert(0 && 'ahmiyat bermaydi'); // 0
 ```
 
 Bir nechta qiymatlarni ketma-ket uzatish mumkin. Birinchi `falsy` qaytariladi:
 
 ```javascript
-alert( 1 && 2 && null && 3 ); // null
+alert(1 && 2 && null && 3); // null
 ```
 
 Agar barcha qiymatlar `truthy` bo'lsa, so'nggi qiymat qaytariladi:
 
 ```javascript
-alert( 1 && 2 && 3 ); // 3, so'nggi qiymat
+alert(1 && 2 && 3); // 3, so'nggi qiymat
 ```
 
 **`AND &&` Pretsedensi `OR ||`dan yuqori**
@@ -226,19 +229,19 @@ Misol:
 ```javascript
 let x = 1;
 
-(x > 0) && alert( 'Noldan katta!' );
+x > 0 && alert('Noldan katta!');
 ```
 
 `AND &&`ning o‘ng qismining bajarilishi faqat agar `(x > 0)` haqiqiy bo‘lsa amalga oshiriladi.
 
 Shunday qilib, biz `if`
 
- bilan quyidagilarni olishimiz mumkin:
+bilan quyidagilarni olishimiz mumkin:
 
 ```javascript
 let x = 1;
 
-if (x > 0) alert( 'Noldan katta!' );
+if (x > 0) alert('Noldan katta!');
 ```
 
 Garchi `&&` variant qisqaroq ko'rinsa ham, `if` operatori yanada aniqroq va o‘qilishi osonroq bo‘ladi. Shuning uchun har bir konstruktsiyani o‘z maqsadiga muvofiq ishlatish tavsiya etiladi: `if`ni agar `if` kerak bo'lsa ishlating va `&&`ni `AND` kerak bo'lsa ishlating.
@@ -259,15 +262,15 @@ Operator bitta argumentni qabul qiladi va quyidagilarni bajaradi:
 Misollar:
 
 ```javascript
-alert( !true ); // false
-alert( !0 ); // true
+alert(!true); // false
+alert(!0); // true
 ```
 
 Ikki marta `NOT` `!!` ba'zan qiymatni boolean turiga o‘zgartirish uchun ishlatiladi:
 
 ```javascript
-alert( !!"non-empty string" ); // true
-alert( !!null ); // false
+alert(!!'non-empty string'); // true
+alert(!!null); // false
 ```
 
 Birinchi `NOT` qiymatni boolean ga o‘zgartiradi va uni qarama-qarshi qiladi, ikkinchi `NOT` yana bir bor qarama-qarshi qiladi. Natijada biz oddiy qiymatni boolean ga o‘zgartirishni olamiz.
@@ -275,10 +278,11 @@ Birinchi `NOT` qiymatni boolean ga o‘zgartiradi va uni qarama-qarshi qiladi, i
 Buni amalga oshirishning boshqa bir usuli – `Boolean` funktsiyasidir:
 
 ```javascript
-alert( Boolean("non-empty string") ); // true
-alert( Boolean(null) ); // false
+alert(Boolean('non-empty string')); // true
+alert(Boolean(null)); // false
 ```
 
 <Callout>
-  `NOT !` operatorining pretsedensi barcha mantiqiy operatorlardan yuqori, shuning uchun u har doim `&&` yoki `||`dan oldin bajariladi.
+  `NOT !` operatorining pretsedensi barcha mantiqiy operatorlardan yuqori, shuning uchun u har doim `&&` yoki `||`dan
+  oldin bajariladi.
 </Callout>

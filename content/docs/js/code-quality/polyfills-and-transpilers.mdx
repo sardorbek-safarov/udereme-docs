@@ -1,0 +1,100 @@
+---
+title: Polyfill va Transpilerlar
+description: JavaScript tili doimiy ravishda rivojlanmoqda.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Polyfill va Transpilerlar
+
+JavaScript tili doimiy ravishda rivojlanmoqda. Yangi takliflar tilga muntazam ravishda kiradi, ular tahlil qilinadi va agar maqbul deb hisoblansa, https://tc39.github.io/ecma262/ ro‘yxatiga qo‘shiladi va keyin spetsifikatsiyaga o‘tadi.
+
+JavaScript dvigatellari ortida turgan jamoalar qanday xususiyatlarni birinchi bo‘lib amalga oshirishni o‘zlari belgilaydi. Ular tavsiyalarni amalga oshirish yoki qiyin yoki kam qiziqarli deb hisoblanganlaridan keyin amalga oshirishi mumkin.
+
+Shunday qilib, bir dvigatel faqat standartning bir qismini amalga oshirishi juda keng tarqalgan.
+
+Yangi til xususiyatlari uchun qo‘llab-quvvatlash holatini ko‘rish uchun yaxshi sahifa mavjud: https://compat-table.github.io/compat-table/es6/ (bu katta, ko‘p narsa o‘rganishimiz kerak).
+
+Dasturchilar sifatida biz eng so‘nggi xususiyatlarni ishlatishni xohlaymiz. Qanchalik ko‘p yaxshi narsalar bo‘lsa, shunchalik yaxshi!
+
+Boshqa tomondan, qanday qilib bizning zamonaviy kodimiz hali ham eski dvigatellarda ishlashi mumkin bo‘ladi, ular hali yangi xususiyatlarni tushunmaydi?
+
+Bu yerda ikki vosita mavjud:
+
+- **Transpilerlar**
+- **Polyfill'lar**
+
+Bu bo‘limda biz ularning qanday ishlashini va web rivojlanishdagi o‘rni haqida qisqacha ma'lumotga ega bo‘lamiz.
+
+### Transpilerlar
+
+Transpiler – bu maxsus dasturiy ta'minot bo‘lib, manba kodini boshqa manba kodiga tarjima qiladi. U zamonaviy kodni tahlil qilishi va uni eski sintaktik konstruksiyalar yordamida qayta yozishi mumkin, shuning uchun eski dvigatellarda ham ishlaydi.
+
+Masalan, JavaScript 2020 yilgacha "nullish coalescing operator" ?? ga ega bo‘lmagan. Shunday qilib, agar foydalanuvchi eski brauzerdan foydalansa, u height = height ?? 100 kabi kodni tushunmasligi mumkin.
+
+Transpiler kodimizni tahlil qiladi va height ?? 100 ni (height !== undefined && height !== null) ? height : 100 ga o‘zgartiradi.
+
+```js
+// transpiler ishlashidan oldin
+height = height ?? 100;
+
+// transpiler ishlashidan so‘ng
+height = height !== undefined && height !== null ? height : 100;
+```
+
+Endi qayta yozilgan kod eski JavaScript dvigatellari uchun mos keladi.
+
+Odatda, dasturchi transpilerni o‘z kompyuterida ishga tushiradi va keyin transpile qilingan kodni serverga joylashtiradi.
+
+Nomi haqida gapirganda, Babel eng mashhur transpilerlaridan biridir.
+
+Zamonaviy loyiha qurish tizimlari, masalan, webpack, har bir kod o‘zgarishida avtomatik ravishda transpilerni ishga tushirish imkoniyatini taqdim etadi, shuning uchun uni rivojlanish jarayoniga integratsiya qilish juda oson.
+
+### Polyfill'lar
+
+Yangi til xususiyatlari nafaqat sintaktik konstruktsiyalar va operatorlarni o‘z ichiga olishi mumkin, balki o‘rnatilgan funksiyalarni ham o‘z ichiga olishi mumkin.
+
+Masalan, Math.trunc(n) funksiyasi sonning kasr qismidan ajratib olish funktsiyasidir, masalan, Math.trunc(1.23) 1 ni qaytaradi.
+
+Ba'zi (juda eski) JavaScript dvigatellari Math.trunc ga ega emas, shuning uchun bunday kod xatoga olib keladi.
+
+Yangi funksiyalar haqida gapirganda, sintaktik o‘zgarishlar kerak emas. Biz faqat yo‘q funksiyani e'lon qilishimiz kerak.
+
+Bir funksiyani yangilovchi yoki qo‘shuvchi skript "polyfill" deb ataladi. U "bo‘shliqni to‘ldiradi" va yo‘qotilgan bajarishlarni qo‘shadi.
+
+Bu holat uchun Math.trunc uchun polyfill quyidagi kodni o‘z ichiga oladi:
+
+```js
+if (!Math.trunc) {
+  // agar bunday funksiya mavjud bo‘lmasa
+  // uni amalga oshir
+  Math.trunc = function (number) {
+    // Math.ceil va Math.floor mavjud bo‘lishi kerak
+    // ular keyinchalik o‘rganiladi
+    return number < 0 ? Math.ceil(number) : Math.floor(number);
+  };
+}
+```
+
+JavaScript juda dinamik tildir. Skriptlar har qanday funksiyani qo‘shishi yoki o‘zgartirishi mumkin, hatto o‘rnatilgan funksiyalarni ham.
+
+Ikki qiziqarli polyfill kutubxonalari:
+
+- **core-js** – ko‘p narsalarni qo‘llab-quvvatlaydi, kerakli xususiyatlarni faqat o‘z ichiga oladi.
+
+### Xulosa
+
+Bu bo‘limda sizga zamonaviy va hatto "yangilangan" til xususiyatlarini o‘rganishga rag'batlantirmoqchimiz, hatto ular hali JavaScript dvigatellari tomonidan yaxshi qo‘llab-quvvatlanmasa ham.
+
+Faqat buni unutmang: agar zamonaviy sintaktik yoki operatorlarni ishlatayotgan bo‘lsangiz, transpilerni va polyfill'larni ishlating. Ular kodning ishlashini ta'minlaydi.
+
+Masalan, keyin JavaScript bilan tanish bo‘lganingizda, webpack asosida kod qurish tizimini sozlash va babel-loader plaginini o‘rnatish mumkin.
+
+Turli xususiyatlar uchun qo‘llab-quvvatlash holatini ko‘rsatadigan yaxshi manbalar:
+
+- [ES6 qo‘llab-quvvatlash](https://compat-table.github.io/compat-table/es6/) – to‘liq JavaScript uchun.
+- [Browser-related functions](https://caniuse.com/) – brauzer bilan bog‘liq funksiyalar uchun.
+
+P.S. Google Chrome odatda til xususiyatlari bilan eng yangilangan bo‘ladi, agar tutorial demo ishlamasa, uni sinab ko‘ring. Ko‘pgina tutorial demo'lari har qanday zamonaviy brauzer bilan ishlaydi.

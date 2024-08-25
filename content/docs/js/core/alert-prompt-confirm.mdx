@@ -1,5 +1,5 @@
 ---
-title: Alert, Prompt va Confirm.
+title: Alert, Prompt va Confirm
 description: Brauzer orqali foydalanuvchi bilan o'zaro aloqani ta'minlash uchun `alert`, `prompt` va `confirm` funksiyalari.
 authors:
   - name: Shakhbozbek Usmonov
@@ -10,17 +10,19 @@ createdAt: 2024-08-25
 Brauzer orqali foydalanuvchi bilan o'zaro aloqani ta'minlash uchun `alert`, `prompt` va `confirm` funksiyalari:
 
 ## alert
+
 Bu funksiyani allaqachon ko'rib chiqdik. U foydalanuvchiga xabar ko'rsatadi va "OK" tugmasi bosilishini kutadi.
 
 Masalan:
 
 ```javascript
-alert("Salom");
+alert('Salom');
 ```
 
 Xabar ko'rsatiladigan mini-oyna "modal oynasi" deb ataladi. "Modal" so'zi foydalanuvchi bu oynani yopmasdan sahifaning boshqa qismlari bilan o'zaro aloqada bo'la olmasligini anglatadi. Ya'ni, foydalanuvchi "OK" tugmasini bosmaguncha sahifa bilan boshqa harakatlarni amalga oshira olmaydi.
 
 ## prompt
+
 `prompt` funksiyasi ikki argumentni qabul qiladi:
 
 ```javascript
@@ -49,16 +51,17 @@ Ikkinchi parametr ixtiyoriy, lekin agar biz uni ko'rsatmasak, Internet Explorer 
 Shu kodni Internet Explorer’da ishlatib ko’ring:
 
 ```javascript
-let test = prompt("Test");
+let test = prompt('Test');
 ```
 
 Shuning uchun, `prompt` oynasini Internet Explorer’da to’g’ri ko’rinishda ishlatish uchun ikkinchi argumentni har doim ko’rsatishni tavsiya etamiz:
 
 ```javascript
-let test = prompt("Test", ''); // <-- Internet Explorer uchun
+let test = prompt('Test', ''); // <-- Internet Explorer uchun
 ```
 
 ## confirm
+
 Sintaksis:
 
 ```javascript
@@ -72,12 +75,13 @@ Natija agar OK tugmasi bosilsa `true` bo'ladi, aks holda `false`.
 Masalan:
 
 ```javascript
-let boshliqmisiz = confirm("Siz boshliqmisiz?");
+let boshliqmisiz = confirm('Siz boshliqmisiz?');
 
 alert(boshliqmisiz); // OK bosilsa true, aks holda false
 ```
 
 ## Xulosa
+
 Biz foydalanuvchi bilan o'zaro aloqa qilish uchun uchta brauzerga xos funksiyani ko'rib chiqdik:
 
 - `alert`: xabar ko'rsatadi.

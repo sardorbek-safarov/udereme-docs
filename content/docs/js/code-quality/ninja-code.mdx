@@ -1,0 +1,215 @@
+---
+title: Ninja kod
+description: O'qishsiz o'rganish behuda; fikrsiz o'rganish xavfli.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Ninja kod.
+
+> O'qishsiz o'rganish behuda; fikrsiz o'rganish xavfli.
+> Konfutsiy (Analektlar)
+
+Dasturchi ninjalar o'tmishda kodni saqlovchi ongni o‘tkirlash uchun ushbu hiylalardan foydalanganlar.
+
+Kod ko‘rib chiqish ustalari ularni test vazifalarida qidiradilar.
+
+Yangi dasturchilar ba'zida bu hiylalardan ninjalardan ham yaxshiroq foydalanadilar.
+
+<Callout type="warn">
+  Diqqat bilan o'qing va kimligingizni aniqlang — ninja, yangi o'rganuvchi yoki ehtimol kod ko‘rib chiquvchi?
+</Callout>
+
+### Ishorat aniqlangan
+
+Ko'pchilik ninja yo'llaridan borishga harakat qiladi. Ozchilik muvaffaqiyat qozonadi.
+
+### Qisqalik — zehnning ruhidir
+
+Kodni imkon qadar qisqartiring. O'zingizning qanchalik aqlli ekanligingizni ko'rsating.
+
+Nafis til xususiyatlariga rioya qiling.
+
+Masalan, ushbu ternar operator `?` ga qarang:
+
+```js
+// mashhur javascript kutubxonasidan olingan
+i = i ? (i < 0 ? Math.max(0, len + i) : i) : 0;
+```
+
+Zo'r, to'g'rimi? Agar siz shu tarzda yozsangiz, bu qatorni ko'rib chiqayotgan dasturchi `i` ning qiymatini tushunishga uringan paytda, juda quvnoq vaqt o'tkazadi. So'ngra sizga kelib, javob izlaydi.
+
+Ularga qisqalik har doim yaxshiroq ekanligini ayting. Ularni ninja yo'llariga kiriting.
+
+### Bir harfli o'zgaruvchilar
+
+> Dao so'zsiz yashirinadi. Faqat Dao yaxshi boshlangan va yaxshi yakunlanadi.
+> Laotsi (Dao De Ching)
+
+Kodni qisqartirishning yana bir yo'li — har yerda bir harfli o'zgaruvchi nomlaridan foydalanish. Masalan, `a`, `b` yoki `c`.
+
+Qisqa o'zgaruvchi koddasoxlik kabi o'rmonda yo'qolib ketadi. Hech kim uni muharrirning “qidirish” orqali topa olmaydi. Agar kimdir topgan taqdirda ham, `a` yoki `b` nomi nimani anglatishini “dekodlash” ni bilmaydi.
+
+...Lekin bundan mustasno holatlar mavjud. Haqiqiy ninja hech qachon "for" siklida hisoblagich sifatida `i` dan foydalanmaydi. Boshqa joylarda ishlatishi mumkin, lekin bu yerda emas. Atrofga qarang, ko'plab ekzotik harflar mavjud. Masalan, `x` yoki `y`.
+
+Ekzotik o'zgaruvchi, ayniqsa, tsikl tanasi 1-2 sahifani olgan bo'lsa (uni iloji boricha uzunroq qiling), juda ajoyib. Agar kimdir tsikl ichiga chuqurroq kirsa, `x` nomli o'zgaruvchining tsikl hisoblagichi ekanligini tezda tushunolmaydi.
+
+### Qisqartmalardan foydalaning
+
+Agar jamoa qoidalari bir harfli va noaniq nomlardan foydalanishni taqiqlasa – ularni qisqartiring, qisqartmalar qiling.
+
+Masalan:
+
+- `list` → `lst`
+- `userAgent` → `ua`
+- `browser` → `brsr`
+
+Faqat yaxshi intuitivaga ega bo'lgan kishi bunday nomlarni tushuna oladi. Hammasini qisqartirishga harakat qiling. Faqat munosib odam sizning kodingizni rivojlantirishni davom ettirishi kerak.
+
+### Yuqoriga uching. Mavhum bo‘ling.
+
+> Katta kvadrat burchaksiz,
+> Katta idish oxirgi tugallanadi,
+> Katta nota nozik tovushdir,
+> Katta tasvir shaklsiz.
+> Laotsi (Dao De Ching)
+
+Nom tanlayotganda eng mavhum so'zdan foydalanishga harakat qiling. Masalan, `obj`, `data`, `value`, `item`, `elem` va hokazo.
+
+O'zgaruvchi uchun ideal nom `data` bo'lishi kerak. Uni iloji boricha ko'p joyda ishlating. Axir har bir o'zgaruvchi ma'lumotlarni saqlaydi, shunday emasmi?
+
+…Lekin agar `data` allaqachon olingan bo'lsa, nima qilish kerak? `Value` ni sinab ko'ring, u ham universal. Axir, oxir-oqibat, o'zgaruvchiga qiymat beriladi.
+
+O'zgaruvchini uning turi bilan nomlang: `str`, `num`...
+
+Ularga bir sinov bering. Yosh boshlovchi hayron bo'lishi mumkin — bunday nomlar ninjalar uchun haqiqatan ham foydalimi? Albatta, ular foydali!
+
+To'g'ri, o'zgaruvchi nomi hali ham nimanidir anglatadi. Bu o'zgaruvchida nima borligini aytadi: satr, son yoki boshqa narsa. Lekin begona odam kodni tushunishga harakat qilganda, aslida hech qanday ma'lumot yo'qligini bilib hayron bo'ladi! Va oxir-oqibat, sizning puxta o'ylangan kodingizni o'zgartirishdan muvaffaqiyatsiz bo'ladi.
+
+### Diqqat testi
+
+Faqat haqiqatan ham diqqatli dasturchi sizning kodingizni tushuna oladi. Lekin buni qanday tekshirish mumkin?
+
+Usullardan biri — o'xshash o'zgaruvchi nomlaridan foydalanish, masalan, `date` va `data`.
+
+Ularni iloji boricha aralashtiring.
+
+Bunday kodni tezda o'qish imkonsiz bo'ladi. Va agar xato mavjud bo'lsa... Ummm... Uzoq vaqt davomida, choy ichish vaqti keldi.
+
+### Aql-idrokli sinonimlar
+
+> Dao haqida gapirish mumkin bo'lsa, u abadiy Dao emas. Nom berish mumkin bo'lsa, bu abadiy nom emas.
+> Laotsi (Dao De Ching)
+
+Bir xil narsalar uchun o'xshash nomlardan foydalanish hayotni yanada qiziqarli qiladi va jamoatchilikka o'z ijodingizni ko'rsatadi.
+
+Masalan, funksiya prefikslari haqida o'ylab ko'ring. Agar funksiya ekranda xabar ko'rsatsa – uni `display...` bilan boshlang, masalan, `displayMessage`. Keyin, agar boshqa funksiya ekranda boshqa narsani, masalan, foydalanuvchi nomini ko'rsatsa, uni `show...` bilan boshlang (`showName` kabi).
+
+Bunday funktsiyalar o'rtasida nozik farq borligini ko'rsating, aslida esa farq yo'q.
+
+Jamoa ninjalari bilan kelishuv tuzing: agar Jon o'z kodida funktsiyalarni `display...` bilan boshlasa, Piter `render...` ni, va Ann `paint...` ni ishlatishi mumkin. Qarang, kod qanchalik qiziqarli va xilma-xil bo'lib qoldi.
+
+…Va endi kulgili qopqon!
+
+Muhim farqlarga ega bo'lgan ikkita funksiya uchun bir xil prefiksdan foydalaning!
+
+Masalan, `printPage(page)` funksiyasi printerdan foydalanadi. Va `printText(text)` funksiyasi matnni ekranga qo'yadi. `printMessage(message)` nomli funksiya nima qilishini tanimagan o'quvchi yaxshilab o'ylaydi: "Xabarni qayerga qo'yadi? Printerga yoki ekranga?". Uni haqiqatan ham porlatish uchun, `printMessage(message)` yangi oynada xabar chiqarishi kerak!
+
+### Nomlarni qayta ishlatish
+
+> Barcha narsalar bo'linganda, qismlar nomlarni talab qiladi. Egasiz nomlar ko'p. Qachon to‘xtashni bilish kerak.
+> Laotsi (Dao De Ching)
+
+Faqat zarur bo'lganda yangi o'zgaruvchi qo'shing.
+
+Buning o'rniga, mavjud nomlarni qayta ishlating. Faqat ularga yangi qiymatlarni yozing.
+
+Funksiyada faqat parametr sifatida uzatilgan o'zgaruvchilardan foydalanishga harakat qiling.
+
+Bu o'zgaruvchida aynan nima borligini aniqlash juda qiyin bo'ladi. Va bu qaerdan kelib chiqqanini ham. Maqsad – kodni o'qiyotgan kishining intuitsiyasi va xotirasini rivojlantirishdir. Zaif intuitsiyaga ega odam kodni qator-qator tahlil qilishi va har bir kod bo'limidagi o'zgarishlarni kuzatishi kerak bo'ladi.
+
+Yondashuvning ilg'or varianti — tsikl yoki funksiyaning o'rtasida yashirin (!) ravishda qiymatni unga o'xsh
+
+ash boshqa qiymat bilan almashtirish.
+
+Foydalanuvchi hisobini o'chirish misolida shunday bo'lishi mumkin:
+
+```js
+function removeUser(user) {
+  // foydalanuvchi haqiqatan ham ketish kerakmi?
+  if (checkUser(user)) {
+    user = "John";
+  }
+
+  ...
+}
+```
+
+Funktsiyani tahlil qilayotgan dasturchi nima bo'layotganini ko'rishi kerak. Ammo darhol emas, to'g'rimi?
+
+### Standart kutubxona usullaridan foydalanmang
+
+Ko‘pincha `push`, `slice`, `split` yoki boshqa oddiy kutubxona funksiyalari uchun o‘zingizning o‘xshashlaringizni yozing.
+
+Asosiy xususiyatlarni (masalan, funktsiyani bajarish) qoldiring, lekin boshqa narsa qiling.
+
+Ko'pgina asosiy kutubxonalar mutlaq ishlar uchun yaratilgan, bu ularga asosiy va kuchli qilmaydi. Shunday qilib, kutubxonaning `push()` funksiyasidan foydalanmang – aksincha, `myPush()` ni yozing, shunchaki o'zgaruvchi nomini tasodifiy o'zgartiring.
+
+Agar kimdir bunday usuldan foydalansa – natija kutilmaganda chiqadi.
+
+Bu usulning rivojlangan varianti — asosiy kutubxona funksiyalari bilan nomini moslashtirishdir.
+
+```js
+function push(arr, item) {
+  arr[0] = item;
+}
+```
+
+Endi `push` ni ishlatadigan dasturchi nimadir noto‘g‘ri ekanini tushunadi. Ammo uni qayerda qidirishni bilmaydi.
+
+### O'zgaruvchilarni aralashtiring
+
+> Hammaga yo'l bering, balki sizga kuchli yordam beriladi.
+> Laotsi (Dao De Ching)
+
+Juda ko'p o'zgaruvchilar sizning ishingizni sinchkovlik bilan kuzatib boradi. Har biri uchun yangi nom berish juda qiyin bo'lishi mumkin. Eng yomoni, ular orasidagi bog'liqlik shunchalik aniqki, har kim sizning harakatlaringizni osongina kuzatishi mumkin.
+
+Ularni aralashtiring!
+
+Bu yerda tizim yo'q – bu erda adashgan odam bor.
+
+Qadimgi dostlaringizni, ayniqsa, ajoyib nomli, masalan, `data` yoki `value` bilan salomlang.
+
+### Sirlarni ochmang
+
+Agar haqiqatan ham katta qiymatni saqlamoqchi bo'lsangiz – uni yashiring.
+
+Agar har kim hamma narsani o'qiy oladigan `process.env` ni ishlatsa, `os.getenv` yoki `keyring` ni ishlatishingiz mumkin.
+
+Hammasi o'rnatilgach, haqiqiy ninja sifatida kim xato qilayotganini hech kim bilmaydi. Faqat siz yolg'iz xabarlar bilan ishlayotganingizni tushunasiz va ular qanday qilib yaratishga yordam berishini tasavvur qilasiz.
+
+```js
+const API_KEY = keyring.getKey('API_KEY');
+```
+
+Agar kodni boshqalar ko'rib chiqayotgan bo'lsa, ularni chalkashtirib yuboradigan kichik kodlarni kiritishingiz mumkin. Ular hech narsa qilmaydi, lekin kodni ancha qiyinlashtiradi.
+
+### ... O'yinda davom eting!
+
+Dasturchi – buni kim ko‘rgani yo‘q – shunchaki o‘yin o‘ynaydi, o‘yinga ishtirok etadi va bir vaqtning o‘zida do‘stlariga qaraganda yaxshiroq o‘ynashga harakat qiladi. Kod ham o‘yin – kodni har xil o‘zgaruvchilar bilan to‘ldirish, ayniqsa har xil noma'lum funktsiyalarni ishlatish juda qiziq!
+
+Keyin, bu kodni boshqalarga berganingizda, ularning nima qilayotganini anglashini ko'rasiz. Kimdir o'yinni davom ettirsa, boshqasi bu kodning og'irligidan yiqiladi. Ammo biz hamma yutishini xohlamaymiz – bu faqat birinchi dasturchi uchun yutish o'yini, boshqalarga esa – og'riq.
+
+### Va nihoyat...
+
+... O'qishni tugatgandan so'ng, siz o'zingizni chinakam dasturchi deb hisoblasangiz – o'zingizga choy tayyorlang.
+
+### Xulosa
+
+Ninja kod – bu o'yin. Kodda nima bo'layotganini yashirishni o'ylang. Hayot o'yini – asosan jamoa bilan bo'lishish, o'zingizni to'liq ochish emas.
+
+Endi choy ichishga kiring. Buni qanday qilib bajarganingizni ko'ring. Bu qiziqarli va ma'lumot beruvchi o'yin bo'ldi.
+
+O'zingizga nisbatan ham to'g'ri o'ylashga arziydi.

@@ -1,0 +1,163 @@
+---
+title: Brauzerda `Debugging`
+description: Katta kodlar yozishdan oldin, keling, `debugging` haqida gaplashamiz.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+import Image from 'next/image';
+
+## Brauzerda `Debugging`
+
+Katta kodlar yozishdan oldin, keling, `debugging` haqida gaplashamiz.
+
+`Debugging` - bu skript ichidagi xatolarni topish va tuzatish jarayoni. Zamonaviy brauzerlarning barchasi va boshqa ko'pchilik muhitlar `debugging` uchun qulayliklar yaratadigan maxsus foydalanuvchi interfeysini qo'llab-quvvatlaydi. Bu vositalar kodni qadam-baqadam kuzatib borishga va aynan nima sodir bo'layotganini ko'rish imkonini beradi.
+
+Biz bu erda Chrome brauzeridan foydalanamiz, chunki unda yetarlicha imkoniyatlar mavjud, lekin boshqa brauzerlar ham shunga o'xshash jarayonlarni ta'minlaydi.
+
+### "Sources" paneli
+
+Sizning Chrome versiyangiz biroz boshqacha ko'rinishi mumkin, lekin bu yerda nima borligini bilish oson.
+
+Chrome’da misol sahifasini oching.
+F12 tugmasini bosib (Mac: Cmd+Opt+I) developer vositalarini yoqing.
+`Sources` panelini tanlang.
+Agar birinchi marta qilayotgan bo'lsangiz, quyidagilarni ko'rishingiz kerak:
+
+<Image src="/images/js/sources.png" width="698" height="228" alt="Sources paneli" />
+
+Toggler tugmasi fayllar bilan tabni ochadi.
+
+Keling, unga bosing va daraxt ko‘rinishida `hello.js` ni tanlang. Quyidagilar paydo bo‘lishi kerak:
+
+<Image src="/images/js/sources-2.png" width="694" height="225" alt="Sources paneli" />
+
+`Sources` paneli 3 qismdan iborat:
+
+- Fayl navigatori paneli HTML, JavaScript, CSS va boshqa fayllarni, shu jumladan, sahifaga bog'langan tasvirlarni ko'rsatadi. Chrome kengaytmalari ham bu yerda paydo bo'lishi mumkin.
+- Kod muharriri paneli manba kodini ko'rsatadi.
+- JavaScript `Debugging` paneli `debugging` uchun mo'ljallangan, biz uni keyinroq o'rganamiz.
+
+Endi resurslar ro'yxatini yashirish va kodinga biroz joy ajratish uchun o'sha toggler tugmasini qayta bosishingiz mumkin.
+
+### Konsol
+
+Agar `Esc` tugmasini bossak, pastda konsol ochiladi. Biz u yerda buyruqlarni kiritib, `Enter` ni bosib ularni bajarishimiz mumkin.
+
+Bayonot bajarilgandan so'ng, uning natijasi quyida ko'rsatiladi.
+
+Masalan, bu yerda `1+2` 3 natijasini beradi, `hello("debugger")` funksiyasi esa hech narsa qaytarmaydi, shuning uchun natija `undefined` bo‘ladi:
+
+<Image src="/images/js/console.png" width="693" height="156" alt="Console paneli" />
+
+### `Breakpoints`
+
+Misol sahifasining kodini ko'rib chiqamiz. `hello.js` da 4-qatorni bosing. Ha, to'g'ridan-to'g'ri 4 raqami ustiga, kodning o‘ziga emas.
+
+Tabriklaymiz! Siz `breakpoint` o'rnatdingiz. Iltimos, 8-qator raqamiga ham bosing.
+
+Bu shunday ko'rinishi kerak (ko'k rang - bosishingiz kerak bo'lgan joy):
+
+<Image src="/images/js/breakpoints.png" width="697" height="244" alt="Breakpoints" />
+
+`Breakpoint` - bu kodning shunday bir nuqtasi, `debugger` JavaScript ijrosini avtomatik ravishda to'xtatadi.
+
+Kod pauzada bo‘lganida, biz joriy o‘zgaruvchilarni ko‘rib chiqishimiz, konsolda buyruqlarni bajarishimiz va hokazolarni amalga oshirishimiz mumkin. Boshqacha aytganda, biz uni `debugging` qila olamiz.
+
+Biz har doim o‘ng panelda `breakpoints` ro‘yxatini topishimiz mumkin. Bu turli fayllardagi ko‘p `breakpoints` ga ega bo‘lganimizda foydali bo‘ladi. Bu bizga quyidagilarni bajarishga imkon beradi:
+
+- Kodinga `breakpoints` ga tezda o'tish (o'ng panelda ustiga bosish orqali).
+- `Breakpoint` ni vaqtincha o‘chirib qo‘yish (belgini olib tashlash orqali).
+- `Breakpoint` ni o‘chirish (o‘ng tugmachani bosib, `Remove` ni tanlash orqali).
+- … Va hokazo.
+
+### Shartli `breakpoints`
+
+Qator raqamiga o'ng tugmasini bosish shartli `breakpoints` yaratishga imkon beradi. U faqat yaratilganida kiritilgan ifoda to'g'ri (truthy) bo'lsa ishga tushadi.
+
+Bu foydali, agar biz faqat ma'lum bir o'zgaruvchilar qiymati yoki ma'lum bir funksiyaga parametrlar uchun to'xtashimiz kerak bo'lsa.
+
+### `debugger` buyruqlari
+
+Biz kodni `debugger` buyrug'idan foydalangan holda pauzaga qo'yishimiz ham mumkin, masalan:
+
+```javascript
+function hello(name) {
+  let phrase = `Hello, ${name}!`;
+
+  debugger; // <-- debugger bu yerda to‘xtaydi
+
+  say(phrase);
+}
+```
+
+Bunday buyruq faqat rivojlantiruvchi vositalari ochiq bo'lsa ishlaydi, aks holda brauzer uni e'tiborsiz qoldiradi.
+
+### Pauza va atrofni kuzatish
+
+Bizning misolimizda `hello()` sahifa yuklanishi vaqtida chaqiriladi, shuning uchun `debugger` ni yoqishning eng oson yo'li (biz `breakpoints` ni o'rnatganimizdan keyin) sahifani qayta yuklashdir. Shunday qilib, F5 (Windows, Linux) yoki Cmd+R (Mac) ni bosing.
+
+`Breakpoint` o‘rnatilganligi sababli ijro 4-qatorda pauzaga qo‘yiladi:
+
+<Image src="/images/js/pause-and-look.png" width="700" height="304" alt="Pause and look around" />
+
+Iltimos, o‘ngdagi informatsion dropdownlarni oching (strelka bilan belgilangan). Ular sizga joriy kod holatini ko‘rib chiqish imkonini beradi:
+
+- **Watch** – har qanday ifodalar uchun joriy qiymatlarni ko'rsatadi.
+
+Siz plyus tugmasini bosib, ifodani kiritishingiz mumkin. `Debugger` uning qiymatini ko'rsatadi, uni bajarish jarayonida avtomatik ravishda qayta hisoblaydi.
+
+- **Call Stack** – zanjirli chaqiruvlarni ko'rsatadi.
+
+Hozirgi vaqtda `debugger` `hello()` chaqiruvining ichida, `index.html` dagi skript tomonidan chaqirilgan (hech qanday funksiya yo'q, shuning uchun "anonim" deb ataladi).
+
+Agar stack elementiga (masalan, "anonim") bossangiz, `debugger` tegishli kodga o'tadi va uning barcha o'zgaruvchilarini ham ko'rib chiqish mumkin.
+
+- **Scope** – joriy o'zgaruvchilar.
+
+`Local` – mahalliy funksiya o'zgaruvchilarini ko'rsatadi. Siz ularning qiymatlarini ham manbada ko'rishingiz mumkin.
+
+`Global` – global o'zgaruvchilarni ko'rsatadi (har qanday funksiyadan tashqarida).
+
+Bu yerda biz hali o'rganmagan `this` kalit so'zi ham bor, lekin biz uni tez orada o'rganamiz.
+
+### Ijroni kuzatish
+
+Endi skriptni kuzatish vaqti keldi.
+
+O'ng panelning yuqori qismida tugmalar mavjud. Keling, ularni ko'rib chiqamiz.
+
+- **Resume**: ijroni davom ettirish, `F8` qisqacha tugmasi.
+  Ijroni davom ettiradi. Agar qo'shimcha `breakpoints` bo'lmasa, ijro shunchaki davom etadi va `debugger` nazoratni yo'qotadi.
+
+Shundan keyin quyidagilarni ko'rish mumkin:
+
+<Image src="/images/js/tracing.png" width="700" height="304" alt="Tracing the execution" />
+
+Ijro davom etdi, `say()` ichida yana bir `breakpoint` ga yetib bordi va u yerda pauzaga kiritildi. O'ngdagi `Call Stack` ga qarang. U yana bir chaqiruv bilan kengaydi. Biz hozir `say()` ichidamiz.
+
+- **Step**: keyingi buyruqni bajarish, `F9` qisqacha tugmasi.
+  Keyingi bayonotni ishga tushiradi. Agar hozir bossak, `alert` ko'rsatiladi.
+
+Buni yana va yana bosish barcha skript bayonotlari orqali birma-bir yurib chiqadi.
+
+- **Step over**: keyingi buyruqni bajarish, lekin funksiyaga kirmaslik, `F10` qisqacha tugmasi.
+  Oldingi `Step` buyruqqa o'xshaydi, lekin agar keyingi bayonot funksiya chaqiruv bo'lsa (masalan, `alert` kabi standart funksiyalar emas, balki o'zimizning funktsiya) u funksiyaning ichiga kirmaydi.
+
+Agar ularni solishtirsak, `Step` buyrug'i ichki funksiya chaqiruviga kirib, ijroni uning birinchi qatorida pauzaga qo'y
+
+adi. `Step over` esa uni ijro qiladi, lekin ichiga kirmaydi, ya'ni pauzani kiritmaydi.
+
+- **Step out**: joriy funksiyani tugatadi, `F11` qisqacha tugmasi.
+  Ijro joriy funksiyadan chiqadi va undan keyingi kodda pauzaga kiritiladi.
+
+### Breakpoints shartlari
+
+Agar biz sahifa yuklanganida faqatgina birinchi `hello()` funksiyasi chaqirilganini ko'rgan bo'lsak, brauzerda sodir bo'lgan narsalarni kuzatish uchun bir nechta vositalar mavjud:
+
+1. **All breakpoints** ro‘yxatining yuqori qismida joylashgan **Breakpoints** tugmasi, `debugger` ni vaqtincha o‘chirish uchun.
+   Agar bosilgan bo'lsa, skriptlar pauzasiz ishlaydi. Bu sahifani tekshirish va o‘zaro aloqalarni kuzatish uchun foydalidir.
+
+2. **Xatoliklar** yoki **ishlash muammolari** yuzaga kelganda, biz **Breakpoints** ro‘yxatidagi "Exceptions" ni tekshirishimiz mumkin, shunda ular qachon sodir bo‘lganini ko‘ramiz.

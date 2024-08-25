@@ -1,0 +1,13 @@
+{
+  "title": "Code Quality",
+  "defaultOpen": true,
+  "pages": [
+    "debugging-in-the-browser",
+    "coding-style",
+    "comments",
+    "ninja-code",
+    "automated-testing-with-mocha",
+    "polyfills-and-transpilers",
+    "..."
+  ]
+}
