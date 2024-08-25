@@ -1,5 +1,25 @@
 {
   "title": "Core",
   "defaultOpen": true,
-  "pages": ["hello-world", "code-structure", "use-strict", "variables", "..."]
+  "pages": [
+    "hello-world",
+    "code-structure",
+    "use-strict",
+    "variables",
+    "data-types",
+    "alert-prompt-confirm",
+    "type-conversions",
+    "basic-operators-math",
+    "comparisons",
+    "conditional-branching",
+    "logical-operators",
+    "nullish-operator",
+    "loops-while-for",
+    "switch-statement",
+    "functions",
+    "function-expression",
+    "arrow-function",
+    "js-specials",
+    "..."
+  ]
 }

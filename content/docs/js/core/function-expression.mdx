@@ -1,0 +1,309 @@
+---
+title: Funksiya Ifodalar(Function Expressions).
+description: JavaScriptda funksiya “sehirli til tuzilishi” emas, balki maxsus turdagi qiymatdir.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Funksiya Ifodalar
+
+JavaScriptda funksiya “sehirli til tuzilishi” emas, balki maxsus turdagi qiymatdir.
+
+Oldin ishlatganimiz sintaksis Funksiya E’lon qilish deb ataladi:
+
+```javascript
+function sayHi() {
+  alert('Salom');
+}
+```
+
+Boshqa sintaksis esa Funksiya Ifodasi deb ataladi.
+
+Bu sintaksis bizga har qanday ifoda orasida yangi funksiya yaratishga imkon beradi.
+
+Masalan:
+
+```javascript
+let sayHi = function () {
+  alert('Salom');
+};
+```
+
+Bu yerda `sayHi` degan o‘zgaruvchi yangi funksiyani qiymat sifatida oladi, funksiyaning o‘zi esa `function() { alert("Salom"); }` ko‘rinishida bo‘ladi.
+
+Funksiya yaratish tayinlangan ifoda kontekstida ( = ) yuz beradi, bu esa Funksiya Ifodasi deb ataladi.
+
+Funksiya e’lon qilishda nom qo‘llanmaydi. Funksiya Ifodalarida nom yozilmasligi mumkin.
+
+Biz uni darhol o‘zgaruvchiga tayinlaymiz, shuning uchun bu kod namunalarining ma’nosi bir xil: "funksiya yaratish va uni `sayHi` o‘zgaruvchisiga qo‘yish".
+
+Kengroq holatlarda, biz funksiya yaratish va uni darhol chaqirish yoki keyinchalik bajarilishini rejalashtirish, lekin qayerdadir saqlamaslikni ko‘rishimiz mumkin, bu holda funksiya noma’lum bo‘ladi.
+
+### Funksiya qiymat sifatida
+
+Takrorlash: funksiya qanday yaratilsa ham, funksiya qiymatdir. Yuqoridagi misollarda ikkala holatda ham funksiya `sayHi` o‘zgaruvchisida saqlanadi.
+
+Funksiyani boshqa o‘zgaruvchiga nusxalash mumkin:
+
+```javascript
+function sayHi() {
+  // (1) yaratish
+  alert('Salom');
+}
+
+let func = sayHi; // (2) nusxalash
+
+func(); // Salom     // (3) nusxani ishga tushirish (ishlaydi)!
+sayHi(); // Salom    //     bu ham ishlaydi (nega bo‘lmasin)
+```
+
+Yuqorida nima bo‘layotganini batafsil tushuntirish:
+
+1. Funksiya E’lon qilinishi (1) funksiyani yaratadi va `sayHi` nomli o‘zgaruvchiga qo‘yadi.
+2. 2-qatorda funksiya `func` o‘zgaruvchisiga nusxalanadi. Diqqat: `sayHi`dan keyin hech qanday qavslar yo‘q. Agar bo‘lsa, `func = sayHi()` `func`ga `sayHi()` chaqiruvi natijasini yozadi, funksiya o‘zini emas.
+3. Endi funksiyani `sayHi()` va `func()` sifatida chaqirish mumkin.
+
+Shuningdek, biz `sayHi`ni birinchi qatorida Funksiya Ifodasi yordamida e’lon qilgan bo‘lishimiz mumkin edi:
+
+```javascript
+let sayHi = function () {
+  // (1) yaratish
+  alert('Salom');
+};
+
+let func = sayHi;
+// ...
+```
+
+Hammasi bir xil ishlaydi.
+
+### Nima uchun oxirida nuqta-vergul mavjud?
+
+Sizni qiziqtirishi mumkin, nega Funksiya Ifodalari oxirida nuqta-vergul ; bor, lekin Funksiya E’lon qilishda yo‘q:
+
+```javascript
+function sayHi() {
+  // ...
+}
+
+let sayHi = function () {
+  // ...
+};
+```
+
+Javob oddiy: Funksiya Ifodasi bu yerda `function(…) {…}` tarzida tayinlangan ifoda sifatida yaratiladi: `let sayHi = …;`. Nuqta-vergul ; bu ifoda oxirida tavsiya etiladi, bu funksiya sintaksisiga kirmaydi.
+
+Nuqta-vergul oddiy tayinlash uchun mavjud, masalan, `let sayHi = 5;` uchun, va funksiya tayinlash uchun ham mavjud.
+
+### Callback Funksiyalar
+
+Funksiya ifodalarini qiymat sifatida uzatish va ishlatishga misol sifatida callback funksiyalarni ko‘rib chiqamiz.
+
+Biz `ask(question, yes, no)` deb nomlangan funksiyani uchta parametr bilan yozamiz:
+
+- `question` – savol matni
+- `yes` – “Ha” javobi uchun bajariladigan funksiya
+- `no` – “Yo‘q” javobi uchun bajariladigan funksiya
+
+Funksiya savolni so‘raydi va javobga qarab, `yes()` yoki `no()` chaqiradi:
+
+```javascript
+function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
+}
+
+function showOk() {
+  alert('Siz rozi bo‘ldingiz.');
+}
+
+function showCancel() {
+  alert('Siz bajarishni bekor qildingiz.');
+}
+
+// foydalanish: showOk, showCancel funksiyalari ask funksiyasiga argument sifatida uzatiladi
+ask('Siz rozimisiz?', showOk, showCancel);
+```
+
+Amalda, bunday funksiyalar juda foydalidir. Haqiqiy hayotdagi funksiyalar odatda ko‘proq murakkab usullar bilan foydalanuvchi bilan muloqot qiladi, bu yerda oddiy `confirm` ishlatilgan. Ammo bu boshqa bir hikoya.
+
+`ask` funksiyasining `showOk` va `showCancel` argumentlari callback funksiyalari yoki qisqacha callback deb ataladi.
+
+G’oya shundan iboratki, biz funksiya uzatamiz va uni kerak bo‘lganda “qaytarish” uchun kutamiz. Bizning holatda, `showOk` “ha” javobi uchun callback bo‘ladi, va `showCancel` “yo‘q” javobi uchun callback bo‘ladi.
+
+Biz Funksiya Ifodalarini qisqartirilganroq shaklda yozishimiz mumkin:
+
+```javascript
+function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
+}
+
+ask(
+  'Siz rozimisiz?',
+  function () {
+    alert('Siz rozi bo‘ldingiz.');
+  },
+  function () {
+    alert('Siz bajarishni bekor qildingiz.');
+  }
+);
+```
+
+Bu yerda funksiyalar to‘g‘ridan-to‘g‘ri `ask(...)` chaqiruviga yozilgan. Ularning nomi yo‘q va shuning uchun noma’lum. Bunday funksiyalar `ask`dan tashqarida mavjud emas, lekin bu biz xohlagan narsa.
+
+### Funksiya E’lon qilish vs Funksiya Ifodasi
+
+Funksiya E’lon qilish va Funksiya Ifodasi o‘rtasidagi asosiy farqlarni belgilaymiz.
+
+Birinchi farq sintaksisda: kodda ularni qanday ajratish mumkin.
+
+- **Funksiya E’lon qilish**: alohida bayonot sifatida e’lon qilingan funksiya, asosiy kod oqimida:
+
+```javascript
+// Funksiya E’lon qilish
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- **Funksiya Ifodasi**: funksiya, ifoda yoki boshqa sintaksis tuzilmasi ichida yaratiladi. Bu yerda funksiya “tayinlash ifodasi” = ning o‘ng tarafida yaratiladi:
+
+```javascript
+// Funksiya Ifodasi
+let sum = function (a, b) {
+  return a + b;
+};
+```
+
+Yana bir nozik farq shundaki, JavaScript dvigateli qanday qilib funksiyani yaratadi.
+
+Funksiya Ifodasi bajarilish vaqtida yaratiladi va faqat shu paytdan boshlab ishlatilishi mumkin.
+
+Funksiya E’lon qilishlar boshqacha.
+
+Funksiya E’lon qilishdan oldin chaqirilishi mumkin.
+
+Masalan, global Funksiya E’lon qilish skriptning har bir joyida ko‘rinadi.
+
+Bu ichki algoritmlar tufayli bo‘ladi. JavaScript skriptni bajarishga tayyorlanayotganida, avval global Funksiya E’lon qilishlarni qidiradi va funksiyalarni yaratadi. Buni “initializatsiya bosqichi” deb o‘ylashimiz mumkin.
+
+Shundan so‘ng, barcha Funksiya E’lon qilishlar qayta ishlanadi va kod bajariladi. Shunday qilib, biz bu funksiyalarni ko‘ramiz.
+
+Masalan, bu ishlaydi:
+
+```javascript
+sayHi('John'); // Salom, John
+
+function sayHi(name) {
+  alert(`Salom, ${name}`);
+}
+```
+
+Funksiya E’lon qilinishi (sayHi) JavaScript skriptni boshlash uchun tayyorlash vaqtida yaratiladi va barcha joylarda ko‘rinadi.
+
+…Agar bu Funksiya Ifodasi bo‘lsa, unda ishlamaydi:
+
+```javascript
+sayHi('John'); // xato!
+
+let sayHi = function (name) {
+  // (*) endi sehr yo‘q
+  alert(`Salom, ${name}`);
+};
+```
+
+Funksiya Ifodalari yaratiladi, bajarilish oqimi ularga yetganida. Bu (\*) chiziqda faqat yuz beradi. Juda kech.
+
+Funksiya E’lon qilishlarning yana bir maxsus xususiyati ularning blok doirasi.
+
+Qattiq rejimda, agar Funksiya E’lon qilish kod blokida bo‘lsa, u faqat shu blok ichida ko‘rinadi. Lekin tashqarida emas.
+
+Misol uchun, agar biz `welcome()` funksiyasini, ish vaqtida olinadigan `age` o‘zgaruvchisiga qarab e’lon qilmoqchi bo‘lsak va keyin uni foydalanmoqchi bo‘lsak.
+
+Agar biz Funksiya E’lon qilishdan foydalansak, bu mo‘ljalga muvofiq ishlamaydi:
+
+```javascript
+let age = prompt('Yoshingiz nechida?', 18);
+
+// shartli ravishda funksiya e’lon qilish
+if (age < 18) {
+  function welcome() {
+    alert('Salom!');
+  }
+} else {
+  function welcome() {
+    alert('Salom!');
+  }
+}
+
+// ...keyinchalik foydalanish
+welcome(); // Xato: welcome aniqlanmagan
+```
+
+Bu holda Funksiya E’lon qilish faqat blok ichida ko‘rinadi.
+
+Bu holatda qanday qilib `welcome`ni `if` blokidan tashqarida ko‘rinadigan qilib qilishimiz mumkin?
+
+To‘g‘ri yondashuv Funksiya Ifodasi ishlatish va `welcome`ni `if` blokidan tashqarida joylashtirilgan o‘zgaruvchiga tayinlashdir.
+
+Bu kod ishlaydi:
+
+```javascript
+let age = prompt('Yoshingiz nechida?', 18);
+
+let welcome;
+
+if (age < 18) {
+  welcome = function () {
+    alert('Salom!');
+  };
+} else {
+  welcome = function () {
+    alert('Salom!');
+  };
+}
+
+welcome(); // endi ok
+```
+
+Yana ham qisqartirilganroq usulda, savol belgisi (?) operatordan foydalanish mumkin:
+
+```javascript
+let age = prompt('Yoshingiz nechida?', 18);
+
+let welcome =
+  age < 18
+    ? function () {
+        alert('Salom!');
+      }
+    : function () {
+        alert('Salom!');
+      };
+
+welcome(); // endi ok
+```
+
+### Qachon Funksiya E’lon qilish yoki Funksiya Ifodasi tanlanadi?
+
+Aslida, funksiya e’lon qilish kerak bo‘lsa, birinchi navbatda Funksiya E’lon qilish sintaksisiga qarash kerak. Bu kodni tashkil etishda ko‘proq erkinlik beradi, chunki bunday funksiyalarni e’lon qilinganidan oldin chaqirish mumkin.
+
+Bu o‘qilishi osonroq, chunki `function f(…) {…}` kodda `let f = function(…) {…};` dan ko‘ra ko‘proq “ko‘zga tashlanadi”.
+
+…Agar Funksiya E’lon qilish mos kelmasa yoki shartli e’lon qilish kerak bo‘lsa (buni ko‘rdik), unda Funksiya Ifodasi ishlatilishi kerak.
+
+### Xulosa
+
+Funksiyalar qiymatlardir. Ularni tayinlash, nusxalash yoki kodning har qanday joyida e’lon qilish mumkin.
+Agar funksiya alohida bayonot sifatida asosiy kod oqimida e’lon qilinsa, bu “Funksiya E’lon qilish” deb ataladi.
+Agar funksiya ifoda yoki boshqa sintaksis tuzilmasi sifatida yaratilsa, bu “Funksiya Ifodasi” deb ataladi.
+Funksiya E’lon qilishlar kod blokini bajarilishidan oldin qayta ishlanadi. Ular blok ichida har joyda ko‘rinadi.
+Funksiya Ifodalari bajarilish oqimi ularni yetganida yaratiladi va faqat o‘sha paytdan boshlab ishlatiladi.
+Ko‘pincha, agar funksiya e’lon qilish kerak bo‘lsa, Funksiya E’lon qilish afzalroq, chunki u e’lon qilinganidan oldin ko‘rinadi. Bu kodni tashkil etishda ko‘proq erkinlik beradi va odatda o‘qilishi yaxshiroq bo‘ladi.
+
+<Callout>
+  Shunday qilib, Funksiya Ifodasidan faqat Funksiya E’lon qilish vazifani bajarish uchun mos kelmasa foydalanish kerak.
+  Biz bu bobda bunday misollarni ko‘rdik va kelajakda yana ko‘ramiz.
+</Callout>

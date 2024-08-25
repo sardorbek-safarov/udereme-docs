@@ -1,0 +1,107 @@
+---
+title: Arrow Funksiyalar(Arrow Functions).
+description: Funksiyalar yaratishning boshqa juda oddiy va qisqa sintaksisi mavjud, bu ko‘pincha Funksiya Ifodalaridan yaxshiroqdir.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Arrow Funksiyalar
+
+Funksiyalar yaratishning boshqa juda oddiy va qisqa sintaksisi mavjud, bu ko‘pincha Funksiya Ifodalaridan yaxshiroqdir.
+
+Bu "arrow funksiyalar" deb ataladi, chunki u quyidagicha ko‘rinadi:
+
+```javascript
+let func = (arg1, arg2, ..., argN) => expression;
+```
+
+Bu `func` deb nomlangan funksiya yaratadi, u `arg1..argN` argumentlarini qabul qiladi, so‘ngra ularning yordamida o‘ng tarafdagi `expression`ni hisoblab, natijani qaytaradi.
+
+Boshqacha qilib aytganda, bu quyidagi uzunroq shakldan qisqaroq versiyasi:
+
+```javascript
+let func = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+```
+
+Konkret misolni ko‘raylik:
+
+```javascript
+let sum = (a, b) => a + b;
+
+/* Bu arrow funksiyasi quyidagi uzunroq shakli:
+
+let sum = function(a, b) {
+  return a + b;
+};
+*/
+
+alert(sum(1, 2)); // 3
+```
+
+Ko‘rganingizdek, `(a, b) => a + b` bu ikkita argumentni qabul qiluvchi funksiya demakdir. Bajarilganda, u `a + b` ifodasini hisoblaydi va natijani qaytaradi.
+
+Agar faqat bitta argument bo‘lsa, unda parametrlar atrofidagi qavslarni olib tashlash mumkin, bu esa yanada qisqaroq bo‘ladi.
+
+Masalan:
+
+```javascript
+let double = (n) => n * 2;
+// taxminan quyidagiga teng: let double = function(n) { return n * 2 }
+
+alert(double(3)); // 6
+```
+
+Agar argumentlar bo‘lmasa, qavslar bo‘sh bo‘ladi, lekin ular mavjud bo‘lishi kerak:
+
+```javascript
+let sayHi = () => alert('Salom!');
+
+sayHi();
+```
+
+Arrow funksiyalarni Funksiya Ifodalari kabi ishlatish mumkin.
+
+Misol uchun, dinamik ravishda funksiya yaratish:
+
+```javascript
+let age = prompt('Yoshingiz nechida?', 18);
+
+let welcome = age < 18 ? () => alert('Salom!') : () => alert('Salom!');
+
+welcome();
+```
+
+Arrow funksiyalar dastlab begona va o‘qilishi qiyin bo‘lishi mumkin, ammo tez orada ular tuzilishiga ko‘nikib ketiladi.
+
+Ular juda qulay bo‘lib, oddiy bir qatorli amallar uchun, ayniqsa ko‘p so‘z yozishga dangasalik qiladigan holatlarda.
+
+### Ko‘p qatorli Arrow Funksiyalar
+
+Biz ko‘rgan arrow funksiyalar juda oddiy edi. Ular `=>` ning chap tarafidan argumentlarni olib, o‘ng tarafdagi ifodani hisoblab qaytaradigan edi.
+
+Ba’zida bizga ko‘proq murakkab funksiyalar kerak bo‘ladi, bir nechta ifodalar va bayonotlar bilan. Bunday hollarda, ular qavslar ichiga o‘ralishi mumkin. Asosiy farq shundaki, qavslar ichida qiymatni qaytarish uchun `return` so‘zi talab qilinadi (odatdagi funksiyalarda bo‘lgani kabi).
+
+Masalan:
+
+```javascript
+let sum = (a, b) => {
+  // qavslar ko‘p qatorli funksiya ochadi
+  let result = a + b;
+  return result; // qavslar ishlatilsa, aniq "return" kerak
+};
+
+alert(sum(1, 2)); // 3
+```
+
+### Xulosa
+
+Arrow funksiyalar oddiy amallar uchun juda qulay, ayniqsa bir qatorli funksiyalar uchun. Ular ikki xil shaklda bo‘ladi:
+
+- **Qavslar bilan bo‘lmasdan:** `(...args) => expression` – o‘ng tarafdagi ifoda: funksiya uni hisoblaydi va natijani qaytaradi. Agar faqat bitta argument bo‘lsa, qavslarni olib tashlash mumkin, masalan: `n => n*2`.
+- **Qavslar bilan:** `(...args) => { body }` – qavslar funksiyada bir nechta bayonot yozishga imkon beradi, lekin biror narsani qaytarish uchun aniq `return` kerak.
+
+<Callout>Keyinchalik, arrow funksiyalar haqida ko‘proq qiziqarli xususiyatlar bilan tanishamiz.</Callout>

@@ -1,0 +1,176 @@
+---
+title: Nullish Coalescing Operator '??'.
+description: (Nullish Coalescing Operator) — bu JavaScript tiliga yaqinda qo‘shilgan yangi operator. Eski brauzerlar buni qo‘llab-quvvatlamasligi mumkin, shuning uchun polyfill'lardan foydalanish zarur bo‘lishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+### Nullish Coalescing Operator '??'.
+
+(Nullish Coalescing Operator) — bu JavaScript tiliga yaqinda qo‘shilgan yangi operator. Eski brauzerlar buni qo‘llab-quvvatlamasligi mumkin, shuning uchun polyfill'lardan foydalanish zarur bo‘lishi mumkin.
+
+`??` operatori ikki savol belgisi bilan yoziladi: `??`.
+
+U `null` va `undefined` qiymatlarni bir xil tarzda ko‘rib chiqadi, shuning uchun biz bu maqolada "aniqlangan" degan maxsus atamadan foydalanamiz. Qisqacha qilib aytganda, qiymat "aniqlangan" bo‘lsa, u `null` yoki `undefined` emas.
+
+`a ?? b` ning natijasi quyidagicha bo‘ladi
+
+- Agar `a` aniqlangan bo'lsa, unda `a`.
+- Agar `a` aniqlanmagan bo'lsa, unda `b`.
+
+Boshqacha qilib aytganda, `??` birinchi argumentni qaytaradi, agar u `null` yoki `undefined` bo‘lmasa. Aks holda, ikkinchi argumentni qaytaradi.
+
+`??` operatori yangi bir narsa emas. Bu shunchaki ikkita qiymatdan birinchi "aniqlangan" qiymatni olish uchun qulay sintaksis.
+
+`result = a ?? b` ni mavjud operatorlar yordamida quyidagicha qayta yozish mumkin
+
+```javascript
+result = a !== null && a !== undefined ? a : b;
+```
+
+Endi `??` operatori nima qilishini yaxshi tushunasiz. Keling, uni qayerda yordam berishini ko‘raylik.
+
+### `??` Operatorining Qanday Yordam Berishi
+
+`??` ning umumiy qo‘llanilishi default qiymatni taqdim etishdir.
+
+Masalan, agar `user` qiymati `null` yoki `undefined` bo‘lmasa, foydalanuvchini ko‘rsatamiz, aks holda "Anonymous" ko‘rsatamiz:
+
+```javascript
+let user;
+
+alert(user ?? 'Anonymous'); // Anonymous (user undefined)
+```
+
+Agar `user` o‘zgaruvchiga ism berilgan bo‘lsa:
+
+```javascript
+let user = 'John';
+
+alert(user ?? 'Anonymous'); // John (user null/undefined emas)
+```
+
+Shuningdek, `??` operatorini ketma-ket ishlatib, ro‘yxatdan birinchi `null`/`undefined` bo‘lmagan qiymatni tanlash mumkin.
+
+Misol uchun, foydalanuvchining ma'lumotlari `firstName`, `lastName` yoki `nickName` o‘zgaruvchilarida saqlangan bo‘lishi mumkin. Ularning barchasi aniqlanmagan bo‘lishi mumkin, agar foydalanuvchi mos qiymatlarni to‘ldirmagan bo‘lsa.
+
+Biz foydalanuvchi ismini ushbu o‘zgaruvchilardan biridan ko‘rsatmoqchimiz yoki agar barchasi `null`/`undefined` bo‘lsa, "Anonymous" ko‘rsatmoqchimiz.
+
+Quyidagi kodni `??` operatori yordamida ishlatamiz:
+
+```javascript
+let firstName = null;
+let lastName = null;
+let nickName = 'Supercoder';
+
+// birinchi aniqlangan qiymatni ko‘rsatadi:
+alert(firstName ?? lastName ?? nickName ?? 'Anonymous'); // Supercoder
+```
+
+### `||` bilan Taqqoslash
+
+`||` (OR) operatorini `??` bilan bir xil tarzda ishlatish mumkin, bu haqda oldingi bobda gaplashgan edik.
+
+Misol uchun, yuqoridagi kodda `??` o‘rniga `||` qo‘ysak ham, xuddi shu natijani olishimiz mumkin:
+
+```javascript
+let firstName = null;
+let lastName = null;
+let nickName = 'Supercoder';
+
+// birinchi truthy qiymatni ko‘rsatadi:
+alert(firstName || lastName || nickName || 'Anonymous'); // Supercoder
+```
+
+Tarixan, `||` operatori avvalroq mavjud bo‘lgan. JavaScript tilining dastlabki versiyalaridan beri mavjud, shuning uchun dasturchilar uzoq vaqt davomida shunday maqsadlarda ishlatishgan.
+
+Boshqa tomondan, `??` operatori JavaScript tiliga yaqinda qo‘shilgan va uning qo‘shilish sababi shundaki, dasturchilar `||` operatoridan unchalik mamnun emas edilar.
+
+Ularning orasidagi muhim farq shundaki:
+
+- `||` birinchi truthy qiymatni qaytaradi.
+- `??` birinchi aniqlangan qiymatni qaytaradi.
+
+Boshqacha qilib aytganda, `||` qiymatlar orasida `false`, `0`, bo‘sh satr `""` va `null`/`undefined`ni ajratmaydi. Ular barchasi falsy qiymatlar. Agar bu qiymatlardan biri birinchi argument bo‘lsa, unda ikkinchi argument natija bo‘ladi.
+
+Amalda esa, default qiymatni faqat o‘zgaruvchi `null` yoki `undefined` bo‘lsa ishlatmoqchi bo‘lishimiz mumkin. Ya'ni, qiymat haqiqatan ham noma'lum yoki belgilangan bo‘lmagan bo‘lsa.
+
+Masalan, quyidagi misollarni ko‘rib chiqing:
+
+```javascript
+let height = 0;
+
+alert(height || 100); // 100
+alert(height ?? 100); // 0
+```
+
+`height || 100` `height` ni falsy qiymat uchun tekshiradi va u 0, falsy qiymatdir. Shuning uchun `||` natijasi ikkinchi argument, ya'ni 100 bo‘ladi.
+
+`height ?? 100` `height` ni `null`/`undefined` uchun tekshiradi va u shunday emas, shuning uchun natija `height` o‘zgaruvchisi "as is" (ya'ni 0) bo‘ladi.
+
+Amalda, 0 balandlik ko‘pincha haqiqiy qiymat bo‘ladi, bu default qiymat bilan almashtirilishi kerak emas. Shunday qilib, `??` to‘g‘ri ishlaydi.
+
+### Pretsedens
+
+`??` operatorining pretsedensi `||` bilan bir xil. Ikkalasi ham MDN jadvalida 3-pozitsiyada.
+
+Bu demak, `||` kabi `??` operatori `=` va `?`dan oldin baholanadi, ammo ko‘pchilik boshqa operatsiyalar, masalan, `+`, `*`dan keyin baholanadi.
+
+Shuning uchun, agar ifoda kabi misollarda parantezlarni qo‘shishimiz kerak bo‘lishi mumkin:
+
+```javascript
+let height = null;
+let width = null;
+
+// muhim: parantezlardan foydalanish
+let area = (height ?? 100) * (width ?? 50);
+
+alert(area); // 5000
+```
+
+Aks holda, agar parantezlarni olib tashlasak, `*` operatori `??`dan yuqori pretsedensga ega bo‘lgani uchun, birinchi bajariladi va natijada noto‘g‘ri natijalarni olamiz.
+
+```javascript
+// parantezsiz
+let area = height ?? 100 * width ?? 50;
+
+// ...shu tarzda ishlaydi (biz xohlagan narsa emas):
+let area = height ?? 100 * width ?? 50;
+```
+
+### `&&` yoki `||` bilan `??`ni ishlatish
+
+Xavfsizlik sababli, JavaScript `??` ni `&&` va `||` operatorlari bilan ishlatishni taqiqlaydi, agar pretsedensni aniq parantezlar bilan ko‘rsatmasangiz.
+
+Quyidagi kod sintaksis xatolikni keltirib chiqaradi:
+
+```javascript
+let x = 1 && 2 ?? 3; // Sintaksis xatolik
+```
+
+Bu cheklov albatta bahsli, til spetsifikatsiyasiga qo‘shilgan, chunki dasturchilar `||` dan `??`ga o‘tishga boshlaganda dasturlash xatoliklarini oldini olish maqsadida qo‘shilgan.
+
+Bu cheklovni aylanib o‘tish uchun aniq parantezlardan foydalaning:
+
+```javascript
+let x = (1 && 2) ?? 3; // Ishlaydi
+
+alert(x); // 2
+```
+
+### Xulosa
+
+`??` (Nullish Coalescing) operatori ro‘yxatdan birinchi "aniqlangan" qiymatni tanlash uchun qisqa usulni taqdim etadi.
+
+U o‘zgaruvchilarga default qiymatlarni tayinlash uchun ishlatiladi:
+
+```javascript
+// agar height null yoki undefined bo‘lsa 100 ga teng bo‘ladi
+height = height ?? 100;
+```
+
+`??` operatorining pretsedensi juda past, faqat `?` va `=` dan yuqori, shuning uchun ifodada ishlatishda parantez qo‘shishni ko‘rib chiqing.
+
+`||` yoki `&&` bilan aniq parantezlar bilan ishlatish mumkin.
