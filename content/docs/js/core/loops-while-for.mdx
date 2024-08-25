@@ -1,0 +1,389 @@
+---
+title: Dasturiy Takrorlash `while` va `for` Tsikl.
+description: Ko‘pincha, harakatlarni takrorlashimiz kerak bo‘ladi. Masalan, ro‘yxatdagi mahsulotlarni birma-bir chiqarish yoki faqat 1 dan 10 gacha bo‘lgan raqamlar uchun bir xil kodni bajarish.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Dasturiy Takrorlash `while` va `for` Tsikl.
+
+Ko‘pincha, harakatlarni takrorlashimiz kerak bo‘ladi. Masalan, ro‘yxatdagi mahsulotlarni birma-bir chiqarish yoki faqat 1 dan 10 gacha bo‘lgan raqamlar uchun bir xil kodni bajarish.
+
+Tsikllar bir xil kodni bir necha marta takrorlashning usulidir.
+
+### `for…of` va `for…in` Tsikllari
+
+Kichik e'lon: Bu maqola faqat asosiy tsikllarni ko‘rib chiqadi: `while`, `do..while` va `for(..;..;..)`.
+
+Agar siz boshqa tsikllar haqida ma'lumot qidirayotgan bo‘lsangiz, quyidagilarga qarang:
+
+- Ob'ekt xususiyatlarini tsikllash uchun `for…in` ni ko‘ring.
+- Massivlar va iterable ob'ektlarni tsikllash uchun `for…of` va iterables ni ko‘ring.
+
+Aks holda, davom eting.
+
+### `while` Tsikli
+
+`while` tsikli quyidagi sintaksisga ega:
+
+```javascript
+while (shart) {
+  // kod
+  // shartli blok
+}
+```
+
+Shart to‘g‘ri bo‘lgan vaqt davomida tsikl tanlangan kodni bajaradi.
+
+Masalan, quyidagi tsikl `i` ni `i < 3` bo‘lgan vaqt davomida chiqaradi:
+
+```javascript
+let i = 0;
+while (i < 3) {
+  // 0, keyin 1, keyin 2
+  alert(i);
+  i++;
+}
+```
+
+Bir martalik tsikl tanasining bajarilishi iteratsiya deb ataladi. Yuqoridagi misol uchta iteratsiya qiladi.
+
+Agar `i++` yuqoridagi misolda bo‘lmasa, tsikl nazariy jihatdan abadiy davom etardi. Amalda, brauzer bunday tsikllarni to‘xtatish imkoniyatini beradi, va server tarafida JavaScript jarayonni to‘xtatishimiz mumkin.
+
+Shart bo‘lishi mumkin bo‘lgan har qanday ifoda yoki o‘zgaruvchi, nafaqat taqqoslashlar shart `while` tomonidan baholanadi va boolean turiga o‘tkaziladi.
+
+Masalan, `while (i != 0)` qisqaroq yozish usuli `while (i)` bo‘lishi mumkin:
+
+```javascript
+let i = 3;
+while (i) {
+  // `i` 0 ga aylanganda, shart noto‘g‘ri bo‘ladi va tsikl to‘xtaydi
+  alert(i);
+  i--;
+}
+```
+
+Yagona qatorli tanaga curly braces `{…}` qo‘yish majburiy emas.
+
+Agar tsikl tanasi yagona bayonot bo‘lsa, biz curly braces `{…}` ni o'tkazib yuborishimiz mumkin:
+
+```javascript
+let i = 3;
+while (i) alert(i--);
+```
+
+### `do…while` Tsikli
+
+Shart tekshiruvini tsikl tanasining pastida amalga oshiradigan `do..while` sintaksisi:
+
+```javascript
+do {
+  // tsikl tanasi
+} while (shart);
+```
+
+Tsikl avval tanani bajaradi, so‘ngra shartni tekshiradi va, shart to‘g‘ri bo‘lgan vaqt davomida, yana va yana bajaradi.
+
+Masalan:
+
+```javascript
+let i = 0;
+do {
+  alert(i);
+  i++;
+} while (i < 3);
+```
+
+Bu sintaksis faqat tsikl tanasining hech bo‘lmaganda bir marta bajarilishini xohlagan holda ishlatilishi kerak. Odatda, boshqa shakli afzalroq: `while(…) {…}`.
+
+### `for` Tsikli
+
+`for` tsikli ko‘proq murakkab, lekin eng ko‘p ishlatiladigan tsikldir.
+
+Sintaksisi quyidagicha:
+
+```javascript
+for (boshlanish; shart; qadam) {
+  // ... tsikl tanasi ...
+}
+```
+
+Quyidagi misolda tsikl `i` 0 dan 3 gacha (3 kiritilmagan) uchun `alert(i)` ni bajaradi:
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  // 0, keyin 1, keyin 2
+  alert(i);
+}
+```
+
+`for` bayonoti bo‘lim-by-bo‘lim ko‘rib chiqaylik:
+
+- **boshlanish**: `let i = 0` - Tsiklga kirish vaqtida bir marta bajariladi.
+- **shart**: `i < 3` - Har bir tsikl iteratsiyasidan oldin tekshiriladi. Agar noto‘g‘ri bo‘lsa, tsikl to‘xtaydi.
+- **tanasi**: `alert(i)` - Shart to‘g‘ri bo‘lgan vaqt davomida qayta-qayta bajariladi.
+- **qadam**: `i++` - Har bir iteratsiyadan keyin bajariladi.
+
+Umumiy tsikl algoritmi shunday ishlaydi:
+
+1. Boshlanishni bajar
+2. (Agar shart → tanani bajar va qadamni bajar)
+3. (Agar shart → tanani bajar va qadamni bajar)
+4. (Agar shart → tanani bajar va qadamni bajar)
+5. ...
+
+Ya'ni, boshlanish bir marta bajariladi va keyin iteratsiyalar amalga oshiriladi: har bir shart sinovidan keyin tana va qadam bajariladi.
+
+Agar siz tsiklni yangi bo‘lsangiz, bu misolni qayta ishlab chiqib, qanday ishlashini qog‘ozda yozib ko‘rish foydali bo‘lishi mumkin.
+
+### Inline o‘zgaruvchi e'lon qilish
+
+Bu yerda, "counter" o‘zgaruvchisi tsiklda to‘g‘ridan-to‘g‘ri e'lon qilingan. Buni "inline" o‘zgaruvchi e'lon qilish deyiladi. Bunday o‘zgaruvchilar faqat tsikl ichida ko‘rinadi.
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  alert(i); // 0, 1, 2
+}
+alert(i); // xato, bunday o‘zgaruvchi mavjud emas
+```
+
+O‘zgaruvchi e'lon qilish o‘rniga mavjud bo‘lgan o‘zgaruvchini ishlatishimiz mumkin:
+
+```javascript
+let i = 0;
+
+for (i = 0; i < 3; i++) {
+  // mavjud o‘zgaruvchini ishlatish
+  alert(i); // 0, 1, 2
+}
+
+alert(i); // 3, ko‘rinadi, chunki tsikldan tashqarida e'lon qilingan
+```
+
+### Ba'zi qismlarni o'tkazish
+
+`for` ning har qanday qismini o'tkazish mumkin.
+
+Masalan, agar biz boshlanishni amalga oshirmasak, quyidagicha yozishimiz mumkin:
+
+```javascript
+let i = 0; // bizda i allaqachon e'lon qilingan va tayinlangan
+
+for (; i < 3; i++) {
+  // "boshlanish" kerak emas
+  alert(i); // 0, 1, 2
+}
+```
+
+Shuningdek, qadam qismini ham olib tashlashimiz mumkin:
+
+```javascript
+let i = 0;
+
+for (; i < 3; ) {
+  alert(i++);
+}
+```
+
+Bu tsikl `while (i < 3)` ga o‘xshash bo‘ladi.
+
+Hammasini olib tashlashimiz mumkin, cheksiz tsikl yaratadi:
+
+```javascript
+for (;;) {
+  // cheksiz takrorlanadi
+}
+```
+
+Ikkita `for` nuqta-vergul `;` mavjud bo‘lishi kerak. Aks holda, sintaksis xatosi bo‘ladi.
+
+### Tsiklni to‘xtatish
+
+Odatiy ravishda, tsikl shart noto‘g‘ri bo‘lganda to‘xtaydi.
+
+Ammo biz tsiklni istalgan vaqt to‘xtatish uchun maxsus `break` direktivasidan foydalanishimiz mumkin.
+
+Masalan, quyidagi tsikl foydalanuvchidan bir qator raqamlarni so‘raydi, hech qanday raqam kiritilmaganida "break" qiladi:
+
+```javascript
+let sum = 0;
+
+while (true) {
+  let value = +prompt('Raqam kiriting', '');
+
+  if (!value) break; // (*)
+
+  sum += value;
+}
+alert('Jami: ' + sum);
+```
+
+`break` direktivasi (\*) qatorida foydalanuvchi bo‘sh qator yoki inputni bekor qilsa ishga tushadi. Bu tsiklni darhol to‘xtatadi, nazoratni tsikldan keyingi birinchi qatoriga o‘tkazadi, ya'ni `alert`.
+
+Cheksiz tsikl + kerakli joyda `break` kombinatsiyasi shartni tsiklning boshlanishida yoki oxirida emas, balki tananing o‘rtasida yoki bir
+
+nechta joyda tekshirish zarur bo‘lgan holatlar uchun ajoyibdir.
+
+### Keyingi iteratsiyaga o‘tish
+
+`continue` direktivasi `break` ning "engilroq" versiyasidir. Bu tsiklni to‘xtatmaydi. Buning o‘rniga, joriy iteratsiyani to‘xtatadi va yangi birini boshlashga majbur qiladi (agar shart imkon bersa).
+
+Agar biz hozirgi iteratsiyani tugatmoqchi bo‘lsak va keyingi biriga o‘tmoqchi bo‘lsak, uni ishlatishimiz mumkin.
+
+Quyidagi tsikl faqat toq qiymatlarni chiqaradi:
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  // Agar to‘g‘ri bo‘lsa, tananing qolgan qismini o'tkaz
+  if (i % 2 == 0) continue;
+
+  alert(i); // 1, keyin 3, 5, 7, 9
+}
+```
+
+`continue` direktivasi juft qiymatlar uchun tsikl tanasini bajarishni to‘xtatadi va keyingi iteratsiyaga o‘tadi (keyingi raqam bilan). Shuning uchun, `alert` faqat toq qiymatlar uchun chaqiriladi.
+
+`continue` direktivasi kirishni kamaytirishga yordam beradi
+
+Oddiy qiymatlarni ko‘rsatadigan tsikl quyidagicha bo‘lishi mumkin:
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  if (i % 2) {
+    alert(i);
+  }
+}
+```
+
+Texnik jihatdan, bu yuqoridagi misol bilan bir xil. Albatta, `continue` o‘rniga if blokiga o‘ralgan kodni ishlatishimiz mumkin.
+
+Ammo bunday holatda qo‘shimcha darajadagi ichki qatlam yaratiladi (alert chaqiruvi qavslar ichida). Agar if ichidagi kod bir necha qatordan ko‘p bo‘lsa, bu umumiy o‘qish osonligini kamaytirishi mumkin.
+
+**`?` operatorining o‘ng tomonida `break`/`continue` mavjud emas**
+
+<Callout type="warn" title="Eslatma">
+  `?` operatoridan boshqa sintaksis konstruktsiyalarini ishlatish mumkin emas. Xususan, `break`/`continue` kabi
+  direktivalar bu yerda ruxsat etilmaydi.
+</Callout>
+
+Masalan, quyidagi kodni olaylik:
+
+```javascript
+if (i > 5) {
+  alert(i);
+} else {
+  continue;
+}
+```
+
+Va buni savol belgisi bilan qayta yozamiz:
+
+```javascript
+(i > 5) ? alert(i) : continue; // continue bu yerda ruxsat etilmaydi
+```
+
+Bu ishlamaydi: sintaksis xatosi mavjud.
+
+Bu `?` operatorini if o‘rniga ishlatmaslikning yana bir sababi.
+
+**`break`/`continue` uchun label'lar**
+
+Ba'zan biz bir nechta ichki tsikllardan chiqishimiz kerak.
+
+Masalan, quyidagi kodda biz i va j ustunlarini (0,0) dan (2,2) gacha qamrab olamiz:
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    let input = prompt(`Koordinatalar (${i},${j}) da qiymat`, '');
+
+    // agar foydalanuvchi inputni bekor qilsa, qanday qilib hammasini to‘xtatishimiz mumkin?
+  }
+}
+
+alert('Tugadi!');
+```
+
+Agar foydalanuvchi inputni bekor qilsa, tsiklni to‘xtatish usulini bilishimiz kerak.
+
+Oddiy `break` faqat ichki tsiklni to‘xtatadi. Bu yetarli emas – label'lar yordamga keladi!
+
+Label tsikl oldidan bir identifikator va kolon bilan e'lon qilinadi:
+
+```javascript
+labelName: for (...) {
+  ...
+}
+```
+
+Quyidagi tsiklda `break <labelName>` o‘sha label’ga qarab chiqadi:
+
+```javascript
+outer: for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    let input = prompt(`Koordinatalar (${i},${j}) da qiymat`, '');
+
+    // agar bo‘sh qator yoki bekor qilingan bo‘lsa, ikkala tsikldan ham chiqish
+    if (!input) break outer; // (*)
+
+    // qiymat bilan biron bir ishni amalga oshirish...
+  }
+}
+
+alert('Tugadi!');
+```
+
+Yuqoridagi kodda `break outer` label nomli "outer" tsiklini qidiradi va o‘sha tsiklni to‘xtatadi.
+
+Shunday qilib, nazorat (\*) dan `alert('Tugadi!')` ga to‘g‘ridan-to‘g‘ri o‘tadi.
+
+Label'ni alohida qatorga ham qo‘yishimiz mumkin:
+
+```javascript
+outer:
+for (let i = 0; i < 3; i++) { ... }
+```
+
+`continue` direktivasini ham label bilan ishlatish mumkin. Bu holda, kod bajarilishi label’langan tsiklning keyingi iteratsiyasiga o‘tadi.
+
+### Label'lar istalgan joyga "sakrash"ga ruxsat bermaydi
+
+Label'lar tasvirlangan joyga o‘tarish uchun imkon bermaydi.
+
+Masalan, quyidagicha amalga oshirish mumkin emas:
+
+```javascript
+break label; // label’ga o'tish (ishlamaydi)
+
+label: for (...)
+```
+
+`break` direktivasi faqat kod blokida ishlatilishi mumkin. Texnik jihatdan, har qanday label'langan kod blokida ishlaydi, masalan:
+
+```javascript
+label: {
+  // ...
+  break label; // ishlaydi
+  // ...
+}
+```
+
+Ammo, 99.9% hollarda `break` tsikllarda ishlatiladi, yuqoridagi misollarni ko‘rdik.
+
+`continue` faqat tsikl ichidan amalga oshiriladi.
+
+## Xulosa
+
+Biz 3 xil tsiklni ko‘rib chiqdik:
+
+- **`while`** – Shart har bir iteratsiyadan oldin tekshiriladi.
+- **`do..while`** – Shart har bir iteratsiyadan keyin tekshiriladi.
+- **`for`** – Shart har bir iteratsiyadan oldin tekshiriladi, qo‘shimcha sozlamalar mavjud.
+
+Cheksiz tsikl yaratish uchun odatda `while(true)` konstruktsiyasidan foydalaniladi. Bunday tsikl, boshqa tsikllar kabi, `break` direktivasi bilan to‘xtatilishi mumkin.
+
+Agar biz hozirgi iteratsiyada hech narsa qilmasak va keyingi biriga o‘tishni xohlasak, `continue` direktivasini ishlatamiz.
+
+`break`/`continue` label’larni qo‘llab-quvvatlaydi. Label faqat ichki tsiklni tashqariga o‘tishga ruxsat beradi.

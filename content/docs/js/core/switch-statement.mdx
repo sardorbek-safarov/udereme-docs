@@ -1,0 +1,168 @@
+---
+title: Switch bayonoti(statement).
+description: Switch bayonoti ko'p if tekshiruvlarini almashtirishi mumkin.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Switch bayonoti
+
+Switch bayonoti ko'p if tekshiruvlarini almashtirishi mumkin.
+
+U qiymatni bir nechta variantlar bilan taqqoslashning yanada tavsifli usulini taqdim etadi.
+
+### Sintaksis
+
+Switch bir yoki bir nechta case bloklari va ixtiyoriy default bo'lishi mumkin.
+
+Bu quyidagicha ko'rinishga ega:
+
+```javascript
+switch(x) {
+  case 'value1':  // agar (x === 'value1')
+    ...
+    [break]
+
+  case 'value2':  // agar (x === 'value2')
+    ...
+    [break]
+
+  default:
+    ...
+    [break]
+}
+```
+
+x qiymati birinchi case (ya'ni, value1) bilan qattiq tenglik uchun tekshiriladi, so'ng ikkinchi (value2) va hokazo.
+Agar tenglik topilsa, switch mos keluvchi case'dan boshlanadi va yaqinroq break (yoki switch oxiriga) qadar kodni bajaradi.
+Agar hech qanday case mos kelmasa, default kodi bajariladi (agar mavjud bo'lsa).
+
+Misol
+Switch misoli (bajarilgan kod ta'kidlangan):
+
+```javascript
+let a = 2 + 2;
+
+switch (a) {
+  case 3:
+    alert( 'Juda kichik' );
+    break;
+  case 4:
+    alert( 'To'g'ri!' );
+    break;
+  case 5:
+    alert( 'Juda katta' );
+    break;
+  default:
+    alert( "Bunday qiymatlar haqida bilmayman" );
+}
+```
+
+Bu yerda switch a'ni birinchi case variantidan, ya'ni 3 dan solishtiradi. Moslik topilmadi.
+
+Keyin 4. Bu mos keladi, shuning uchun bajarish case 4 dan boshlanadi va yaqinroq break'ga qadar davom etadi.
+
+Agar break bo'lmasa, bajarish keyingi case bilan davom etadi, hech qanday tekshirishsiz.
+
+### Break bo'lmagan misol:
+
+```javascript
+let a = 2 + 2;
+
+switch (a) {
+  case 3:
+    alert( 'Juda kichik' );
+  case 4:
+    alert( 'To'g'ri!' );
+  case 5:
+    alert( 'Juda katta' );
+  default:
+    alert( "Bunday qiymatlar haqida bilmayman" );
+}
+```
+
+Yuoqirdagi misolda uchta alert ketma-ket bajariladi:
+
+alert( 'To'g'ri!' );
+alert( 'Juda katta' );
+alert( "Bunday qiymatlar haqida bilmayman" );
+
+Har qanday ifoda switch/case argumenti bo'lishi mumkin
+Switch va case ixtiyoriy ifodalarni qabul qiladi.
+
+Masalan:
+
+```javascript
+let a = '1';
+let b = 0;
+
+switch (+a) {
+  case b + 1:
+    alert("Bu ishlaydi, chunki +a 1 bo'lib, aniq b+1 ga teng");
+    break;
+
+  default:
+    alert('Bu ishlamaydi');
+}
+```
+
+Bu yerda +a 1 ni beradi, bu case'dagi b + 1 bilan solishtiriladi va mos keluvchi kod bajariladi.
+
+### Caselarni guruhlash
+
+Bir xil kodni bajaradigan bir nechta case variantlarini guruhlash mumkin.
+
+Masalan, agar case 3 va case 5 uchun bir xil kod bajarilishini xohlasak:
+
+```javascript
+let a = 3;
+
+switch (a) {
+  case 4:
+    alert('To'g'ri!');
+    break;
+
+  case 3: // (*) ikkita case guruhlandi
+  case 5:
+    alert('Xato!');
+    alert("Nega matematika darsini olishmaslik?");
+    break;
+
+  default:
+    alert('Natija g'alati. Haqiqatan ham.');
+}
+```
+
+Endi 3 va 5 ikkala qiymat ham bir xil xabarni ko'rsatadi.
+
+### Turi muhim
+
+Tenglik tekshiruvi har doim qat'iy bo'lishini ta'kidlash kerak. Qiymatlar mos kelishi uchun bir xil turda bo'lishi kerak.
+
+Masalan, quyidagi kodni ko'rib chiqamiz:
+
+```javascript
+let arg = prompt("Qiymatni kiriting?");
+switch (arg) {
+  case '0':
+  case '1':
+    alert( 'Bir yoki nol' );
+    break;
+
+  case '2':
+    alert( 'Ikki' );
+    break;
+
+  case 3:
+    alert( 'Hech qachon bajarilmaydi!' );
+    break;
+  default:
+    alert( 'Noma'lum qiymat' );
+}
+```
+
+0, 1 uchun birinchi alert ishlaydi.
+2 uchun ikkinchi alert ishlaydi.
+Ammo 3 uchun, prompt natijasi "3" qator bo'lib, son 3 bilan qattiq teng emas. Shuning uchun case 3'da dead code mavjud! Default variant bajariladi.

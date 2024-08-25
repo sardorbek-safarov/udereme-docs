@@ -1,0 +1,218 @@
+---
+title: Ma'lumot turlari (Data Types)
+description: JavaScript-da sakkizta asosiy ma'lumot turlari mavjud. Bu yerda biz ularni umumiy ko'rib chiqamiz va keyingi boblarda ularning har birini batafsil tahlil qilamiz.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Ma'lumot turlari
+
+<Callout>
+  JavaScript-da qiymat doimo ma'lum bir turga ega bo'ladi. Masalan, string yoki raqam.
+</Callout>
+
+JavaScript-da sakkizta asosiy ma'lumot turlari mavjud. Bu yerda biz ularni umumiy ko'rib chiqamiz va keyingi boblarda ularning har birini batafsil tahlil qilamiz.
+
+Biz istalgan turdagi qiymatni o'zgaruvchiga saqlashimiz mumkin. Masalan, o'zgaruvchi bir lahzada string bo'lishi mumkin va keyin raqamni saqlashi mumkin:
+
+```javascript
+// xato yo'q
+let message = "hello";
+message = 123456;
+```
+
+Bunday narsalarga ruxsat beradigan dasturlash tillari, masalan, JavaScript, "dinamik tiplangan" tillar deb ataladi, ya'ni ma'lumot turlari mavjud, lekin o'zgaruvchilar ulardan biriga bog'lanmagan.
+
+### Number
+```javascript
+let n = 123;
+n = 12.345;
+```
+
+> Raqam turi butun va o'nlik kasr raqamlarini ifodalaydi.
+
+Raqamlar bilan ko'plab amallar mavjud, masalan, ko'paytirish `*`, bo'lish `/`, qo'shish `+`, ayirish `-` va boshqalar.
+
+Oddiy raqamlardan tashqari, "maxsus sonli qiymatlar" ham mavjud bo'lib, ular ham ushbu ma'lumot turiga tegishli: `Infinity`, `-Infinity` va `NaN`.
+
+`Infinity` matematik cheksizlikni ifodalaydi. Bu har qanday sondan kattaroq maxsus qiymatdir.
+
+Biz uni nolga bo'linish natijasi sifatida olishimiz mumkin:
+
+```javascript
+alert(1 / 0); // Infinity
+```
+
+Yoki uni bevosita kiritish mumkin:
+
+```javascript
+alert(Infinity); // Infinity
+```
+
+`NaN` hisoblash xatosini ifodalaydi. Bu noto'g'ri yoki noaniq matematik amallar natijasidir, masalan:
+
+```javascript
+alert("not a number" / 2); // NaN, bunday bo'linish noto'g'ri
+```
+
+`NaN` yopishqoqdir. `NaN` ustida har qanday matematik amal `NaN` natijasini beradi:
+
+```javascript
+alert(NaN + 1); // NaN
+alert(3 * NaN); // NaN
+alert("not a number" / 2 - 1); // NaN
+```
+
+Shunday qilib, agar matematik ifodada `NaN` mavjud bo'lsa, u butun natijaga tarqaladi (bu erda faqat bitta istisno mavjud: `NaN ** 0` bu `1`).
+
+#### Matematik amallar xavfsiz
+JavaScript-da matematik amallar bajarish "xavfsiz" hisoblanadi. Biz istalgan amalni bajarishimiz mumkin: nolga bo'lish, raqam bo'lmagan satrlarni raqam sifatida ishlatish va h.k.
+
+Ssenariy hech qachon o'lim bilan tugamaydi. Eng yomoni, natijada `NaN` olishimiz mumkin.
+
+Maxsus sonli qiymatlar rasmiy ravishda "number" turiga tegishli. Albatta, ular bu so'zning odatiy ma'nosida son emas.
+
+Biz raqamlar bilan ishlash haqida keyingi boblarda batafsil ko'rib chiqamiz.
+
+### BigInt
+JavaScript-da "number" turi (2^53 - 1) dan katta bo'lgan (bu 9007199254740991) yoki manfiy sonlar uchun -(2^53 - 1) dan kichik bo'lgan butun qiymatlarni xavfsiz ifodalay olmaydi.
+
+Aniq aytganda, "number" turi kattaroq butun sonlarni (1.7976931348623157 * 10^308 gacha) saqlashi mumkin, lekin xavfsiz butun sonlar diapazoni ±(2^53 - 1) dan tashqarida aniqlik xatosi bo'ladi, chunki barcha raqamlar sobit 64-bitli xotiraga sig'maydi. Shunday qilib, "taxminiy" qiymat saqlanishi mumkin.
+
+Masalan, bu ikki raqam (xavfsiz diapazondan tashqarida) bir xil:
+
+```javascript
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+```
+
+Shunday qilib, (2^53 - 1) dan katta bo'lgan barcha toq butun sonlarni "number" turida saqlab bo'lmaydi.
+
+Ko'p hollarda ±(2^53 - 1) diapazoni yetarli, lekin ba'zan haqiqatan ham katta butun sonlar diapazoni kerak bo'lishi mumkin, masalan, kriptografiya yoki mikrosoniyalik aniqlikdagi vaqt belgilariga.
+
+`BigInt` turi yaqinda tilga kiritilgan bo'lib, u ixtiyoriy uzunlikdagi butun sonlarni ifodalaydi.
+
+BigInt qiymati sondan keyin `n` qo'shilishi orqali yaratiladi:
+
+```javascript
+// "n" oxirida, bu BigInt ekanligini bildiradi
+const bigInt = 1234567890123456789012345678901234567890n;
+```
+
+`BigInt` raqamlari kamdan-kam kerak bo'lgani uchun, biz ularni bu yerda ko'rib chiqmaymiz, balki ularga bag'ishlangan alohida bob bor - `BigInt`. Sizga bunday katta raqamlar kerak bo'lganda uni o'qing.
+
+### String
+> JavaScript-da satr (string) qo'shtirnoq ichida bo'lishi kerak.
+
+```javascript
+let str = "Hello";
+let str2 = 'Yagona qo'shtirnoqlar ham yaxshi';
+let phrase = `boshqa ${str} ni joylashtirish mumkin`;
+```
+
+JavaScript-da 3 turdagi tirnoqlar mavjud.
+
+- Qo'shtirnoq: `"Hello"`.
+- Yagona tirnoq: `'Hello'`.
+- Orqa tirnoq: `` `Hello` ``.
+
+Qo'shtirnoq va yagona tirnoqlar "oddiy" tirnoqlar. Ular orasida JavaScript-da amalda hech qanday farq yo'q.
+
+Orqa tirnoqlar "kengaytirilgan funksionallik" tirnoqlaridir. Ular o'zgaruvchilar va ifodalarni string ichiga qo'yishga imkon beradi, masalan:
+
+```javascript
+let name = "John";
+
+// o'zgaruvchini joylashtiring
+alert(`Salom, ${name}!`); // Salom, John!
+
+// ifodani joylashtiring
+alert(`natija ${1 + 2}`); // natija 3
+```
+
+`${…}` ichidagi ifoda baholanadi va natija satrning bir qismiga aylanadi. Biz u erga har qanday narsani qo'yishimiz mumkin: `name` kabi o'zgaruvchi yoki `1 + 2` kabi arifmetik ifoda yoki undan ham murakkabroq narsani.
+
+E'tibor bering, buni faqat orqa tirnoqlarda qilish mumkin. Boshqa tirnoqlar bunday joylashtirish funksionalligiga ega emas!
+
+```javascript
+alert("natija ${1 + 2}"); // natija ${1 + 2} (qo'shtirnoqlar hech narsa qilmaydi)
+```
+
+Biz satrlar haqida batafsilroq ma'lumotni "Strings" bobida o'rganamiz.
+
+### Boolean (mantiqiy tur)
+> Boolean turi faqat ikkita qiymatga ega: `true` va `false`.
+
+Bu tur odatda ha/yo'q qiymatlarini saqlash uchun ishlatiladi: `true` "ha, to'g'ri" degan ma'noni anglatadi va `false` "yo'q, noto'g'ri" degan ma'noni anglatadi.
+
+Masalan:
+
+```javascript
+let nameFieldChecked = true; // ha, ism maydoni belgilangan
+let ageFieldChecked = false; // yo'q, yosh maydoni belgilanmagan
+```
+
+Boolean qiymatlar, shuningdek, taqqoslash natijasi sifatida ham keladi:
+
+```javascript
+let isGreater = 4 > 1;
+
+alert(isGreater); // true (taqqoslash natijasi "ha")
+```
+
+Biz mantiqiy operatorlarni "Logical operators" bobida yanada chuqurroq o'rganamiz.
+
+### “null” qiymati
+> Maxsus `null` qiymati yuqorida ta'riflangan turlarning hech biriga tegishli emas.
+
+Bu o'ziga xos turi bo'lib, faqat `null` qiymatini o'z ichiga oladi:
+
+```javascript
+let age = null;
+```
+
+JavaScript-da, `null` ba'zi boshqa tillarda bo'lgani kabi "mavjud bo'lmagan ob'ektga havola" yoki "null ko'rsatkich" emas.
+
+Bu shunchaki "hech narsa", "bo'sh" yoki "qiymati noma'lum
+
+" qiymat. Yuqoridagi kodda `age` o'zgaruvchiga hech qanday qiymat berilmagan.
+
+Bu tur haqidagi tafsilotlar "null va undefined" bobida ko'proq muhokama qilinadi.
+
+### “undefined” qiymati
+> Maxsus qiymat `undefined` ham o'ziga xos turi bo'lib, faqat `undefined` qiymatini o'z ichiga oladi:
+
+```javascript
+let age;
+
+alert(age); // undefined
+```
+
+Yuqoridagi misolda, o'zgaruvchi `age` yaratilgan, lekin unga hech qanday qiymat berilmagan, shuning uchun uning qiymati `undefined` dir.
+
+Texnik jihatdan, boshqa hech qanday qiymatga `undefined` ni tayinlamaslik tavsiya etiladi.
+
+Agar biz o'zgaruvchini "bo'sh" holatda e'lon qilmoqchi bo'lsak, biz `null` dan foydalanamiz: `undefined` qiymatini faqat JavaScript ishlatadi.
+
+### Object va Symbol
+> Object va Symbol turlari maxsus turlar bo'lib, ular JavaScript-ning asosiy ko'chmas mulk infratuzilmasini tashkil qiladi.
+
+Object – ob'ektlar saqlash uchun ishlatiladigan ma'lumot turi. Object haqida to'liqroq ma'lumotni Object bobida ko'rib chiqamiz.
+
+Symbol – Object kalitlari uchun noyob identifikatorlar yaratish uchun ishlatiladigan ma'lumot turi. Symbol haqida to'liqroq ma'lumotni Symbol bobida ko'rib chiqamiz.
+
+### Ma'lumotlar turlari haqida
+JavaScript - dinamik tiplangan til, shuning uchun siz o'zgaruvchilarni e'lon qilganingizda ularning turini ko'rsatishingiz shart emas. O'zgaruvchi turini bir o'zgaruvchidan ikkinchisiga o'zgartirish oson, chunki JavaScript o'zgaruvchining turini avtomatik ravishda aniqlaydi.
+
+O'zgaruvchining turi uning qiymatiga qarab avtomatik ravishda aniqlanadi. Agar siz o'zgaruvchiga bir xil turdagi qiymatlarni tayinlashda davom etsangiz, JavaScript o'zgaruvchining turini saqlab qoladi. Shu bilan birga, turli xil qiymatlarni tayinlash bilan, o'zgaruvchining turi o'zgarishi mumkin.
+
+```javascript
+let a = 42;      // a is of type number
+a = "hello";     // a is now of type string
+```
+
+O'zgaruvchiga tayinlangan qiymatga qarab, JavaScript turini dinamik ravishda aniqlaydi va o'zgartiradi.
+
+Turlarning aniqlanishi o'zgaruvchining hozirgi qiymatiga bog'liq. JavaScript turlari bo'yicha avtomatik aniqlash mexanizmi dasturchilarga o'zgaruvchilarning turlarini deklaratsiya qilishni talab qilmaslik orqali qulaylik yaratadi. Bu esa kod yozishni tezlashtiradi.

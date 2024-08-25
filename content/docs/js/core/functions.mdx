@@ -1,0 +1,257 @@
+---
+title: Funksiyalar(Functions).
+description: Ko'pincha skriptda bir xil amalni ko'p joylarda bajarishimiz kerak bo'ladi. Masalan, tashrifchi tizimga kirsa yoki chiqsa va ehtimol boshqa joylarda yaxshi ko'rinadigan xabar ko'rsatishimiz kerak.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Funksiyalar
+
+Ko'pincha skriptda bir xil amalni ko'p joylarda bajarishimiz kerak bo'ladi. Masalan, tashrifchi tizimga kirsa yoki chiqsa va ehtimol boshqa joylarda yaxshi ko'rinadigan xabar ko'rsatishimiz kerak.
+
+<Callout>
+  Funksiyalar – dasturiy kodning asosiy "qurilish bloklari". Ular kodni ko'paytirishsiz ko'p marta chaqirishga imkon
+  beradi.
+</Callout>
+
+Biz allaqachon o'zimizni yaratilgan funksiyalar bilan tanishdik, masalan, `alert(xabar)`, `prompt(xabar, default)` va `confirm(savol)`. Ammo o'zimiz ham funksiyalar yaratishimiz mumkin.
+
+### Funksiya Deklaratsiyasi
+
+Funksiya yaratish uchun funksiyaning deklaratsiyasidan foydalanishimiz mumkin.
+
+Deklaratsiya quyidagicha ko'rinishga ega:
+
+```javascript
+function showMessage() {
+  alert('Salom hammaga!');
+}
+```
+
+`function` kalit so'zi birinchi bo'ladi, keyin funksiyaning nomi, so'ngra qavs ichida parametrlar ro'yxati (bo'sh bo'lishi mumkin, yuqoridagi misolda bo'sh), va nihoyat, funksiyaning kod qismini, ya'ni "funksiya tanasi", qavslar ichida yozamiz.
+
+Funksiyaning nomi va parametrlar:
+
+```javascript
+function nom(parametr1, parametr2, ...parametrN) {
+  // tana
+}
+```
+
+Yangi funksiyamizni nomi bilan chaqirishimiz mumkin: `showMessage()`.
+
+Masalan:
+
+```javascript
+function showMessage() {
+  alert('Salom hammaga!');
+}
+
+showMessage();
+showMessage();
+```
+
+`showMessage()` chaqiruvi funksiyaning kodini bajaradi. Bu yerda xabar ikki marta ko'rsatiladi.
+
+Bu misol funksiyalarning asosiy maqsadlaridan birini aniq ko'rsatadi: kodni takrorlanishdan saqlash.
+
+Agar xabarni yoki qanday ko'rsatilishini o'zgartirishimiz kerak bo'lsa, faqat bitta joyda, ya'ni xabarni ko'rsatuvchi funksiyada o'zgartirish kifoya.
+
+### Mahalliy O'zgaruvchilar
+
+Funksiya ichida e'lon qilingan o'zgaruvchi faqat shu funksiyaning ichida ko'rinadi.
+
+Masalan:
+
+```javascript
+function showMessage() {
+  let message = 'Salom, men JavaScriptman!'; // mahalliy o'zgaruvchi
+
+  alert(message);
+}
+
+showMessage(); // Salom, men JavaScriptman!
+
+alert(message); // <-- Xato! O'zgaruvchi funksiyaga xos
+```
+
+### Tashqi O'zgaruvchilar
+
+Funksiya tashqi o'zgaruvchilarga ham kirish mumkin. Masalan:
+
+```javascript
+let userName = 'John';
+
+function showMessage() {
+  let message = 'Salom, ' + userName;
+  alert(message);
+}
+
+showMessage(); // Salom, John
+```
+
+Funksiya tashqi o'zgaruvchiga to'liq kirish huquqiga ega. Uni o'zgartirish mumkin.
+
+Masalan:
+
+```javascript
+let userName = 'John';
+
+function showMessage() {
+  userName = 'Bob'; // (1) tashqi o'zgaruvchini o'zgartirdi
+
+  let message = 'Salom, ' + userName;
+  alert(message);
+}
+
+alert(userName); // Funksiya chaqirilishidan oldin John
+
+showMessage();
+
+alert(userName); // Bob, qiymati funksiyada o'zgartirilgan
+```
+
+Agar funksiyada xuddi shu nomdagi mahalliy o'zgaruvchi e'lon qilingan bo'lsa, tashqi o'zgaruvchi so'ralmaydi. Misolda, funksiya mahalliy `userName` o'zgaruvchisidan foydalanadi. Tashqi o'zgaruvchi e'tiborsiz qoldiriladi:
+
+```javascript
+let userName = 'John';
+
+function showMessage() {
+  let userName = 'Bob'; // mahalliy o'zgaruvchi e'lon qilindi
+
+  let message = 'Salom, ' + userName; // Bob
+  alert(message);
+}
+
+// funksiya o'zining userName ni yaratadi va undan foydalanadi
+showMessage();
+
+alert(userName); // John, o'zgartirilmagan, funksiya tashqi o'zgaruvchini ko'rmagan
+```
+
+### Global O'zgaruvchilar
+
+Har qanday funksiyadan tashqarida e'lon qilingan o'zgaruvchilar, masalan yuqoridagi tashqi `userName`, global o'zgaruvchilar deb ataladi.
+
+Global o'zgaruvchilar har qanday funksiyadan ko'rinadi (mahalliy o'zgaruvchilar bilan bo'lganda).
+
+Global o'zgaruvchilardan foydalanishni kamaytirish yaxshi amaliyot. Zamonaviy kodlarda kam yoki hech bo'lmagan global o'zgaruvchilar mavjud. Ko'pgina o'zgaruvchilar o'z funksiyalarida bo'ladi. Ba'zida, ular loyiha darajasidagi ma'lumotlarni saqlash uchun foydali bo'lishi mumkin.
+
+### Parametrlar
+
+Funksiyalarga parametrlar orqali har qanday ma'lumotlarni uzatishimiz mumkin.
+
+Quyidagi misolda funksiya ikkita parametrga ega: `from` va `text`.
+
+```javascript
+function showMessage(from, text) {
+  // parametrlar: from, text
+  alert(from + ': ' + text);
+}
+
+showMessage('Ann', 'Salom!'); // Ann: Salom! (*)
+showMessage('Ann', 'Nima yangiliklar?'); // Ann: Nima yangiliklar? (**)
+```
+
+Funksiya chaqirilganida, berilgan qiymatlar lokal `from` va `text` o'zgaruvchilariga nusxalanadi. Keyin funksiya ulardan foydalanadi.
+
+Yana bir misol: bizda `from` o'zgaruvchisi bor va uni funksiyaga uzatamiz. Iltimos, funksiya `from` ni o'zgartiradi, lekin bu tashqarida ko'rinmaydi, chunki funksiya har doim qiymat nusxasini oladi:
+
+```javascript
+function showMessage(from, text) {
+  from = '*' + from + '*'; // "from" ni yanada chiroyli qilish
+
+  alert(from + ': ' + text);
+}
+
+let from = 'Ann';
+
+showMessage(from, 'Salom'); // *Ann*: Salom
+
+// "from" ning qiymati bir xil, funksiya lokal nusxani o'zgartirdi
+alert(from); // Ann
+```
+
+Funksiyaga qiymat uzatilganda, bu qiymat ham argument deb ataladi.
+
+Boshqa so'z bilan aytganda, bu atamalarni to'g'ri qo'llaymiz:
+
+- Parametr – funksiyaning deklaratsiyasida qavs ichida ro'yxatga olingan o'zgaruvchi (bu deklaratsiya vaqtidagi atama).
+- Argument – funksiya chaqirilganda uzatiladigan qiymat (bu chaqirish vaqtidagi atama).
+
+Funksiyalarni parametrlar bilan e'lon qilamiz, keyin ularni argumentlar bilan chaqiramiz.
+
+Yuqoridagi misolda shunday deyilishi mumkin: "showMessage funksiyasi ikkita parametr bilan e'lon qilindi, so'ngra ikkita argument bilan chaqirildi: `from` va "Salom"".
+
+### Standart Qiymatlar
+
+Agar funksiya chaqirilsa, lekin argument taqdim etilmasa, tegishli qiymat `undefined` bo'ladi.
+
+Masalan, yuqorida ko'rsatilgan `showMessage(from, text)` funksiyasini faqat bir argument bilan chaqirish mumkin:
+
+```javascript
+showMessage('Ann');
+```
+
+Bu xato emas. Bunday chaqiruvi "_Ann_: undefined" ni chiqaradi. `text` uchun qiymat taqdim etilmagan, shuning uchun u `undefined` bo'ladi.
+
+Funksiya deklaratsiyasida parametr uchun "standart" qiymatni belgilashimiz mumkin, agar qiymat uzatilmasa:
+
+```javascript
+function showMessage(from, text = 'matn berilmagan') {
+  alert(from + ': ' + text);
+}
+
+showMessage('Ann'); // Ann: matn berilmagan
+```
+
+Endi `text` parametri uzatilmasa, "matn berilmagan" qiymatini oladi.
+
+Agar parametr mavjud bo'lsa, lekin qat'iy `undefined` qiymatiga teng bo'lsa, standart qiymat ham ishlaydi:
+
+```javascript
+showMessage('Ann', undefined); // Ann: matn berilmagan
+```
+
+Bu yerda "matn berilmagan" qator bo'lib, murakkab ifoda bo'lishi mumkin, bu faqat parametr mavjud bo'lmaganda baholanadi va tayinlanadi. Shunday qilib, bu ham mumkin:
+
+```javascript
+function showMessage(from, text = anotherFunction()) {
+  // anotherFunction() faqat matn berilmasa bajariladi
+  // uning natijasi text qiymatiga aylanadi
+}
+```
+
+### Standart Parametrlarning Baholanishi
+
+JavaScriptda standart parametr har saf
+
+ar funksiya chaqirilganda baholanadi. Funksiya chaqirilganda standart qiymat hisoblanadi:
+
+```javascript
+function showMessage(from, text = 'matn berilmagan') {
+  alert(from + ': ' + text);
+}
+
+showMessage('Ann'); // Ann: matn berilmagan
+```
+
+Endi `text` uchun standart qiymat bo'ladi.
+
+Agar standart qiymatni hisoblash zarur bo'lsa, hisoblangan qiymat funksiya chaqirilganda baholanadi. Quyidagi misolda, parametr qiymati standart qiymat bo'lmaydi, lekin `text` qiymati qayta hisoblanadi:
+
+```javascript
+function showMessage(from, text = getText()) {
+  alert(from + ': ' + text);
+}
+
+function getText() {
+  return prompt('Nima yozmoqchisiz?');
+}
+
+showMessage('Ann'); // xabar "Ann: ..." bo'ladi
+```
+
+`showMessage("Ann")` chaqirilganda, `getText()` funksiyasi ishga tushadi va foydalanuvchidan matn so'raydi.

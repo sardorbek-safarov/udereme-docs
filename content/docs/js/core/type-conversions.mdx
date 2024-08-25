@@ -1,0 +1,153 @@
+---
+title: Turlarni O'zgartirish(Type Conversion).
+description: Ko'p hollarda operatorlar va funksiyalar ularga berilgan qiymatlarni to'g'ri turga avtomatik ravishda o'zgartiradi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Turlarni O'zgartirish(Type Conversion)
+
+Ko'p hollarda operatorlar va funksiyalar ularga berilgan qiymatlarni to'g'ri turga avtomatik ravishda o'zgartiradi.
+
+Masalan, `alert` funksiyasi avtomatik ravishda har qanday qiymatni ko'rsatish uchun satrga o'zgartiradi. Matematik operatsiyalar esa qiymatlarni sonlarga aylantiradi.
+
+Ba'zi hollarda esa qiymatni kutilayotgan turga aniq o'zgartirishimiz kerak bo'ladi.
+
+**Obyektlar haqida gaplashmaymiz**
+Bu bo'limda biz obyektlarni qamrab olmaymiz. Hozircha faqat primitivlar haqida gaplashamiz.
+
+Keyinchalik, obyektlar haqida bilib olgach, "Obyektni primitivga o'zgartirish" bo'limida obyektlar bu jarayonda qanday qatnashishini ko'ramiz.
+
+### Satr (String) O'zgartirish
+Satrga o'zgartirish kerak bo'lganda sodir bo'ladi.
+
+Masalan, `alert(value)` qiymatni ko'rsatish uchun uni satrga o'zgartiradi.
+
+Shuningdek, biz qiymatni satrga o'zgartirish uchun `String(value)` funksiyasidan foydalanishimiz mumkin:
+
+```javascript
+let value = true;
+alert(typeof value); // boolean
+
+value = String(value); // endi qiymat satrga "true" ga aylandi
+alert(typeof value); // string
+```
+
+Satrga o'zgartirish odatda aniq bo'ladi. Masalan, `false` satrga "false", `null` esa "null" ga aylanadi.
+
+### Son (Numeric) O'zgartirish
+Matematik funksiyalar va ifodalarda sonlarga o'zgartirish avtomatik ravishda sodir bo'ladi.
+
+Masalan, bo'lish operatori `/` sonlar bo'lmagan qiymatlarga qo'llanganda:
+
+```javascript
+alert("6" / "2"); // 3, satrlar sonlarga o'zgartiriladi
+```
+
+Biz `Number(value)` funksiyasidan foydalanib qiymatni son turiga aniq o'zgartirishimiz mumkin:
+
+```javascript
+let str = "123";
+alert(typeof str); // string
+
+let num = Number(str); // bu son 123 ga aylanadi
+
+alert(typeof num); // number
+```
+
+Ochiqdan-ochiq o'zgartirish odatda matn maydoni kabi satr asosida qiymatni o'qishda talab qilinadi, ammo kiritiladigan qiymat son bo'lishi kutiladi.
+
+Agar satr yaroqli son bo'lmasa, bunday o'zgartirish natijasi `NaN` bo'ladi. Masalan:
+
+```javascript
+let age = Number("son o'rniga tasodifiy satr");
+
+alert(age); // NaN, o'zgartirish muvaffaqiyatsiz bo'ldi
+```
+
+**Son o'zgartirish qoidalari:**
+
+| Qiymat        | Aylangan qiymat |
+|---------------|----------------|
+| `undefined`   | `NaN`          |
+| `null`        | `0`            |
+| `true` va `false` | `1` va `0`  |
+| `string`      | Boshida va oxiridagi bo'sh joylar (shu jumladan bo'sh joylar, \t, yangi qatorlar \n va h.k.) olib tashlanadi. Agar qolgan satr bo'sh bo'lsa, natija 0 ga teng bo'ladi. Aks holda, satrdan son “o'qiladi”. Xato bo'lsa, `NaN` bo'ladi.|
+
+Misollar:
+
+```javascript
+alert(Number("   123   ")); // 123
+alert(Number("123z"));      // NaN (sonni "z" da o'qishda xato)
+alert(Number(true));        // 1
+alert(Number(false));       // 0
+```
+
+<Callout type='warn'>
+  E'tibor bering, bu yerda `null` va `undefined` turlicha ishlaydi: `null` 0 ga, `undefined` esa `NaN` ga aylanadi.
+</Callout>
+
+Ko'p matematik operatorlar ham bunday o'zgartirishlarni amalga oshiradi, biz buni keyingi bo'limda ko'ramiz.
+
+### Mantiqiy (Boolean) O'zgartirish
+Mantiqiy o'zgartirish eng sodda.
+
+Bu mantiqiy operatsiyalarda (keyinchalik shart testlari va boshqa shunga o'xshash narsalarni uchratamiz) sodir bo'ladi, ammo `Boolean(value)` funksiyasini chaqirish orqali ham aniq bajarilishi mumkin.
+
+O'zgartirish qoidasi:
+
+- Intuitiv tarzda "bo'sh" deb hisoblanadigan qiymatlar, masalan, `0`, bo'sh satr, `null`, `undefined`, va `NaN`, `false` ga aylanadi.
+- Boshqa qiymatlar `true` ga aylanadi.
+
+Misol uchun:
+
+```javascript
+alert(Boolean(1)); // true
+alert(Boolean(0)); // false
+
+alert(Boolean("hello")); // true
+alert(Boolean("")); // false
+```
+
+<Callout type='warn' title='Eslatma'>
+  Noldan iborat satr `"0"` `true`**
+  Ba'zi tillar (masalan, PHP) `"0"` ni `false` deb hisoblaydi. Ammo JavaScript’da bo'sh bo'lmagan satr har doim `true` hisoblanadi.
+</Callout>
+
+```javascript
+alert(Boolean("0")); // true
+alert(Boolean(" ")); // bo'sh joylar, ham `true` (bo'sh bo'lmagan har qanday satr `true`)
+```
+
+### Xulosa
+Eng ko'p ishlatiladigan uchta tur o'zgartirishlar bu satrga, songa va mantiqiy turga o'zgartirishdir.
+
+- **Satrga o'zgartirish** – Biror narsani chiqarishda sodir bo'ladi. `String(value)` orqali bajarilishi mumkin. Primitiv qiymatlar uchun o'zgartirish odatda aniq bo'ladi.
+- **Son o'zgartirish** – Matematik operatsiyalarda sodir bo'ladi. `Number(value)` orqali bajarilishi mumkin.
+
+O'zgartirish quyidagi qoidalarga amal qiladi:
+
+| Qiymat        | Aylangan qiymat |
+|---------------|----------------|
+| `undefined`   | `NaN`          |
+| `null`        | `0`            |
+| `true` / `false` | `1` / `0`    |
+| `string`      | Satr “boricha” o'qiladi, boshidagi va oxiridagi bo'sh joylar olib tashlanadi. Bo'sh satr `0` ga aylanadi. Xato `NaN` beradi. |
+
+- **Mantiqiy o'zgartirish** – Mantiqiy operatsiyalarda sodir bo'ladi. `Boolean(value)` orqali bajarilishi mumkin.
+
+O'zgartirish qoidalari:
+
+| Qiymat        | Aylangan qiymat |
+|---------------|----------------|
+| `0`, `null`, `undefined`, `NaN`, `""` | `false` |
+| boshqa har qanday qiymat | `true` |
+
+Bu qoidalarning ko'pchiligi tushunish va eslab qolish uchun oson. Odamlar odatda xatoga yo'l qo'yadigan istisnolar:
+
+- `undefined` son sifatida `NaN` hisoblanadi, `0` emas.
+- `"0"` va faqat bo'sh joylardan iborat satrlar `" "` mantiqiy turda `true` hisoblanadi.
+
+Obyektlar bu yerda qamrab olinmagan. Biz JavaScript haqida ko'proq asosiy narsalarni o'rganganimizdan so'ng, ularga "Obyektni primitivga o'zgartirish" bo'limida qaytamiz.

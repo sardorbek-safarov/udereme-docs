@@ -1,0 +1,94 @@
+---
+title: Alert, Prompt va Confirm.
+description: Brauzer orqali foydalanuvchi bilan o'zaro aloqani ta'minlash uchun `alert`, `prompt` va `confirm` funksiyalari.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+Brauzer orqali foydalanuvchi bilan o'zaro aloqani ta'minlash uchun `alert`, `prompt` va `confirm` funksiyalari:
+
+## alert
+Bu funksiyani allaqachon ko'rib chiqdik. U foydalanuvchiga xabar ko'rsatadi va "OK" tugmasi bosilishini kutadi.
+
+Masalan:
+
+```javascript
+alert("Salom");
+```
+
+Xabar ko'rsatiladigan mini-oyna "modal oynasi" deb ataladi. "Modal" so'zi foydalanuvchi bu oynani yopmasdan sahifaning boshqa qismlari bilan o'zaro aloqada bo'la olmasligini anglatadi. Ya'ni, foydalanuvchi "OK" tugmasini bosmaguncha sahifa bilan boshqa harakatlarni amalga oshira olmaydi.
+
+## prompt
+`prompt` funksiyasi ikki argumentni qabul qiladi:
+
+```javascript
+natija = prompt(sarlavha, [standart]);
+```
+
+Bu funksiyada sarlavha matni, foydalanuvchi uchun kirish maydoni va OK/Cancel tugmalari bilan modal oyna ko'rsatiladi.
+
+- **sarlavha**: Foydalanuvchiga ko'rsatiladigan matn.
+- **standart**: Kirish maydonining boshlang'ich qiymati bo'lib, ixtiyoriy parametr hisoblanadi.
+
+Foydalanuvchi kirish maydoniga matn kiritib, OK tugmasini bosishi mumkin. Shunda natijada kiritilgan matnni olamiz. Yoki Cancel tugmasi yoki Esc tugmasini bosish orqali kiritishni bekor qilishi mumkin. Bunday holda natija `null` bo'ladi.
+
+Misol uchun:
+
+```javascript
+let yosh = prompt('Siz nechchi yoshdasiz?', 100);
+
+alert(`Siz ${yosh} yoshda ekansiz!`); // Siz 100 yoshda ekansiz!
+```
+
+**Internet Explorer-da: har doim standart qiymatni ko'rsating**
+
+Ikkinchi parametr ixtiyoriy, lekin agar biz uni ko'rsatmasak, Internet Explorer prompt oynasiga "undefined" matnini qo'shadi.
+
+Shu kodni Internet Explorer’da ishlatib ko’ring:
+
+```javascript
+let test = prompt("Test");
+```
+
+Shuning uchun, `prompt` oynasini Internet Explorer’da to’g’ri ko’rinishda ishlatish uchun ikkinchi argumentni har doim ko’rsatishni tavsiya etamiz:
+
+```javascript
+let test = prompt("Test", ''); // <-- Internet Explorer uchun
+```
+
+## confirm
+Sintaksis:
+
+```javascript
+natija = confirm(savol);
+```
+
+`confirm` funksiyasi savol bilan modal oyna va ikkita tugmani (OK va Cancel) ko'rsatadi.
+
+Natija agar OK tugmasi bosilsa `true` bo'ladi, aks holda `false`.
+
+Masalan:
+
+```javascript
+let boshliqmisiz = confirm("Siz boshliqmisiz?");
+
+alert(boshliqmisiz); // OK bosilsa true, aks holda false
+```
+
+## Xulosa
+Biz foydalanuvchi bilan o'zaro aloqa qilish uchun uchta brauzerga xos funksiyani ko'rib chiqdik:
+
+- `alert`: xabar ko'rsatadi.
+- `prompt`: foydalanuvchidan matn kiritishni so'raydi va kiritilgan matnni yoki Cancel bosilganda `null` ni qaytaradi.
+- `confirm`: savol bilan oyna ko'rsatadi va OK bosilsa `true`, Cancel yoki Esc bosilsa `false` ni qaytaradi.
+
+Ushbu metodlarning barchasi modal hisoblanadi: ular skriptning bajarilishini to'xtatadi va oynani yopishgacha foydalanuvchi sahifa bilan o'zaro aloqada bo'la olmaydi.
+
+Bu metodlarning ikki cheklovi mavjud:
+
+1. Modal oynaning aniq joylashuvi brauzer tomonidan belgilanadi. Odatda, u markazda bo'ladi.
+2. Oynaning aniq ko'rinishi ham brauzerga bog'liq. Biz uni o'zgartira olmaymiz.
+
+Bu oddiylikning narxi. Agar "qo'shimcha bezaklar" muhim bo'lmasa, ushbu metodlar yetarli darajada ishlaydi.

@@ -1,0 +1,234 @@
+---
+title: Shartli operatorlari `if`, `?`(Conditional branching).
+description: Ba'zan biz turli shartlarga asoslangan holda turli harakatlarni bajarishimiz kerak bo‘ladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Shartli operatorlari `if`, `?`(Conditional branching).
+
+Ba'zan biz turli shartlarga asoslangan holda turli harakatlarni bajarishimiz kerak bo‘ladi.
+
+Buni amalga oshirish uchun biz `if` bayonotidan va shartli operator `?` dan foydalanishimiz mumkin. `?` operatori "savol belgi" operatori deb ham ataladi.
+
+#### `if` bayonoti
+
+`if(...)` bayonoti qavs ichidagi shartni baholaydi va agar natija `true` (to‘g‘ri) bo‘lsa, kod blokini bajaradi.
+
+Masalan:
+
+```javascript
+let year = prompt('ECMAScript-2015 spetsifikatsiyasi qaysi yilda e’lon qilindi?', '');
+
+if (year == 2015) alert('Siz to‘g‘ri topdingiz!');
+```
+
+Yuqoridagi misolda, shart oddiy tenglikni tekshirish (year `==` 2015), lekin bu juda murakkab bo‘lishi mumkin.
+
+Agar bir nechta bayonotlarni bajarishimiz kerak bo‘lsa, kod blokini qavslar ichida yozishimiz kerak:
+
+```javascript
+if (year == 2015) {
+  alert('To‘g‘ri!');
+  alert('Siz juda aqlli ekansiz!');
+}
+```
+
+Har doim `if` bayonotida qavslarni `{}` ishlatishni tavsiya qilamiz, hatto bitta bayonot bajarilsa ham. Bu kodni o'qish va tushunishni osonlashtiradi.
+
+#### Boolean konversiyasi
+
+`if (...)` bayonoti qavs ichidagi ifodani baholaydi va natijani boolean (true yoki false) ga aylantiradi.
+
+Esimizda tutaylik, konversiya qoidalari quyidagicha:
+
+- Raqam 0, bo‘sh string "", null, undefined va NaN `false` ga aylantiriladi. Shuning uchun ular "falsy" qiymatlar deb ataladi.
+- Boshqa qiymatlar `true` ga aylantiriladi, shuning uchun ular "truthy" qiymatlar deb ataladi.
+
+Shuning uchun, quyidagi shart bajarilmaydi:
+
+```javascript
+if (0) { // 0 falsy
+  ...
+}
+```
+
+Va bu shart esa har doim bajariladi:
+
+```javascript
+if (1) { // 1 truthy
+  ...
+}
+```
+
+Shuningdek, oldindan baholangan boolean qiymatni `if` ga uzatishimiz mumkin:
+
+```javascript
+let cond = (year == 2015); // tenglik true yoki false bo‘ladi
+
+if (cond) {
+  ...
+}
+```
+
+#### `else` bayonoti
+
+`if` bayonoti ixtiyoriy `else` blokini o‘z ichiga olishi mumkin. Bu blok shart `false` bo‘lganida bajariladi.
+
+Masalan:
+
+```javascript
+let year = prompt('ECMAScript-2015 spetsifikatsiyasi qaysi yilda e’lon qilindi?', '');
+
+if (year == 2015) {
+  alert('Siz to‘g‘ri topdingiz!');
+} else {
+  alert('Siz qanday qilib bu qadar noto‘g‘ri bo‘lishingiz mumkin?'); // 2015 dan boshqa har qanday qiymat
+}
+```
+
+#### Bir nechta shartlar: `else if`
+
+Ba'zan bir nechta shart variantlarini tekshirishimiz kerak bo‘ladi. `else if` bloklari bunga yordam beradi.
+
+Masalan:
+
+```javascript
+let year = prompt('ECMAScript-2015 spetsifikatsiyasi qaysi yilda e’lon qilindi?', '');
+
+if (year < 2015) {
+  alert('Hali erta...');
+} else if (year > 2015) {
+  alert('Kech!');
+} else {
+  alert('To‘g‘ri!');
+}
+```
+
+Yuqoridagi kodda, JavaScript avval `year < 2015` shartini tekshiradi. Agar bu `false` bo‘lsa, keyingi shart `year > 2015` tekshiriladi. Agar bu ham `false` bo‘lsa, so‘nggi alert ko‘rsatiladi.
+
+Bir nechta `else if` bloklari bo‘lishi mumkin. Yakuniy `else` ixtiyoriydir.
+
+#### Shartli operator `?`
+
+Ba'zan shartga qarab o‘zgaruvchiga qiymat berishimiz kerak bo‘ladi.
+
+Masalan:
+
+```javascript
+let accessAllowed;
+let age = prompt('Siz nechta yoshsiz?', '');
+
+if (age > 18) {
+  accessAllowed = true;
+} else {
+  accessAllowed = false;
+}
+
+alert(accessAllowed);
+```
+
+Shartli yoki "savol belgi" operatori buni qisqa va oddiy tarzda amalga oshirishi mumkin.
+
+Operator `?` bilan ifodalanadi. Ba'zida bu "ternary" operatori deb ataladi, chunki operator uchta operandga ega. JavaScriptda bu faqat bitta operator.
+
+Sintaksisi:
+
+```javascript
+let result = condition ? value1 : value2;
+```
+
+Shart baholanadi: agar `true` bo‘lsa, `value1` qaytariladi, aks holda — `value2`.
+
+Masalan:
+
+```javascript
+let accessAllowed = age > 18 ? true : false;
+```
+
+Texnik jihatdan `age > 18` qavslarni olish mumkin, chunki savol belgi operatori pastroq ustunlikka ega, shuning uchun taqqoslashdan keyin bajariladi.
+
+Yuqoridagi misol xuddi shu ishni amalga oshiradi:
+
+```javascript
+let accessAllowed = age > 18 ? true : false;
+```
+
+Lekin qavslar kodni o'qish va tushunishni osonlashtiradi, shuning uchun ularni ishlatishni tavsiya qilamiz.
+
+Iltimos, yuqoridagi misolda savol belgi operatorini ishlatmaslik mumkin, chunki taqqoslash o‘zi `true/false` qaytaradi:
+
+```javascript
+let accessAllowed = age > 18;
+```
+
+#### Bir nechta `?`
+
+Bir qator savol belgi operatorlari ? bir nechta shartlarga asoslangan qiymatni qaytarishi mumkin.
+
+Masalan:
+
+```javascript
+let age = prompt('Yoshingiz?', 18);
+
+let message = age < 3 ? 'Salom, chaqaloq!' : age < 18 ? 'Salom!' : age < 100 ? 'Salom!' : 'Qanday g‘aroyib yosh!';
+
+alert(message);
+```
+
+Boshida murakkab ko‘rinishi mumkin, lekin diqqat bilan qaraganda, bu oddiy testlar ketma-ketligi:
+
+- Birinchi savol belgi operatori `age < 3` tekshiradi.
+  Agar `true` bo‘lsa — 'Salom, chaqaloq!' qaytariladi. Aks holda, keyingi ifodaga o‘tiladi, `age < 18` tekshiriladi.
+- Agar bu `true` bo‘lsa — 'Salom!' qaytariladi. Aks holda, keyingi ifodaga o‘tiladi, `age < 100` tekshiriladi.
+- Agar bu `true` bo‘lsa — 'Salom!' qaytariladi. Aks holda, so‘nggi ifodaga o‘tiladi va 'Qanday g‘aroyib yosh!' qaytariladi.
+
+Mana shu kodni `if..else` yordamida ko‘rsatuvchi variant:
+
+```javascript
+if (age < 3) {
+  message = 'Salom, chaqaloq!';
+} else if (age < 18) {
+  message = 'Salom!';
+} else if (age < 100) {
+  message = 'Salom!';
+} else {
+  message = 'Qanday g‘aroyib yosh!';
+}
+```
+
+#### Noan'anaviy foydalanish
+
+Ba'zida savol belgi `?` if o‘rniga ishlatiladi:
+
+```javascript
+let company = prompt('JavaScriptni qaysi kompaniya yaratdi?', '');
+
+company == 'Netscape' ? alert('To‘g‘ri!') : alert('Noto‘g‘ri.');
+```
+
+Shart `company == 'Netscape'` ga qarab, yoki birinchi yoki ikkinchi ifoda bajariladi va alert ko‘rsatiladi.
+
+Bu yerda natijani o‘zgaruvchiga belgilamaymiz. Buning o‘rniga, shartga qarab turli kodlar bajariladi.
+
+Bu usulni ishlatishni tavsiya etmaymiz.
+
+Bu yozish shakli `if` bayonotidan qisqaroq, ba'zi dasturchilar uchun jozibali bo‘lishi mumkin, lekin o'qish qiyinroq.
+
+Mana shu kodning `if` yordamida ko‘rsatilgan variant:
+
+```javascript
+let company = prompt('JavaScriptni qaysi kompaniya yaratdi?', '');
+
+if (company == 'Netscape') {
+  alert('To‘g‘ri!');
+} else {
+  alert('Noto‘g‘ri.');
+}
+```
+
+Kodni vertikal tarzda ko‘rishimiz kerak. Ko‘p qatorli kod bloklari uzundan-uzoq ko‘rsatmalardan osonroq tushuniladi.
+
+Savol belgi operatorining maqsadi — shartga qarab bir qiymatni yoki boshqa qiymatni qaytarish. Faqat shu maqsad uchun foydalaning. Agar turli kodlarni bajarishingiz kerak bo‘lsa, `if` bayonotidan foydalaning.

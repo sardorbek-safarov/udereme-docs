@@ -1,0 +1,284 @@
+---
+title: Mantiqiy Operatorlar(Logical operators).
+description: JavaScript'da to'rtta mantiqiy operator mavjud `||` (OR), `&&` (AND), `!` (NOT), va `??` (Nullish Coalescing). Biz ushbu maqolada birinchi uchtasi haqida batafsil tushuntiramiz, `??` operatori esa keyingi maqolada ko‘rib chiqiladi.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+## Mantiqiy Operatorlar
+
+JavaScript'da to'rtta mantiqiy operator mavjud `||` (OR), `&&` (AND), `!` (NOT), va `??` (Nullish Coalescing). Biz ushbu maqolada birinchi uchtasi haqida batafsil tushuntiramiz, `??` operatori esa keyingi maqolada ko‘rib chiqiladi.
+
+<Callout>
+  Garchi ularni "mantiqiy" deb atashsa ham, ular faqat boolean qiymatlar bilan emas, balki har qanday turdagi qiymatlar bilan ishlaydi. Ularning natijalari ham har qanday turda bo'lishi mumkin.
+</Callout>
+
+#### `||` (OR)
+
+"OR" operatori ikki vertikal chiziq belgilari bilan ifodalanadi:
+
+```javascript
+result = a || b;
+```
+
+Klassik dasturlashda, mantiqiy OR faqat boolean qiymatlar bilan ishlashni anglatadi. Agar uning har qanday argumenti `true` bo'lsa, u `true` qaytaradi, aks holda `false` qaytaradi.
+
+JavaScriptda esa operator biroz murakkab va kuchliroq. Keling, boolean qiymatlar bilan qanday ishlashini ko'rib chiqamiz.
+
+To'rt xil mantiqiy kombinatsiya mavjud:
+
+```javascript
+alert( true || true );   // true
+alert( false || true );  // true
+alert( true || false );  // true
+alert( false || false ); // false
+```
+
+Natija har doim `false` bo‘lgan holatdan tashqari, har doim `true` bo'ladi.
+
+Agar operand boolean bo'lmasa, u boolean qiymatga konvertatsiya qilinadi.
+
+Misol uchun, raqam 1 `true` sifatida, 0 esa `false` sifatida qaraladi:
+
+```javascript
+if (1 || 0) { // true || false ga o'xshash
+  alert( 'truthy!' );
+}
+```
+
+`OR ||` operatori ko‘pincha `if` bayonotida ishlatiladi, agar berilgan shartlardan har biri to‘g‘ri bo‘lsa.
+
+Misol:
+
+```javascript
+let hour = 9;
+
+if (hour < 10 || hour > 18) {
+  alert( 'Ofis yopiq.' );
+}
+```
+
+Bir nechta shartlarni ham o‘tkazish mumkin:
+
+```javascript
+let hour = 12;
+let isWeekend = true;
+
+if (hour < 10 || hour > 18 || isWeekend) {
+  alert( 'Ofis yopiq.' ); // bu hafta oxiri
+}
+```
+
+`OR "||"` operatori birinchi `truthy` qiymatni topadi:
+
+Ko'plab OR qiymatlari berilganida:
+
+```javascript
+result = value1 || value2 || value3;
+```
+
+`OR ||` operatori quyidagicha ishlaydi:
+
+1. Operandlarni chapdan o'ngga baholaydi.
+2. Har bir operandni boolean ga konvertatsiya qiladi. Agar natija `true` bo'lsa, darhol o'sha operandning asl qiymatini qaytaradi.
+3. Agar barcha operandlar baholangan bo'lsa (ya'ni, hammasi `false` bo'lsa), oxirgi operandni qaytaradi.
+
+Boshqacha qilib aytganda, `OR ||` operatori birinchi `truthy` qiymatni yoki `truthy` qiymat topilmasa, oxirgi qiymatni qaytaradi.
+
+Misollar:
+
+```javascript
+alert( 1 || 0 ); // 1 (1 truthy)
+
+alert( null || 1 ); // 1 (1 birinchi truthy qiymat)
+alert( null || 0 || 1 ); // 1 (birinchi truthy qiymat)
+
+alert( undefined || null || 0 ); // 0 (hammasi falsy, oxirgi qiymat qaytariladi)
+```
+
+Qiziqarli foydalanish: ro‘yxatdagi birinchi `truthy` qiymatni olish.
+
+Misol:
+
+```javascript
+let firstName = "";
+let lastName = "";
+let nickName = "SuperCoder";
+
+alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+```
+
+Agar barcha o'zgaruvchilar falsy bo'lsa, "Anonymous" ko'rsatiladi.
+
+**Qisqa tutish tahlili**
+
+`OR ||` operatorining yana bir xususiyati "qisqa tutish" tahlili deyiladi.
+
+Bu, `||` o‘z argumentlarini birinchi `truthy` qiymat topilguncha ishlaydi va keyin darhol qaytaradi, boshqa argumentlarni tekshirmay.
+
+Agar operand faqat qiymat bo'lmasa, balki o'zgaruvchini tayinlash yoki funksiya chaqiruvi kabi yon effektli ifodalar bo'lsa, bu xususiyat juda muhim.
+
+Quyidagi misolda, faqat ikkinchi xabar chop etiladi:
+
+```javascript
+true || alert("not printed");
+false || alert("printed");
+```
+
+Birinchi qator `true` ni ko'rib chiqishi bilan, `OR ||` operatori baholashni to'xtatadi, shuning uchun `alert` ishga tushmaydi.
+
+Ba'zan, bu xususiyatni, faqat chapdagi qismlar falsy bo'lsa, buyruqlarni bajarish uchun ishlatishadi.
+
+#### `&&` (AND)
+
+`AND` operatori ikki ampersand `&&` bilan ifodalanadi:
+
+```javascript
+result = a && b;
+```
+
+Klassik dasturlashda, `AND` operatori har ikkala operand ham `truthy` bo'lsa `true` qaytaradi va aks holda `false` qaytaradi:
+
+```javascript
+alert( true && true );   // true
+alert( false && true );  // false
+alert( true && false );  // false
+alert( false && false ); // false
+```
+
+`if` bayonoti bilan misol:
+
+```javascript
+let hour = 12;
+let minute = 30;
+
+if (hour == 12 && minute == 30) {
+  alert( 'Soat 12:30' );
+}
+```
+
+`OR` kabi, `AND` operatori ham har qanday qiymatni operand sifatida oladi:
+
+```javascript
+if (1 && 0) { // true && false sifatida baholanadi
+  alert( "ishlamaydi, chunki natija falsy" );
+}
+```
+
+`AND “&&”` operatori birinchi `falsy` qiymatni topadi:
+
+Bir nechta `AND` qiymatlari berilganida:
+
+```javascript
+result = value1 && value2 && value3;
+```
+
+`AND &&` operatori quyidagicha ishlaydi:
+
+1. Operandlarni chapdan o'ngga baholaydi.
+2. Har bir operandni boolean ga konvertatsiya qiladi. Agar natija `false` bo'lsa, darhol o'sha operandning asl qiymatini qaytaradi.
+3. Agar barcha operandlar baholangan bo'lsa (ya'ni, hammasi `truthy` bo'lsa), oxirgi operandni qaytaradi.
+
+Boshqacha qilib aytganda, `AND` operatori birinchi `falsy` qiymatni yoki `falsy` qiymat topilmasa, oxirgi qiymatni qaytaradi.
+
+Qoidalar `OR` bilan o'xshash. Farqi shundaki, `AND` birinchi `falsy` qiymatni qaytaradi, `OR` esa birinchi `truthy` qiymatni qaytaradi.
+
+Misollar:
+
+```javascript
+// agar birinchi operand truthy bo'lsa,
+// `AND` ikkinchi operandni qaytaradi:
+alert( 1 && 0 ); // 0
+alert( 1 && 5 ); // 5
+
+// agar birinchi operand falsy bo'lsa,
+// `AND` uni qaytaradi. Ikkinchi operand e'tiborga olinmaydi
+alert( null && 5 ); // null
+alert( 0 && "ahmiyat bermaydi" ); // 0
+```
+
+Bir nechta qiymatlarni ketma-ket uzatish mumkin. Birinchi `falsy` qaytariladi:
+
+```javascript
+alert( 1 && 2 && null && 3 ); // null
+```
+
+Agar barcha qiymatlar `truthy` bo'lsa, so'nggi qiymat qaytariladi:
+
+```javascript
+alert( 1 && 2 && 3 ); // 3, so'nggi qiymat
+```
+
+**`AND &&` Pretsedensi `OR ||`dan yuqori**
+
+`AND &&` operatorining pretsedensi `OR ||`dan yuqori.
+
+Shunday qilib, `a && b || c && d` kodi aslida `(a && b) || (c && d)` kabi ishlaydi.
+
+**`if` bilan o‘rnini almashtirmang**
+
+Ba'zan `AND &&` operatori `if` uchun qisqaroq yo'l sifatida ishlatiladi.
+
+Misol:
+
+```javascript
+let x = 1;
+
+(x > 0) && alert( 'Noldan katta!' );
+```
+
+`AND &&`ning o‘ng qismining bajarilishi faqat agar `(x > 0)` haqiqiy bo‘lsa amalga oshiriladi.
+
+Shunday qilib, biz `if`
+
+ bilan quyidagilarni olishimiz mumkin:
+
+```javascript
+let x = 1;
+
+if (x > 0) alert( 'Noldan katta!' );
+```
+
+Garchi `&&` variant qisqaroq ko'rinsa ham, `if` operatori yanada aniqroq va o‘qilishi osonroq bo‘ladi. Shuning uchun har bir konstruktsiyani o‘z maqsadiga muvofiq ishlatish tavsiya etiladi: `if`ni agar `if` kerak bo'lsa ishlating va `&&`ni `AND` kerak bo'lsa ishlating.
+
+#### `!` (NOT)
+
+Boolean NOT operatori `!` belgilari bilan ifodalanadi:
+
+```javascript
+result = !value;
+```
+
+Operator bitta argumentni qabul qiladi va quyidagilarni bajaradi:
+
+1. Operandni boolean turiga o‘zgartiradi: `true`/`false`.
+2. Qarama-qarshi qiymatni qaytaradi.
+
+Misollar:
+
+```javascript
+alert( !true ); // false
+alert( !0 ); // true
+```
+
+Ikki marta `NOT` `!!` ba'zan qiymatni boolean turiga o‘zgartirish uchun ishlatiladi:
+
+```javascript
+alert( !!"non-empty string" ); // true
+alert( !!null ); // false
+```
+
+Birinchi `NOT` qiymatni boolean ga o‘zgartiradi va uni qarama-qarshi qiladi, ikkinchi `NOT` yana bir bor qarama-qarshi qiladi. Natijada biz oddiy qiymatni boolean ga o‘zgartirishni olamiz.
+
+Buni amalga oshirishning boshqa bir usuli – `Boolean` funktsiyasidir:
+
+```javascript
+alert( Boolean("non-empty string") ); // true
+alert( Boolean(null) ); // false
+```
+
+<Callout>
+  `NOT !` operatorining pretsedensi barcha mantiqiy operatorlardan yuqori, shuning uchun u har doim `&&` yoki `||`dan oldin bajariladi.
+</Callout>

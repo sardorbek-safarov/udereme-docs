@@ -1,0 +1,200 @@
+---
+title: Asosiy operatorlar, matematika(Basic operators, math).
+description: Bu bo'limda biz maktabda o'rgangan oddiy operatorlar, masalan, qo'shish (`+`), ko'paytirish (`*`), ayirish (`-`) va hokazolar haqida gaplashamiz.
+authors:
+  - name: Shakhbozbek Usmonov
+    telegram: https://t.me/miracleprogrammer
+createdAt: 2024-08-25
+---
+
+Bu bo'limda biz maktabda o'rgangan oddiy operatorlar, masalan, qo'shish (`+`), ko'paytirish (`*`), ayirish (`-`) va hokazolar haqida gaplashamiz. Keyinchalik, biz JavaScript dasturlash tiliga xos jihatlarga e'tibor qaratamiz.
+
+### Atamalar: “unary”, “binary”, “operand”
+
+Avvaliga, ba'zi umumiy atamalarni tushunib olaylik.
+
+**Operand** – bu operatorlar qo'llaniladigan qiymat. Masalan, `5 * 2` ko'paytmasida ikkita operand mavjud: chap operand 5, o'ng operand esa 2. Ba'zan, odamlar bu operandlarni “argument” deb ham atashadi.
+
+**Operator** agar bitta operandga ega bo'lsa, **unary** operator deb ataladi. Masalan, unary manfiy operator (`-`) sonning ishorasini teskari qiladi:
+
+```javascript
+let x = 1;
+x = -x;
+alert(x); // -1, unary manfiy operator qo'llanildi
+```
+
+**Binary** operator esa ikkita operandga ega bo'ladi. Masalan, ayirish operatori:
+
+```javascript
+let x = 1,
+  y = 3;
+alert(y - x); // 2, binary minus qiymatlarni ayiradi
+```
+
+Formal jihatdan, yuqoridagi misollarda bizda bitta belgi (`–`) bilan ko'rsatilgan ikki xil operator mavjud: unary operator va binary operator.
+
+### Matematika operatsiyalari
+
+Quyidagi matematik operatsiyalar qo'llab-quvvatlanadi:
+
+- Qo'shish (`+`)
+- Ayirish (`-`)
+- Ko'paytirish (`*`)
+- Bo'lish (`/`)
+- Qoldiq (`%`)
+- Darajaga ko'tarish (`**`)
+
+Birinchi to'rtta operatsiya oddiy, ammo `%` va `**` operatorlari haqida qo'shimcha tushuntirish talab etiladi.
+
+**Qoldiq (`%`)** operatori foizlar bilan bog'liq emas. **a `%` b** ning natijasi **a** ning **b** ga bo'linishi natijasidagi qoldiqdir.
+
+Misollar:
+
+```javascript
+alert(5 % 2); // 1, 5 ni 2 ga bo'lganda qoldiq 1
+alert(8 % 3); // 2, 8 ni 3 ga bo'lganda qoldiq 2
+alert(8 % 4); // 0, 8 ni 4 ga bo'lganda qoldiq yo'q
+```
+
+**Darajaga ko'tarish** (`**`) operatori **a** ni **b** darajaga ko'taradi.
+
+Misollar:
+
+```javascript
+alert(2 ** 2); // 2² = 4
+alert(2 ** 3); // 2³ = 8
+alert(2 ** 4); // 2⁴ = 16
+```
+
+Matematika kabi, JavaScript ham kasr sonlar uchun ham **darajaga ko'tarish** operatorini qo'llab-quvvatlaydi.
+
+Misol uchun, kvadrat ildiz olish `½` daraja bilan ifodalanadi:
+
+```javascript
+alert(4 ** (1 / 2)); // 2, kvadrat ildiz
+alert(8 ** (1 / 3)); // 2, kub ildiz
+```
+
+### Binary `+` bilan qatorlarni birlashtirish
+
+Odatda, `+` operatori sonlarni qo'shadi. Ammo, agar binary `+` qatorlarga qo'llansa, ular birlashtiriladi (kontsentasiya qilinadi):
+
+```javascript
+let s = 'my' + 'string';
+alert(s); // mystring
+```
+
+Agar operandlardan biri qator bo'lsa, ikkinchisi ham qatorga aylantiriladi.
+
+Masalan:
+
+```javascript
+alert('1' + 2); // "12"
+alert(2 + '1'); // "21"
+```
+
+Bu holatda birinchi operand qator yoki ikkinchisi bo'lishining ahamiyati yo'q.
+
+### Unary `+` bilan raqamli konversiya
+
+Binary `+` dan tashqari, unary + ham mavjud. Unary `+` operatori raqamlarga ta'sir qilmaydi, ammo agar operand raqam bo'lmasa, uni raqamga aylantiradi.
+
+Masalan:
+
+```javascript
+let x = 1;
+alert(+x); // 1
+let y = -2;
+alert(+y); // -2
+
+alert(+true); // 1
+alert(+''); // 0
+```
+
+Bu operator **Number(...)** funksiyasi bilan bir xil ishlaydi, ammo qisqaroq yoziladi.
+
+### Operator ustuvorligi
+
+Agar ifoda bir nechta operatorlarga ega bo'lsa, ijro etish tartibi ularning ustuvorligiga qarab belgilanadi.
+
+Masalan, maktabda o'rganganimizdek, `1 + 2 * 2` ifodasida ko'paytirish avvalroq bajariladi. Bu ustuvorlik masalasidir. Ko'paytirish operatorining ustuvorligi qo'shishdan yuqori.
+
+Qavslar har qanday ustuvorlikni bekor qilishi mumkin, shuning uchun agar biz standart tartibdan qoniqmasak, qavslarni ishlatishimiz mumkin.
+
+JavaScript-da ko'p operatorlar mavjud va har bir operatorning ustuvorlik raqami bor. Bu raqam qanchalik katta bo'lsa, operator birinchi bo'lib ishlaydi. Agar ustuvorlik bir xil bo'lsa, chapdan o'ngga tomon ijro etiladi.
+
+Misol uchun, "+apples + +oranges" ifodasida, unary `+` operatori birinchi bo'lib ishlaydi, chunki uning ustuvorligi yuqori.
+
+### Bir qatorda bir nechta o'zgaruvchilarni qiymat bilan to'ldirish
+
+JavaScript-da o'zgaruvchilarni zanjirli ravishda qiymat bilan to'ldirish mumkin:
+
+```javascript
+let a, b, c;
+a = b = c = 2 + 2;
+```
+
+Bu kodda avval `2 + 2` ifodasi baholanadi va keyin barcha o'zgaruvchilarga qiymat tayinlanadi.
+
+### O'zgaruvchini joyida o'zgartirish
+
+Operatorni o'zgaruvchiga qo'llash va natijani o'sha o'zgaruvchida saqlash kerak bo'lganda, qisqartirilgan shaklda yozish mumkin:
+
+```javascript
+let n = 2;
+n += 5; // n = 7
+n *= 2; // n = 14
+```
+
+### Increment/decrement operatorlari
+
+JavaScript-da o'zgaruvchini birga oshirish yoki kamaytirish uchun maxsus operatorlar mavjud: `++` (increment) va `--` (decrement).
+
+Misol:
+
+```javascript
+let counter = 2;
+counter++; // counterni 1 ga oshiradi
+alert(counter); // 3
+
+counter--; // counterni 1 ga kamaytiradi
+alert(counter); // 1
+```
+
+Bu operatorlar faqat o'zgaruvchilarga qo'llaniladi.
+
+### Prefiks va Postfiks shakllar
+
+Increment/decrement operatorlari prefiks shaklida yoki postfiks shaklida bo'lishi mumkin:
+
+```javascript
+let counter = 1;
+let a = ++counter; // prefiks
+alert(a); // 2
+
+let b = counter++; // postfiks
+alert(b); // 1
+```
+
+Prefiks shakli yangi qiymatni, postfiks shakli esa eski qiymatni qaytaradi.
+
+### Bitwise operatorlar
+
+Bitwise operatorlar argumentlarni 32-bitli butun sonlar sifatida ko'rib, ularning ikkilik ko'rinishida ishlaydi. Bu operatorlar JavaScriptga xos emas, lekin ko'pgina dasturlash tillarida qo'llab-quvvatlanadi.
+
+Misol: **AND (`&`), OR (`|`), XOR (`^`), NOT (`~`), LEFT SHIFT (`<<`), RIGHT SHIFT (`>>`), ZERO-FILL RIGHT SHIFT (`>>>`).**
+
+### Virgullash operatori
+
+Virgullash operatori (`,`) bir nechta ifodalarni baholashga va faqat oxirgi natijani qaytarishga imkon beradi:
+
+```javascript
+let a = (1 + 2, 3 + 4);
+alert(a); // 7
+```
+
+Bu operator juda kam ishlatiladi va odatda kodni qisqartirish uchun ishlatiladi. Shuningdek, bu operator ustuvorligi juda past.
+
+<Callout>
+  Shuni esda tutingki, bu operator kodni qisqartirishi mumkin, lekin har doim kodni o'qilishi uchun sodda yozishga harakat qiling.
+</Callout>
