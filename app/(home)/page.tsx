@@ -289,7 +289,7 @@ export default function HomePage() {
   return (
     <main className="container max-sm:px-0">
       <div
-        className="relative mb-10 h-[calc(100vh-300px)] w-full bg-contain bg-[position:center_0] bg-no-repeat px-4 lg:bg-[position:800px_top]"
+        className="relative mb-10 h-[calc(100vh-300px)] w-full overflow-x-hidden bg-contain bg-[position:center_0] bg-no-repeat px-4 lg:bg-[position:800px_top]"
         style={{
           backgroundImage: [`url("data:image/svg+xml,${encodeURIComponent(svg)}")`].join(', '),
         }}
