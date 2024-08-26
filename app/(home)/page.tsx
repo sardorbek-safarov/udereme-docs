@@ -294,7 +294,7 @@ export default function HomePage() {
           backgroundImage: [`url("data:image/svg+xml,${encodeURIComponent(svg)}")`].join(', '),
         }}
       >
-        <h1 className="text-foreground absolute bottom-0 w-full text-start text-4xl font-bold md:bottom-20 md:max-w-[700px] md:text-5xl lg:left-32 lg:text-7xl">
+        <h1 className="text-foreground absolute bottom-0 w-full text-start text-3xl font-bold md:bottom-20 md:max-w-[700px] md:text-5xl lg:left-32 lg:text-7xl">
           O&apos;zbek tilida dasturlash dokumentatsiyasi.
         </h1>
       </div>

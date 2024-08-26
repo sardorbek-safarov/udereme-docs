@@ -19,7 +19,7 @@ const itemVariants = cva('rounded-md px-2 py-1 transition-colors hover:text-fd-f
 export function Body({ children }: { children: ReactNode }): React.ReactElement {
   const mode = useMode();
 
-  return <body className={cn(mode, 'flex min-h-screen flex-col overflow-x-hidden')}>{children}</body>;
+  return <body className={cn(mode, 'flex min-h-screen flex-col')}>{children}</body>;
 }
 
 export function NavigationChildren(): React.ReactElement {
