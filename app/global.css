@@ -59,6 +59,11 @@
   }
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 #nd-subnav {
   margin-bottom: 20px;
 }
